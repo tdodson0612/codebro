@@ -89,7 +89,7 @@ int main() {
     try {
         throw InsufficientFundsException(50.00);
     } catch (const InsufficientFundsException& e) {
-        std::cout << e.what() << " — needed $" << e.getAmount() << std::endl;
+        std::cout << e.what() << " — needed \$" << e.getAmount() << std::endl;
     }
 
     // Re-throwing

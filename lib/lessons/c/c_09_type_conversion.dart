@@ -7,7 +7,7 @@ final cLesson09 = Lesson(
   content: '''
 🎯 METAPHOR:
 Type conversion is like converting currencies.
-You can convert $10 to Euros — but you lose precision.
+You can convert \$10 to Euros — but you lose precision.
 Converting double 15.99 to int gives 15 — the .99 is
 gone forever. The cast is you authorizing that conversion.
 

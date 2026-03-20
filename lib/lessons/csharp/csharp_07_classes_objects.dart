@@ -114,8 +114,8 @@ class Program
         account1.Deposit(500m);
         account1.Withdraw(200m);
 
-        Console.WriteLine(account1);  // Account ACC-0001 (Alice): $1,300.00
-        Console.WriteLine(account2);  // Account ACC-0002 (Bob): $0.00
+        Console.WriteLine(account1);  // Account ACC-0001 (Alice): \$1,300.00
+        Console.WriteLine(account2);  // Account ACC-0002 (Bob): \$0.00
 
         Console.WriteLine(\$"Total accounts: {BankAccount.GetTotalAccounts()}");  // 2
 

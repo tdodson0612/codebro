@@ -48,7 +48,7 @@ public:
     // Parameterized constructor
     BankAccount(std::string name, double initialBalance)
         : owner(name), balance(initialBalance) {  // initializer list
-        std::cout << owner << "'s account created with $"
+        std::cout << owner << "'s account created with \$"
                   << balance << std::endl;
     }
 
@@ -65,7 +65,7 @@ public:
 
     void deposit(double amount) { balance += amount; }
     void show() {
-        std::cout << owner << ": $" << balance << std::endl;
+        std::cout << owner << ": \$" << balance << std::endl;
     }
 };
 
@@ -75,8 +75,8 @@ int main() {
     BankAccount a3(a2);                     // copy constructor
 
     a2.deposit(500);
-    a2.show();   // Alice: $1500
-    a3.show();   // Alice (copy): $1000
+    a2.show();   // Alice: \$1500
+    a3.show();   // Alice (copy): \$1000
 
     return 0;
 }   // destructors called here automatically (reverse order of creation)
