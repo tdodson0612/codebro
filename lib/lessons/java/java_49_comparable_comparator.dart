@@ -178,7 +178,7 @@ record Person(String lastName, String firstName, int age)
 // ─── RICH PRODUCT CLASS FOR COMPARATOR DEMO ──────────
 record Product(String name, String category, double price, int stock, double rating) {
     @Override public String toString() {
-        return String.format("%-15s %-10s $%6.2f stock=%-4d ★%.1f",
+        return String.format("%-15s %-10s\$%6.2f stock=%-4d ★%.1f",
             name, category, price, stock, rating);
     }
 }

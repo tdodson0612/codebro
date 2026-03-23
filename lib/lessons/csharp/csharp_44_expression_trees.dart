@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson44 = Lesson(
   language: 'C#',
   title: 'Expression Trees',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A regular lambda is like a baked cake — you get the result,
 but you can't see the recipe anymore. An expression tree
@@ -172,7 +172,7 @@ Dynamic query builders  → filter/sort at runtime
 ✅ This is the foundation of how EF Core translates LINQ to SQL
 ❌ Don't use expression trees for simple lambda use — just use Func<T>
 ❌ Expression tree compilation is slow — cache compiled delegates
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main difference between Func<T> and Expression<Func<T>>?', options: [
       QuizOption(text: 'Func<T> is compiled code; Expression<Func<T>> stores the code as a data structure', correct: true),

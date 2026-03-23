@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson67 = Lesson(
   language: 'C#',
   title: 'Records Advanced: Inheritance, Custom Logic, and Patterns',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Advanced records are like a family of official documents.
 A base Document has common fields (ID, timestamp, author).
@@ -198,7 +198,7 @@ class Program
 ✅ Record structs are value types with record features — use for small immutable value objects
 ❌ Records cannot inherit from classes (only from other records or object)
 ❌ Two records of different types are NEVER equal even if all property values match
-''',
+""",
   quiz: [
     Quiz(question: 'When comparing two records of different derived types with the same property values, what does == return?', options: [
       QuizOption(text: 'false — records use the runtime type (EqualityContract) in equality checks', correct: true),

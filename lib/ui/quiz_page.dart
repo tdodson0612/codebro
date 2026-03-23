@@ -98,7 +98,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         content: Row(
           children: [
             const Text('🎉 ', style: TextStyle(fontSize: 20)),
-            Text('Level Up! You are now Level $level',
+            Text('Level Up! You are now Level\$level',
                 style: const TextStyle(fontWeight: FontWeight.bold)),
           ],
         ),
@@ -150,7 +150,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
               const SizedBox(height: 8),
 
-              Text('$score / ${widget.quizzes.length} correct',
+              Text('$score /\${widget.quizzes.length} correct',
                   style: const TextStyle(fontSize: 18)),
 
               const SizedBox(height: 12),
@@ -299,7 +299,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Question ${currentIndex + 1} of ${widget.quizzes.length}',
+                    'Question\${currentIndex + 1} of\${widget.quizzes.length}',
                     style: TextStyle(
                         color: Colors.grey[500], fontSize: 13),
                   ),

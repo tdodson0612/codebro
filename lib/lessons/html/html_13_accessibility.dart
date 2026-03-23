@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson13 = Lesson(
   language: 'HTML',
   title: 'Accessibility in HTML (ARIA and WCAG)',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Accessible HTML is like designing a building for everyone.
 You don't just think about people who walk in — you think
@@ -239,7 +239,7 @@ ARIA STATES/PROPERTIES:
 ✅ aria-expanded, aria-selected, aria-checked reflect current state
 ❌ Never make div/span interactive — use button or a with proper keyboard handling
 ❌ aria-hidden="true" on interactive elements is wrong — screen readers can't reach them
-''',
+""",
   quiz: [
     Quiz(question: 'What is the first rule of ARIA?', options: [
       QuizOption(text: 'Don\'t use ARIA if a native HTML element can do the job semantically', correct: true),

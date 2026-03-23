@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson81 = Lesson(
   language: 'Python',
   title: 'Bytes, Encoding & Unicode',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The difference between str and bytes is like the difference
 between a word and its ink on paper. A word (str) is an
@@ -317,7 +317,7 @@ os.remove("test.txt")
 ❌ Never open text files without specifying encoding — default varies by OS!
 ❌ Never compare str == bytes (always False) or concatenate them (TypeError)
 ❌ Assuming all text is ASCII — Python 3 strings are Unicode, embrace it
-''',
+""",
   quiz: [
     Quiz(question: 'What is the result of len("café".encode("utf-8"))?', options: [
       QuizOption(text: '4 — same as len("café")', correct: false),

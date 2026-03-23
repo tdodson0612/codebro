@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson56 = Lesson(
   language: 'Python',
   title: 'Advanced Type Hints & Generic Programming',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Generic programming is like a factory that can produce
 any product, not just one type.
@@ -339,7 +339,7 @@ print(dot_product(v1, v2))   # 32.0
 ❌ TypeVar constraints are checked by mypy/pyright, NOT at runtime
 ❌ NewType is only a type hint — runtime it's still just the base type
 ❌ Don't use Any unless truly necessary — it opts out of type checking
-''',
+""",
   quiz: [
     Quiz(question: 'What is TypeVar("T") used for?', options: [
       QuizOption(text: 'Creating a new type with validation at runtime', correct: false),

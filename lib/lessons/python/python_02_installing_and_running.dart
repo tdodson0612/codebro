@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson02 = Lesson(
   language: 'Python',
   title: 'Installing Python & Running Code',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Installing Python is like installing a game engine before
 playing a game. The game (your code) needs the engine
@@ -120,7 +120,7 @@ print("Executable:", sys.executable)
 ❌ Don't install packages globally — use a venv
 ❌ Don't use sudo pip install — it breaks system Python
 ❌ Don't mix python and python3 commands in the same project
-''',
+""",
   quiz: [
     Quiz(question: 'What is a Python virtual environment used for?', options: [
       QuizOption(text: 'To isolate project dependencies from other projects', correct: true),

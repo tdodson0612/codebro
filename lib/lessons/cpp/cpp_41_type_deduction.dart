@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson41 = Lesson(
   language: 'C++',
   title: 'Type Deduction: auto and decltype',
-  content: '''
+  content: """
 🎯 METAPHOR:
 auto is like handing a package to a coworker and saying
 "figure out what size box you need." You don't specify
@@ -126,7 +126,7 @@ WHEN TO USE auto:
 ✅ Generic lambdas use auto parameters (effectively templates)
 ❌ auto drops references and const unless you write auto& or const auto&
 ❌ Don't use auto when the deduced type would be surprising to readers
-''',
+""",
   quiz: [
     Quiz(question: 'What type does "auto x = 3.14f;" deduce?', options: [
       QuizOption(text: 'float', correct: true),

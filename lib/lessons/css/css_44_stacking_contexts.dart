@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson44 = Lesson(
   language: 'CSS',
   title: 'Stacking Contexts and z-index',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Imagine a desk covered in stacks of paper. Each stack is
 a stacking context. Within a single stack, papers at the
@@ -205,7 +205,7 @@ STACKING ORDER (bottom to top):
 ✅ Sticky headers need an explicit z-index or content will scroll over them
 ❌ Don't use z-index: 9999 — use a scale; 9999 means "I don't understand the context"
 ❌ overflow: hidden on a parent clips absolutely positioned children — can't be fixed with z-index
-''',
+""",
   quiz: [
     Quiz(question: 'Why does z-index sometimes have no effect?', options: [
       QuizOption(text: 'The element is position: static — z-index only works on positioned elements', correct: true),

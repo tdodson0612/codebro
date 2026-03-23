@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson24 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Hero Sections and Landing Pages',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The hero section is the movie poster of your website.
 It has three seconds to make someone stay or leave.
@@ -346,7 +346,7 @@ PERFORMANCE:
 ✅ Always respect prefers-reduced-motion — disable or minimize animations
 ❌ Don't put important text information in the background image alt — use real text
 ❌ aria-hidden="true" on background images is correct — they are decorative
-''',
+""",
   quiz: [
     Quiz(question: 'Why use 100svh instead of 100vh for hero sections?', options: [
       QuizOption(text: 'svh accounts for mobile browser UI — 100vh can cause overflow on mobile with address bars', correct: true),

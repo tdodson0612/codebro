@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson83 = Lesson(
   language: 'C#',
   title: 'C# 13 and Latest Language Features',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Each C# release is like a new edition of a dictionary.
 The core words (fundamentals) are the same, but new words
@@ -226,7 +226,7 @@ class Program
 ✅ allows ref struct constraint enables generic algorithms to accept Span<T>
 ❌ Lock type requires .NET 9+ — use the classic object lock for older targets
 ❌ Partial properties only work in partial classes — they need both halves compiled
-''',
+""",
   quiz: [
     Quiz(question: 'What new collection types does C# 13 allow with the params keyword?', options: [
       QuizOption(text: 'Any collection type including IEnumerable<T>, List<T>, and Span<T>', correct: true),

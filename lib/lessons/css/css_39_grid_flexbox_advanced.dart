@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson39 = Lesson(
   language: 'CSS',
   title: 'Grid and Flexbox Advanced Patterns',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Grid is the architect's floor plan — columns, rows, named
 zones, precise placement. Flexbox is the interior decorator —
@@ -198,7 +198,7 @@ FLEXBOX ADVANCED:
 ✅ grid-template shorthand combines rows, columns, and areas in one declaration
 ❌ Don't use order to change logical reading order — it confuses screen readers
 ❌ Subgrid requires explicit grid-row: span N on the child — it doesn't auto-span
-''',
+""",
   quiz: [
     Quiz(question: 'What does subgrid do for a child grid element?', options: [
       QuizOption(text: 'Uses the parent grid\'s tracks instead of creating its own — enabling cross-card alignment', correct: true),

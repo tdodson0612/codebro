@@ -218,12 +218,12 @@ public class Strings {
 
         // ─── TEXT BLOCKS (Java 13+) ───────────────────────
         System.out.println("\n=== Text Block ===");
-        String sql = """
+        String sql = '''
                 SELECT name, email
                 FROM   users
                 WHERE  active = true
                 ORDER BY name
-                """;
+                ''';
         System.out.println(sql);
 
         // ─── USEFUL CHECKS ────────────────────────────────
@@ -243,7 +243,7 @@ public class Strings {
 ✅ String.format() / .formatted() for clean readable formatting
 ✅ split() returns String[] — an array of parts
 ✅ String.valueOf() converts any type to String
-✅ Text blocks (""") preserve formatting and avoid escape sequences
+✅ Text blocks (''') preserve formatting and avoid escape sequences
 ✅ strip() is Unicode-aware; trim() is legacy — prefer strip()
 ❌ Don't use + in a loop to concatenate — use StringBuilder
 ❌ Never use == to compare String values — it checks reference identity

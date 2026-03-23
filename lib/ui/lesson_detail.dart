@@ -95,7 +95,7 @@ class _LessonDetailPageState extends State<LessonDetailPage> {
                     color: Colors.amber[600]),
               ),
               const SizedBox(height: 8),
-              Text('You reached Level $newLevel',
+              Text('You reached Level\$newLevel',
                   style: const TextStyle(fontSize: 16)),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -165,7 +165,7 @@ class _LessonDetailPageState extends State<LessonDetailPage> {
             padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
             child: Row(
               children: [
-                Text('Lesson $current of $total',
+                Text('Lesson\$current of\$total',
                     style: TextStyle(
                         fontSize: 12, color: Colors.grey[500])),
                 const SizedBox(width: 12),
@@ -307,7 +307,7 @@ class _LessonDetailPageState extends State<LessonDetailPage> {
                       child: ElevatedButton.icon(
                         icon: const Icon(Icons.arrow_forward),
                         label: Text(
-                          'Next: ${nextLesson.title}',
+                          'Next:\${nextLesson.title}',
                           overflow: TextOverflow.ellipsis,
                         ),
                         style: ElevatedButton.styleFrom(

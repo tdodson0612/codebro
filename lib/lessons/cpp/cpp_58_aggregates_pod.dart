@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson58 = Lesson(
   language: 'C++',
   title: 'Aggregates, POD Types, and Designated Initializers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A POD type is like a plain wooden crate.
 No hinges, no locks, no special mechanisms — just wood
@@ -128,7 +128,7 @@ int main() {
 ✅ Designated initializers must be in declaration order — you can skip fields
 ❌ Designated initializers cannot reorder fields: {.y = 1, .x = 2} is an error
 ❌ Adding a user-provided constructor to a struct removes aggregate status
-''',
+""",
   quiz: [
     Quiz(question: 'What does "aggregate initialization" allow?', options: [
       QuizOption(text: 'Initializing struct/class members with {} without a constructor', correct: true),

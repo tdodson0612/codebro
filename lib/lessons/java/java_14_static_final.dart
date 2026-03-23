@@ -175,7 +175,7 @@ class Product {
 
     @Override
     public String toString() {
-        return String.format("[%d] %-15s $%.2f", id, name, price);
+        return String.format("[%d] %-15s \$%.2f", id, name, price);
     }
 }
 

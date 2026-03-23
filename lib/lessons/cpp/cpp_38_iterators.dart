@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson38 = Lesson(
   language: 'C++',
   title: 'Iterators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An iterator is like a reading cursor in a document.
 The cursor knows where you are right now, lets you move
@@ -120,7 +120,7 @@ Always re-fetch iterators after modifying a container.
 ✅ Prefer range-based for loops when you don't need the iterator itself
 ❌ Never dereference end() — undefined behavior
 ❌ Never use an iterator after the container it points to is modified
-''',
+""",
   quiz: [
     Quiz(question: 'What does end() return?', options: [
       QuizOption(text: 'An iterator pointing one past the last element', correct: true),

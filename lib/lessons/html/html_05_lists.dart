@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson05 = Lesson(
   language: 'HTML',
   title: 'Lists',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Lists are the great organizers of the web. Imagine trying to
 read a recipe where every ingredient and every step was
@@ -187,7 +187,7 @@ OL ATTRIBUTES:
 ✅ OL supports start, reversed, and type attributes for custom numbering
 ❌ Don't use lists just for indentation — use CSS padding/margin instead
 ❌ <li> can only be a direct child of <ul> or <ol> — not standalone
-''',
+""",
   quiz: [
     Quiz(question: 'Which list type should you use for a set of cooking steps?', options: [
       QuizOption(text: '<ol> — ordered list, because the sequence matters', correct: true),

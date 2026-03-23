@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson68 = Lesson(
   language: 'C#',
   title: 'Top-Level Statements, Program Entry Point, and Global Usings',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Top-level statements are like writing a recipe on a card
 versus in a formal cookbook. The cookbook requires chapters,
@@ -145,7 +145,7 @@ System.Threading.Tasks
 ✅ The generated Program class is partial — you can add partial methods to it
 ❌ Top-level statements are only for the entry point file — other files use normal class syntax
 ❌ Don't use global using for namespaces that cause naming conflicts
-''',
+""",
   quiz: [
     Quiz(question: 'How many files in a project can use top-level statements?', options: [
       QuizOption(text: 'Exactly one — only the entry point file', correct: true),

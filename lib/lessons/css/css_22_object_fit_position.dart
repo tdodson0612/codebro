@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson22 = Lesson(
   language: 'CSS',
   title: 'Object-fit, Object-position, and Aspect Ratio',
-  content: '''
+  content: """
 🎯 METAPHOR:
 object-fit is like how you hang a photo in a frame.
 If the photo doesn't match the frame exactly:
@@ -156,7 +156,7 @@ svg {
 ✅ aspect-ratio: 1 is shorthand for a perfect square
 ❌ object-fit default is fill — images stretch and distort without it
 ❌ object-fit only works when you set BOTH width and height on the img
-''',
+""",
   quiz: [
     Quiz(question: 'What does object-fit: cover do to an image?', options: [
       QuizOption(text: 'Fills the container completely and crops the image to maintain its aspect ratio', correct: true),

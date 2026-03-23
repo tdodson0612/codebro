@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson41 = Lesson(
   language: 'CSS',
   title: 'Styling Tables',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A table without CSS is like a spreadsheet with no formatting —
 all the data is there but it is hard to read and visually
@@ -199,7 +199,7 @@ caption {
 ✅ text-overflow: ellipsis on td requires max-width: 0 and overflow: hidden
 ❌ Don't use tables for layout — they are for tabular data only
 ❌ border-spacing only works when border-collapse: separate is set
-''',
+""",
   quiz: [
     Quiz(question: 'What does border-collapse: collapse do?', options: [
       QuizOption(text: 'Merges adjacent cell borders into a single shared border', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson06 = Lesson(
   language: 'CSS',
   title: 'Display and Positioning',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS display is like deciding what KIND of furniture a piece is.
 "Block" is like a sofa — it takes up the whole width of the
@@ -143,7 +143,7 @@ li   { display: inline-block; }  /* inline but with dimensions */
 ✅ sticky is like fixed but within its parent container
 ❌ Overusing absolute positioning leads to brittle, hard-to-maintain layouts
 ❌ z-index wars happen when everyone uses high z-index numbers — establish a scale
-''',
+""",
   quiz: [
     Quiz(question: 'What makes "inline-block" different from "inline"?', options: [
       QuizOption(text: 'inline-block flows like inline but allows setting width and height', correct: true),

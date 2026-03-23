@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson32 = Lesson(
   language: 'C++',
   title: 'Structs',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A struct is like a form or a record card.
 A patient record has: name, age, diagnosis, blood type.
@@ -128,7 +128,7 @@ class   private by default objects with behavior, invariants
 ✅ Structs with only public data members are trivially copyable
 ❌ Don't use struct when you need to enforce invariants — use class
 ❌ Don't confuse C structs (no methods) with C++ structs (full features)
-''',
+""",
   quiz: [
     Quiz(question: 'What is the only technical difference between struct and class in C++?', options: [
       QuizOption(text: 'struct members are public by default; class members are private', correct: true),

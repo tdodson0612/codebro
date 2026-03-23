@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson13 = Lesson(
   language: 'C',
   title: 'if, else if, else',
-  content: '''
+  content: """
 🎯 METAPHOR:
 if/else is like a bouncer checking IDs at a club.
 IF you are over 21, you get in.
@@ -54,7 +54,7 @@ int main() {
     
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'In an if-else if-else chain, how many blocks execute?', options: [
       QuizOption(text: 'Exactly one — the first true condition', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson17 = Lesson(
   language: 'C++',
   title: 'Constructors and Destructors',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A constructor is the opening ceremony when a new employee
 starts — set up their desk, give them a badge, assign
@@ -98,7 +98,7 @@ Delegating       calls another constructor of same class
 ✅ If you define a destructor, also define copy constructor and copy assignment (Rule of Three)
 ❌ Don't throw exceptions from destructors — it can crash your program
 ❌ If you skip a constructor C++ provides a default one — but it won't initialize members
-''',
+""",
   quiz: [
     Quiz(question: 'When is a destructor called?', options: [
       QuizOption(text: 'Automatically when the object goes out of scope or is deleted', correct: true),

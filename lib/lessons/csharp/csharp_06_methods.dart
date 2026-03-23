@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson06 = Lesson(
   language: 'C#',
   title: 'Methods',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A method is like a named recipe card.
 You write the recipe once: "How to make a sandwich —
@@ -151,7 +151,7 @@ static void Print() => Console.WriteLine("hi");
 ✅ ref passes by reference — both caller and method see the same variable
 ❌ Optional parameters must come after required ones
 ❌ Don't overuse ref — it makes code harder to reason about
-''',
+""",
   quiz: [
     Quiz(question: 'What does the "params" keyword allow?', options: [
       QuizOption(text: 'A method to accept a variable number of arguments of the same type', correct: true),

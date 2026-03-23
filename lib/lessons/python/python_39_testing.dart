@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson39 = Lesson(
   language: 'Python',
   title: 'Testing with unittest & pytest',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Tests are like a pre-flight checklist for a pilot.
 Before every takeoff, the pilot checks the same list —
@@ -265,7 +265,7 @@ if __name__ == "__main__":
 ❌ Don't test implementation details — test behavior and outcomes
 ❌ Don't share state between tests — each test must be independent
 ❌ Avoid "happy path only" — test error cases and edge cases too
-''',
+""",
   quiz: [
     Quiz(question: 'What does unittest.TestCase.setUp() do?', options: [
       QuizOption(text: 'Runs once when the test class is created', correct: false),

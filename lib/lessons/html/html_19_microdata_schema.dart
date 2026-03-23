@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson19 = Lesson(
   language: 'HTML',
   title: 'Microdata, Schema.org, and Structured Data',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Your HTML describes what users SEE. Structured data tells
 search engines what your content MEANS. It is like the
@@ -259,7 +259,7 @@ Google Search Console:
 ✅ Test your markup at search.google.com/test/rich-results before deploying
 ❌ Don't add structured data for content that isn't visible on the page
 ❌ Fake reviews or false product data in schema violates Google's guidelines
-''',
+""",
   quiz: [
     Quiz(question: 'What is the recommended format for adding structured data to HTML pages?', options: [
       QuizOption(text: 'JSON-LD in a <script type="application/ld+json"> block', correct: true),

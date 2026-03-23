@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson16 = Lesson(
   language: 'Python',
   title: 'Lambda Functions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A lambda is like a Post-it note with instructions.
 A regular function is a full printed manual — title,
@@ -114,7 +114,7 @@ print(result)   # 30
 ❌ No statements — no assignments, no loops, no print inside
 ❌ Don't assign lambdas to variables — use def instead
 ❌ Complex logic → use def, not a tangled lambda
-''',
+""",
   quiz: [
     Quiz(question: 'What does lambda x: x**2 do?', options: [
       QuizOption(text: 'Returns an anonymous function that squares its input', correct: true),

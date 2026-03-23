@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson33 = Lesson(
   language: 'C#',
   title: 'Namespaces, Assemblies, and Access Modifiers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Namespaces are like city districts.
 "Baker Street" means one thing in London, another in New York.
@@ -198,7 +198,7 @@ public               ✅          ✅             ✅        ✅
 ✅ Use the most restrictive access level that still works — principle of least privilege
 ❌ Don't make everything public — it creates fragile public APIs
 ❌ Namespace doesn't have to match folder structure — but should by convention
-''',
+""",
   quiz: [
     Quiz(question: 'What is the default access modifier for a class member in C#?', options: [
       QuizOption(text: 'private', correct: true),

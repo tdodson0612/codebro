@@ -179,7 +179,7 @@ class CreditCard implements PaymentProcessor {
     private String cardNumber;
     @Override
     public boolean process(double amount) {
-        System.out.printf("    💳 Credit Card (****%s): $%.2f — Approved%n",
+        System.out.printf("    💳 Credit Card (****%s):\$%.2f — Approved%n",
             cardNumber.substring(cardNumber.length() - 4), amount);
         return true;
     }
@@ -191,7 +191,7 @@ class PayPal implements PaymentProcessor {
     private String email;
     @Override
     public boolean process(double amount) {
-        System.out.printf("    🅿️  PayPal (%s): $%.2f — Processed%n", email, amount);
+        System.out.printf("    🅿️  PayPal (%s):\$%.2f — Processed%n", email, amount);
         return true;
     }
     public PayPal(String email) { this.email = email; }
@@ -202,7 +202,7 @@ class Crypto implements PaymentProcessor {
     private String wallet;
     @Override
     public boolean process(double amount) {
-        System.out.printf("    ₿  Crypto (%s...): $%.2f — Broadcasting%n",
+        System.out.printf("    ₿  Crypto (%s...):\$%.2f — Broadcasting%n",
             wallet.substring(0, 6), amount);
         return true;
     }

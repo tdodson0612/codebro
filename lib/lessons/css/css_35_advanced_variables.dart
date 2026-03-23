@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson35 = Lesson(
   language: 'CSS',
   title: 'CSS Variables Advanced: @property and Registration',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Regular CSS custom properties are like sticky notes —
 powerful and flexible, but the browser treats their value
@@ -204,7 +204,7 @@ BENEFITS OF @property:
 ✅ A single --hue variable can drive an entire color system via oklch
 ❌ @property is not supported in older browsers — always provide fallback
 ❌ The initial-value is required when inherits: false
-''',
+""",
   quiz: [
     Quiz(question: 'What does @property enable that regular custom properties cannot do?', options: [
       QuizOption(text: 'Animating and transitioning the custom property value (browser understands the type)', correct: true),

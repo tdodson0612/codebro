@@ -28,6 +28,32 @@ string in C# is:
 Key operations: interpolation, formatting, searching,
 splitting, trimming, replacing, comparing.
 
+─────────────────────────────────────
+📝 STRING LITERAL TYPES
+─────────────────────────────────────
+Regular:    "Hello, World!"
+Verbatim:   @"C:\\Users\\Alice"    (no escape processing)
+Raw (C#11): use 3+ quote chars to avoid escaping
+Interpolated: \$"Hello, {name}!"
+Combined:   \$@"Path: {basePath}\\file.txt"
+
+─────────────────────────────────────
+✂️  RAW STRING LITERALS (C# 11)
+─────────────────────────────────────
+Use at least 3 double-quote characters to open/close.
+No escaping needed inside — great for JSON, SQL, HTML.
+The closing quotes must be on their own line.
+
+Example (in actual C# code):
+  var json = \"""
+      { "name": "Alice", "age": 30 }
+      \""";
+
+  var multiLine = \"""
+      Line 1
+      Line 2
+      \""";
+
 💻 CODE:
 using System;
 using System.Text;
@@ -47,23 +73,19 @@ class Program
         int age = 30;
         string msg = \$"Name: {name}, Age: {age}";
         string fmt = \$"Pi = {Math.PI:F4}";     // Pi = 3.1416
-        string pad = \$"{'Hello',10}";           // right-aligned in 10 chars
+        string pad = \$"{"Hello",10}";           // right-aligned in 10 chars
         Console.WriteLine(fmt);
 
-        // ─── VERBATIM AND RAW ───
-        string path    = @"C:\\Users\\Alice";         // verbatim
-        string raw     = """He said "hello" today."""; // raw (C# 11)
-        string multiRaw = """
-            Line 1
-            Line 2
-            """;  // raw multiline
+        // ─── VERBATIM ───
+        string path = @"C:\\Users\\Alice";       // @ means no escape processing
+        string withQuotes = @"He said ""hello"" today."; // "" = literal quote
 
         // ─── COMMON METHODS ───
         string text = "  Hello, World!  ";
-        Console.WriteLine(text.Trim());           // "Hello, World!"
-        Console.WriteLine(text.TrimStart());      // "Hello, World!  "
-        Console.WriteLine(text.ToUpper());        // "  HELLO, WORLD!  "
-        Console.WriteLine(text.ToLower());        // "  hello, world!  "
+        Console.WriteLine(text.Trim());            // "Hello, World!"
+        Console.WriteLine(text.TrimStart());       // "Hello, World!  "
+        Console.WriteLine(text.ToUpper());         // "  HELLO, WORLD!  "
+        Console.WriteLine(text.ToLower());         // "  hello, world!  "
         Console.WriteLine(text.Contains("World")); // True
         Console.WriteLine(text.StartsWith("  H")); // True
         Console.WriteLine(text.EndsWith("!  "));   // True
@@ -88,26 +110,23 @@ class Program
         string joined = string.Join(" | ", names);
         Console.WriteLine(joined);  // Alice | Bob | Charlie | Diana
 
-        // ─── FORMAT ───
-        string formatted = string.Format("{0} is {1} years old", "Alice", 30);
-        Console.WriteLine(formatted);
-
-        // Format specifiers
+        // ─── FORMAT SPECIFIERS ───
         double pi = Math.PI;
-        Console.WriteLine(\$"{pi:F2}");   // 3.14 (2 decimal places)
-        Console.WriteLine(\$"{pi:E2}");   // 3.14E+000 (scientific)
-        Console.WriteLine(\$"{1234567:N0}"); // 1,234,567 (number with commas)
-        Console.WriteLine(\$"{0.75:P0}");   // 75% (percent)
-        Console.WriteLine(\$"{255:X}");     // FF (hex)
+        Console.WriteLine(\$"{pi:F2}");      // 3.14
+        Console.WriteLine(\$"{pi:E2}");      // 3.14E+000
+        Console.WriteLine(\$"{1234567:N0}"); // 1,234,567
+        Console.WriteLine(\$"{0.75:P0}");    // 75%
+        Console.WriteLine(\$"{255:X}");      // FF
 
         // ─── COMPARISON ───
         string a = "Apple";
         string b = "apple";
-        Console.WriteLine(a == b);                               // False
-        Console.WriteLine(string.Equals(a, b, StringComparison.OrdinalIgnoreCase)); // True
-        Console.WriteLine(a.CompareTo(b));  // negative (A < a in ordinal)
+        Console.WriteLine(a == b);  // False
+        Console.WriteLine(string.Equals(a, b,
+            StringComparison.OrdinalIgnoreCase)); // True
+        Console.WriteLine(a.CompareTo(b));  // negative (A < a)
 
-        // ─── STRINGBUILDER (efficient concatenation) ───
+        // ─── STRINGBUILDER ───
         var sb = new StringBuilder();
         for (int i = 0; i < 5; i++)
         {
@@ -130,6 +149,7 @@ class Program
 ✅ == compares string content in C# (not references like Java)
 ✅ Use StringComparison.OrdinalIgnoreCase for case-insensitive comparison
 ✅ Ranges and indices (s[1..4], s[^1]) are clean C# 8+ features
+✅ Raw string literals (C# 11) use triple+ quotes — no escaping needed inside
 ❌ Don't concatenate strings in a loop with + — use StringBuilder
 ❌ Don't use == for culture-sensitive comparisons — use StringComparison
 ''',

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson19 = Lesson(
   language: 'C#',
   title: 'Records',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A record is like a stamped official document.
 Once issued, the document is immutable — you cannot change
@@ -150,7 +150,7 @@ class Program
 ✅ Use records for DTOs, configs, domain values, and API models
 ❌ Don't use records when you need mutable state with complex behavior — use classes
 ❌ Record equality compares ALL properties — be careful with large records
-''',
+""",
   quiz: [
     Quiz(question: 'What makes record equality different from class equality by default?', options: [
       QuizOption(text: 'Records use value equality — two records with same data are equal', correct: true),

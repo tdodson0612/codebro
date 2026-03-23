@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson72 = Lesson(
   language: 'C#',
   title: 'ConfigureAwait and SynchronizationContext',
-  content: '''
+  content: """
 🎯 METAPHOR:
 SynchronizationContext is like a specific desk at work where
 certain tasks MUST be done. In a GUI app, UI updates MUST
@@ -183,7 +183,7 @@ Console app           → no sync context, doesn't matter
 ✅ Task.Run always runs without a SynchronizationContext
 ❌ The classic deadlock: .Wait() on UI thread + task tries to resume on UI thread
 ❌ Don't use ConfigureAwait(false) before UI code — you'll update UI from wrong thread
-''',
+""",
   quiz: [
     Quiz(question: 'What does ConfigureAwait(false) do?', options: [
       QuizOption(text: 'Tells the await not to capture the SynchronizationContext — resumes on any thread', correct: true),

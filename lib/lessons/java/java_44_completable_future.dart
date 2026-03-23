@@ -188,7 +188,7 @@ public class CompletableFutureDemo {
         allDone.get(5, TimeUnit.SECONDS);
 
         double totalPrice = priceA.join() + priceB.join() + priceC.join();
-        System.out.printf("  Prices: A=$%.2f B=$%.2f C=$%.2f Total=$%.2f (%dms)%n",
+        System.out.printf("  Prices: A=\$%.2f B=\$%.2f C=\$%.2f Total=\$%.2f (%dms)%n",
             priceA.join(), priceB.join(), priceC.join(), totalPrice, elapsed(start));
 
         // ─── anyOf — RACE CONDITION ───────────────────────
@@ -216,7 +216,7 @@ public class CompletableFutureDemo {
         String combined = fetchUser(1)
             .thenCombine(
                 fetchProductPrice("B"),
-                (user, price) -> user + " wants to buy item for $" + price
+                (user, price) -> user + " wants to buy item for\$" + price
             )
             .get(5, TimeUnit.SECONDS);
 
@@ -262,7 +262,7 @@ public class CompletableFutureDemo {
             .thenCombine(
                 fetchProductPrice("A"),
                 (orders, unitPrice) ->
-                    String.format("User has %d orders, unit price $%.2f, total $%.2f",
+                    String.format("User has %d orders, unit price\$%.2f, total\$%.2f",
                         orders.size(), unitPrice, orders.size() * unitPrice)
             )
             .exceptionally(ex -> "Pipeline failed: " + ex.getMessage())

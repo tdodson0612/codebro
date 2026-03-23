@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson54 = Lesson(
   language: 'Python',
   title: 'CLI Tools with argparse & click',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Building a CLI tool is like designing a control panel for
 your code. Instead of editing the source file to change
@@ -326,7 +326,7 @@ print("Run with: python script.py --help")
 ❌ Don't call sys.exit() in library functions — only in CLI entry points
 ❌ Don't hardcode paths — let the user specify them as arguments
 ❌ Always test --help output — it's what users see first
-''',
+""",
   quiz: [
     Quiz(question: 'What does "action=\'store_true\'" do in argparse?', options: [
       QuizOption(text: 'Stores the string "True" as the argument value', correct: false),

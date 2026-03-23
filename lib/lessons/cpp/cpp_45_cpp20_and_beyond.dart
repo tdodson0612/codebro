@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson45 = Lesson(
   language: 'C++',
   title: 'C++20 and What\'s Next',
-  content: '''
+  content: """
 🎯 METAPHOR:
 C++20 is like upgrading from a flip phone to a smartphone.
 The phone still makes calls (full backward compatibility),
@@ -139,7 +139,7 @@ std::generator     — coroutine-based ranges
 ✅ std::span avoids array decay while keeping zero-copy efficiency
 ❌ C++20 requires a recent compiler: GCC 10+, Clang 10+, MSVC 2019+
 ❌ Not all C++20 features are available everywhere — check your compiler
-''',
+""",
   quiz: [
     Quiz(question: 'What do C++20 Concepts do?', options: [
       QuizOption(text: 'Constrain template type arguments with clear requirements and better error messages', correct: true),

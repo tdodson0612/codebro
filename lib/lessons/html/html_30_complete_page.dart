@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson30 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Building a Complete Landing Page',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A landing page is a one-shot conversation with a stranger.
 You have 8 seconds. They will either stay or leave forever.
@@ -721,7 +721,7 @@ CSS PATTERNS USED:
 ✅ aria-labelledby on each <section> ties heading to landmark for screen readers
 ❌ Don't put multiple primary CTAs — confusion kills conversion
 ❌ Don't forget mobile — always test the layout at 375px width
-''',
+""",
   quiz: [
     Quiz(question: 'Why is it important to have only one prominent primary CTA per section?', options: [
       QuizOption(text: 'Multiple competing CTAs cause decision paralysis — users convert less when they have too many choices', correct: true),

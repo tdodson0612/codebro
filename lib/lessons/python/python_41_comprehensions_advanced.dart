@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson41 = Lesson(
   language: 'Python',
   title: 'Advanced Comprehensions & Functional Tools',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Advanced comprehensions are like SQL queries for Python data.
 WHERE = the if condition, SELECT = the expression,
@@ -246,7 +246,7 @@ print(nums)   # [1, 2, 4, 6]
 ❌ Don't nest more than 2 levels — extract into a function
 ❌ Avoid side effects in comprehensions (print, file write, etc.)
 ❌ Don't use a comprehension just to execute side effects — use a for loop
-''',
+""",
   quiz: [
     Quiz(question: 'What does [x for row in matrix for x in row] do?', options: [
       QuizOption(text: 'Creates a 2D nested list', correct: false),

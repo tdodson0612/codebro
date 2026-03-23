@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson79 = Lesson(
   language: 'C#',
   title: 'Design Patterns in C#',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Design patterns are the named solutions to recurring
 architectural problems — like named chess openings.
@@ -232,7 +232,7 @@ class Program
 ✅ Command encapsulates operations — enables undo/redo and queuing
 ❌ Don't overuse Singleton — it makes unit testing hard (global state)
 ❌ Don't use patterns for simple problems — YAGNI (You Aren't Gonna Need It)
-''',
+""",
   quiz: [
     Quiz(question: 'What problem does the Decorator pattern solve?', options: [
       QuizOption(text: 'Adding behavior to an object without modifying its class', correct: true),

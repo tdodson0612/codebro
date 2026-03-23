@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson23 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Cards and Grid Layouts',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Cards are the atoms of modern web design. Every product page,
 every blog post grid, every team page, every recipe list —
@@ -400,7 +400,7 @@ CSS TECHNIQUES:
 ✅ cubic-bezier(0.34, 1.56, 0.64, 1) creates a satisfying springy bounce effect
 ❌ Don't use <article> for every card — only for independently meaningful content
 ❌ Don't animate width/height — use transform: scale() for smooth GPU-accelerated zoom
-''',
+""",
   quiz: [
     Quiz(question: 'What does repeat(auto-fill, minmax(280px, 1fr)) accomplish?', options: [
       QuizOption(text: 'Creates as many 280px-minimum columns as fit — automatically responsive without media queries', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson42 = Lesson(
   language: 'C++',
   title: 'Modern C++: C++11/14/17 Key Features',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Each C++ standard is like a new iPhone model.
 The phone still makes calls (backwards compatible) but gains
@@ -144,7 +144,7 @@ int main() {
 ✅ std::string_view is a non-owning reference to a string — zero-copy
 ❌ Don't use C++98 style in new code — modern C++ is safer and cleaner
 ❌ string_view must not outlive the string it references
-''',
+""",
   quiz: [
     Quiz(question: 'What does "if constexpr" do differently from a regular if?', options: [
       QuizOption(text: 'It evaluates the condition at compile time and removes untaken branches', correct: true),

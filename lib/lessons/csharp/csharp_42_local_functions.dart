@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson42 = Lesson(
   language: 'C#',
   title: 'Local Functions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A local function is like a tool you build specifically for
 one job and keep right next to where you use it.
@@ -192,7 +192,7 @@ Passed as variable   ❌                ✅
 ✅ Local functions appear in stack traces with real names — easier debugging
 ❌ Don't make local functions too long — extract to a private method if they grow
 ❌ Don't use local functions when a lambda would be cleaner and simpler
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key advantage of a local function over a lambda for recursive algorithms?', options: [
       QuizOption(text: 'Local functions support natural recursion without workarounds', correct: true),

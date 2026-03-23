@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson10 = Lesson(
   language: 'C++',
   title: 'Arrays',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An array is like a row of numbered mailboxes.
 Each mailbox (element) holds exactly one item of the same type.
@@ -94,7 +94,7 @@ std::vector   dynamic size, bounds check, preferred
 ❌ Accessing out of bounds (arr[10] on a size-5 array) is undefined behavior
 ❌ C-arrays don't know their own size — pass the size separately
 ❌ Don't use C-style arrays in new code — prefer std::array or vector
-''',
+""",
   quiz: [
     Quiz(question: 'What index does the first element of an array have?', options: [
       QuizOption(text: '0', correct: true),

@@ -257,8 +257,8 @@ public class BestPractices {
         // ─── IMMUTABLE MONEY ──────────────────────────────
         System.out.println("=== Immutable Money with static factory ===");
         var usd = Currency.getInstance("USD");
-        var price  = Money.of(1999, usd);   // $19.99
-        var tax    = Money.of(160, usd);    //  $1.60
+        var price  = Money.of(1999, usd);   //\$19.99
+        var tax    = Money.of(160, usd);    // \$1.60
         var total  = price.add(tax);
         var discount = total.multiply(0.9);
 

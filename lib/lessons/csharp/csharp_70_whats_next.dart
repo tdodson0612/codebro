@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson70 = Lesson(
   language: 'C#',
   title: 'What\'s Next: The C# Ecosystem',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Learning C# is like getting a driver's license.
 You now know how to operate the vehicle. But the real world
@@ -180,7 +180,7 @@ RECOMMENDED LEARNING PATH:
 ✅ Unity is C# but with its own lifecycle — learn MonoBehaviour after core C#
 ❌ Don't try to learn everything at once — pick one track and go deep
 ❌ Don't skip testing — writing tests makes you a better developer
-''',
+""",
   quiz: [
     Quiz(question: 'What is the primary web framework for building APIs in C#?', options: [
       QuizOption(text: 'ASP.NET Core', correct: true),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson63 = Lesson(
   language: 'Python',
   title: 'Unpacking & Starred Expressions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Unpacking is like unboxing a delivery package.
 You don't use the entire box as a single object —
@@ -253,7 +253,7 @@ print(copy)       # [1, 2, 3, 99]
 ❌ Can't have two starred variables: a, *b, *c = ... → SyntaxError
 ❌ Exact count mismatch without star → ValueError: not enough/too many values
 ❌ Nested unpacking gets hard to read past 2 levels — extract to variables
-''',
+""",
   quiz: [
     Quiz(question: 'What does first, *rest = [1, 2, 3, 4] produce?', options: [
       QuizOption(text: 'first=1, rest=(2, 3, 4)', correct: false),

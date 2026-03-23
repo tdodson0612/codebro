@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson78 = Lesson(
   language: 'Python',
   title: 'Advanced OOP: Properties, Slots & Class Internals',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Properties are like a smart safe with a keypad.
 A regular attribute is an unlocked drawer — anyone can
@@ -363,7 +363,7 @@ except ValueError as e:
 ❌ Don't store data in the property name itself — use _name convention for storage
 ❌ @cached_property requires __dict__ to exist — incompatible with __slots__
 ❌ __slots__ inheritance: each class must define its own __slots__ for new attributes
-''',
+""",
   quiz: [
     Quiz(question: 'What is the benefit of @cached_property over @property?', options: [
       QuizOption(text: 'cached_property is faster because it skips validation', correct: false),

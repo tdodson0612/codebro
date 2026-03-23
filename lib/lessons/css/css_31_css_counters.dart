@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson31 = Lesson(
   language: 'CSS',
   title: 'CSS Counters',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS counters are like an automated numbering machine.
 You tell it "start a new sequence here" (counter-reset),
@@ -212,7 +212,7 @@ li::before {
 ✅ Use counter styles (upper-roman, upper-alpha) for custom numbering formats
 ❌ Counters only work in the content property of ::before/::after pseudo-elements
 ❌ CSS counters cannot be read by JavaScript — they are purely presentational
-''',
+""",
   quiz: [
     Quiz(question: 'Where should counter-reset typically be placed?', options: [
       QuizOption(text: 'On the parent/container element to initialize the counter', correct: true),

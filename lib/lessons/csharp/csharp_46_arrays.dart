@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson46 = Lesson(
   language: 'C#',
   title: 'Arrays In Depth',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A one-dimensional array is a row of numbered lockers.
 A multidimensional array is a grid of lockers — rows and
@@ -163,7 +163,7 @@ Access:
 ✅ C# 8+ index-from-end (^1) and ranges (1..4) work on arrays
 ❌ Array covariance (object[] = string[]) compiles but throws at runtime on write
 ❌ Arrays are fixed-size — use List<T> when you need to grow
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between int[,] and int[][]?', options: [
       QuizOption(text: 'int[,] is rectangular with equal-length rows; int[][] is jagged with variable-length rows', correct: true),

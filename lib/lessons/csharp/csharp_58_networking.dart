@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson58 = Lesson(
   language: 'C#',
   title: 'Networking and HttpClient',
-  content: '''
+  content: """
 🎯 METAPHOR:
 HttpClient is like a post office window clerk.
 You hand them a request (envelope), they send it out,
@@ -176,7 +176,7 @@ HTTP STATUS CODE RANGES:
 ✅ Always pass CancellationToken to async HTTP calls for timeouts
 ❌ Never create new HttpClient per request — socket exhaustion
 ❌ Don't use HttpClient in a using block unless you truly want to dispose it
-''',
+""",
   quiz: [
     Quiz(question: 'Why should HttpClient be reused rather than created per request?', options: [
       QuizOption(text: 'Creating many instances exhausts socket connections (socket exhaustion)', correct: true),

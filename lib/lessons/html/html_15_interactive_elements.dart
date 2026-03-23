@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson15 = Lesson(
   language: 'HTML',
   title: 'Interactive Elements: dialog, details, popover',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Modern HTML is like getting a Swiss Army knife upgraded.
 The old knife had a blade (basic elements). Modals,
@@ -254,7 +254,7 @@ Alert:        <dialog> or role="alert"  — minimal JS
 ✅ Native interactive elements are always more accessible than custom JS versions
 ❌ dialog.show() is non-modal — it doesn't trap focus; dialog.showModal() does
 ❌ Don't build custom modal systems when <dialog> exists and is well-supported
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between dialog.show() and dialog.showModal()?', options: [
       QuizOption(text: 'showModal() traps focus and adds backdrop; show() opens without modal behavior', correct: true),

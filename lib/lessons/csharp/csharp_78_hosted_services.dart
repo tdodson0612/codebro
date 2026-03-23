@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson78 = Lesson(
   language: 'C#',
   title: 'Hosted Services and Background Workers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A hosted service is like a security guard at a building.
 The building (your app host) starts up, and the guard
@@ -207,7 +207,7 @@ Host.StopAsync()   → CancellationToken fired
 ✅ Use IHostedService for startup/shutdown hooks without a loop
 ❌ Don't throw from ExecuteAsync on normal cancellation — catch the exception
 ❌ Don't do heavy startup work in StartAsync — use ExecuteAsync instead
-''',
+""",
   quiz: [
     Quiz(question: 'What method do you implement in BackgroundService for your background work?', options: [
       QuizOption(text: 'ExecuteAsync(CancellationToken stoppingToken)', correct: true),

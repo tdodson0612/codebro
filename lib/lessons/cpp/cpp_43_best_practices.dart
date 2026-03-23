@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson43 = Lesson(
   language: 'C++',
   title: 'Best Practices and Common Pitfalls',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Best practices are the "house rules" developed by thousands
 of programmers after thousands of hours of painful bugs.
@@ -142,7 +142,7 @@ int main() {
 ❌ Don't optimize prematurely — profile first
 ❌ Don't ignore compiler warnings — -Wall -Wextra catches real bugs
 ❌ Don't use mutable to work around const — redesign instead
-''',
+""",
   quiz: [
     Quiz(question: 'What does the "Rule of Zero" mean in modern C++?', options: [
       QuizOption(text: 'Write none of the five special functions by using composable RAII types', correct: true),

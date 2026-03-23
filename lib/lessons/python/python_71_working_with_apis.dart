@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson71 = Lesson(
   language: 'Python',
   title: 'Working with REST APIs',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A REST API is like a restaurant menu with a specific ordering system.
 The menu (API documentation) tells you what dishes (endpoints) exist,
@@ -95,7 +95,7 @@ import time
 from functools import wraps
 
 class APIClient:
-    '''Reusable API client with auth, retry, and rate limiting.'''
+    """Reusable API client with auth, retry, and rate limiting."""
 
     def __init__(self, base_url: str, api_key: str = None, token: str = None):
         self.base_url = base_url.rstrip("/")
@@ -113,7 +113,7 @@ class APIClient:
         return f"{self.base_url}/{path.lstrip('/')}"
 
     def _request(self, method: str, path: str, **kwargs) -> dict:
-        '''Make a request with error handling.'''
+        """Make a request with error handling."""
         kwargs.setdefault("timeout", 10)
         resp = self.session.request(method, self._url(path), **kwargs)
         resp.raise_for_status()   # raises HTTPError for 4xx/5xx
@@ -157,7 +157,7 @@ import random
 from functools import wraps
 
 def retry_on_failure(max_retries=3, base_delay=1.0, exceptions=(Exception,)):
-    '''Decorator that retries on failure with exponential backoff.'''
+    """Decorator that retries on failure with exponential backoff."""
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -191,7 +191,7 @@ PAGINATION_EXAMPLE = """
 import requests
 
 def get_all_pages(url: str, params: dict = None, session=None) -> list:
-    '''Fetch all pages of a paginated API.'''
+    """Fetch all pages of a paginated API."""
     get = (session or requests).get
     results = []
     page = 1
@@ -231,7 +231,7 @@ import time
 from collections import deque
 
 class RateLimitedClient:
-    '''Client that respects rate limits.'''
+    """Client that respects rate limits."""
 
     def __init__(self, calls_per_second: float = 5):
         self.min_interval = 1.0 / calls_per_second
@@ -332,7 +332,7 @@ demo_jsonplaceholder()
 ❌ Never hardcode API keys — use environment variables
 ❌ Don't ignore SSL errors (verify=False) in production
 ❌ Don't make requests in tight loops without rate limiting
-''',
+""",
   quiz: [
     Quiz(question: 'What HTTP method should you use to partially update a resource?', options: [
       QuizOption(text: 'PUT — replace the entire resource', correct: false),

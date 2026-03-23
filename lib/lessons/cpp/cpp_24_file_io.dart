@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson24 = Lesson(
   language: 'C++',
   title: 'File I/O',
-  content: '''
+  content: """
 🎯 METAPHOR:
 File I/O is like a mail system.
 Writing to a file is like sending a letter — you address
@@ -118,7 +118,7 @@ bin2.read(reinterpret_cast<char*>(&y), sizeof(y));
 ✅ fstream files close automatically when they go out of scope
 ❌ Don't forget to check for EOF properly — use while(getline(...))
 ❌ Don't use binary mode for text files or vice versa
-''',
+""",
   quiz: [
     Quiz(question: 'Which stream class is used to write to a file in C++?', options: [
       QuizOption(text: 'std::ofstream', correct: true),

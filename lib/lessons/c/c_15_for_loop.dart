@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson15 = Lesson(
   language: 'C',
   title: 'for Loop',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A for loop is like a factory assembly line counter.
 "Build 10 cars. Start at car #1. After each car, move
@@ -72,7 +72,7 @@ int main() {
     
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'In for (int i=0; i<5; i++), how many times does the body run?', options: [
       QuizOption(text: '5 times (i = 0,1,2,3,4)', correct: true),

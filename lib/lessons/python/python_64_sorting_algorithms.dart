@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson64 = Lesson(
   language: 'Python',
   title: 'Sorting & Algorithms in Python',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Sorting is like organizing a bookshelf.
 Python's built-in sorted() is a professional librarian —
@@ -259,7 +259,7 @@ while tasks:
 ❌ Never do list.sort() on something that's not a list — it doesn't exist
 ❌ Don't forget reverse=True for descending — or negate the key value
 ❌ cmp_to_key is a last resort — prefer key= whenever possible
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between sorted() and list.sort()?', options: [
       QuizOption(text: 'sorted() is faster; list.sort() is more flexible', correct: false),

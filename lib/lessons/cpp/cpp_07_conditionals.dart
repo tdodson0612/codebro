@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson07 = Lesson(
   language: 'C++',
   title: 'Conditionals: if, else, switch',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Conditionals are the traffic lights of your program.
 Without them, every car (instruction) just drives straight
@@ -105,7 +105,7 @@ int main() {
 ❌ Forgetting break in switch is one of the most common bugs
 ❌ switch only works with integral types (int, char, enum)
 ❌ Don't use switch for string comparisons — use if/else
-''',
+""",
   quiz: [
     Quiz(question: 'What happens if you forget "break" in a switch case?', options: [
       QuizOption(text: 'Execution falls through to the next case', correct: true),

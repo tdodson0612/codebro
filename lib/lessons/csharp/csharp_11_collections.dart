@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson11 = Lesson(
   language: 'C#',
   title: 'Collections',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Collections are like different types of storage furniture.
 A List<T> is a bookshelf — ordered, indexed, add anywhere.
@@ -161,7 +161,7 @@ Need fast insert in middle? → LinkedList<T>
 ✅ List.Sort() sorts in place; use LINQ .OrderBy() for a new sorted list
 ❌ Don't use List when you need uniqueness — use HashSet
 ❌ Don't iterate a collection while modifying it — use a copy or LINQ
-''',
+""",
   quiz: [
     Quiz(question: 'What happens if you try to add a duplicate to a HashSet<T>?', options: [
       QuizOption(text: 'The duplicate is silently ignored — the set stays unchanged', correct: true),

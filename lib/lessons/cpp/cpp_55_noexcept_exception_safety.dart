@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson55 = Lesson(
   language: 'C++',
   title: 'noexcept and Exception Safety Guarantees',
-  content: '''
+  content: """
 🎯 METAPHOR:
 noexcept is like a signed contract on a job.
 "I GUARANTEE this work will not cause any problems —
@@ -152,7 +152,7 @@ int main() {
 ✅ noexcept(expr) is a compile-time operator that checks if expr is noexcept
 ❌ If a noexcept function throws, std::terminate() is called — no recovery
 ❌ Don't mark functions noexcept just to be optimistic — be accurate
-''',
+""",
   quiz: [
     Quiz(question: 'What happens if a noexcept function throws an exception?', options: [
       QuizOption(text: 'std::terminate() is called — the program ends immediately', correct: true),

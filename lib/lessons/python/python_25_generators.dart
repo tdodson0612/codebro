@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson25 = Lesson(
   language: 'Python',
   title: 'Generators & Iterators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A generator is like a vending machine vs a grocery bag.
 A regular function is a grocery bag — it fills up everything
@@ -233,7 +233,7 @@ print()
 ❌ You can only iterate a generator ONCE — it's exhausted after
 ❌ Can't index or len() a generator — it's lazy/one-pass
 ❌ Don't use a list when you only need to iterate once — use a generator
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between "yield" and "return"?', options: [
       QuizOption(text: 'yield pauses the function and saves state; return exits the function entirely', correct: true),

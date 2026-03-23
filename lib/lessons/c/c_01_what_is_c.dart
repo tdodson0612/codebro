@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson01 = Lesson(
   language: 'C',
   title: 'What is C?',
-  content: '''
+  content: """
 🎯 METAPHOR:
 C is like the engine of a car. Most people drive cars
 without ever seeing the engine. But if you want to build
@@ -38,7 +38,7 @@ int main()          → every C program starts here
 printf()            → prints text to the screen
 \\n                  → newline character (like pressing Enter)
 return 0            → tells the OS the program succeeded
-''',
+""",
   quiz: [
     Quiz(question: 'Who created C?', options: [
       QuizOption(text: 'Dennis Ritchie', correct: true),

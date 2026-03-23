@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson09 = Lesson(
   language: 'CSS',
   title: 'Responsive Design and Media Queries',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Responsive design is like a shape-shifting restaurant.
 At a big table (desktop), dishes are spread out beautifully
@@ -158,7 +158,7 @@ h1 {
 ✅ prefers-color-scheme and prefers-reduced-motion are important accessibility features
 ❌ Don't use fixed px widths for layout — use %, fr, or max-width
 ❌ Don't just hide content on mobile — redesign the layout
-''',
+""",
   quiz: [
     Quiz(question: 'What is "mobile-first" CSS development?', options: [
       QuizOption(text: 'Writing base styles for mobile, then using min-width media queries to add desktop styles', correct: true),

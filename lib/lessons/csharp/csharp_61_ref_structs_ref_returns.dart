@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson61 = Lesson(
   language: 'C#',
   title: 'ref Structs, ref Returns, and ref Locals',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A ref return is like handing someone a remote control for
 your TV — not a copy of the TV, the actual remote that
@@ -170,7 +170,7 @@ class Program
 ✅ stackalloc + Span gives you stack memory with bounds checking — zero GC pressure
 ❌ Never return ref to a local variable — the local is gone when the method returns
 ❌ ref structs cannot be used across await points or captured in lambdas
-''',
+""",
   quiz: [
     Quiz(question: 'What does a ref return from a method allow the caller to do?', options: [
       QuizOption(text: 'Read and write the original variable through the returned reference', correct: true),

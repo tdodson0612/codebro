@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson12 = Lesson(
   language: 'C',
   title: 'Bitwise Operators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Bitwise operators work at the level of individual bits —
 the 0s and 1s making up every number. Think of a byte as
@@ -56,7 +56,7 @@ int main() {
     
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'What does bitwise & (AND) return for each bit position?', options: [
       QuizOption(text: '1 only if BOTH inputs have 1', correct: true),

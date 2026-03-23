@@ -155,13 +155,13 @@ public class BigNumbers {
         BigDecimal total       = discounted.add(tax);
         BigDecimal rounded     = total.setScale(2, RoundingMode.HALF_UP);
 
-        System.out.println("  Price per item:    $" + price);
+        System.out.println("  Price per item:   \$" + price);
         System.out.println("  Quantity:          " + quantity);
-        System.out.println("  Subtotal:          $" + subtotal);
-        System.out.println("  After 15% discount:$" + discounted);
-        System.out.println("  Tax (8%):          $" + tax);
-        System.out.println("  Total:             $" + total);
-        System.out.println("  Rounded to cents:  $" + rounded);
+        System.out.println("  Subtotal:         \$" + subtotal);
+        System.out.println("  After 15% discount:\$" + discounted);
+        System.out.println("  Tax (8%):         \$" + tax);
+        System.out.println("  Total:            \$" + total);
+        System.out.println("  Rounded to cents: \$" + rounded);
 
         // Division with rounding
         System.out.println("\n=== BigDecimal Division ===");

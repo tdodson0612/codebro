@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson12 = Lesson(
   language: 'Python',
   title: 'Tuples',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A tuple is like a birth certificate.
 Once issued, the data is PERMANENT — name, date of birth,
@@ -210,7 +210,7 @@ print(f"Tuple size: {sys.getsizeof(tpl)} bytes")  # smaller!
 ❌ (1) is NOT a tuple — it's just the integer 1 in parentheses
 ❌ Can't sort a tuple in place — must convert: sorted(t) returns a list
 ❌ Tuples can contain mutable items — immutability is shallow
-''',
+""",
   quiz: [
     Quiz(question: 'How do you create a tuple with a single element?', options: [
       QuizOption(text: '(1,) — trailing comma is required', correct: true),

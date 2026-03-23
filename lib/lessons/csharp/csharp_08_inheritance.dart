@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson08 = Lesson(
   language: 'C#',
   title: 'Inheritance',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Inheritance is like job titles in a company hierarchy.
 A Software Engineer has all the skills of an Employee
@@ -171,7 +171,7 @@ class Program
 ✅ Call base.Method() to extend (not replace) the parent's behavior
 ❌ C# does NOT support multiple class inheritance — only one base class
 ❌ Don't override without virtual — it compiles but hides, doesn't override
-''',
+""",
   quiz: [
     Quiz(question: 'In C#, are methods virtual by default?', options: [
       QuizOption(text: 'No — you must explicitly mark them virtual to allow overriding', correct: true),

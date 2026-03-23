@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson15 = Lesson(
   language: 'C#',
   title: 'Exception Handling',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Exception handling is like having a safety inspector on
 a construction site. The workers (your code) do their jobs.
@@ -193,7 +193,7 @@ class Program
 ❌ Don't catch exceptions you can't handle — let them propagate
 ❌ Don't use exceptions for normal control flow — they are for errors
 ❌ Don't swallow exceptions silently (catch {} with no body)
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between "throw;" and "throw ex;"?', options: [
       QuizOption(text: '"throw;" preserves the original stack trace; "throw ex;" resets it', correct: true),

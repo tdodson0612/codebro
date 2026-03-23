@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson60 = Lesson(
   language: 'Python',
   title: 'Concurrency Patterns & Real-World Async',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Real-world async is like managing a busy restaurant kitchen.
 You're the head chef (event loop). Ten orders come in simultaneously.
@@ -327,7 +327,7 @@ asyncio.run(main())
 ❌ Never call time.sleep() in async code — use asyncio.sleep()
 ❌ Never run CPU-intensive code directly in async — use run_in_executor
 ❌ Don't swallow CancelledError — structured concurrency depends on propagation
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between asyncio.gather() and asyncio.as_completed()?', options: [
       QuizOption(text: 'gather() is faster; as_completed() is safer', correct: false),

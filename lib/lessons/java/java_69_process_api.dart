@@ -191,7 +191,7 @@ public class ProcessAPIDemo {
         System.out.println("\n=== Custom Environment ===");
         ProcessBuilder envPb = isWindows
             ? new ProcessBuilder("cmd", "/c", "echo %MY_CUSTOM_VAR%")
-            : new ProcessBuilder("sh", "-c", "echo $MY_CUSTOM_VAR");
+            : new ProcessBuilder("sh", "-c", "echo\$MY_CUSTOM_VAR");
 
         envPb.environment().put("MY_CUSTOM_VAR", "Hello from Java!");
         envPb.redirectErrorStream(true);

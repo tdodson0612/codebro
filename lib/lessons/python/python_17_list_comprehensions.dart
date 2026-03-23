@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson17 = Lesson(
   language: 'Python',
   title: 'List, Dict, Set & Generator Comprehensions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A comprehension is like a factory assembly line with a
 built-in quality inspector.
@@ -173,7 +173,7 @@ print(positives)  # [1, 3, 5, 7, 8]
 ❌ Don't use comprehensions with side effects (printing, writing)
 ❌ Deep nesting > 2 levels — switch to explicit for loops
 ❌ Forget: if/else BEFORE for is ternary, if AFTER for is filter
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between [x for x in r] and (x for x in r)?', options: [
       QuizOption(text: 'No difference — both produce a list', correct: false),

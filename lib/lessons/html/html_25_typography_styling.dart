@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson25 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Typography and Text Styling',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Typography is the voice of your content. Two identical
 articles — same words, same HTML — can feel like a
@@ -324,7 +324,7 @@ THE MODULAR SCALE:
 ✅ text-decoration-color and text-underline-offset make beautiful link underlines
 ❌ Never use text-transform: uppercase on long body text — kills readability
 ❌ Don't set line-height on headings the same as body — use tighter values
-''',
+""",
   quiz: [
     Quiz(question: 'Why is it better to set line-height as a unitless number (1.6) rather than pixels (24px)?', options: [
       QuizOption(text: 'Unitless line-height scales proportionally with font size — fixed px breaks when font size changes', correct: true),

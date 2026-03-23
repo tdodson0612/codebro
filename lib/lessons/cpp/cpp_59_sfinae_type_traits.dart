@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson59 = Lesson(
   language: 'C++',
   title: 'Type Traits and SFINAE',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Type traits are like personality tests for types.
 "Is this type an integer? Is it copyable? Does it have a
@@ -135,7 +135,7 @@ int main() {
 ✅ std::decay removes const, reference, and array decay — useful in templates
 ❌ Raw SFINAE with enable_if is hard to read — use it only in pre-C++17 code
 ❌ Don't use type traits for runtime type checking — use dynamic_cast instead
-''',
+""",
   quiz: [
     Quiz(question: 'What does SFINAE stand for?', options: [
       QuizOption(text: 'Substitution Failure Is Not An Error', correct: true),

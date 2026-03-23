@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson33 = Lesson(
   language: 'Python',
   title: 'Threading & Multiprocessing',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Threading vs multiprocessing is like a restaurant kitchen.
 Threading is one chef with multiple hands — they can stir
@@ -245,7 +245,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
 ❌ Don't share mutable state between threads without locking
 ❌ multiprocessing has overhead — only worth it for heavy CPU work
 ❌ Never put multiprocessing code at module level without __main__ guard
-''',
+""",
   quiz: [
     Quiz(question: 'What is the Python GIL and how does it affect threading?', options: [
       QuizOption(text: 'It prevents all threads from running — use async instead', correct: false),

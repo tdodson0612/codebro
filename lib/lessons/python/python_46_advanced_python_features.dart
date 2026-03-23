@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson46 = Lesson(
   language: 'Python',
   title: 'Advanced Python: Walrus, Match, Assignment Expressions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The walrus operator := is like a cashier who scans and bags
 simultaneously. Old way: scan the item (compute), set it aside
@@ -282,7 +282,7 @@ print("All modern Python features demonstrated!")
 ❌ Walrus in regular assignments (x := 5) is frowned on — use regular =
 ❌ match is NOT the same as switch — it's structural pattern matching
 ❌ Captured pattern variables must be simple names, not dotted (can't use obj.attr as pattern var)
-''',
+""",
   quiz: [
     Quiz(question: 'What does the walrus operator := do?', options: [
       QuizOption(text: 'Compares two values for strict equality', correct: false),

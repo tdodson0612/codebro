@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson13 = Lesson(
   language: 'C#',
   title: 'Delegates and Events',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A delegate is like a job posting for a specific role.
 "Wanted: someone who takes two ints and returns a bool."
@@ -153,7 +153,7 @@ bool method(T arg)         → Predicate<T>
 ✅ -= unsubscribes a handler — essential for avoiding memory leaks
 ❌ Don't fire events without null check (?.Invoke()) — crashes if no subscribers
 ❌ Don't use delegates when lambdas or LINQ are cleaner
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between a delegate and an event?', options: [
       QuizOption(text: 'An event can only be fired by the class that owns it; delegates can be invoked by anyone', correct: true),

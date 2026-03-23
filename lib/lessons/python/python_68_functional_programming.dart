@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson68 = Lesson(
   language: 'Python',
   title: 'Functional Programming in Python',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Functional programming is like cooking with pure recipes.
 Each recipe (function) takes ingredients (input), produces
@@ -329,7 +329,7 @@ print(result2)
 ❌ Comprehensions are usually more Pythonic than nested map/filter/lambda
 ❌ Don't memoize functions with side effects — cache stores stale state
 ❌ Deeply nested map(filter(map(...))) — use comprehensions or named steps
-''',
+""",
   quiz: [
     Quiz(question: 'What makes a function "pure"?', options: [
       QuizOption(text: 'It uses only built-in functions', correct: false),

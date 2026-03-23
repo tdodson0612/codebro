@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson26 = Lesson(
   language: 'C++',
   title: 'STL: Maps and Sets',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A map is like a dictionary.
 Each word (key) has a definition (value). You look up a word
@@ -126,7 +126,7 @@ unordered_map unsorted, O(1) avg operations, faster lookup
 ✅ Structured bindings (auto& [k, v]) make map iteration clean (C++17)
 ❌ m[key] on a const map is an error — use m.at(key) instead
 ❌ Don't use [] to check existence — it inserts a default value
-''',
+""",
   quiz: [
     Quiz(question: 'What happens when you use m[key] on a map with a key that does not exist?', options: [
       QuizOption(text: 'A new entry is created with the key and a default value', correct: true),

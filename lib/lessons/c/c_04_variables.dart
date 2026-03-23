@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson04 = Lesson(
   language: 'C',
   title: 'Variables',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A variable is like a labeled box. You give the box a name
 (like "age"), and you can put a value in it, take it out,
@@ -60,7 +60,7 @@ int main() {
 %p   → pointer address
 %x   → hexadecimal
 %%   → literal % sign
-''',
+""",
   quiz: [
     Quiz(question: 'What is a variable?', options: [
       QuizOption(text: 'A named location in memory that stores a value', correct: true),

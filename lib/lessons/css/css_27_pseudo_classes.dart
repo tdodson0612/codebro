@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson27 = Lesson(
   language: 'CSS',
   title: 'Pseudo-Classes In Depth',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Pseudo-classes are like conditional name tags.
 "If you are the FIRST child at this table, wear a gold tag.
@@ -180,7 +180,7 @@ td:empty::before { content: "—"; color: #999; }
 ✅ :focus-within styles a parent when any child has focus
 ❌ :has() is not supported in Firefox before version 121
 ❌ :visited only allows a limited set of CSS properties for privacy reasons
-''',
+""",
   quiz: [
     Quiz(question: 'What is the correct order for link pseudo-classes?', options: [
       QuizOption(text: ':link :visited :hover :active (LVHA)', correct: true),

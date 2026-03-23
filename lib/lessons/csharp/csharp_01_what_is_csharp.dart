@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson01 = Lesson(
   language: 'C#',
   title: 'What is C#?',
-  content: '''
+  content: """
 🎯 METAPHOR:
 If C++ is a race car — raw power, manual everything, you
 can crash at 200mph — then C# is a luxury sports car.
@@ -74,7 +74,7 @@ Console.WriteLine("Hello, C#!");  // that's the whole program!
 ✅ New versions release every year — C# 12 is the latest (2023)
 ❌ C# is NOT the same as C or C++ — completely different languages
 ❌ .NET Framework (old, Windows-only) vs .NET 6+ (new, cross-platform)
-''',
+""",
   quiz: [
     Quiz(question: 'Who created C#?', options: [
       QuizOption(text: 'Anders Hejlsberg at Microsoft', correct: true),

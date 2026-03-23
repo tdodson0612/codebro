@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson17 = Lesson(
   language: 'CSS',
   title: 'Borders, Outlines, and Shadows',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Borders are like picture frames — they are PART of the element
 and take up space in the layout. Outlines are like spotlight
@@ -151,7 +151,7 @@ h1 { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
 ✅ Never remove :focus outline without providing a visible replacement
 ❌ Don't remove focus outlines without replacement — critical for keyboard accessibility
 ❌ box-shadow counts toward paint but not layout — it IS performant to animate
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between border and outline?', options: [
       QuizOption(text: 'Border takes up space in layout; outline does not affect layout at all', correct: true),

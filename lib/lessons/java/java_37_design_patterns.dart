@@ -283,7 +283,7 @@ public class DesignPatterns {
 
         // Subscribe with lambdas
         orderBus.subscribe(e ->
-            System.out.printf("  📧 Email: Order %s %s ($%.2f)%n",
+            System.out.printf("  📧 Email: Order %s %s (\$%.2f)%n",
                 e.orderId(), e.type(), e.amount()));
         orderBus.subscribe(e ->
             System.out.printf("  📊 Analytics: %s event recorded%n", e.type()));
@@ -311,7 +311,7 @@ public class DesignPatterns {
         System.out.println("  By price (asc):");
         sorter.using(Comparator.comparingDouble(Product::price))
               .sort(products)
-              .forEach(p -> System.out.printf("    %-8s $%.2f%n", p.name(), p.price()));
+              .forEach(p -> System.out.printf("    %-8s\$%.2f%n", p.name(), p.price()));
 
         System.out.println("  By rating (desc), then name:");
         sorter.using(Comparator.comparingInt(Product::rating).reversed()

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson40 = Lesson(
   language: 'C++',
   title: 'Concurrency and Threads',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A single-threaded program is like one chef in a kitchen.
 They chop the vegetables, then boil the water, then stir
@@ -137,7 +137,7 @@ void safeFunction() {
 ❌ Never access shared data from multiple threads without protection
 ❌ Never lock the same non-recursive mutex twice — deadlock
 ❌ Don't detach threads that access local variables — they may outlive the scope
-''',
+""",
   quiz: [
     Quiz(question: 'What is a race condition?', options: [
       QuizOption(text: 'When two threads access shared data simultaneously with at least one writing', correct: true),

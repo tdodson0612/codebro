@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson02 = Lesson(
   language: 'C#',
   title: 'Setup and Basic Syntax',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Setting up C# is like getting a driver's license.
 You need the vehicle (the .NET SDK), a place to practice
@@ -92,10 +92,10 @@ namespace BasicSyntax
             Console.WriteLine(path);  // C:\\Users\\Alice\\Documents
 
             // Multiline string (C# 11+)
-            string multiline = """
+            string multiline = '''
                 Hello,
                 World!
-                """;
+                ''';
             Console.WriteLine(multiline);
         }
     }
@@ -118,7 +118,7 @@ UPPER_CASE    constants (rare — usually PascalCase)
 ✅ dotnet run compiles and executes in one command
 ❌ C# is case-sensitive — String and string are different (string is preferred)
 ❌ Don't forget using System; — Console lives there
-''',
+""",
   quiz: [
     Quiz(question: 'What does \$"Hello, {name}!" demonstrate?', options: [
       QuizOption(text: 'String interpolation — embedding variables inside a string', correct: true),

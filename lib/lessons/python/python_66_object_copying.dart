@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson66 = Lesson(
   language: 'Python',
   title: 'Object Copying: Shallow vs Deep',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Copying in Python is like photocopying a folder of documents.
 A SHALLOW copy makes a new folder but puts the same
@@ -231,7 +231,7 @@ print(result)     # has "processed": True
 ❌ Assuming list2 = list1 creates a copy — it's an alias!
 ❌ Using shallow copy when your data has nested mutables — sneaky bugs
 ❌ Deep copying unnecessarily large objects — it's slow
-''',
+""",
   quiz: [
     Quiz(question: 'What does b = a do when a is a list?', options: [
       QuizOption(text: 'Creates a shallow copy of a', correct: false),

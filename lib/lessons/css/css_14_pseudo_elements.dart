@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson14 = Lesson(
   language: 'CSS',
   title: 'Pseudo-Elements',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Pseudo-elements are like invisible assistants that add
 extra content or styling to an element without touching
@@ -181,7 +181,7 @@ dialog::backdrop {
 ✅ Position the parent relative when using absolute ::before / ::after
 ❌ You cannot add pseudo-elements to replaced elements like <img> or <input>
 ❌ Double colon :: is the correct modern syntax — but single : still works for legacy
-''',
+""",
   quiz: [
     Quiz(question: 'What is required for ::before and ::after to be visible?', options: [
       QuizOption(text: 'The content property must be set — even to an empty string ""', correct: true),

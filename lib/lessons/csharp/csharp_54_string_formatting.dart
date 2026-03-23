@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson54 = Lesson(
   language: 'C#',
   title: 'String Formatting In Depth',
-  content: '''
+  content: """
 🎯 METAPHOR:
 String formatting is like a template system for text.
 "Dear {0}, your order #{1} totaling {2:C} has shipped."
@@ -154,7 +154,7 @@ class Vector3D : IFormattable
 ✅ Implement IFormattable to make your types respond to format strings
 ❌ Don't hardcode currency symbols — use :C and CultureInfo
 ❌ Don't use string.Format in new code — prefer interpolation
-''',
+""",
   quiz: [
     Quiz(question: 'What does the format specifier :N0 produce for the number 1234567?', options: [
       QuizOption(text: '"1,234,567" — number with thousand separators, no decimal places', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson27 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Buttons and Call-to-Action',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A button is a promise. When a user sees it, they make a
 micro-commitment: "If I press this, something will happen."
@@ -343,7 +343,7 @@ IMPORTANT:
 ✅ Consistent base class .btn + modifier .btn--primary follows BEM pattern
 ❌ Don't use <a href="#"> for buttons — use <button type="button">
 ❌ Don't disable buttons in forms — explain why instead (better UX)
-''',
+""",
   quiz: [
     Quiz(question: 'Why should icon-only buttons always have an aria-label?', options: [
       QuizOption(text: 'Screen readers have no visible text to announce — aria-label provides the accessible name', correct: true),

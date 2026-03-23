@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson64 = Lesson(
   language: 'C#',
   title: 'LINQ Advanced: Joins, Aggregates, and Custom Providers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Advanced LINQ is like becoming a SQL expert after learning
 SELECT. You already know WHERE and ORDER BY. Now you learn
@@ -198,7 +198,7 @@ class Program
 ✅ Zip pairs elements from two sequences together
 ❌ Don't call Count() twice on expensive IEnumerable — ToList() first
 ❌ GroupBy doesn't sort — use OrderBy after GroupBy if order matters
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between Join and GroupJoin in LINQ?', options: [
       QuizOption(text: 'Join is inner join (only matches); GroupJoin is left outer join (all left items)', correct: true),

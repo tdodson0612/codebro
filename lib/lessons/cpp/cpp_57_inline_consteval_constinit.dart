@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson57 = Lesson(
   language: 'C++',
   title: 'inline, consteval, and constinit',
-  content: '''
+  content: """
 🎯 METAPHOR:
 inline is like writing a recipe directly on the plate
 instead of referencing a cookbook. Instead of saying
@@ -138,7 +138,7 @@ int main() {
 ✅ Modern compilers inline aggressively regardless of the inline keyword
 ❌ Don't use inline as a performance hint — compilers ignore it for that purpose
 ❌ consteval functions cannot be called with runtime values — compile error
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main practical use of "inline" in modern C++?', options: [
       QuizOption(text: 'Allowing function/variable definitions in headers without multiple definition errors', correct: true),

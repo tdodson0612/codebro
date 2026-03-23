@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson16 = Lesson(
   language: 'HTML',
   title: 'Structure: div, span, and Layout Containers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 If semantic elements are the named rooms of a house
 (kitchen, bedroom, bathroom), then <div> and <span>
@@ -257,7 +257,7 @@ COMMON DIV PATTERNS:
 ✅ Class names should describe PURPOSE not appearance (.card, not .blue-box)
 ❌ Don't wrap everything in divs — use semantic elements where they exist
 ❌ <div> inside <p> is invalid HTML — paragraphs can only contain inline content
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between <div> and <span>?', options: [
       QuizOption(text: '<div> is a block-level container; <span> is an inline container', correct: true),

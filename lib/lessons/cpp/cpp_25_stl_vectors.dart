@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson25 = Lesson(
   language: 'C++',
   title: 'STL: Vectors',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A vector is like a stretchy accordion folder.
 A regular array is a rigid binder — fixed slots, fixed size.
@@ -111,7 +111,7 @@ int main() {
 ✅ Iterators can be invalidated after insert/erase — re-fetch after modifying
 ❌ Don't use size()-1 on an empty vector — size() returns unsigned, wraps to huge number
 ❌ Don't insert/erase in the middle of large vectors — O(n) operation
-''',
+""",
   quiz: [
     Quiz(question: 'What does v.reserve(n) do?', options: [
       QuizOption(text: 'Pre-allocates memory for n elements without changing the size', correct: true),

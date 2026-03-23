@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson04 = Lesson(
   language: 'C++',
   title: 'Constants and constexpr',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A constant is like a tattoo — written once, permanent forever.
 A variable is like writing on a whiteboard — you can erase
@@ -78,7 +78,7 @@ constexpr PI = 3.14  typed, scoped, MUST be compile-time
 ✅ Mark function parameters const when you won't modify them
 ❌ Never use #define for constants in modern C++
 ❌ constexpr functions must be computable at compile time
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between const and constexpr?', options: [
       QuizOption(text: 'constexpr is evaluated at compile time; const can be runtime', correct: true),

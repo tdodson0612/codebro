@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson56 = Lesson(
   language: 'C++',
   title: 'Copy Elision, RVO, and NRVO',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Imagine ordering a cake from a bakery. Normally you might
 expect the baker to bake it in the back, bring it to the
@@ -132,7 +132,7 @@ real-world cases. Modern C++ return-by-value is NOT slow.
 ✅ Returning by value is idiomatic modern C++ — not a performance problem
 ❌ Never write "return std::move(local_var)" — it disables NRVO
 ❌ Don't try to "optimize" returns with pointers/refs when value return is fine
-''',
+""",
   quiz: [
     Quiz(question: 'What does RVO (Return Value Optimization) do?', options: [
       QuizOption(text: 'Constructs the return value directly in the caller\'s memory — no copy or move needed', correct: true),

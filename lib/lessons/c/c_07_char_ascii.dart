@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson07 = Lesson(
   language: 'C',
   title: 'char Type and ASCII',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A char is like a single key on a keyboard.
 Each key has a number behind it — its ASCII code.
@@ -54,7 +54,7 @@ int main() {
 \\\\  → backslash   \\'  → single quote
 \\"  → double quote  \\0  → null character
 \\a  → bell/alert   \\b  → backspace
-''',
+""",
   quiz: [
     Quiz(question: 'What is the ASCII value of capital A?', options: [
       QuizOption(text: '65', correct: true),

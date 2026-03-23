@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson30 = Lesson(
   language: 'C#',
   title: 'The Object Class and Equality',
-  content: '''
+  content: """
 🎯 METAPHOR:
 System.Object is like the first ancestor in every family tree.
 No matter how exotic the family (class hierarchy), everyone
@@ -177,7 +177,7 @@ Implement IComparable<T> → for Sort(), OrderBy()
 ✅ Use ReferenceEquals() to check if two references point to the exact same object
 ❌ Breaking the Equals/GetHashCode contract causes silent bugs in collections
 ❌ Never include mutable fields in GetHashCode — changing them breaks dictionary keys
-''',
+""",
   quiz: [
     Quiz(question: 'What is the contract between Equals() and GetHashCode()?', options: [
       QuizOption(text: 'If two objects are Equal, they must have the same hash code', correct: true),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson44 = Lesson(
   language: 'Python',
   title: 'Memory Management & Garbage Collection',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python's memory management is like a city's recycling system.
 Every object you create is a piece of garbage with a
@@ -278,7 +278,7 @@ def process_large_data():
 ❌ Don't assume del immediately frees memory — ref cycles delay it
 ❌ Don't disable gc in long-running apps without understanding the consequences
 ❌ sys.getsizeof doesn't count the objects referenced inside a container
-''',
+""",
   quiz: [
     Quiz(question: 'What happens to a Python object when its reference count reaches zero?', options: [
       QuizOption(text: 'It is moved to the garbage collector queue for later collection', correct: false),

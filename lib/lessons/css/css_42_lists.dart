@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson42 = Lesson(
   language: 'CSS',
   title: 'Styling Lists',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Lists are the workhorses of the web — navigation menus,
 feature lists, breadcrumbs, step-by-step guides, icon lists.
@@ -263,7 +263,7 @@ ul.emoji-list {
 ✅ font-variant-numeric: tabular-nums keeps numbered list numbers aligned
 ❌ list-style-image gives little control over size/position — use ::before with background-image instead
 ❌ Don't remove list semantics (list-style: none) without preserving ARIA role for screen readers
-''',
+""",
   quiz: [
     Quiz(question: 'What is the most reliable way to use a custom image as a list bullet?', options: [
       QuizOption(text: 'li::before with background-image — gives full control over size and position', correct: true),

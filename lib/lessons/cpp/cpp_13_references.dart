@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson13 = Lesson(
   language: 'C++',
   title: 'References',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A reference is like a nickname.
 "Robert" and "Bob" refer to the same person.
@@ -104,7 +104,7 @@ Pass by const ref    large objects you only need to read
 ✅ References cannot be null — safer than pointers
 ❌ Never return a reference to a local variable — it dies when the function ends
 ❌ References cannot be re-seated (changed to point at something else)
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between a pointer and a reference?', options: [
       QuizOption(text: 'References must be initialized, cannot be null, and cannot be reassigned', correct: true),

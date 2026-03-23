@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson31 = Lesson(
   language: 'C#',
   title: 'Garbage Collection and Memory Management',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The garbage collector is like a night cleaning crew in
 an office building. You work all day, leave coffee cups,
@@ -191,7 +191,7 @@ LOH (Large Object Heap) — objects > 85,000 bytes, Gen2 only
 ✅ WeakReference lets GC collect an object even if you hold a reference
 ❌ Never call GC.Collect() in production code — the GC knows better
 ❌ Don't use a disposed object — throw ObjectDisposedException
-''',
+""",
   quiz: [
     Quiz(question: 'What is the purpose of the IDisposable interface?', options: [
       QuizOption(text: 'To provide a Dispose() method for releasing unmanaged resources deterministically', correct: true),

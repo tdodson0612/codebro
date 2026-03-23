@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson27 = Lesson(
   language: 'C#',
   title: 'Indexers and Advanced Properties',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An indexer is like giving your own class the ability to use
 square bracket notation — just like arrays and dictionaries.
@@ -217,7 +217,7 @@ class Program
 ✅ Lazy<T> defers expensive computation until first access
 ❌ Don't put heavy computation in property getters — callers don't expect it
 ❌ Don't make indexers do unexpected things — keep them collection-like
-''',
+""",
   quiz: [
     Quiz(question: 'What syntax defines an indexer in C#?', options: [
       QuizOption(text: 'public T this[int index] { get; set; }', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson14 = Lesson(
   language: 'HTML',
   title: 'Canvas and SVG',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Canvas is like a blank canvas for a painter — you get a
 rectangular area of raw pixels and a paintbrush (JavaScript).
@@ -227,7 +227,7 @@ Use SVG for:    icons, logos, infographics, interactive charts
 ✅ Add role="img" and aria-labelledby to SVG for accessibility
 ❌ Canvas has no DOM elements — you can't click a shape without manual hit detection
 ❌ Don't use SVG for photos/complex images — use img with JPEG/WebP
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between Canvas and SVG?', options: [
       QuizOption(text: 'Canvas draws pixels (raster); SVG describes shapes (vector) that scale without quality loss', correct: true),

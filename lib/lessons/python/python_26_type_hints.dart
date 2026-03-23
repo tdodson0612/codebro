@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson26 = Lesson(
   language: 'Python',
   title: 'Type Hints & Annotations',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Type hints are like labels on kitchen containers.
 Python doesn't FORCE you to label them — it's optional.
@@ -252,7 +252,7 @@ print(u)  # User(name='Alice', age=30, email='', tags=[])
 ❌ Type hints are NOT enforced at runtime — wrong types won't raise errors
 ❌ Adding -> None is better than no return annotation on void functions
 ❌ Avoid Any — it opts out of type checking entirely
-''',
+""",
   quiz: [
     Quiz(question: 'What does Optional[str] mean in a type hint?', options: [
       QuizOption(text: 'The parameter is optional and can be skipped', correct: false),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson59 = Lesson(
   language: 'C#',
   title: 'Threading Primitives',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Threading primitives are traffic control devices for threads.
 A Mutex is a one-lane bridge — only one car (thread) crosses
@@ -243,7 +243,7 @@ class Program
 ✅ CountdownEvent is clean for "wait for N tasks to complete"
 ❌ Don't use Mutex unless you need cross-process synchronization — use lock instead
 ❌ Always release synchronization primitives in finally blocks
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between ManualResetEvent and AutoResetEvent?', options: [
       QuizOption(text: 'ManualResetEvent releases all waiting threads; AutoResetEvent releases exactly one and resets', correct: true),

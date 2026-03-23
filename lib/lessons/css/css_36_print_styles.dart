@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson36 = Lesson(
   language: 'CSS',
   title: 'Print Styles and @media print',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Print styles are like the "clean version" of your page.
 Your screen version has navigation, sidebars, ads, dark
@@ -229,7 +229,7 @@ SIZE:
 ✅ Set font sizes in pt (points) for print — it's the correct unit
 ❌ Don't include background images or shadows in print — they waste ink
 ❌ Don't forget to hide interactive elements like buttons, navs, and dropdowns
-''',
+""",
   quiz: [
     Quiz(question: 'What CSS property shows a link\'s URL when printing?', options: [
       QuizOption(text: 'a[href]::after { content: " (" attr(href) ")"; }', correct: true),

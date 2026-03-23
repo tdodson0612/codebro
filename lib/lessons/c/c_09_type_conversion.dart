@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson09 = Lesson(
   language: 'C',
   title: 'Type Conversion and Casting',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Type conversion is like converting currencies.
 You can convert \$10 to Euros — but you lose precision.
@@ -57,7 +57,7 @@ int main() {
 - Narrowing (double→int) loses data
 - Widening (int→double) is safe
 - Signed→unsigned can produce surprising results
-''',
+""",
   quiz: [
     Quiz(question: 'What happens when you cast 15.9 to int?', options: [
       QuizOption(text: 'It becomes 15 (truncated toward zero)', correct: true),

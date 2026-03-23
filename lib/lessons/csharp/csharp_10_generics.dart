@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson10 = Lesson(
   language: 'C#',
   title: 'Generics',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Generics are like a shipping container with a label.
 A plain container (object type) can hold anything —
@@ -180,7 +180,7 @@ class Program
 ✅ IComparable<T> is the key constraint for sorting and comparing
 ❌ Don't use object when you can use generics — you lose compile-time safety
 ❌ Over-constraining generics defeats their purpose — use the minimum constraints needed
-''',
+""",
   quiz: [
     Quiz(question: 'What does "where T : IComparable<T>" mean in a generic constraint?', options: [
       QuizOption(text: 'T must implement IComparable<T>, allowing comparison operations', correct: true),

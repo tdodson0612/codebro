@@ -365,24 +365,24 @@ class StringUtilsTest {
 // ─── NESTED TEST CLASS ────────────────────────────────
 class BankAccountTest {
     @Nested
-    @DisplayName("Given an account with $100")
+    @DisplayName("Given an account with\$100")
     class WithInitialBalance {
         double balance = 100.0;
 
         @Test
-        @DisplayName("Depositing $50 gives $150")
+        @DisplayName("Depositing\$50 gives\$150")
         void deposit() {
             balance += 50.0;
             assertEquals(150.0, balance);
         }
 
         @Nested
-        @DisplayName("When withdrawing $30")
+        @DisplayName("When withdrawing\$30")
         class AfterWithdraw {
             double balanceAfter = 100.0 - 30.0;
 
             @Test
-            @DisplayName("Balance should be $70")
+            @DisplayName("Balance should be\$70")
             void balanceIsCorrect() {
                 assertEquals(70.0, balanceAfter);
             }

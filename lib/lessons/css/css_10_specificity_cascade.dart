@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson10 = Lesson(
   language: 'CSS',
   title: 'Specificity and the Cascade',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The CSS cascade is like a chain of command in the military.
 A private's order (browser default) is overridden by a
@@ -133,7 +133,7 @@ h1 { /* browsers give h1 a default font-size of 2em */ }
 ✅ "all: unset" resets an element completely — useful for custom components
 ❌ ID selectors in CSS create specificity headaches — prefer classes
 ❌ Never fight specificity by adding more selectors — refactor instead
-''',
+""",
   quiz: [
     Quiz(question: 'Which has higher specificity: "#nav a" or ".nav-link"?', options: [
       QuizOption(text: '#nav a (score 1,0,1) beats .nav-link (score 0,1,0)', correct: true),

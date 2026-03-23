@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson28 = Lesson(
   language: 'Python',
   title: 'Context Managers & the with Statement',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A context manager is like a responsible hotel concierge.
 When you check in (enter the context), the concierge
@@ -238,7 +238,7 @@ async def async_timer():
 ❌ Without context managers, exceptions can leave files/connections open
 ❌ Don't swallow exceptions silently unless you truly intend to
 ❌ contextmanager generator must yield EXACTLY once
-''',
+""",
   quiz: [
     Quiz(question: 'What is guaranteed by the "with" statement?', options: [
       QuizOption(text: 'The code inside runs without exceptions', correct: false),

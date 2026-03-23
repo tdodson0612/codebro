@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson04 = Lesson(
   language: 'C#',
   title: 'Operators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Operators are the action words of programming — the verbs
 that make things happen to your data. Just like a carpenter
@@ -147,7 +147,7 @@ class Program
 ✅ Switch expressions (=>) are cleaner than switch statements for simple mapping
 ❌ Don't use == to compare strings containing null — use ?? or ?. first
 ❌ (int)obj throws if wrong type; obj as int? returns null — pick based on intent
-''',
+""",
   quiz: [
     Quiz(question: 'What does the ?? operator do in C#?', options: [
       QuizOption(text: 'Returns the left value if not null, otherwise returns the right value', correct: true),

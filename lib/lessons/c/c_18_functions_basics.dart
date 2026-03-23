@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson18 = Lesson(
   language: 'C',
   title: 'Functions — Basics',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A function is like a recipe card. Instead of writing out
 all the steps to bake a cake every time, you write the
@@ -65,7 +65,7 @@ int main() {
     printf("max(3,7,2) = %d\\n", max3(3, 7, 2));
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'What is a function prototype?', options: [
       QuizOption(text: 'Declaration telling compiler the function exists before its definition', correct: true),

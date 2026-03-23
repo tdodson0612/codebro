@@ -207,7 +207,7 @@ public class JDBCDemo {
                 try (ResultSet rs = ps.executeQuery()) {
                     System.out.println("  " + dept + ":");
                     while (rs.next()) {
-                        System.out.printf("    %-15s  $%,.0f%n",
+                        System.out.printf("    %-15s \$%,.0f%n",
                             rs.getString("name"), rs.getDouble("salary"));
                     }
                 }
@@ -220,9 +220,9 @@ public class JDBCDemo {
             ps.setDouble(1, 80_000);
             ps.setDouble(2, 110_000);
             try (ResultSet rs = ps.executeQuery()) {
-                System.out.println("  Salary range $80k-$110k:");
+                System.out.println("  Salary range\$80k-$110k:");
                 while (rs.next()) {
-                    System.out.printf("    %-15s  $%,.0f%n",
+                    System.out.printf("    %-15s \$%,.0f%n",
                         rs.getString("name"), rs.getDouble("salary"));
                 }
             }
@@ -266,7 +266,7 @@ public class JDBCDemo {
             ps.setInt(1, newId);
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    System.out.printf("  Verified: %s now earns $%,.0f%n",
+                    System.out.printf("  Verified: %s now earns\$%,.0f%n",
                         rs.getString("name"), rs.getDouble("salary"));
                 }
             }

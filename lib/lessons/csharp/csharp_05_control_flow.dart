@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson05 = Lesson(
   language: 'C#',
   title: 'Control Flow: if, switch, loops',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Control flow is the story structure of your program.
 Without it, your program is a single paragraph read from
@@ -143,7 +143,7 @@ class Program
 ✅ C# switch does NOT fall through by default — no break needed in switch expressions
 ❌ Classic switch still requires break — forgetting it is a compile error in C#
 ❌ Don't use goto — it exists in C# but is almost never appropriate
-''',
+""",
   quiz: [
     Quiz(question: 'What does the _ pattern mean in a C# switch expression?', options: [
       QuizOption(text: 'It is the default case — matches anything not matched above', correct: true),

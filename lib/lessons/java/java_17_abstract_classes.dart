@@ -245,7 +245,7 @@ abstract class Parcel implements Measurable {
     public abstract double calculateShippingCost();
 
     public void printLabel() {
-        System.out.printf("  📦 Tracking: %s | %.1f%s | Cost: $%.2f%n",
+        System.out.printf("  📦 Tracking: %s | %.1f%s | Cost:\$%.2f%n",
             trackingId, getWeight(), getUnit(), calculateShippingCost());
     }
 }
@@ -284,9 +284,9 @@ public class AbstractClasses {
 
         System.out.println("\n--- HTML Report ---");
         Report htmlReport = new HtmlReport("Annual Report", "Finance Team")
-            .addSection("Net profit: $2.4M")
+            .addSection("Net profit:\$2.4M")
             .addSection("EBITDA: 18%")
-            .addSection("Cash reserves: $5M");
+            .addSection("Cash reserves:\$5M");
 
         System.out.println(htmlReport.generate());
 
@@ -314,7 +314,7 @@ public class AbstractClasses {
         double totalCost = parcels.stream()
             .mapToDouble(Parcel::calculateShippingCost)
             .sum();
-        System.out.printf("  Total shipping cost: $%.2f%n", totalCost);
+        System.out.printf("  Total shipping cost:\$%.2f%n", totalCost);
 
         // ─── CANNOT INSTANTIATE ABSTRACT CLASS ───────────
         // new Report("x", "y");  // ❌ compile error

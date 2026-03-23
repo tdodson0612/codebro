@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson01 = Lesson(
   language: 'C++',
   title: 'What is C++?',
-  content: '''
+  content: """
 🎯 METAPHOR:
 C is a sharp, precise scalpel — powerful, but you do
 everything by hand. C++ is that same scalpel, but now
@@ -71,7 +71,7 @@ C++:  new / delete (or smart pointers)
 ❌ C++ is NOT just "C with syntax sugar" — it is a
    fundamentally different way of organizing programs
 ❌ Don't mix C-style and C++-style I/O in the same program
-''',
+""",
   quiz: [
     Quiz(question: 'Who created C++?', options: [
       QuizOption(text: 'Bjarne Stroustrup', correct: true),

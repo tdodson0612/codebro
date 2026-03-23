@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson76 = Lesson(
   language: 'C#',
   title: 'Cryptography and Security',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Hashing is like a meat grinder — input goes in, a fixed-size
 output comes out. You cannot reverse it. The same input always
@@ -172,7 +172,7 @@ class Program
 ❌ MD5 and SHA1 are broken for security use — only use for checksums
 ❌ Never store passwords as plaintext or simple hashes
 ❌ Never reuse IVs — generate a new random IV for each AES encryption
-''',
+""",
   quiz: [
     Quiz(question: 'Why should you never use SHA256 directly to hash passwords?', options: [
       QuizOption(text: 'SHA256 is too fast — attackers can try billions of passwords per second', correct: true),

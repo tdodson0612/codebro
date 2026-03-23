@@ -286,7 +286,7 @@ public class RecordsAndSealed {
 
         employees.stream()
             .sorted()
-            .forEach(e -> System.out.printf("    %-10s %-12s $%,.0f %s%n",
+            .forEach(e -> System.out.printf("    %-10s %-12s\$%,.0f %s%n",
                 e.name(), e.dept(), e.salary(), e.isSenior() ? "⭐" : ""));
 
         // "Copy with modification"

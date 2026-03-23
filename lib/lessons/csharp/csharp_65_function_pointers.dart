@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson65 = Lesson(
   language: 'C#',
   title: 'Function Pointers and Module Initializers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A function pointer (delegate*) is like a hardwired phone
 connection versus a switchboard. A regular delegate is like
@@ -185,7 +185,7 @@ Func<>          delegate wrapper, LINQ-friendly
 ✅ Function pointers require unsafe context — use only when performance demands it
 ❌ Function pointers cannot be stored in managed object fields easily
 ❌ Module initializers run in any order — don't depend on another assembly's initializer
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main advantage of delegate* over delegate?', options: [
       QuizOption(text: 'No heap allocation and direct call — no delegate object created', correct: true),

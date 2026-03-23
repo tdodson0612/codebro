@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson05 = Lesson(
   language: 'C++',
   title: 'Operators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Operators are the verbs of programming.
 Variables are nouns (things that exist), operators are
@@ -105,7 +105,7 @@ int main() {
 ✅ Prefer ++x over x++ in loops — slightly more efficient
 ❌ Don't confuse = (assignment) with == (comparison)
 ❌ if (x = 5) always true — you meant if (x == 5)
-''',
+""",
   quiz: [
     Quiz(question: 'What does 10 / 3 evaluate to in C++ with integer types?', options: [
       QuizOption(text: '3', correct: true),

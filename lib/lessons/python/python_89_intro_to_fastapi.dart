@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson89 = Lesson(
   language: 'Python',
   title: 'Intro to FastAPI',
-  content: '''
+  content: """
 🎯 WHAT IS FASTAPI?
 FastAPI is the modern Python web framework built on two
 revolutionary ideas: let TYPE HINTS do the heavy lifting,
@@ -406,7 +406,7 @@ print("  http://127.0.0.1:8000/docs  ← auto-generated Swagger UI")
 ❌ Don't use regular def instead of async def for I/O-bound routes — defeats the purpose
 ❌ Never return passwords or sensitive fields without a response_model filter
 ❌ Don't call blocking code (requests.get, time.sleep) directly in async routes — use run_in_executor
-''',
+""",
   quiz: [
     Quiz(question: 'What does FastAPI automatically generate from your type hints?', options: [
       QuizOption(text: 'Only input validation', correct: false),

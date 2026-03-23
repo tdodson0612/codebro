@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson39 = Lesson(
   language: 'C#',
   title: 'C# Best Practices and Idioms',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Best practices are the unwritten rules of a professional
 kitchen. You CAN put dirty knives blade-up in the drawer.
@@ -212,7 +212,7 @@ TOP C# DO'S AND DON'TS:
 ✅ ConfigureAwait(false) in library code to avoid deadlocks
 ❌ Never silently swallow exceptions — at minimum log them
 ❌ Never mix async and sync code with .Result/.Wait() — deadlock risk
-''',
+""",
   quiz: [
     Quiz(question: 'What naming convention should async methods follow in C#?', options: [
       QuizOption(text: 'They should end with the Async suffix (e.g., GetDataAsync)', correct: true),

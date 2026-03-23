@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson06 = Lesson(
   language: 'C',
   title: 'Floating Point Types',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Floating point numbers are like measuring with a ruler
 that has millimeter marks. You can measure 3.5 cm, but you
@@ -58,7 +58,7 @@ int main() {
 - f suffix = float literal (3.14f)
 - L suffix = long double literal (3.14L)
 - Scientific notation: 1.5e10 = 1.5 × 10^10
-''',
+""",
   quiz: [
     Quiz(question: 'Which floating point type has the most precision?', options: [
       QuizOption(text: 'long double', correct: true),

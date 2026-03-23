@@ -224,7 +224,7 @@ fun demonstrateFileOps() {
     val missingContent = runCatching {
         File("nonexistent_file.txt").readText()
     }.getOrElse { e ->
-        "Default: file not found (${e.javaClass.simpleName})"
+        "Default: file not found (\${e.javaClass.simpleName})"
     }
     println(missingContent)
 

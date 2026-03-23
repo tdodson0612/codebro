@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson10 = Lesson(
   language: 'Python',
   title: 'Loops: while',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A while loop is like a vending machine.
 It keeps asking "Did I get payment?" — and while the
@@ -211,7 +211,7 @@ print(binary_search(sorted_list, 6))   # -1
 ❌ Forgetting to update the loop variable = infinite loop
 ❌ for loops are cleaner when iterating collections — don't use while
 ❌ Modifying a list during a for loop is dangerous — while is safer for that
-''',
+""",
   quiz: [
     Quiz(question: 'When should you prefer a while loop over a for loop?', options: [
       QuizOption(text: 'When iterating over a list', correct: false),

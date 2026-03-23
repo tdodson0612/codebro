@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson25 = Lesson(
   language: 'C#',
   title: 'Attributes and Reflection',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Attributes are like sticky labels on a package.
 The box (class/method) does its job — but the label says
@@ -165,7 +165,7 @@ class Program
 ✅ typeof(T) gets the type at compile time; obj.GetType() at runtime
 ❌ Don't use reflection in performance-critical hot paths
 ❌ Custom attributes must inherit from System.Attribute
-''',
+""",
   quiz: [
     Quiz(question: 'What does the [Obsolete] attribute do?', options: [
       QuizOption(text: 'Generates a compiler warning (or error) when the marked member is used', correct: true),

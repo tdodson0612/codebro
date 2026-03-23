@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson21 = Lesson(
   language: 'C#',
   title: 'Pattern Matching',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Pattern matching is like a sorting machine at a package
 facility. Each package rolls down the belt. The machine
@@ -159,7 +159,7 @@ class Program
 ✅ _ is the discard — matches anything, captures nothing
 ❌ Order matters in switch expressions — first matching pattern wins
 ❌ Don't use var pattern unless you genuinely need the captured value
-''',
+""",
   quiz: [
     Quiz(question: 'What does the pattern ">= 80 and < 90" check?', options: [
       QuizOption(text: 'The value is at least 80 AND less than 90', correct: true),

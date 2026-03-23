@@ -1,12 +1,10 @@
-// lib/lessons/csharp/csharp_77_configuration.dart
-
 import '../../models/lesson.dart';
 import '../../models/quiz.dart';
 
 final csharpLesson77 = Lesson(
   language: 'C#',
   title: 'Configuration and App Settings',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Configuration is like the settings menu of your application.
 Some settings come from the factory (appsettings.json —
@@ -18,9 +16,10 @@ with later sources winning, so you can have sensible defaults
 that the environment can override without changing code.
 
 📖 EXPLANATION:
-Microsoft.Extensions.Configuration
+Microsoft.Extensions.Configuration provides a unified
+configuration system with multiple sources and priorities.
 
-CONFIGURATION SOURCES (lower = lower priority):
+CONFIGURATION SOURCES (ascending priority):
   appsettings.json           base settings
   appsettings.{env}.json     environment-specific overrides
   Environment variables      deployment overrides
@@ -28,25 +27,37 @@ CONFIGURATION SOURCES (lower = lower priority):
   User secrets (dev only)    local dev secrets (not committed)
   Azure Key Vault            production secrets
 
-IConfiguration:
-  config["Key"]              get by path
-  config["Section:Key"]      nested key
-  config.GetSection("X")     get a section
-  config.GetValue<T>("Key")  typed get with default
+─────────────────────────────────────
+IConfiguration API:
+─────────────────────────────────────
+  config["Key"]                simple key access
+  config["Section:Key"]        nested key (colon separator)
+  config.GetSection("X")       get a configuration section
+  config.GetValue<T>("Key")    typed get with optional default
+  section.Bind(myObject)       populate an object from section
+  section.Get<T>()             deserialize section to T
 
-IOptions<T> pattern:
-  Bind a config section to a typed class.
-  Inject IOptions<MySettings> into services.
+─────────────────────────────────────
+IOPTIONS VARIANTS:
+─────────────────────────────────────
+  IOptions<T>          singleton — read once at startup
+  IOptionsSnapshot<T>  scoped — re-reads per request
+  IOptionsMonitor<T>   live reload when config file changes
+
+─────────────────────────────────────
+ENVIRONMENT VARIABLE NAMING:
+─────────────────────────────────────
+  Colon (:) in config path → double underscore (__) in env vars
+  Database:ConnectionString → Database__ConnectionString
 
 💻 CODE:
 using System;
 using System.IO;
-using System.Text.Json;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
-// ─── SETTINGS CLASSES ───
+// ─── SETTINGS CLASSES ─────────────────────────────────
 class DatabaseSettings
 {
     public string ConnectionString { get; set; }
@@ -62,15 +73,7 @@ class EmailSettings
     public bool UseSsl { get; set; } = true;
 }
 
-class AppSettings
-{
-    public string AppName { get; set; }
-    public string Environment { get; set; }
-    public DatabaseSettings Database { get; set; } = new();
-    public EmailSettings Email { get; set; } = new();
-}
-
-// ─── SERVICE USING IOPTIONS ───
+// ─── SERVICE USING IOptions<T> ────────────────────────
 class EmailService
 {
     private readonly EmailSettings _settings;
@@ -82,7 +85,7 @@ class EmailService
 
     public void SendEmail(string to, string subject)
     {
-        Console.WriteLine(\$"Sending email via {_settings.SmtpHost}:{_settings.SmtpPort}");
+        Console.WriteLine(\$"Sending via {_settings.SmtpHost}:{_settings.SmtpPort}");
         Console.WriteLine(\$"  From: {_settings.FromAddress}");
         Console.WriteLine(\$"  To: {to}, Subject: {subject}");
     }
@@ -92,133 +95,174 @@ class Program
 {
     static void Main(string[] args)
     {
-        // ─── CREATE SAMPLE CONFIG FILES ───
-        string appSettings = """
-        {
-            "AppName": "MyApp",
-            "Environment": "Development",
-            "Database": {
-                "ConnectionString": "Server=localhost;Database=mydb",
-                "MaxPoolSize": 50,
-                "CommandTimeout": 60
-            },
-            "Email": {
-                "SmtpHost": "smtp.example.com",
-                "SmtpPort": 587,
-                "FromAddress": "app@example.com",
-                "UseSsl": true
-            },
-            "Logging": {
-                "LogLevel": {
-                    "Default": "Information",
-                    "Microsoft": "Warning"
-                }
-            }
+        // ─── CREATE SAMPLE appsettings.json ───────────────
+        const string appSettings = @"
+{
+    ""AppName"": ""MyApp"",
+    ""Environment"": ""Development"",
+    ""Database"": {
+        ""ConnectionString"": ""Server=localhost;Database=mydb"",
+        ""MaxPoolSize"": 50,
+        ""CommandTimeout"": 60
+    },
+    ""Email"": {
+        ""SmtpHost"": ""smtp.example.com"",
+        ""SmtpPort"": 587,
+        ""FromAddress"": ""app@example.com"",
+        ""UseSsl"": true
+    },
+    ""Logging"": {
+        ""LogLevel"": {
+            ""Default"": ""Information"",
+            ""Microsoft"": ""Warning""
         }
-        """;
+    }
+}";
         File.WriteAllText("appsettings.json", appSettings);
 
-        // ─── BUILD CONFIGURATION ───
+        // ─── BUILD CONFIGURATION ───────────────────────────
         IConfiguration config = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json", optional: false)
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
             .AddJsonFile("appsettings.Development.json", optional: true)
-            .AddEnvironmentVariables()           // env vars override
-            .AddCommandLine(args)                // CLI args highest priority
+            .AddEnvironmentVariables()    // overrides JSON
+            .AddCommandLine(args)         // overrides everything
             .Build();
 
-        // ─── READ VALUES ───
+        // ─── READ VALUES ───────────────────────────────────
+        Console.WriteLine("=== Reading Configuration ===");
         string appName = config["AppName"];
-        Console.WriteLine(\$"App: {appName}");
+        Console.WriteLine(\$"AppName: {appName}");
 
-        // Nested key with colon separator
+        // Nested key with colon separator:
         string connStr = config["Database:ConnectionString"];
         Console.WriteLine(\$"DB: {connStr}");
 
+        // Typed get with default:
         int maxPool = config.GetValue<int>("Database:MaxPoolSize", defaultValue: 100);
-        Console.WriteLine(\$"MaxPool: {maxPool}");
+        Console.WriteLine(\$"MaxPoolSize: {maxPool}");
 
-        // ─── BIND TO TYPED CLASS ───
+        bool debug = config.GetValue<bool>("Debug", defaultValue: false);
+        Console.WriteLine(\$"Debug (missing key, default): {debug}");
+
+        // ─── BIND TO TYPED CLASS ───────────────────────────
+        Console.WriteLine("\n=== Binding to Typed Classes ===");
+
+        // Option 1: Bind() populates an existing object
         var dbSettings = new DatabaseSettings();
         config.GetSection("Database").Bind(dbSettings);
-        Console.WriteLine(\$"Bound: {dbSettings.ConnectionString}, timeout: {dbSettings.CommandTimeout}s");
+        Console.WriteLine(\$"ConnectionString: {dbSettings.ConnectionString}");
+        Console.WriteLine(\$"CommandTimeout: {dbSettings.CommandTimeout}s");
 
-        // GetSection returns IConfigurationSection
-        IConfigurationSection emailSection = config.GetSection("Email");
-        var emailSettings = emailSection.Get<EmailSettings>();
+        // Option 2: Get<T>() creates and populates a new object
+        var emailSettings = config.GetSection("Email").Get<EmailSettings>();
         Console.WriteLine(\$"SMTP: {emailSettings.SmtpHost}:{emailSettings.SmtpPort}");
+        Console.WriteLine(\$"SSL: {emailSettings.UseSsl}");
 
-        // ─── DI WITH IOPTIONS ───
+        // ─── DEPENDENCY INJECTION WITH IOptions<T> ────────
+        Console.WriteLine("\n=== IOptions<T> with DI ===");
+
         var services = new ServiceCollection();
 
-        // Add configuration
+        // Register configuration
         services.AddSingleton<IConfiguration>(config);
 
-        // Bind settings to options
+        // Bind config sections to Options:
         services.Configure<DatabaseSettings>(config.GetSection("Database"));
         services.Configure<EmailSettings>(config.GetSection("Email"));
 
-        // Register services
+        // Register services:
         services.AddTransient<EmailService>();
 
         var provider = services.BuildServiceProvider();
 
-        // Use service — EmailSettings injected via IOptions
+        // Use service — EmailSettings injected via IOptions<EmailSettings>:
         var emailSvc = provider.GetRequiredService<EmailService>();
-        emailSvc.SendEmail("alice@example.com", "Hello!");
+        emailSvc.SendEmail("alice@example.com", "Welcome!");
 
-        // Direct IOptions access
-        var dbOptions = provider.GetRequiredService<IOptions<DatabaseSettings>>();
-        Console.WriteLine(\$"MaxPoolSize: {dbOptions.Value.MaxPoolSize}");
+        // Direct IOptions access:
+        var dbOpts = provider.GetRequiredService<IOptions<DatabaseSettings>>();
+        Console.WriteLine(\$"\nFrom IOptions — MaxPoolSize: {dbOpts.Value.MaxPoolSize}");
 
-        // ─── ENVIRONMENT VARIABLE OVERRIDE ───
-        // Set env var: Database__ConnectionString=Server=prod;Database=proddb
-        // (double underscore __ replaces colon : in env vars)
-        string envConn = Environment.GetEnvironmentVariable("Database__ConnectionString");
-        if (envConn != null)
-            Console.WriteLine(\$"Env override: {envConn}");
+        // ─── ENVIRONMENT VARIABLE OVERRIDE ────────────────
+        Console.WriteLine("\n=== Environment Variable Override ===");
+        Console.WriteLine("Set env var: Database__ConnectionString=Server=prod;...");
+        Console.WriteLine("Double underscore __ maps to colon : in config path");
 
-        // ─── RELOADABLE CONFIGURATION ───
-        // IOptionsMonitor<T> — updates when config file changes
-        // IOptionsSnapshot<T> — scoped, re-reads per request
+        string envOverride = Environment.GetEnvironmentVariable("Database__ConnectionString");
+        if (envOverride != null)
+            Console.WriteLine(\$"Env override active: {envOverride}");
+        else
+            Console.WriteLine("(No env override set — using appsettings.json value)");
+
+        // ─── CONFIGURATION SECTIONS ───────────────────────
+        Console.WriteLine("\n=== Iterating Config Sections ===");
+        var loggingSection = config.GetSection("Logging:LogLevel");
+        foreach (var child in loggingSection.GetChildren())
+        {
+            Console.WriteLine(\$"  {child.Key}: {child.Value}");
+        }
+
+        // ─── VALIDATION WITH OPTIONS ───────────────────────
+        Console.WriteLine("\n=== Options Validation (pattern) ===");
+        services.AddOptions<DatabaseSettings>()
+            .Bind(config.GetSection("Database"))
+            .Validate(db =>
+            {
+                if (string.IsNullOrWhiteSpace(db.ConnectionString))
+                    return false;
+                if (db.MaxPoolSize < 1 || db.MaxPoolSize > 1000)
+                    return false;
+                return true;
+            }, "Database configuration is invalid");
+
+        Console.WriteLine("Validation configured — throws OptionsValidationException");
+        Console.WriteLine("if validation fails on first IOptions<T>.Value access");
+
+        // ─── USER SECRETS (dev only) ───────────────────────
+        Console.WriteLine("\n=== User Secrets ===");
+        Console.WriteLine("In development, add to ConfigurationBuilder:");
+        Console.WriteLine("  .AddUserSecrets<Program>()");
+        Console.WriteLine("Then set secrets with:");
+        Console.WriteLine("  dotnet user-secrets set 'Database:Password' 'dev-password'");
+        Console.WriteLine("Stored in: ~/.microsoft/usersecrets/<guid>/secrets.json");
+        Console.WriteLine("NEVER committed to source control!");
+
+        // Cleanup:
+        File.Delete("appsettings.json");
     }
 }
 
-─────────────────────────────────────
-IOPTIONS VARIANTS:
-─────────────────────────────────────
-IOptions<T>         read once at startup, singleton lifetime
-IOptionsSnapshot<T> re-read per scope (per request in web)
-IOptionsMonitor<T>  live reload when config changes
-─────────────────────────────────────
-
 📝 KEY POINTS:
-✅ Use appsettings.json for defaults, environment variables for deployment overrides
-✅ Double underscore __ in env var names maps to : in config paths
-✅ IOptions<T> is the standard way to inject typed settings into services
-✅ Use User Secrets for local dev secrets — never commit secrets to source control
+✅ Configuration sources layer — later sources override earlier ones
+✅ Use IOptions<T> to inject typed settings into services via DI
+✅ Colon (:) in config path → double underscore (__) in environment variables
 ✅ GetValue<T>("Key", defaultValue) is safe — returns default if key missing
+✅ Use User Secrets for local dev secrets — never commit secrets to source control
+✅ AddOptions<T>().Validate(...) adds startup validation for misconfiguration
+✅ IOptionsMonitor<T> enables live config reload without restarting the app
 ❌ Never put production secrets in appsettings.json — use env vars or Key Vault
-❌ Don't read IConfiguration directly in deep services — use IOptions<T>
-''',
+❌ Don't read IConfiguration directly deep in services — prefer IOptions<T>
+❌ Don't create new ConfigurationBuilder() inside a request — build once at startup
+""",
   quiz: [
-    Quiz(question: 'How do you represent a nested configuration key "Database:ConnectionString" as an environment variable?', options: [
-      QuizOption(text: 'Database__ConnectionString (double underscore replaces colon)', correct: true),
-      QuizOption(text: 'Database.ConnectionString (dot notation)', correct: false),
-      QuizOption(text: 'DATABASE_CONNECTIONSTRING (uppercase with underscore)', correct: false),
-      QuizOption(text: 'Database-ConnectionString (hyphen)', correct: false),
+    Quiz(question: 'How do you represent the nested config key "Database:ConnectionString" as an environment variable?', options: [
+      QuizOption(text: 'Database__ConnectionString — double underscore replaces the colon', correct: true),
+      QuizOption(text: 'Database.ConnectionString — dot notation', correct: false),
+      QuizOption(text: 'DATABASE_CONNECTIONSTRING — uppercase with underscore', correct: false),
+      QuizOption(text: 'Database-ConnectionString — hyphen separator', correct: false),
     ]),
     Quiz(question: 'What is the difference between IOptions<T> and IOptionsMonitor<T>?', options: [
-      QuizOption(text: 'IOptions<T> is read once at startup; IOptionsMonitor<T> updates when the config file changes', correct: true),
-      QuizOption(text: 'IOptionsMonitor<T> is read-only; IOptions<T> allows writes', correct: false),
-      QuizOption(text: 'They are identical — different names for the same thing', correct: false),
+      QuizOption(text: 'IOptions<T> is read once at startup (singleton); IOptionsMonitor<T> reflects live config file changes', correct: true),
+      QuizOption(text: 'IOptionsMonitor<T> is read-only; IOptions<T> allows modifying settings at runtime', correct: false),
+      QuizOption(text: 'They are identical — different names for the same interface', correct: false),
       QuizOption(text: 'IOptions<T> is for JSON only; IOptionsMonitor<T> works with all sources', correct: false),
     ]),
-    Quiz(question: 'Which configuration source has the highest priority?', options: [
+    Quiz(question: 'Which configuration source has the highest priority in the default setup?', options: [
       QuizOption(text: 'Command-line arguments — they override all other sources', correct: true),
-      QuizOption(text: 'appsettings.json — it is loaded first', correct: false),
-      QuizOption(text: 'Environment variables — deployment settings win', correct: false),
-      QuizOption(text: 'All sources have equal priority', correct: false),
+      QuizOption(text: 'appsettings.json — it is the primary configuration file', correct: false),
+      QuizOption(text: 'Environment variables — deployment settings take priority', correct: false),
+      QuizOption(text: 'All sources have equal priority — last one registered wins', correct: false),
     ]),
   ],
 );

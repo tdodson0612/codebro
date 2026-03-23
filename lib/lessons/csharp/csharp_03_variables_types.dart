@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson03 = Lesson(
   language: 'C#',
   title: 'Variables and Data Types',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Types in C# are like containers at a restaurant supply store.
 A shot glass (byte) holds a tiny amount.
@@ -132,7 +132,7 @@ Console.WriteLine(price2); // 0.3 ← exact!
 ✅ decimal is exact for base-10 fractions — always use for currency
 ❌ Don't use float — use double; float loses precision too easily
 ❌ double is NOT exact for base-10 decimals — never use for money
-''',
+""",
   quiz: [
     Quiz(question: 'Which type should you use for currency calculations in C#?', options: [
       QuizOption(text: 'decimal', correct: true),

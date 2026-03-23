@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson07 = Lesson(
   language: 'C#',
   title: 'Classes and Objects',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A class is a cookie cutter. An object is the cookie.
 The cutter defines the shape — what fields exist, what
@@ -148,7 +148,7 @@ public string Name => _name;               computed (expression-bodied)
 ✅ Static members belong to the class; instance members belong to each object
 ❌ Don't expose public fields directly — use properties
 ❌ Don't put complex logic in property getters — it should feel like simple access
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between a field and a property in C#?', options: [
       QuizOption(text: 'Properties provide controlled access with get/set logic; fields are raw storage', correct: true),

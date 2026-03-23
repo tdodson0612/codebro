@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson53 = Lesson(
   language: 'C#',
   title: 'Object and Collection Initializers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Object initializers are like a move-in checklist for a
 new apartment. Instead of calling maintenance five times
@@ -185,7 +185,7 @@ class Program
 ✅ with expressions create modified copies of records without mutation
 ❌ Object initializers cannot call non-default constructors directly — use constructors for required params
 ❌ Init-only properties cannot be set after the initializer block
-''',
+""",
   quiz: [
     Quiz(question: 'What does a collection initializer do under the hood?', options: [
       QuizOption(text: 'Calls the Add() method for each item listed', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson13 = Lesson(
   language: 'CSS',
   title: 'Backgrounds',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS backgrounds are like the wallpaper and flooring in a room.
 You can have a solid paint color (background-color), hang a
@@ -151,7 +151,7 @@ KEY BACKGROUND PROPERTIES:
 ✅ aspect-ratio keeps images at correct proportions automatically
 ❌ background-attachment: fixed has performance issues on mobile — use carefully
 ❌ Don't put text directly on images without a contrast overlay
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between background-size: cover and contain?', options: [
       QuizOption(text: 'cover fills the area and may crop; contain fits the whole image and may leave empty space', correct: true),

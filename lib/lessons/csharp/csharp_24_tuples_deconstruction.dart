@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson24 = Lesson(
   language: 'C#',
   title: 'Tuples and Deconstruction',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A tuple is like a grab bag of values.
 When a function needs to return more than one thing,
@@ -164,7 +164,7 @@ class Rectangle
 ✅ Any type with a Deconstruct() method supports tuple-style deconstruction
 ❌ Don't use tuples in public APIs — create named records/classes for clarity
 ❌ Avoid nesting tuples more than one level deep — it gets unreadable
-''',
+""",
   quiz: [
     Quiz(question: 'How do you access the elements of an unnamed tuple (int, string)?', options: [
       QuizOption(text: 'Using .Item1 and .Item2', correct: true),

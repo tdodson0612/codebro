@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson87 = Lesson(
   language: 'Python',
   title: 'inspect, ast & Python Introspection',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The inspect module is like having X-ray vision for Python code.
 You can look inside any function, class, or module at runtime:
@@ -354,7 +354,7 @@ except TypeError as e:
 ❌ Never use eval() on user input — use ast.literal_eval() for data literals
 ❌ ast.NodeTransformer: always call self.generic_visit(node) to process children
 ❌ inspect.getsource() fails on built-in functions (C implementation, no source)
-''',
+""",
   quiz: [
     Quiz(question: 'What does ast.literal_eval() safely evaluate?', options: [
       QuizOption(text: 'Any Python expression including function calls', correct: false),

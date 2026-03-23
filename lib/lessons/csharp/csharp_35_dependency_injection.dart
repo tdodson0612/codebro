@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson35 = Lesson(
   language: 'C#',
   title: 'Dependency Injection',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Dependency Injection is like a restaurant with a prep kitchen.
 The chef (your class) needs ingredients (dependencies).
@@ -189,7 +189,7 @@ class Program
 ✅ DI makes unit testing easy — inject mock implementations in tests
 ❌ Don't create dependencies inside classes — inject them from outside
 ❌ Don't use the DI container directly in business logic (Service Locator anti-pattern)
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main benefit of constructor injection?', options: [
       QuizOption(text: 'Dependencies are explicit and the class cannot be created without them', correct: true),

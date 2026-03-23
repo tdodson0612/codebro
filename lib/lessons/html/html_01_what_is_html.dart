@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson01 = Lesson(
   language: 'HTML',
   title: 'What is HTML?',
-  content: '''
+  content: """
 🎯 METAPHOR:
 HTML is the skeleton of every web page that has ever existed.
 CSS is the wardrobe — the silk shirts, the tailored suits,
@@ -125,7 +125,7 @@ DOM        Document Object Model — the browser's live tree
 ✅ The viewport meta tag is essential for mobile-responsive pages
 ❌ HTML is NOT a programming language — it has no logic or conditions
 ❌ Don't skip <!DOCTYPE html> — without it browsers use "quirks mode"
-''',
+""",
   quiz: [
     Quiz(question: 'What does HTML stand for?', options: [
       QuizOption(text: 'HyperText Markup Language', correct: true),

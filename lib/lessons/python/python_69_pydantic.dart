@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson69 = Lesson(
   language: 'Python',
   title: 'Pydantic: Data Validation & Settings',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Pydantic is like a strict customs officer at an airport.
 You declare what should be in your suitcase (your model).
@@ -310,7 +310,7 @@ Pydantic Key Concepts:
 ❌ Don't catch and ignore ValidationError silently — it carries important information
 ❌ Pydantic V1 and V2 have different APIs — check which version you have
 ❌ Don't use Pydantic for pure data containers that never receive external input — dataclass is sufficient
-''',
+""",
   quiz: [
     Quiz(question: 'What does Field(...) mean in a Pydantic model?', options: [
       QuizOption(text: 'An optional field that defaults to None', correct: false),

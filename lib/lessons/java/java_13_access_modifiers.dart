@@ -277,8 +277,8 @@ public class AccessModifiers {
 
         // ─── IMMUTABILITY ─────────────────────────────────
         System.out.println("\n=== Immutable Money ===");
-        Money price = new Money(1999, "USD");  // $19.99
-        Money tax   = new Money(160, "USD");   //  $1.60
+        Money price = new Money(1999, "USD");  // \$19.99
+        Money tax   = new Money(160, "USD");   //  \$1.60
         Money total = price.add(tax);
         Money discounted = total.multiply(0.9);
 
@@ -286,7 +286,7 @@ public class AccessModifiers {
         System.out.println("Tax:        " + tax);
         System.out.println("Total:      " + total);
         System.out.println("10% off:    " + discounted);
-        System.out.println("Original unchanged: " + price); // still $19.99
+        System.out.println("Original unchanged: " + price); // still \$19.99
 
         // ─── PROTECTED ────────────────────────────────────
         System.out.println("\n=== Protected access ===");

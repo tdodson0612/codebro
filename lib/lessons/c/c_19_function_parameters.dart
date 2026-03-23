@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson19 = Lesson(
   language: 'C',
   title: 'Function Parameters',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Parameters are like the ingredients list on a recipe card.
 Arguments are what you actually use when cooking.
@@ -72,7 +72,7 @@ int main() {
     
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'C passes arguments by value. What does this mean?', options: [
       QuizOption(text: 'Function receives a copy — changes do not affect original', correct: true),

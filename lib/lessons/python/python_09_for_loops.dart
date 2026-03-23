@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson09 = Lesson(
   language: 'Python',
   title: 'Loops: for',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A for loop is like a postal worker delivering mail.
 They have a stack of letters (an iterable). They don't
@@ -220,7 +220,7 @@ print()
 ❌ Don't modify a list while iterating over it — use a copy or comprehension
 ❌ Avoid using range(len(mylist)) to iterate — use enumerate()
 ❌ zip() stops at shortest — use itertools.zip_longest() if needed
-''',
+""",
   quiz: [
     Quiz(question: 'What does the else clause in a for-else loop do?', options: [
       QuizOption(text: 'Runs if the loop body raises no exception', correct: false),

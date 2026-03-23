@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson40 = Lesson(
   language: 'C#',
   title: 'The .NET Standard Library',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The .NET Base Class Library (BCL) is like the fully-stocked
 pantry of a professional restaurant. Before you even start
@@ -168,7 +168,7 @@ System.Globalization    CultureInfo, DateTimeFormatInfo
 ✅ JsonSerializer.Serialize/Deserialize is the modern JSON API — not Json.NET for new code
 ❌ Don't create new HttpClient for each request — socket exhaustion
 ❌ Don't use DateTime.Now for UTC timestamps — use DateTime.UtcNow
-''',
+""",
   quiz: [
     Quiz(question: 'Why should HttpClient be reused instead of creating a new one per request?', options: [
       QuizOption(text: 'Creating many HttpClient instances can exhaust socket connections', correct: true),

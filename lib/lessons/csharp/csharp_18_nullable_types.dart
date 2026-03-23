@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson18 = Lesson(
   language: 'C#',
   title: 'Nullable Types and Null Safety',
-  content: '''
+  content: """
 🎯 METAPHOR:
 null is like an empty envelope.
 You can pass it around, but when someone opens it expecting
@@ -150,7 +150,7 @@ is null   safe null check (no operator overload)
 ✅ Use "is null" rather than "== null" for reliable null checks
 ❌ (int)n throws if n is null — use n.Value only after HasValue check
 ❌ Nullable arithmetic propagates null — n + 3 is null if n is null
-''',
+""",
   quiz: [
     Quiz(question: 'What does "int?" mean in C#?', options: [
       QuizOption(text: 'A nullable int — can hold an integer value or null', correct: true),

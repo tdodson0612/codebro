@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson04 = Lesson(
   language: 'Python',
   title: 'Strings',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A string is like a bead necklace.
 Each bead is one character. The necklace (string) is
@@ -195,7 +195,7 @@ print("Java" not in "I love Python!") # True
 ❌ "hello"[0] = "H" is illegal — strings are immutable
 ❌ Don't use + concatenation in loops — use "".join(list) instead
 ❌ find() returns -1 if not found; index() raises ValueError
-''',
+""",
   quiz: [
     Quiz(question: 'What does s[::-1] do to a string s?', options: [
       QuizOption(text: 'Returns the string reversed', correct: true),

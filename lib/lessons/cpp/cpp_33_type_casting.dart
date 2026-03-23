@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson33 = Lesson(
   language: 'C++',
   title: 'Type Casting',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Type casting is like changing someone's job title.
 static_cast is the formal HR process — you verify the
@@ -128,7 +128,7 @@ Anything else               → think again
 ✅ static_cast is the most common and safest general-purpose cast
 ❌ reinterpret_cast is almost always a red flag — use sparingly
 ❌ const_cast on actual const variables is undefined behavior
-''',
+""",
   quiz: [
     Quiz(question: 'Which cast performs a runtime check during downcasting?', options: [
       QuizOption(text: 'dynamic_cast', correct: true),

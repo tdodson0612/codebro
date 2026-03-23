@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson53 = Lesson(
   language: 'Python',
   title: 'Logging, Debugging & Profiling',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Logging is like a ship's captain's logbook.
 Every significant event gets recorded: departure time,
@@ -346,7 +346,7 @@ print(binary_search([1,3,5,7,9,11], 7))   # 3
 ❌ Don't use print() in library or production code — use logging
 ❌ Don't log sensitive data (passwords, tokens, PII) even at DEBUG level
 ❌ Don't profile prematurely — first make it correct, then make it fast
-''',
+""",
   quiz: [
     Quiz(question: 'What is the correct way to log an exception with its traceback?', options: [
       QuizOption(text: 'logger.error(str(e))', correct: false),

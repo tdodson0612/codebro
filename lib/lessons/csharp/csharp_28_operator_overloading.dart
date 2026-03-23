@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson28 = Lesson(
   language: 'C#',
   title: 'Operator Overloading',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Operator overloading is teaching C# what "plus" means
 for YOUR type. For numbers, + is obvious. But what does
@@ -199,7 +199,7 @@ class Program
 ✅ Explicit conversion (cast required) signals potential data loss or failure
 ❌ Don't overload operators to mean unintuitive things — + should feel like addition
 ❌ Don't forget the commutative case: if v * 2 works, also define 2 * v
-''',
+""",
   quiz: [
     Quiz(question: 'If you overload the == operator, what else MUST you overload?', options: [
       QuizOption(text: 'The != operator', correct: true),

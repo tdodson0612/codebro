@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson60 = Lesson(
   language: 'C#',
   title: 'ValueTask, TaskCompletionSource, and Task Internals',
-  content: '''
+  content: """
 🎯 METAPHOR:
 ValueTask is like ordering coffee at a café.
 Sometimes the barista grabs a cup that was already brewed
@@ -213,7 +213,7 @@ class MockButton
 ✅ Use TrySetResult (not SetResult) in TCS when multiple code paths might complete it
 ❌ Don't await a ValueTask more than once — it is not safe
 ❌ Don't leave TaskCompletionSource tasks uncompleted — memory leak
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main advantage of ValueTask<T> over Task<T>?', options: [
       QuizOption(text: 'No heap allocation when the result is available synchronously', correct: true),

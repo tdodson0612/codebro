@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson02 = Lesson(
   language: 'C',
   title: 'Compiling and Running C',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Writing C code is like writing a recipe in French.
 Your computer only speaks machine language (binary).
@@ -47,7 +47,7 @@ THE 4 STAGES OF COMPILATION:
 2. Compilation    → converts C to assembly
 3. Assembly       → converts assembly to machine code
 4. Linking        → combines object files into executable
-''',
+""",
   quiz: [
     Quiz(question: 'What does a compiler do?', options: [
       QuizOption(text: 'Converts source code to machine code', correct: true),

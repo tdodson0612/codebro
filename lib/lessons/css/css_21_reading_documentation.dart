@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson21 = Lesson(
   language: 'CSS',
   title: 'Reading the CSS Documentation',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Learning CSS from tutorials teaches you the most popular
 roads on the map. The documentation IS the map — every road,
@@ -205,7 +205,7 @@ Example reading:
 ✅ Reading the formal syntax block tells you EVERY valid value for a property
 ❌ Don't rely only on tutorials — they often omit edge cases and browser notes
 ❌ W3C specs are the source of truth but are very dense — MDN summarizes them well
-''',
+""",
   quiz: [
     Quiz(question: 'What does the MDN "Formal Definition" section tell you about a CSS property?', options: [
       QuizOption(text: 'Initial value, which elements it applies to, whether it is inherited, and animation type', correct: true),

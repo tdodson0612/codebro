@@ -275,7 +275,7 @@ public class SolidPrinciples {
             new FixedDiscount(20), new BuyOneGetOne()
         );
         for (DiscountStrategy s : strategies) {
-            System.out.printf("  %-20s $%.2f → $%.2f%n",
+            System.out.printf("  %-20s\$%.2f →\$%.2f%n",
                 s.name() + ":", originalPrice, engine.calculate(originalPrice, s));
         }
 

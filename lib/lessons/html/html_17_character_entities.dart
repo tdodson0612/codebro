@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson17 = Lesson(
   language: 'HTML',
   title: 'Character Entities, Special Characters, and Encoding',
-  content: '''
+  content: """
 🎯 METAPHOR:
 HTML uses < and > for its own tags. So what happens when
 you want to DISPLAY a less-than sign or a greater-than sign?
@@ -182,7 +182,7 @@ MUST-ESCAPE IN HTML CONTENT:
 ✅ &mdash; — em dash and &ndash; – en dash are essential for good typography
 ❌ Don't use &nbsp; for spacing — use CSS margin/padding
 ❌ Don't forget to escape & in attribute values and query strings
-''',
+""",
   quiz: [
     Quiz(question: 'Why do you need &amp; instead of & in an href like href="/search?q=coffee&sort=price"?', options: [
       QuizOption(text: 'The & in HTML attributes must be encoded as &amp; — bare & is invalid in HTML', correct: true),

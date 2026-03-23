@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson09 = Lesson(
   language: 'C#',
   title: 'Interfaces',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An interface is like a job posting with required skills.
 "Must be able to: drive a forklift, read blueprints,
@@ -171,7 +171,7 @@ class Program
 ✅ Explicit implementation resolves naming conflicts between interfaces
 ❌ Don't put fields in interfaces — use abstract classes if you need shared state
 ❌ Don't make interfaces too large — "interface segregation" means many small interfaces
-''',
+""",
   quiz: [
     Quiz(question: 'How many interfaces can a C# class implement?', options: [
       QuizOption(text: 'As many as needed — there is no limit', correct: true),

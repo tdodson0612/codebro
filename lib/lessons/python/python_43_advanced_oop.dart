@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson43 = Lesson(
   language: 'Python',
   title: 'Advanced OOP: MRO, Mixins & Composition',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Multiple inheritance with MRO is like a family reunion
 deciding whose recipe to use.
@@ -336,7 +336,7 @@ print(p)   # Product(name='Apple', price=1.99)
 ❌ "Diamond problem" is solved by MRO but you must use cooperative super() everywhere
 ❌ Mixins should not __init__ unless they use cooperative super() correctly
 ❌ Deep inheritance (> 3 levels) becomes hard to reason about — prefer composition
-''',
+""",
   quiz: [
     Quiz(question: 'In Python\'s MRO for class D(B, C), what order are methods searched?', options: [
       QuizOption(text: 'D → C → B → A → object (right-to-left)', correct: false),

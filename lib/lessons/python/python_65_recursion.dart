@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson65 = Lesson(
   language: 'Python',
   title: 'Recursion',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Recursion is like looking up a word in a dictionary
 and finding its definition uses the very same word.
@@ -283,7 +283,7 @@ def sum_tail_to_iter(lst):
 ❌ Forgetting the base case → RecursionError (infinite recursion)
 ❌ Not moving toward the base case → infinite recursion even with base case
 ❌ Using plain recursion for fibonacci without memoization → exponential time
-''',
+""",
   quiz: [
     Quiz(question: 'What are the two required parts of any recursive function?', options: [
       QuizOption(text: 'A return statement and a loop', correct: false),

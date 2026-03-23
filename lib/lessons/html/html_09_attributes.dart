@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson09 = Lesson(
   language: 'HTML',
   title: 'Attributes: Global and Essential',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Attributes are like the name badges and extra labels at
 a conference. The person (the element) exists without
@@ -215,7 +215,7 @@ CSS:            [data-item-id="42"] { }
 ✅ aria-hidden="true" removes decorative elements from screen reader output
 ❌ Don't use id for CSS styling — use class instead (ids have too-high specificity)
 ❌ Avoid tabindex values > 0 — they create confusing tab order
-''',
+""",
   quiz: [
     Quiz(question: 'What does tabindex="-1" do?', options: [
       QuizOption(text: 'Makes the element focusable via JavaScript but skipped in the natural tab order', correct: true),

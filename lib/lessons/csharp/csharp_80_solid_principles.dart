@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson80 = Lesson(
   language: 'C#',
   title: 'SOLID Principles in C#',
-  content: '''
+  content: """
 🎯 METAPHOR:
 SOLID principles are five rules that keep your code from
 turning into a tightly wound ball of yarn. Pull one thread
@@ -221,7 +221,7 @@ class Program
 ✅ Dependency Inversion: depend on IRepository, not SqlRepository
 ❌ Don't apply SOLID blindly to tiny scripts — it's for systems that grow
 ❌ LSP violation (like Bad Square) causes subtle bugs in polymorphic code
-''',
+""",
   quiz: [
     Quiz(question: 'What does the Single Responsibility Principle state?', options: [
       QuizOption(text: 'A class should have only one reason to change', correct: true),

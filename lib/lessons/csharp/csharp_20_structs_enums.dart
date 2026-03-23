@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson20 = Lesson(
   language: 'C#',
   title: 'Structs and Enums',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A struct is like a business card.
 It has data (name, phone, title), it is small and simple,
@@ -192,7 +192,7 @@ class Program
 ❌ Don't make large structs — copying is expensive for big data
 ❌ Don't add mutable state to structs — mutation through copies causes bugs
 ❌ Always use [Flags] when values are meant to be OR-combined
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between a struct and a class in C#?', options: [
       QuizOption(text: 'Structs are value types (copied on assignment); classes are reference types (shared)', correct: true),

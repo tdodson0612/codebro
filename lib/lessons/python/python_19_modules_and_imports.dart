@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson19 = Lesson(
   language: 'Python',
   title: 'Modules & Imports',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Modules are like toolboxes in a workshop.
 Instead of dumping every single tool in one pile,
@@ -242,7 +242,7 @@ if __name__ == "__main__":
 ❌ Circular imports (A imports B, B imports A) — restructure your code
 ❌ Don't import * in production code
 ❌ Don't shadow built-ins: never name a variable "list", "str", "math" etc.
-''',
+""",
   quiz: [
     Quiz(question: 'What does "if __name__ == \'__main__\':" do?', options: [
       QuizOption(text: 'Runs code only when the file is executed directly, not when imported', correct: true),

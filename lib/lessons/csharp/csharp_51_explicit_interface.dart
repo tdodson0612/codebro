@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson51 = Lesson(
   language: 'C#',
   title: 'Explicit Interface Implementation',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Explicit interface implementation is like a professional
 with two job titles that share the same word.
@@ -158,7 +158,7 @@ class Program
 ✅ A class can have BOTH an explicit impl and its own public method of the same name
 ❌ Explicitly implemented methods have no access modifier — that is intentional
 ❌ You cannot call an explicitly implemented method through the class reference
-''',
+""",
   quiz: [
     Quiz(question: 'How do you access an explicitly implemented interface method?', options: [
       QuizOption(text: 'Only through a reference of the interface type', correct: true),

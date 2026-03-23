@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson21 = Lesson(
   language: 'Python',
   title: 'File I/O',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Working with files is like renting a library book.
 You go to the library (open the file), check the book out
@@ -246,7 +246,7 @@ for line in buffer:
 ❌ Never open a file without "with" unless you carefully call f.close()
 ❌ 'w' mode destroys existing content — double-check before writing
 ❌ Large file: never f.read() everything into memory — iterate lines
-''',
+""",
   quiz: [
     Quiz(question: 'What does opening a file in "w" mode do if the file already exists?', options: [
       QuizOption(text: 'Raises a FileExistsError', correct: false),

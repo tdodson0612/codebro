@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson07 = Lesson(
   language: 'CSS',
   title: 'Flexbox',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Flexbox is like a smart waiter distributing dishes along a
 table. You tell the waiter: "Put all dishes in a row,
@@ -146,7 +146,7 @@ order        change visual order (default: 0)
 ✅ flex-direction: column + flex: 1 on content pushes footer to bottom
 ❌ flex-direction changes which axis is "main" — justify/align swap roles
 ❌ Don't forget flex-wrap: wrap if you want items to wrap on small screens
-''',
+""",
   quiz: [
     Quiz(question: 'In a flex row container, what does justify-content control?', options: [
       QuizOption(text: 'Alignment along the horizontal (main) axis', correct: true),

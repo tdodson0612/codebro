@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson02 = Lesson(
   language: 'CSS',
   title: 'Selectors',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A CSS selector is like a spotlight operator in a theater.
 The spotlight can be aimed at ONE specific actor (ID selector),
@@ -109,7 +109,7 @@ p::first-letter { font-size: 2em; float: left; }
 ✅ Attribute selectors target specific HTML attributes and values
 ❌ Avoid universal selector * in large stylesheets — can hurt performance
 ❌ Don't overuse IDs — they create specificity problems
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between "div p" and "div > p"?', options: [
       QuizOption(text: '"div p" selects all p descendants; "div > p" selects only direct children', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson20 = Lesson(
   language: 'HTML',
   title: 'HTML Performance and Best Practices',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A slow website is like a restaurant with magnificent food
 but a 45-minute wait to be seated. The food might be
@@ -227,7 +227,7 @@ HTML PERFORMANCE CHECKLIST:
 ✅ Inline critical CSS eliminates render-blocking stylesheet request
 ❌ Never put scripts without defer/async before </body> or in <head>
 ❌ Missing image dimensions are the most common cause of poor CLS scores
-''',
+""",
   quiz: [
     Quiz(question: 'What does the defer attribute on a script tag do?', options: [
       QuizOption(text: 'Downloads in the background and executes after the HTML is fully parsed — non-blocking', correct: true),

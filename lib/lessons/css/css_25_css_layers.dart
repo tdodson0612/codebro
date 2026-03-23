@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson25 = Lesson(
   language: 'CSS',
   title: 'CSS Layers (@layer) and the Modern Cascade',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS @layer is like a layered cake with rules about which
 layer wins fights. The bottom layer (base/reset) has the
@@ -174,7 +174,7 @@ TYPICAL LAYER ORDER:
 ✅ @layer solves the !important arms race in large CSS codebases
 ❌ @layer browser support: 2022+ — check if your target audience uses older browsers
 ❌ Don't mix @layer and non-layer styles casually — unlayered always wins
-''',
+""",
   quiz: [
     Quiz(question: 'If you declare "@layer reset, base, utilities;", which layer has highest priority?', options: [
       QuizOption(text: 'utilities — the last declared layer has the highest priority', correct: true),

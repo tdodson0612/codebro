@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson37 = Lesson(
   language: 'CSS',
   title: 'CSS Performance and will-change',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS performance is like stage lighting at a concert.
 The audience (browser) sees a smooth show because the crew
@@ -180,7 +180,7 @@ div > * + * .icon { color: #333; }
 ❌ NEVER apply will-change to many elements at once — each layer uses GPU memory
 ❌ Animating width, height, top, left triggers expensive layout on every frame
 ❌ Don't use translateZ(0) as a general performance trick — use will-change instead
-''',
+""",
   quiz: [
     Quiz(question: 'Which CSS properties are the cheapest to animate?', options: [
       QuizOption(text: 'transform and opacity — handled by the GPU compositor', correct: true),

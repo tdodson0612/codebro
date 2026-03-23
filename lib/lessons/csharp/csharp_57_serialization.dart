@@ -1,12 +1,10 @@
-// lib/lessons/csharp/csharp_57_serialization.dart
-
 import '../../models/lesson.dart';
 import '../../models/quiz.dart';
 
 final csharpLesson57 = Lesson(
   language: 'C#',
   title: 'Serialization: JSON, XML, and Binary',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Serialization is like packing your belongings for a move.
 Your C# objects (furniture) need to fit through a door
@@ -19,17 +17,33 @@ engineering blueprints. Binary is like vacuum-sealing —
 compact and efficient but not human-readable.
 
 📖 EXPLANATION:
-SYSTEM.TEXT.JSON (built-in, C# 8+ / .NET Core 3+):
+SYSTEM.TEXT.JSON (built-in, .NET Core 3+):
   The modern, fast, built-in JSON serializer.
   JsonSerializer.Serialize / Deserialize
 
 XML SERIALIZATION:
-  XmlSerializer — attribute-based
-  System.Text.Json supports JSON only
+  XmlSerializer — attribute-based, ships with .NET
 
 BINARY:
   BinaryFormatter — obsolete, insecure, removed in .NET 7
   MessagePack, Protobuf, MemoryPack — modern alternatives
+
+─────────────────────────────────────
+JSON ATTRIBUTES:
+─────────────────────────────────────
+  [JsonPropertyName("name")]      rename in JSON
+  [JsonIgnore]                    exclude from JSON
+  [JsonInclude]                   include non-public
+  [JsonConverter(typeof(...))]    custom converter
+  [JsonRequired]                  must be present
+  [JsonNumberHandling(...)]       control number parsing
+
+─────────────────────────────────────
+IOPTIONS VARIANTS:
+─────────────────────────────────────
+  IOptions<T>         read once at startup
+  IOptionsSnapshot<T> re-read per scope (per request)
+  IOptionsMonitor<T>  live reload on file change
 
 💻 CODE:
 using System;
@@ -39,7 +53,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
-// ─── MODEL ───
+// ─── MODEL ────────────────────────────────────────────
 public class Product
 {
     public int Id { get; set; }
@@ -48,62 +62,65 @@ public class Product
     public bool InStock { get; set; }
     public List<string> Tags { get; set; } = new();
 
-    // JSON attribute — rename in JSON output
+    // Rename in JSON output:
     [JsonPropertyName("created_at")]
     public DateTime CreatedAt { get; set; }
 
-    // Ignore in JSON output
+    // Exclude from JSON:
     [JsonIgnore]
     public string InternalCode { get; set; }
 }
 
-// ─── JSON OPTIONS ───
 class Program
 {
-    static JsonSerializerOptions PrettyOptions => new()
+    // Reusable options (create once, reuse):
+    static readonly JsonSerializerOptions PrettyOptions = new()
     {
-        WriteIndented = true,
-        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        WriteIndented         = true,
+        PropertyNamingPolicy  = JsonNamingPolicy.CamelCase,
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-        NumberHandling = JsonNumberHandling.AllowReadingFromString,
-        Converters = { new JsonStringEnumConverter() }
+        NumberHandling        = JsonNumberHandling.AllowReadingFromString,
+        Converters            = { new JsonStringEnumConverter() }
     };
 
     static void Main()
     {
         var product = new Product
         {
-            Id       = 1,
-            Name     = "Widget Pro",
-            Price    = 29.99m,
-            InStock  = true,
-            Tags     = new List<string> { "electronics", "popular" },
-            CreatedAt = DateTime.UtcNow,
-            InternalCode = "WDGT-001"  // will be ignored
+            Id           = 1,
+            Name         = "Widget Pro",
+            Price        = 29.99m,
+            InStock      = true,
+            Tags         = new List<string> { "electronics", "popular" },
+            CreatedAt    = DateTime.UtcNow,
+            InternalCode = "WDGT-001"  // will be ignored in JSON
         };
 
-        // ─── JSON SERIALIZE ───
+        // ─── JSON SERIALIZE ───────────────────────────────
         string json = JsonSerializer.Serialize(product, PrettyOptions);
+        Console.WriteLine("=== JSON Output ===");
         Console.WriteLine(json);
         // {
         //   "id": 1,
         //   "name": "Widget Pro",
         //   "price": 29.99,
-        //   ...
-        //   "created_at": "2024-03-15T...",
-        //   (InternalCode missing)
+        //   "inStock": true,
+        //   "tags": ["electronics","popular"],
+        //   "created_at": "2024-01-15T..."
+        //   (InternalCode not present — [JsonIgnore])
         // }
 
-        // ─── JSON DESERIALIZE ───
+        // ─── JSON DESERIALIZE ─────────────────────────────
         Product back = JsonSerializer.Deserialize<Product>(json, PrettyOptions);
-        Console.WriteLine(\$"{back.Name} — {back.Price:C}");
+        Console.WriteLine(\$"\nDeserialized: {back.Name} — {back.Price:C}");
 
-        // ─── DESERIALIZE FROM FILE ───
+        // ─── SERIALIZE TO / FROM FILE ─────────────────────
         File.WriteAllText("product.json", json);
         using var readStream = File.OpenRead("product.json");
         Product fromFile = JsonSerializer.Deserialize<Product>(readStream, PrettyOptions);
+        Console.WriteLine(\$"From file: {fromFile.Name}");
 
-        // ─── ASYNC JSON ───
+        // ─── ASYNC STREAMING ──────────────────────────────
         async System.Threading.Tasks.Task JsonAsync()
         {
             using var ws = File.Create("product_async.json");
@@ -111,82 +128,87 @@ class Program
 
             using var rs = File.OpenRead("product_async.json");
             var p2 = await JsonSerializer.DeserializeAsync<Product>(rs, PrettyOptions);
+            Console.WriteLine(\$"Async: {p2.Name}");
         }
 
-        // ─── PARTIAL / DYNAMIC JSON ───
-        string raw = """{"name":"Alice","age":30,"extra":"ignored"}""";
+        // ─── DYNAMIC JSON WITH DICTIONARY ─────────────────
+        Console.WriteLine("\n=== Dynamic JSON Parsing ===");
+        string raw = "{\\"name\\":\\"Alice\\",\\"age\\":30,\\"extra\\":\\"ignored\\"}";
 
-        // Deserialize to Dictionary
+        // Deserialize to Dictionary for dynamic access:
         var dict = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(raw);
         Console.WriteLine(dict["name"].GetString());  // Alice
         Console.WriteLine(dict["age"].GetInt32());    // 30
 
-        // JsonDocument for read-only traversal
+        // JsonDocument for read-only traversal (low allocation):
         using JsonDocument doc = JsonDocument.Parse(raw);
         JsonElement root = doc.RootElement;
-        Console.WriteLine(root.GetProperty("name").GetString());
+        Console.WriteLine(root.GetProperty("name").GetString());  // Alice
 
-        // ─── XML SERIALIZATION ───
-        [XmlRoot("Product")]
-        class XmlProduct
+        // ─── XML SERIALIZATION ────────────────────────────
+        Console.WriteLine("\n=== XML Serialization ===");
+
+        var xp = new XmlProduct
         {
-            [XmlAttribute("id")]
-            public int Id { get; set; }
+            Id   = 1,
+            Name = "Widget",
+            Tags = new List<string> { "a", "b" }
+        };
 
-            [XmlElement("Name")]
-            public string Name { get; set; }
-
-            [XmlArray("Tags")]
-            [XmlArrayItem("Tag")]
-            public List<string> Tags { get; set; } = new();
-
-            [XmlIgnore]
-            public string Secret { get; set; }
-        }
-
-        var xp = new XmlProduct { Id = 1, Name = "Widget", Tags = { "a", "b" } };
         var xs = new XmlSerializer(typeof(XmlProduct));
 
-        // Serialize to XML string
+        // Serialize to string:
         using var sw = new StringWriter();
         xs.Serialize(sw, xp);
         string xml = sw.ToString();
         Console.WriteLine(xml);
 
-        // Deserialize from XML
+        // Deserialize from string:
         using var sr = new StringReader(xml);
         var xpBack = (XmlProduct)xs.Deserialize(sr);
-        Console.WriteLine(xpBack.Name);  // Widget
+        Console.WriteLine(\$"XML back: {xpBack.Name}");  // Widget
 
-        // ─── JSON SOURCE GENERATION (AOT-friendly) ───
-        [JsonSerializable(typeof(Product))]
-        partial class ProductContext : JsonSerializerContext { }
-
+        // ─── JSON SOURCE GENERATION (AOT-friendly) ────────
+        Console.WriteLine("\n=== Source Generation ===");
         string fastJson = JsonSerializer.Serialize(product, ProductContext.Default.Product);
         Product fastBack = JsonSerializer.Deserialize(fastJson, ProductContext.Default.Product);
+        Console.WriteLine(\$"Source gen: {fastBack.Name}");
     }
 }
 
-─────────────────────────────────────
-JSON ATTRIBUTES:
-─────────────────────────────────────
-[JsonPropertyName("name")]     rename property in JSON
-[JsonIgnore]                   exclude from serialization
-[JsonInclude]                  include non-public members
-[JsonConverter(typeof(...))]   custom converter
-[JsonNumberHandling(...)]      control number parsing
-[JsonRequired]                 property must be present
-─────────────────────────────────────
+// ─── XML MODEL ────────────────────────────────────────
+[XmlRoot("Product")]
+public class XmlProduct
+{
+    [XmlAttribute("id")]
+    public int Id { get; set; }
+
+    [XmlElement("Name")]
+    public string Name { get; set; }
+
+    [XmlArray("Tags")]
+    [XmlArrayItem("Tag")]
+    public List<string> Tags { get; set; } = new();
+
+    [XmlIgnore]
+    public string Secret { get; set; }
+}
+
+// ─── SOURCE GENERATION CONTEXT ────────────────────────
+[JsonSerializable(typeof(Product))]
+partial class ProductContext : JsonSerializerContext { }
 
 📝 KEY POINTS:
 ✅ System.Text.Json is the modern choice — fast and built-in
-✅ Use JsonSerializerOptions to configure naming, nulls, indentation
+✅ Create JsonSerializerOptions once and reuse — don't recreate per call
 ✅ JsonDocument / JsonElement for read-only dynamic JSON traversal
-✅ Use source generation ([JsonSerializable]) for AOT and performance
-✅ XmlSerializer for XML — attribute-driven, no external packages needed
+✅ Use source generation ([JsonSerializable]) for AOT/Blazor/Native AOT
+✅ XmlSerializer for XML — attribute-driven, no external packages
+✅ Use async Serialize/DeserializeAsync for file/stream I/O
 ❌ BinaryFormatter is removed in .NET 7+ — it is a security vulnerability
-❌ Don't share JsonSerializerOptions instances created with new — use singletons
-''',
+❌ Don't new up JsonSerializerOptions in a hot path — it's expensive
+❌ JsonDocument must be disposed — use using statement or block
+""",
   quiz: [
     Quiz(question: 'What does [JsonIgnore] do on a property?', options: [
       QuizOption(text: 'Excludes the property from both serialization and deserialization', correct: true),

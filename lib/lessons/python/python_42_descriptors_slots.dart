@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson42 = Lesson(
   language: 'Python',
   title: 'Descriptors, __slots__ & Metaclasses',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Descriptors are like smart power outlets.
 A regular outlet just provides power — no intelligence.
@@ -296,7 +296,7 @@ print(c2.debug)   # True — it's the same object
 ❌ Avoid metaclasses unless truly needed — class decorators or __init_subclass__ often suffice
 ❌ __slots__ with inheritance: each class must define its own __slots__
 ❌ Non-data descriptors (only __get__) can be shadowed by instance attributes
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main benefit of using __slots__ in a class?', options: [
       QuizOption(text: 'It makes the class immutable like a frozen dataclass', correct: false),

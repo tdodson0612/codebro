@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson36 = Lesson(
   language: 'Python',
   title: 'Closures & Advanced Scope',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A closure is like a backpack that a function carries with it.
 When a function is defined inside another function, it can
@@ -237,7 +237,7 @@ print(fn.__closure__[0].cell_contents)  # 10
 ❌ Don't use global if nonlocal will do — global is too broad
 ❌ Late binding in loops creates subtle bugs — always use the default arg fix
 ❌ Deep closures (3+ levels) become hard to debug — consider a class instead
-''',
+""",
   quiz: [
     Quiz(question: 'What is a closure?', options: [
       QuizOption(text: 'A function defined inside a class', correct: false),

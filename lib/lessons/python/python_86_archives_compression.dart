@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson86 = Lesson(
   language: 'Python',
   title: 'Archives, Compression & File Formats',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Archives are like moving boxes for your file system.
 Instead of moving each file separately (expensive, slow),
@@ -262,7 +262,7 @@ for f in ["/tmp/compressed.txt.gz", "/tmp/shutil_demo.zip", "/tmp/shutil_demo_gz
 ❌ Never extract untrusted archives without checking paths (path traversal attack!)
 ❌ ZIP_STORED (no compression) for files already compressed (jpg, mp4) — compression wastes time
 ❌ tarfile.extractall() on untrusted data can overwrite system files — always validate paths
-''',
+""",
   quiz: [
     Quiz(question: 'What does zipfile.ZipFile.writestr("readme.txt", "hello") do?', options: [
       QuizOption(text: 'Writes "hello" to a file called readme.txt on disk', correct: false),

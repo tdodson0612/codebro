@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson52 = Lesson(
   language: 'Python',
   title: 'Python Internals & CPython',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Understanding Python internals is like knowing how your
 car's engine works. Most drivers never open the hood —
@@ -275,7 +275,7 @@ print(f"String 'hello':    {sys.getsizeof('hello')} bytes")
 ❌ Don't rely on integer interning in logic — use == not is for values
 ❌ Don't modify sys.path permanently in library code
 ❌ Don't over-optimize without profiling first — measure before tuning
-''',
+""",
   quiz: [
     Quiz(question: 'Why does "a = 100; b = 100; a is b" return True but "a = 1000; b = 1000; a is b" returns False?', options: [
       QuizOption(text: 'Large integers are stored differently in memory', correct: false),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson30 = Lesson(
   language: 'CSS',
   title: 'CSS Containment and content-visibility',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS containment is like isolating departments in a building.
 Without containment, changing one department's furniture
@@ -166,7 +166,7 @@ article > section {
 ✅ The "auto" value in contain-intrinsic-size remembers actual size after rendering
 ❌ Don't use content-visibility: auto on above-the-fold content — it delays initial render
 ❌ contain: strict requires explicit dimensions — without them the element collapses
-''',
+""",
   quiz: [
     Quiz(question: 'What does content-visibility: auto do?', options: [
       QuizOption(text: 'Skips rendering off-screen content, improving performance on long pages', correct: true),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson03 = Lesson(
   language: 'C',
   title: 'Comments',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Comments are like sticky notes on your code.
 The compiler completely ignores them — they are only
@@ -51,7 +51,7 @@ int main() {
 ✅ Mark work items:
    // TODO: handle negative numbers
    // FIXME: crashes when input is empty
-''',
+""",
   quiz: [
     Quiz(question: 'Which is a single-line comment in C?', options: [
       QuizOption(text: '// comment', correct: true),

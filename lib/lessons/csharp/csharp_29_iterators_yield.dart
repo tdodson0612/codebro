@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson29 = Lesson(
   language: 'C#',
   title: 'Iterators and yield',
-  content: '''
+  content: """
 🎯 METAPHOR:
 yield is like a vending machine that makes items on demand.
 A regular method fills a whole bag with snacks and hands
@@ -175,7 +175,7 @@ Use yield when:
 ✅ Early break in foreach stops generation — no wasted computation
 ❌ Don't yield return inside a try/finally with yield — complex edge cases
 ❌ Don't use yield when you need all values immediately — just return a List
-''',
+""",
   quiz: [
     Quiz(question: 'What does yield return do in an iterator method?', options: [
       QuizOption(text: 'Produces the next value and pauses the method until the next value is requested', correct: true),

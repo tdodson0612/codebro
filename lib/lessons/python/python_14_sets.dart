@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson14 = Lesson(
   language: 'Python',
   title: 'Sets',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A set is like a bag of unique poker chips.
 No matter how many times you throw in the same chip,
@@ -206,7 +206,7 @@ print(not set(list1).isdisjoint(set(list3)))  # True (3, 4 shared)
 ❌ Sets have no indexing — can't do my_set[0]
 ❌ Can't put mutable items (lists, dicts) in a set — they're unhashable
 ❌ {} is an empty dict, not an empty set — use set()
-''',
+""",
   quiz: [
     Quiz(question: 'What does set([1,2,2,3,3,3]) produce?', options: [
       QuizOption(text: '{1, 2, 2, 3, 3, 3} — sets allow duplicates', correct: false),

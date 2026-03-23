@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson52 = Lesson(
   language: 'C#',
   title: 'Generic Constraints In Depth',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Generic constraints are like job requirements.
 "Any candidate welcome" (no constraints) means you cannot
@@ -202,7 +202,7 @@ class Program
 ✅ INumber<T> (C# 11) enables generic math that works on int, double, decimal, etc.
 ❌ unmanaged constraint means no reference types inside T at all
 ❌ You cannot combine class and struct constraints on the same type parameter
-''',
+""",
   quiz: [
     Quiz(question: 'What does "where T : new()" allow inside a generic method?', options: [
       QuizOption(text: 'Creating instances of T with new T()', correct: true),

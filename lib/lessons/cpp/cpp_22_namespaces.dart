@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson22 = Lesson(
   language: 'C++',
   title: 'Namespaces',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A namespace is like a last name.
 Two people named "John" can both exist if one is "John Smith"
@@ -109,7 +109,7 @@ Better alternatives:
 ✅ Nested namespaces are fine — C++17 allows namespace A::B::C {}
 ❌ Never write "using namespace std" in a header file
 ❌ Avoid "using namespace X" in general — prefer specific using declarations
-''',
+""",
   quiz: [
     Quiz(question: 'What problem do namespaces solve?', options: [
       QuizOption(text: 'Naming collisions between identifiers in different parts of a program', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson32 = Lesson(
   language: 'C#',
   title: 'Covariance and Contravariance',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Covariance is like a fruit basket rule.
 "I need a basket of fruit" — a basket of apples qualifies,
@@ -153,7 +153,7 @@ Contravariance (in):
 ✅ Func<out T> is covariant on the return type
 ❌ You cannot have an invariant type parameter be both covariant and contravariant
 ❌ Covariance/contravariance only applies to interfaces and delegates, not classes
-''',
+""",
   quiz: [
     Quiz(question: 'What does the "out" keyword on a generic type parameter indicate?', options: [
       QuizOption(text: 'Covariance — the type can be used in a more general (base type) context', correct: true),

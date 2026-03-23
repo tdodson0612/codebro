@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson03 = Lesson(
   language: 'C++',
   title: 'Variables and Data Types',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A variable is like a labeled storage locker.
 Each locker has a number (memory address), a name
@@ -88,7 +88,7 @@ sizeof() tells you the byte size of any type:
 ❌ float for money — use integer cents or a decimal library
 ❌ Don't assume sizes — use sizeof() or fixed-size types
    (int32_t, int64_t from <cstdint>) for portability
-''',
+""",
   quiz: [
     Quiz(question: 'Which type stores a decimal number with the most precision?', options: [
       QuizOption(text: 'double', correct: true),

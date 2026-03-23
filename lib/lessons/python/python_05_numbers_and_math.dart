@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson05 = Lesson(
   language: 'Python',
   title: 'Numbers & Math',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python's number system is like a calculator that never
 runs out of digits. A normal calculator overflows when
@@ -219,7 +219,7 @@ print(f"{255:#b}")           # 0b11111111 (binary)
 ❌ Never compare floats with == — use math.isclose()
 ❌ Don't use float for money — use Decimal
 ❌ -7 // 2 == -4 (not -3) — floor rounds toward negative infinity
-''',
+""",
   quiz: [
     Quiz(question: 'What is the result of 7 / 2 in Python 3?', options: [
       QuizOption(text: '3.5 (true division always returns float)', correct: true),

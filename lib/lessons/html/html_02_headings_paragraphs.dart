@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson02 = Lesson(
   language: 'HTML',
   title: 'Headings, Paragraphs, and Text',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Headings are like the table of contents in a spectacular
 coffee-table book. h1 is the title on the cover — bold,
@@ -175,7 +175,7 @@ TEXT ELEMENTS:
 ✅ <blockquote> is for long quotes; <q> for inline quotes
 ❌ Don't use headings to make text bigger — use CSS font-size
 ❌ Don't use <br> to create spacing between paragraphs — use CSS margin
-''',
+""",
   quiz: [
     Quiz(question: 'How many <h1> elements should a page typically have?', options: [
       QuizOption(text: 'One — it represents the main topic of the entire page', correct: true),

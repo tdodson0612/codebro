@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson11 = Lesson(
   language: 'C++',
   title: 'Strings',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A C-string (char array) is like beads on a string — you
 manage each bead yourself, and you need a special knot at
@@ -98,7 +98,7 @@ int main() {
 ✅ std::stoi(), std::stod() convert strings to numbers
 ❌ Don't use C-style string functions (strcpy, strlen) — use std::string
 ❌ s.find() returns size_t — it can never be negative, check against npos
-''',
+""",
   quiz: [
     Quiz(question: 'What does std::string::npos represent?', options: [
       QuizOption(text: 'A special value meaning "not found" returned by find()', correct: true),

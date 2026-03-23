@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson29 = Lesson(
   language: 'C++',
   title: 'Move Semantics and Rvalue References',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Imagine moving out of an apartment.
 Copying is like hiring movers to DUPLICATE every piece of
@@ -126,7 +126,7 @@ If you define ANY of these, define ALL five:
 ✅ The compiler often applies RVO (Return Value Optimization) automatically
 ❌ Don't use an object after std::move() — it is in an unspecified state
 ❌ Don't move const objects — the move degrades to a copy
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between a copy constructor and a move constructor?', options: [
       QuizOption(text: 'Copy allocates new memory; move steals the source object\'s resources', correct: true),

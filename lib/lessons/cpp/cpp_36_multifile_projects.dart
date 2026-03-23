@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson36 = Lesson(
   language: 'C++',
   title: 'Multi-File Projects and Headers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A multi-file project is like a team building a skyscraper.
 One crew does the foundation (.cpp file with implementation),
@@ -124,7 +124,7 @@ INCLUDE: "" vs <>:
 ✅ Compile all .cpp files together in one g++ command
 ❌ Never #include a .cpp file — only include .h files
 ❌ Never define variables in headers (except inline/constexpr) — causes multiple definition errors
-''',
+""",
   quiz: [
     Quiz(question: 'What is the purpose of a header file (.h)?', options: [
       QuizOption(text: 'To declare interfaces so other files know what exists and how to use it', correct: true),

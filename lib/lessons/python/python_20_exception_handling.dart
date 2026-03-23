@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson20 = Lesson(
   language: 'Python',
   title: 'Exception Handling',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Exception handling is like an airbag system in a car.
 You don't expect to crash, but you build in the protection
@@ -254,7 +254,7 @@ with suppress(FileNotFoundError):
 ❌ Never use bare "except:" — it catches SystemExit and KeyboardInterrupt too
 ❌ Don't use exceptions for normal flow control — only for errors
 ❌ Don't silently swallow exceptions: "except: pass" hides bugs
-''',
+""",
   quiz: [
     Quiz(question: 'When does the "else" block in try/except/else/finally run?', options: [
       QuizOption(text: 'When an exception WAS raised and caught', correct: false),

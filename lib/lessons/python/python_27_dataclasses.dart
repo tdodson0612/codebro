@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson27 = Lesson(
   language: 'Python',
   title: 'Dataclasses',
-  content: '''
+  content: """
 🎯 METAPHOR:
 @dataclass is like a form auto-filler for your class.
 Without it, you write the same boilerplate over and over:
@@ -254,7 +254,7 @@ print(f"FastPoint uses __slots__ = {hasattr(fp, '__slots__')}")
 ❌ Don't use mutable defaults like tags: list = [] — use field(default_factory=list)
 ❌ Fields with defaults must come after fields without defaults
 ❌ @dataclass(frozen=True) objects cannot be modified after creation
-''',
+""",
   quiz: [
     Quiz(question: 'Why must mutable defaults use field(default_factory=list) instead of []?', options: [
       QuizOption(text: 'field() is required syntax — [] would be a SyntaxError', correct: false),

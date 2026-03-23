@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson21 = Lesson(
   language: 'C',
   title: 'Variable Scope and Lifetime',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Scope is like the walls of a room. Variables only exist
 inside the room they are born in. A local variable is a
@@ -65,7 +65,7 @@ int main() {
     shadowing();
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'What is the scope of a variable declared inside a function?', options: [
       QuizOption(text: 'Local — only visible within that function', correct: true),

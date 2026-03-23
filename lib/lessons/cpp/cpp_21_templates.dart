@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson21 = Lesson(
   language: 'C++',
   title: 'Templates',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A template is like a cookie cutter.
 The cutter defines the SHAPE. You can use it with chocolate
@@ -119,7 +119,7 @@ here. typename is preferred in modern C++ for clarity.
 ✅ Template specialization lets you override behavior for specific types
 ❌ Template errors are notoriously verbose — read them carefully
 ❌ Don't put template definitions in .cpp files — linker won't find them
-''',
+""",
   quiz: [
     Quiz(question: 'When does the compiler generate template code?', options: [
       QuizOption(text: 'At compile time, for each type used with the template', correct: true),

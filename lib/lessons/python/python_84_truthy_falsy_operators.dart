@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson84 = Lesson(
   language: 'Python',
   title: 'Truthiness, Operators & Comparisons Deep Dive',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python's truthiness system is like a universal lie detector
 that reads ANY object, not just booleans.
@@ -313,7 +313,7 @@ print(results)   # ['123', '456']
 ❌ "value or default" fails when value is 0, False, "" — use "if value is not None"
 ❌ Chaining is/is not for value comparison — use == for values
 ❌ Using == to compare with None (PEP 8 says use "is")
-''',
+""",
   quiz: [
     Quiz(question: 'What does "name = user_input or \'Anonymous\'" do?', options: [
       QuizOption(text: 'Always assigns "Anonymous"', correct: false),

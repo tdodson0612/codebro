@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson18 = Lesson(
   language: 'HTML',
   title: 'Reading the HTML Documentation',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Learning HTML from tutorials is like learning to cook
 from YouTube videos — you pick up recipes and techniques.
@@ -254,7 +254,7 @@ READING BROWSER COMPATIBILITY:
 ✅ The WHATWG spec is authoritative but dense — use MDN first
 ❌ Don't guess — if you're unsure about an element, look it up in 30 seconds
 ❌ Don't rely solely on tutorials — they can be outdated or incomplete
-''',
+""",
   quiz: [
     Quiz(question: 'What is the best starting resource when learning about an HTML element you haven\'t used before?', options: [
       QuizOption(text: 'MDN Web Docs — it has descriptions, attributes, examples, and browser support in one place', correct: true),

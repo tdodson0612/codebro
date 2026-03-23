@@ -131,7 +131,7 @@ public class StreamsAPI {
             .filter(e -> e.dept().equals("Engineering"))
             .filter(e -> e.salary() > 90_000)
             .sorted(Comparator.comparingDouble(Employee::salary).reversed())
-            .map(e -> String.format("  %-10s $%,.0f (%dy)", e.name(), e.salary(), e.years()))
+            .map(e -> String.format("  %-10s\$%,.0f (%dy)", e.name(), e.salary(), e.years()))
             .forEach(System.out::println);
 
         // ─── MAP / TRANSFORM ──────────────────────────────
@@ -147,7 +147,7 @@ public class StreamsAPI {
         OptionalDouble avgSalary = employees.stream()
             .mapToDouble(Employee::salary)
             .average();
-        System.out.printf("  Avg salary: $%,.0f%n", avgSalary.orElse(0));
+        System.out.printf("  Avg salary:\$%,.0f%n", avgSalary.orElse(0));
 
         // ─── COLLECTORS ───────────────────────────────────
         System.out.println("\n=== Collectors ===");
@@ -173,7 +173,7 @@ public class StreamsAPI {
                      Collectors.averagingDouble(Employee::salary)));
         System.out.println("  Avg salary by dept:");
         new TreeMap<>(avgByDept).forEach((dept, avg) ->
-            System.out.printf("    %-15s $%,.0f%n", dept, avg));
+            System.out.printf("    %-15s\$%,.0f%n", dept, avg));
 
         // partitioningBy
         Map<Boolean, List<String>> seniorJunior = employees.stream()
@@ -187,19 +187,19 @@ public class StreamsAPI {
         // toMap
         Map<String, Double> salaryMap = employees.stream()
             .collect(Collectors.toMap(Employee::name, Employee::salary));
-        System.out.printf("  Alice's salary: $%,.0f%n", salaryMap.get("Alice"));
+        System.out.printf("  Alice's salary:\$%,.0f%n", salaryMap.get("Alice"));
 
         // ─── REDUCE ───────────────────────────────────────
         System.out.println("\n=== Reduce ===");
         double totalPayroll = employees.stream()
             .mapToDouble(Employee::salary)
             .reduce(0, Double::sum);
-        System.out.printf("  Total payroll: $%,.0f%n", totalPayroll);
+        System.out.printf("  Total payroll:\$%,.0f%n", totalPayroll);
 
         Optional<Employee> highest = employees.stream()
             .reduce((a, b) -> a.salary() > b.salary() ? a : b);
         highest.ifPresent(e ->
-            System.out.printf("  Highest paid: %s ($%,.0f)%n", e.name(), e.salary()));
+            System.out.printf("  Highest paid: %s (\$%,.0f)%n", e.name(), e.salary()));
 
         // ─── STATISTICS ───────────────────────────────────
         System.out.println("\n=== Summary Statistics ===");
@@ -209,7 +209,7 @@ public class StreamsAPI {
 
         DoubleSummaryStatistics salaryStats = employees.stream()
             .collect(Collectors.summarizingDouble(Employee::salary));
-        System.out.printf("  Salary — min: $%,.0f  max: $%,.0f  avg: $%,.0f%n",
+        System.out.printf("  Salary — min:\$%,.0f  max:\$%,.0f  avg:\$%,.0f%n",
             salaryStats.getMin(), salaryStats.getMax(), salaryStats.getAverage());
 
         // ─── FLAT MAP ─────────────────────────────────────
@@ -258,7 +258,7 @@ public class StreamsAPI {
         System.out.println("\n=== Matching & Finding ===");
         boolean hasHighEarner = employees.stream()
             .anyMatch(e -> e.salary() > 115_000);
-        System.out.println("  Any earner > $115k: " + hasHighEarner);
+        System.out.println("  Any earner >\$115k: " + hasHighEarner);
 
         boolean allHaveExp = employees.stream()
             .allMatch(e -> e.years() >= 1);

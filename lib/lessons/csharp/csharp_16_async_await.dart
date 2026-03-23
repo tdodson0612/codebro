@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson16 = Lesson(
   language: 'C#',
   title: 'Async and Await',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Synchronous code is like a restaurant with one waiter.
 The waiter takes order 1, goes to the kitchen, stands there
@@ -171,7 +171,7 @@ ASYNC RULES:
 ✅ Exception handling with try/catch works normally inside async methods
 ❌ Don't use async void except for event handlers — exceptions are uncatchable
 ❌ .Result and .Wait() on tasks can cause deadlocks in UI/ASP.NET contexts
-''',
+""",
   quiz: [
     Quiz(question: 'What does "await" do when it encounters an async operation?', options: [
       QuizOption(text: 'Suspends the current method and releases the thread until the operation completes', correct: true),

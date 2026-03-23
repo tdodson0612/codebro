@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson11 = Lesson(
   language: 'HTML',
   title: 'Forms: Advanced Input Types and Validation',
-  content: '''
+  content: """
 🎯 METAPHOR:
 HTML5 input types are like specialized tools in a toolbox.
 Before HTML5, web developers had one tool: type="text".
@@ -220,7 +220,7 @@ CONSTRAINT VALIDATION API:
 ✅ form="id" lets inputs outside the <form> element belong to it
 ❌ Don't use type="text" for emails and URLs — use type="email" and type="url"
 ❌ The title attribute on an input is shown as the validation tooltip
-''',
+""",
   quiz: [
     Quiz(question: 'What does capture="environment" on a file input do?', options: [
       QuizOption(text: 'Opens the device\'s rear camera on mobile for photo capture', correct: true),

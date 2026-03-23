@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson53 = Lesson(
   language: 'C++',
   title: 'Unions, volatile, and mutable',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A union is like a parking spot that can hold a car, a
 motorcycle, or a bicycle — but only ONE at a time. All
@@ -161,7 +161,7 @@ int main() {
 ❌ Reading the "wrong" union member is undefined behavior
 ❌ volatile is NOT a replacement for std::atomic in multithreaded code
 ❌ Don't overuse mutable — it undermines const correctness if abused
-''',
+""",
   quiz: [
     Quiz(question: 'What is the size of a union?', options: [
       QuizOption(text: 'The size of its largest member', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson49 = Lesson(
   language: 'C++',
   title: 'Type Aliases: using and typedef',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A type alias is like a nickname for a mouthful of a name.
 std::vector<std::pair<std::string, int>> is like saying
@@ -138,7 +138,7 @@ int main() {
 ✅ using is also used for namespace imports and base class member visibility
 ❌ Don't create aliases just to avoid typing — aliases should add meaning
 ❌ typedef for function pointers is notoriously hard to read — use using
-''',
+""",
   quiz: [
     Quiz(question: 'What can "using" do that "typedef" cannot?', options: [
       QuizOption(text: 'Create template aliases', correct: true),

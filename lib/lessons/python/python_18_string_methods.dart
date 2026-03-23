@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson18 = Lesson(
   language: 'Python',
   title: 'String Methods & Advanced Formatting',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python strings come with a built-in Swiss Army knife.
 The knife is always there, attached to the string —
@@ -220,7 +220,7 @@ print(t.substitute(name="Alice", score=92))
 ❌ str.split() with no arg splits on ANY whitespace and ignores empties
 ❌ "hello"[0] = "H" — illegal, strings are immutable
 ❌ find() returns -1 on failure; index() raises ValueError
-''',
+""",
   quiz: [
     Quiz(question: 'What does "a,b,c".split(",") return?', options: [
       QuizOption(text: "['a', 'b', 'c']", correct: true),

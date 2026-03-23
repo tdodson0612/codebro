@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson26 = Lesson(
   language: 'CSS',
   title: 'CSS Architecture and Best Practices',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS without architecture is like a city that grew without
 a plan — roads that don't connect, buildings that block
@@ -207,7 +207,7 @@ styles/
 ❌ Don't use IDs (#id) for styling — they cause specificity problems
 ❌ Don't nest selectors more than 3 levels deep
 ❌ Avoid !important except in utility classes where it's intentional
-''',
+""",
   quiz: [
     Quiz(question: 'In BEM naming, what does double underscore (__) indicate?', options: [
       QuizOption(text: 'An element — a child part of a block (.card__title)', correct: true),

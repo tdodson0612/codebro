@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson16 = Lesson(
   language: 'C',
   title: 'while and do-while Loops',
-  content: '''
+  content: """
 🎯 METAPHOR:
 while is like a security guard checking a condition
 before letting anyone in. If false already, nobody enters.
@@ -57,7 +57,7 @@ int main() {
 for      → know the count ahead of time
 while    → loop until a condition changes
 do-while → need to run at least once (menus, validation)
-''',
+""",
   quiz: [
     Quiz(question: 'Key difference between while and do-while?', options: [
       QuizOption(text: 'do-while always executes the body at least once', correct: true),

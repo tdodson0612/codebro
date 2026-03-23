@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson30 = Lesson(
   language: 'C++',
   title: 'RAII: Resource Acquisition Is Initialization',
-  content: '''
+  content: """
 🎯 METAPHOR:
 RAII is like a hotel key card system.
 When you check in (constructor), you get the key — access
@@ -142,7 +142,7 @@ jthread (C++20)           → threads
 ✅ The standard library is built on RAII throughout
 ❌ Don't manage resources manually when a RAII wrapper exists
 ❌ RAII fails if you catch exceptions and re-use a "moved-from" object
-''',
+""",
   quiz: [
     Quiz(question: 'What is the core idea of RAII?', options: [
       QuizOption(text: 'Tie resource lifetime to object lifetime — acquire in constructor, release in destructor', correct: true),

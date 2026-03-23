@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson61 = Lesson(
   language: 'Python',
   title: 'args, kwargs & Parameter Deep Dive',
-  content: '''
+  content: """
 🎯 METAPHOR:
 *args is like a carry-on bag that expands to fit any
 number of items. You don't know in advance how many
@@ -233,7 +233,7 @@ typed_log("INFO", "Server up", "Ready", host="localhost", port=8080)
 ❌ Can't have *args before regular params with defaults
 ❌ **kwargs must always be the very last parameter
 ❌ Bare * (without args) just separates positional from keyword-only
-''',
+""",
   quiz: [
     Quiz(question: 'What type does *args collect arguments into?', options: [
       QuizOption(text: 'A list', correct: false),

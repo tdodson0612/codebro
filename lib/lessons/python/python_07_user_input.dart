@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson07 = Lesson(
   language: 'Python',
   title: 'User Input & Type Conversion',
-  content: '''
+  content: """
 🎯 METAPHOR:
 input() is like a drive-through window.
 You call out your order (your prompt), the customer
@@ -165,7 +165,7 @@ print(int("077", 8))     # 63  — octal string to int
 ❌ Never assume input is the right type — always validate
 ❌ bool("False") is True! ("False" is a non-empty string)
 ❌ int() cannot parse "3.14" directly — use float() first then int()
-''',
+""",
   quiz: [
     Quiz(question: 'What does input() always return?', options: [
       QuizOption(text: 'A string, regardless of what the user types', correct: true),

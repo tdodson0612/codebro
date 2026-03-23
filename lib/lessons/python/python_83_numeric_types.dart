@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson83 = Lesson(
   language: 'Python',
   title: 'Numeric Types: Decimal, Fraction & Complex',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python's numeric tower has three floors above plain floats.
 The ground floor (float) uses IEEE 754 binary floating point —
@@ -112,9 +112,9 @@ subtotal = price * quantity
 tax = (subtotal * tax_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 total = subtotal + tax
 
-print(f"Subtotal: ${subtotal}")    # $59.97
-print(f"Tax:      ${tax}")         # $5.25
-print(f"Total:    ${total}")       # $65.22
+print(f"Subtotal:\${subtotal}")    #\$59.97
+print(f"Tax:     \${tax}")         #\$5.25
+print(f"Total:   \${total}")       #\$65.22
 
 # Rounding modes
 d = Decimal("2.5")
@@ -285,7 +285,7 @@ AVOID:
 ❌ Never do Decimal(0.1) — pass as a string: Decimal("0.1")
 ❌ Never use float for currency calculations — use Decimal
 ❌ Decimal and float don't mix without explicit conversion (TypeError)
-''',
+""",
   quiz: [
     Quiz(question: 'Why is Decimal("0.1") preferred over Decimal(0.1)?', options: [
       QuizOption(text: 'Decimal() cannot accept float arguments', correct: false),

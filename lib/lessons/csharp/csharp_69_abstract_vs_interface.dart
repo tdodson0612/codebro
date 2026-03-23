@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson69 = Lesson(
   language: 'C#',
   title: 'Abstract Classes vs Interfaces: Design Patterns',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An abstract class is like an employment contract template.
 It says: "All employees MUST have an employee ID (abstract).
@@ -218,7 +218,7 @@ class Program
 ✅ Classes can implement many interfaces but inherit only one abstract class
 ❌ Don't use abstract classes as a workaround for multiple inheritance
 ❌ Don't put business logic in interfaces — use abstract classes or extension methods
-''',
+""",
   quiz: [
     Quiz(question: 'When should you choose an abstract class over an interface?', options: [
       QuizOption(text: 'When you need to share implementation code and state among closely related types', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson26 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Beautiful Data Tables',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A raw HTML table is like a spreadsheet printed directly
 from Excel with zero formatting. The data is all there,
@@ -412,7 +412,7 @@ TECHNIQUES COVERED:
 ✅ caption with .sr-only class provides accessible table title
 ❌ Don't rely on fixed px column widths — use percentages via col elements
 ❌ Decorative thumbnail images inside td should have empty alt=""
-''',
+""",
   quiz: [
     Quiz(question: 'What does font-variant-numeric: tabular-nums do in a data table?', options: [
       QuizOption(text: 'Makes all digits equal width so numbers align perfectly in columns', correct: true),

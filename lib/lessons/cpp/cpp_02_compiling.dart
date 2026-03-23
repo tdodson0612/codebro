@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson02 = Lesson(
   language: 'C++',
   title: 'Compiling C++',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Your C++ source code is like an architect's blueprint.
 The compiler is the construction crew — they read the
@@ -71,7 +71,7 @@ Always compile with at least -std=c++17 for modern C++.
 ✅ -Wall catches many common mistakes before runtime
 ❌ Don't use gcc for C++ — it won't link C++ libraries
 ❌ Don't ignore compiler warnings — treat them as errors
-''',
+""",
   quiz: [
     Quiz(question: 'What file extension do C++ source files use?', options: [
       QuizOption(text: '.cpp', correct: true),

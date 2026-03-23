@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson15 = Lesson(
   language: 'CSS',
   title: 'Units: px, rem, em, vw, vh, %, fr, and More',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS units are like measuring systems — and choosing the wrong
 one for the job is like measuring a room in miles or a
@@ -161,7 +161,7 @@ h1 {
 ✅ max-width: 65ch for readable text columns
 ❌ Don't use px for font-size on body text — breaks accessibility zoom
 ❌ Beware em compounding — nested em values multiply and get out of hand
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between rem and em?', options: [
       QuizOption(text: 'rem is relative to the root element font-size; em is relative to the parent element font-size', correct: true),

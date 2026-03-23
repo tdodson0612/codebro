@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson54 = Lesson(
   language: 'C++',
   title: 'Nested Classes, Scope, and Lifetime',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A nested class is like a department within a company.
 The Payroll department only makes sense inside the company —
@@ -166,7 +166,7 @@ int main() {
 ✅ Block scope {} is a useful tool to control lifetime and reduce error-prone state
 ❌ Shadowing outer variables is legal but confusing — avoid it
 ❌ Don't confuse static local (persists in function) with static member (belongs to class)
-''',
+""",
   quiz: [
     Quiz(question: 'What is a nested class in C++?', options: [
       QuizOption(text: 'A class defined inside another class, scoped to the outer class', correct: true),

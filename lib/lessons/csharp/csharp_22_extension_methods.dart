@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson22 = Lesson(
   language: 'C#',
   title: 'Extension Methods',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An extension method is like a universal adapter plug.
 You can't rewire a hotel's wall socket — it is built in.
@@ -177,7 +177,7 @@ class Program
 ❌ Extension methods cannot access private members
 ❌ If a real method with the same name exists, it takes priority
 ❌ Don't use extension methods to work around bad design — fix the design
-''',
+""",
   quiz: [
     Quiz(question: 'What is required for a method to be an extension method?', options: [
       QuizOption(text: 'It must be in a static class and its first parameter must have the "this" keyword', correct: true),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson58 = Lesson(
   language: 'Python',
   title: 'Security Best Practices in Python',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Security is like building locks for a bank vault, not a diary.
 Most developers build diary locks: technically a lock, but any
@@ -319,7 +319,7 @@ print(f"Tampered:  {verify_message(msg + '&admin=true', sig, key)}")
 ❌ MD5/SHA1/SHA256 for passwords — they're too fast for secure hashing
 ❌ pickle.loads() on untrusted data — arbitrary code execution
 ❌ yaml.load() — use yaml.safe_load() always
-''',
+""",
   quiz: [
     Quiz(question: 'Why should you use secrets.compare_digest() instead of == for token comparison?', options: [
       QuizOption(text: 'compare_digest is faster than ==', correct: false),

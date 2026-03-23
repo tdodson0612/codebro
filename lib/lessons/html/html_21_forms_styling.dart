@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson21 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Styling Your First Form',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A raw HTML form is like a government tax form — functional,
 complete, but utterly joyless. Every field is the same
@@ -332,7 +332,7 @@ COLOR SYSTEM:
 ✅ :not(:placeholder-shown):valid/:invalid for post-interaction validation styles
 ❌ Never rely on CSS-only validation to actually secure your form — use server validation
 ❌ Floating label placeholder must be a space " " not empty — required for the CSS trick
-''',
+""",
   quiz: [
     Quiz(question: 'Why must the placeholder attribute be a space (" ") for the floating label CSS trick?', options: [
       QuizOption(text: ':not(:placeholder-shown) only triggers when there is a placeholder — a space satisfies this', correct: true),

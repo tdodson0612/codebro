@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson35 = Lesson(
   language: 'Python',
   title: 'Enums',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An enum is like a traffic light.
 A traffic light has exactly THREE states: RED, YELLOW, GREEN.
@@ -250,7 +250,7 @@ handle_response(999)
 ❌ Enum values are not ordered by default — use IntEnum for sorting
 ❌ Don't compare regular Enum members with == to raw values (use IntEnum/StrEnum)
 ❌ Avoid using 0 as a Flag value — it represents "no flags set"
-''',
+""",
   quiz: [
     Quiz(question: 'What does auto() do in an Enum definition?', options: [
       QuizOption(text: 'Automatically generates names for unnamed members', correct: false),

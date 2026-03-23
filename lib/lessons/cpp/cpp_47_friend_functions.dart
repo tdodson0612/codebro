@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson47 = Lesson(
   language: 'C++',
   title: 'Friend Functions and Classes',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A friend function is like a trusted locksmith.
 Normally your house (class) has locks (private members)
@@ -141,7 +141,7 @@ int main() {
 ❌ Friendship is not inherited — a derived class is NOT automatically a friend
 ❌ Friendship is not transitive — friend of a friend is NOT a friend
 ❌ Don't use friend as a shortcut to avoid good design
-''',
+""",
   quiz: [
     Quiz(question: 'Where is a friend declaration written?', options: [
       QuizOption(text: 'Inside the class that is granting access to its private members', correct: true),

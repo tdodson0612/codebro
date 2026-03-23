@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson47 = Lesson(
   language: 'Python',
   title: 'Design Patterns in Python',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Design patterns are like proven architectural blueprints.
 When an architect needs to design a hotel lobby, they don't
@@ -316,7 +316,7 @@ print(db.query("SELECT * FROM users"))  # NOW it connects
 ❌ Don't apply patterns where they're not needed — simpler is better
 ❌ Singleton makes testing hard — consider dependency injection instead
 ❌ Many GoF patterns are unnecessary in Python due to duck typing and first-class functions
-''',
+""",
   quiz: [
     Quiz(question: 'What problem does the Observer pattern solve?', options: [
       QuizOption(text: 'Creating objects without specifying their exact class', correct: false),

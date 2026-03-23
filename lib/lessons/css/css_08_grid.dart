@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson08 = Lesson(
   language: 'CSS',
   title: 'CSS Grid',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS Grid is like graph paper for your webpage.
 You draw the grid lines first — "I want 3 columns and 4 rows"
@@ -147,7 +147,7 @@ SPECIAL VALUES:
 ✅ place-items: center is the easiest way to center in a grid cell
 ❌ Grid is 2D (rows AND columns); flexbox is 1D — use the right tool
 ❌ Grid lines are numbered starting at 1 (not 0) and can be negative from the end
-''',
+""",
   quiz: [
     Quiz(question: 'What does "1fr" mean in grid-template-columns?', options: [
       QuizOption(text: 'One fractional unit — a proportional share of available space', correct: true),

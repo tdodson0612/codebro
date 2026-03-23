@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson12 = Lesson(
   language: 'C#',
   title: 'LINQ: Language Integrated Query',
-  content: '''
+  content: """
 🎯 METAPHOR:
 LINQ is like a high-powered blender for your data.
 Before LINQ: you write loops, nested loops, if statements,
@@ -140,7 +140,7 @@ class Program
 ✅ ToDictionary is great for creating fast-lookup maps from collections
 ❌ Calling Count() on LINQ queries re-executes the query — cache with ToList first
 ❌ Don't use Single() unless exactly one result is expected — it throws otherwise
-''',
+""",
   quiz: [
     Quiz(question: 'What does "lazy evaluation" mean in LINQ?', options: [
       QuizOption(text: 'The query is not executed until you iterate the result or call ToList/ToArray', correct: true),

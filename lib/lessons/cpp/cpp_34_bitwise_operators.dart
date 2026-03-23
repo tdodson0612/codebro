@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson34 = Lesson(
   language: 'C++',
   title: 'Bitwise Operators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Bitwise operators work directly on the binary switches inside
 a number — like flipping light switches in a panel.
@@ -111,7 +111,7 @@ int main() {
 ❌ Don't confuse & (bitwise AND) with && (logical AND)
 ❌ Don't confuse | (bitwise OR) with || (logical OR)
 ❌ Shifting by the bit width of the type is undefined behavior
-''',
+""",
   quiz: [
     Quiz(question: 'What does the bitwise AND operator (&) do?', options: [
       QuizOption(text: 'Returns 1 for each bit position where BOTH operands have a 1', correct: true),

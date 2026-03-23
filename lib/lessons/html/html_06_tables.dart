@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson06 = Lesson(
   language: 'HTML',
   title: 'Tables',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An HTML table is like a spreadsheet embedded in a document.
 It has rows, columns, and cells — each cell sits at the
@@ -205,7 +205,7 @@ TABLE ATTRIBUTES (legacy but valid):
 ✅ <colgroup> + <col> applies CSS to entire columns efficiently
 ❌ NEVER use tables for page layout — that is what CSS Grid/Flexbox is for
 ❌ Don't skip <thead> — it allows the browser to repeat headers when printing
-''',
+""",
   quiz: [
     Quiz(question: 'What is scope="col" used for on a <th> element?', options: [
       QuizOption(text: 'Tells screen readers this header applies to the column below it', correct: true),

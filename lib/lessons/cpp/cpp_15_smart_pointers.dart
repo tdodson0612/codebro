@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson15 = Lesson(
   language: 'C++',
   title: 'Smart Pointers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A raw pointer is like borrowing a library book with no
 return date and no reminders. You might forget to return it.
@@ -103,7 +103,7 @@ Why:   make_unique is exception-safe and more efficient
 ❌ Don't mix raw pointers and smart pointers managing the same object
 ❌ Don't call delete on the raw pointer inside a smart pointer
 ❌ shared_ptr cycles (A owns B, B owns A) cause leaks — use weak_ptr
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main advantage of smart pointers over raw pointers?', options: [
       QuizOption(text: 'They automatically free memory when no longer needed', correct: true),

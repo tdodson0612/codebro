@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson37 = Lesson(
   language: 'Python',
   title: 'Dunder Methods (Magic Methods)',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Dunder methods are like a universal remote control protocol.
 Every TV brand (your custom class) supports the SAME button
@@ -275,7 +275,7 @@ for k, v in fd.items():
 ❌ Don't define __del__ unless you truly need resource cleanup — Python's GC handles memory
 ❌ __getattribute__ intercepts ALL attribute access — be very careful or you'll loop
 ❌ Never mutate self in __hash__ — hash must be stable for dict/set keys
-''',
+""",
   quiz: [
     Quiz(question: 'If you define __eq__ in a class, what else must you define?', options: [
       QuizOption(text: '__ne__ — to make inequality work', correct: false),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson40 = Lesson(
   language: 'CSS',
   title: '@scope, CSS Anchoring, and What\'s Next in CSS',
-  content: '''
+  content: """
 🎯 METAPHOR:
 @scope is like a privacy fence for CSS rules.
 Instead of complex .component .child .element selectors
@@ -251,7 +251,7 @@ WHAT ELSE IS COMING:
 ✅ CSS nesting is fully supported in all modern browsers
 ❌ @scope and anchor positioning are newer — check browser support before using
 ❌ View transitions require JavaScript to trigger (document.startViewTransition)
-''',
+""",
   quiz: [
     Quiz(question: 'What does "donut scope" mean in @scope?', options: [
       QuizOption(text: 'Rules apply inside the upper boundary but NOT inside the lower boundary', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson12 = Lesson(
   language: 'CSS',
   title: 'Transitions and Animations',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS transitions are like dimmer switches.
 Without them, a light either snaps ON or OFF instantly.
@@ -163,7 +163,7 @@ TIMING FUNCTIONS:
 ✅ Use prefers-reduced-motion media query to disable animations for accessibility
 ❌ Animating width, height, top, left causes layout reflow — causes jank
 ❌ Don't use transition: all — it's wasteful and animates things you don't expect
-''',
+""",
   quiz: [
     Quiz(question: 'Which CSS properties should you animate for best performance?', options: [
       QuizOption(text: 'transform and opacity — they are GPU-accelerated', correct: true),

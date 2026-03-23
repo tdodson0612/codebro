@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson37 = Lesson(
   language: 'C++',
   title: 'STL: Other Containers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The STL container library is like a hardware store's
 fastener section. You could use one giant box of mixed
@@ -120,7 +120,7 @@ int main() {
 ✅ Use structured bindings (C++17) to unpack pairs and tuples cleanly
 ❌ Don't use list when you just need a vector — cache performance is worse
 ❌ list has no operator[] — must iterate to reach an element
-''',
+""",
   quiz: [
     Quiz(question: 'What order does std::stack process elements?', options: [
       QuizOption(text: 'LIFO — last in, first out', correct: true),

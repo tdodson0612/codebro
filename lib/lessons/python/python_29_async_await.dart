@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson29 = Lesson(
   language: 'Python',
   title: 'Async / Await & Concurrency',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Async/await is like a single chef managing multiple orders.
 A synchronous chef cooks one dish start to finish before
@@ -228,7 +228,7 @@ asyncio.run(run_sync_in_async())
 ❌ asyncio doesn't give you parallelism — still single-threaded
 ❌ Never call regular blocking code (time.sleep, requests.get) in async — use run_in_executor
 ❌ Can't use await outside of async def — you'll get SyntaxError
-''',
+""",
   quiz: [
     Quiz(question: 'What is asyncio best suited for?', options: [
       QuizOption(text: 'CPU-intensive calculations like image processing', correct: false),

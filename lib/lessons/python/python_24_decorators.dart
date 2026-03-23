@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson24 = Lesson(
   language: 'Python',
   title: 'Decorators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A decorator is like a gift-wrapping service.
 You bring in your present (a function). The gift wrapper
@@ -270,7 +270,7 @@ print(c.area)   # (no print) — returns cached value
 ❌ Forgetting @wraps breaks __name__, __doc__, and other function metadata
 ❌ Decorating functions with side effects and caching them can cause bugs
 ❌ Don't use decorators that change function signatures unless necessary
-''',
+""",
   quiz: [
     Quiz(question: 'Why should you use @functools.wraps(func) in your decorator?', options: [
       QuizOption(text: 'It makes the decorator run faster', correct: false),

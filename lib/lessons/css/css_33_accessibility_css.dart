@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson33 = Lesson(
   language: 'CSS',
   title: 'Accessibility in CSS',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Accessible CSS is like designing a building with everyone
 in mind from the start. Ramps, wide corridors, and tactile
@@ -245,7 +245,7 @@ html {
 ✅ Test with Windows High Contrast Mode — forced-colors media query helps
 ❌ Removing focus styles is the most common accessibility mistake in CSS
 ❌ Don't use color alone to convey meaning — color-blind users won't see it
-''',
+""",
   quiz: [
     Quiz(question: 'What should you do when prefers-reduced-motion: reduce is active?', options: [
       QuizOption(text: 'Disable or significantly reduce animations and transitions', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson48 = Lesson(
   language: 'C++',
   title: 'Multiple Inheritance and the Diamond Problem',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Multiple inheritance is like a child born to two parents —
 they inherit traits from both. That's usually fine.
@@ -183,7 +183,7 @@ Bat() must call AnimalV() directly in its initializer list.
 ❌ Don't use multiple inheritance with data-bearing base classes if avoidable
 ❌ Virtual inheritance has a small runtime overhead (extra pointer per virtual base)
 ❌ Deep diamond hierarchies are a design smell — consider composition instead
-''',
+""",
   quiz: [
     Quiz(question: 'What is the Diamond Problem in C++?', options: [
       QuizOption(text: 'Ambiguity from inheriting the same base class twice through two different paths', correct: true),

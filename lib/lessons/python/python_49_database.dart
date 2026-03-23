@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson49 = Lesson(
   language: 'Python',
   title: 'Databases & SQL with Python',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A database connection is like a checkout counter at a store.
 The store (database) has all the products (data). The checkout
@@ -307,7 +307,7 @@ conn.close()
 ❌ NEVER concatenate user input into SQL strings — SQL injection!
 ❌ Don't leave connections open — use context managers or close() explicitly
 ❌ SQLite is not for high-concurrency production — use PostgreSQL/MySQL there
-''',
+""",
   quiz: [
     Quiz(question: 'Why must you use parameterized queries (?) instead of string formatting in SQL?', options: [
       QuizOption(text: 'Parameterized queries are faster', correct: false),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson82 = Lesson(
   language: 'Python',
   title: 'namedtuple, OrderedDict & ChainMap',
-  content: '''
+  content: """
 🎯 METAPHOR:
 namedtuple is like a form with labeled fields.
 A plain tuple is a row of boxes: box[0], box[1], box[2].
@@ -142,7 +142,7 @@ e1 = Employee("Alice", "Engineering", 95000.0, level=3)
 e2 = Employee("Bob", "Marketing", 72000.0)  # level defaults to 1
 
 print(e1)
-print(f"Bonus: ${e1.annual_bonus:,.0f}")
+print(f"Bonus:\${e1.annual_bonus:,.0f}")
 
 promoted = e1.promote(0.15)
 print(f"After promotion: {promoted}")
@@ -151,7 +151,7 @@ print(f"After promotion: {promoted}")
 employees = [e1, e2, Employee("Carol", "Engineering", 98000.0, 4)]
 by_salary = sorted(employees, key=lambda e: e.salary, reverse=True)
 for e in by_salary:
-    print(f"  {e.name:<10} ${e.salary:>10,.0f} (L{e.level})")
+    print(f"  {e.name:<10}\${e.salary:>10,.0f} (L{e.level})")
 
 # Still a tuple — works with CSV, dict, etc.
 print(list(e1))    # ['Alice', 'Engineering', 95000.0, 3]
@@ -284,7 +284,7 @@ print(merged)
 ❌ Don't use old-style namedtuple() when NamedTuple class is cleaner
 ❌ In Python 3.7+, don't use OrderedDict just for insertion-order — regular dict preserves it
 ❌ ChainMap updates don't propagate to parent maps — only the first map changes
-''',
+""",
   quiz: [
     Quiz(question: 'What is the advantage of NamedTuple over a regular tuple?', options: [
       QuizOption(text: 'NamedTuple is faster than regular tuples', correct: false),

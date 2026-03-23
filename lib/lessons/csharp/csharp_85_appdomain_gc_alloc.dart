@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson85 = Lesson(
   language: 'C#',
   title: 'AppDomain, GC Allocation APIs, and Performance',
-  content: '''
+  content: """
 🎯 METAPHOR:
 AppDomain is like a fenced yard inside your property.
 Your process (the land) can have one or more yards (domains).
@@ -188,7 +188,7 @@ class Program
 ❌ Never create new AppDomains in .NET Core — use AssemblyLoadContext instead
 ❌ Don't overuse GC.Collect() — it disrupts the generational GC strategy
 ❌ Pinned arrays fragment the heap — use as little as possible
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between AppDomain in .NET Framework and .NET Core?', options: [
       QuizOption(text: '.NET Core always has exactly one AppDomain per process — use AssemblyLoadContext for isolation', correct: true),

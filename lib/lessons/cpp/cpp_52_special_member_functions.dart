@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson52 = Lesson(
   language: 'C++',
   title: 'Special Member Functions: default and delete',
-  content: '''
+  content: """
 🎯 METAPHOR:
 C++ automatically writes certain functions for your class
 if you don't — like a contractor who finishes unspecified
@@ -156,7 +156,7 @@ Rule of Zero is the goal in modern C++.
 ✅ noexcept on move operations enables STL container optimizations
 ❌ Mixing = default and manual implementations carelessly breaks the Rule of Five
 ❌ Forgetting = delete on copy ops for non-copyable resources is a common bug
-''',
+""",
   quiz: [
     Quiz(question: 'What does "= delete" do to a function?', options: [
       QuizOption(text: 'Prevents the function from being called — any attempt is a compile error', correct: true),

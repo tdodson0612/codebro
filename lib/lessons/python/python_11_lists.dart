@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson11 = Lesson(
   language: 'Python',
   title: 'Lists',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A list is like a shopping cart.
 You can put anything in — apples, milk, a blender —
@@ -236,7 +236,7 @@ print(count)  # Counter({'A': 3, 'B': 2, 'C': 1})
 ❌ Modifying a list while iterating over it causes bugs
 ❌ b = a is NOT a copy — it's an alias to the same list
 ❌ insert(0, x) is slow (O(n)) — use deque for frequent front insertions
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between list.sort() and sorted(list)?', options: [
       QuizOption(text: 'sort() modifies the list in place; sorted() returns a new sorted list', correct: true),

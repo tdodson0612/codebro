@@ -152,7 +152,7 @@ class Vehicle {
 
     @Override
     public String toString() {
-        return String.format("%d %s %s (%s) — $%,.2f",
+        return String.format("%d %s %s (%s) — \$%,.2f",
             year, make, model, color, price);
     }
 }

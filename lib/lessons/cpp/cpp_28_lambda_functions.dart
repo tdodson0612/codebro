@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson28 = Lesson(
   language: 'C++',
   title: 'Lambda Functions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A lambda is like a sticky note with instructions.
 A regular function is like a printed manual — it has a
@@ -123,7 +123,7 @@ int main() {
 ✅ mutable allows modifying captured-by-value variables inside the lambda
 ❌ Don't capture by reference [&] if the lambda outlives the captured variables
 ❌ [=] captures everything — consider capturing only what you need
-''',
+""",
   quiz: [
     Quiz(question: 'What does [&] in a lambda capture clause mean?', options: [
       QuizOption(text: 'Capture all local variables by reference', correct: true),

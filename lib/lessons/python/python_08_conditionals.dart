@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson08 = Lesson(
   language: 'Python',
   title: 'Conditionals: if / elif / else',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An if/elif/else chain is like a bouncer at a nightclub
 with a checklist.
@@ -229,7 +229,7 @@ actions.get(command, lambda: print("Unknown command"))()
 ❌ No switch statement before Python 3.10 — use if/elif or dict
 ❌ Don't nest more than 2-3 levels — extract into functions
 ❌ Don't forget the colon : after if/elif/else
-''',
+""",
   quiz: [
     Quiz(question: 'In an if/elif/else chain, how many branches can run?', options: [
       QuizOption(text: 'All branches that have True conditions', correct: false),

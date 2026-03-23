@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson74 = Lesson(
   language: 'Python',
   title: 'Interview Patterns & Coding Challenges',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python interview questions are like standardized tests —
 they check specific skills in specific ways. Knowing the
@@ -314,7 +314,7 @@ print(transposed)   # [[1,4,7],[2,5,8],[3,6,9]]
 ❌ Don't use sorted() when a O(n) or O(log n) solution exists
 ❌ Don't mutate input arrays unless told you can
 ❌ Don't overlook edge cases: empty list, single element, all same values
-''',
+""",
   quiz: [
     Quiz(question: 'What data structure gives O(1) average-case lookup for the Two Sum problem?', options: [
       QuizOption(text: 'List — using linear search', correct: false),

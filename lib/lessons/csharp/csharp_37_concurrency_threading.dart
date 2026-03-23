@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson37 = Lesson(
   language: 'C#',
   title: 'Concurrency and Threading',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A thread is like a worker in a factory.
 One worker (single-threaded) does every task sequentially.
@@ -206,7 +206,7 @@ class Program
 ❌ Don't use Thread directly — use Task/Task.Run instead
 ❌ Never access shared data from multiple threads without synchronization
 ❌ Don't use Parallel for I/O-bound work — use async/await instead
-''',
+""",
   quiz: [
     Quiz(question: 'What is a race condition?', options: [
       QuizOption(text: 'Two threads accessing and modifying shared data simultaneously, causing unpredictable results', correct: true),

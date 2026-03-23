@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson67 = Lesson(
   language: 'Python',
   title: 'JSON & Data Serialization',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Serialization is like packing a complex piece of furniture
 for shipping. A bookshelf with books, a lamp, and a desk
@@ -95,7 +95,7 @@ print(parsed["name"])     # Alice
 print(type(parsed))       # dict
 
 # JSON type mapping
-json_all = '''
+json_all = """
 {
   "string": "hello",
   "integer": 42,
@@ -106,7 +106,7 @@ json_all = '''
   "array": [1, 2, 3],
   "object": {"nested": "value"}
 }
-'''
+"""
 py = json.loads(json_all)
 for k, v in py.items():
     print(f"  {k:12s}: {type(v).__name__:6s} = {v!r}")
@@ -319,7 +319,7 @@ print(validate_user_json(test))
 ❌ json.loads() parses strings; json.load() parses file objects — easy to mix up
 ❌ Never use json for sensitive secrets in source code — use env vars
 ❌ Avoid pickle for untrusted data — it can execute arbitrary code
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between json.dumps() and json.dump()?', options: [
       QuizOption(text: 'dumps() is faster; dump() is safer', correct: false),

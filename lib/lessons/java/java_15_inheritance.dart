@@ -143,7 +143,7 @@ abstract class Employee {
     }
 
     public void introduce() {
-        System.out.printf("  👤 %s [%s] — Base: $%,.0f | Bonus: $%,.0f | Total: $%,.0f%n",
+        System.out.printf("  👤 %s [%s] — Base: \$%,.0f | Bonus: \$%,.0f | Total: \$%,.0f%n",
             name, id, baseSalary, calculateBonus(), totalCompensation());
     }
 
@@ -255,7 +255,7 @@ public class Inheritance {
         System.out.println("\n--- Upcasting & instanceof ---");
         for (Employee emp : team) {
             if (emp instanceof Manager mgr) {
-                System.out.printf("  Manager %s's team total: $%,.0f%n",
+                System.out.printf("  Manager %s's team total:\$%,.0f%n",
                     mgr.getName(), mgr.totalTeamCompensation());
             } else if (emp instanceof Intern intern) {
                 System.out.printf("  Intern %s from %s — limited bonus%n",
@@ -276,11 +276,11 @@ public class Inheritance {
         double total = 0;
         for (Employee emp : team) {
             total += emp.totalCompensation();
-            System.out.printf("  %-8s %-10s $%,.0f%n",
+            System.out.printf("  %-8s %-10s\$%,.0f%n",
                 emp.getClass().getSimpleName(), emp.getName(), emp.totalCompensation());
         }
         System.out.printf("  %s%n", "─".repeat(35));
-        System.out.printf("  %-18s $%,.0f%n", "TOTAL PAYROLL:", total);
+        System.out.printf("  %-18s\$%,.0f%n", "TOTAL PAYROLL:", total);
     }
 }
 

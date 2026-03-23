@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson31 = Lesson(
   language: 'Python',
   title: 'datetime, time & Dates',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Working with dates is like navigating time zones in a
 submarine with no windows.
@@ -209,7 +209,7 @@ print(f"5 business days from now: {delivery}")
 ❌ Never mix naive and aware datetimes — TypeError
 ❌ Don't use time.time() for performance measurement — use perf_counter()
 ❌ datetime.now() without timezone is LOCAL time — be explicit in production
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between a naive and aware datetime?', options: [
       QuizOption(text: 'Naive is faster; aware includes extra metadata', correct: false),

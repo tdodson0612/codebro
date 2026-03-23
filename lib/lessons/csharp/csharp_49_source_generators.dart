@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson49 = Lesson(
   language: 'C#',
   title: 'Source Generators and the Roslyn Compiler',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Source generators are like a robot assistant that reads
 your blueprints and automatically writes the boring parts.
@@ -157,7 +157,7 @@ EF Core scaffolding        model code generation
 ✅ [LoggerMessage] eliminates boxing and string allocations in hot logging paths
 ❌ You don't need to write source generators as an app developer — just USE them
 ❌ Source generators cannot modify existing code — they only ADD new code
-''',
+""",
   quiz: [
     Quiz(question: 'When do source generators run?', options: [
       QuizOption(text: 'At compile time — they generate C# source code before compilation completes', correct: true),

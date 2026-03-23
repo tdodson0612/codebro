@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson22 = Lesson(
   language: 'Python',
   title: 'Classes & Objects: OOP Basics',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A class is like a cookie cutter, and objects are the cookies.
 The cutter (class) defines the SHAPE — every cookie it cuts
@@ -251,7 +251,7 @@ except ValueError as e:
 ❌ Forgetting self as first parameter — TypeError when calling methods
 ❌ self.method is an instance method; ClassName.method requires passing self manually
 ❌ Don't do heavy computation in __init__ — keep constructors simple
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between a class attribute and an instance attribute?', options: [
       QuizOption(text: 'Class attributes are defined in __init__; instance attributes are defined outside', correct: false),

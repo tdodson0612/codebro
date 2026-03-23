@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson34 = Lesson(
   language: 'CSS',
   title: 'CSS Color Level 4: oklch, color-mix, and Modern Color',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Old CSS colors (hex, rgb) are like mixing paint on a
 16-bit monitor from 1990 — technically works, but the
@@ -182,7 +182,7 @@ button {
 ✅ display-p3 unlocks vivid colors modern screens can actually display
 ❌ HSL looks perceptually uniform but isn't — oklch is the correct choice for even steps
 ❌ Wide-gamut colors (display-p3, oklch) are clipped to sRGB on older screens
-''',
+""",
   quiz: [
     Quiz(question: 'What makes oklch better than HSL for creating color palettes?', options: [
       QuizOption(text: 'oklch is perceptually uniform — equal L changes look equally different to human eyes', correct: true),

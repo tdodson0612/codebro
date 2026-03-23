@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson77 = Lesson(
   language: 'Python',
   title: 'Pickle, Shelve & Binary Serialization',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Pickle is like flash-freezing cooked food.
 You take a fully prepared Python object — class instance,
@@ -302,7 +302,7 @@ for f in ["data.pkl", "gamesave.pkl", "myshelf.db",
 ❌ NEVER unpickle data from untrusted sources — it's a code execution vulnerability
 ❌ Don't rely on pickle for cross-version or cross-language compatibility
 ❌ Default shelve writeback=False means nested mutations are NOT saved without reassignment
-''',
+""",
   quiz: [
     Quiz(question: 'What security risk does pickle.loads() pose with untrusted data?', options: [
       QuizOption(text: 'It may produce incorrect results for complex types', correct: false),

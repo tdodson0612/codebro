@@ -212,7 +212,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       ),
                       Text(
-                        'Level ${progress.level} · ${progress.xp} XP total',
+                        'Level\${progress.level} ·\${progress.xp} XP total',
                         style: TextStyle(color: Colors.grey[500], fontSize: 12),
                       ),
                     ],
@@ -417,7 +417,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   ),
                 ),
                 const SizedBox(height: 2),
-                Text('$completed / ${lessons.length} lessons',
+                Text('$completed /\${lessons.length} lessons',
                     style: TextStyle(fontSize: 11, color: Colors.grey[500])),
               ],
             ),
@@ -456,7 +456,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   if (!mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Bookmarked: ${lesson.title}'),
+                      content: Text('Bookmarked:\${lesson.title}'),
                       duration: const Duration(seconds: 1),
                     ),
                   );

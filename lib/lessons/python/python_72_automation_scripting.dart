@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson72 = Lesson(
   language: 'Python',
   title: 'Python for Automation & Scripting',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Automation scripts are like a tireless digital intern.
 The intern (your script) never gets bored, never misclicks,
@@ -210,7 +210,7 @@ def send_email(
     html: str = None,
     attachments: list[str] = None
 ):
-    '''Send email via Gmail SMTP.'''
+    """Send email via Gmail SMTP."""
     smtp_user = os.environ["GMAIL_USER"]
     smtp_pass = os.environ["GMAIL_APP_PASSWORD"]  # App Password, not account pw!
 
@@ -256,7 +256,7 @@ import time
 import random
 
 def scrape_page(url: str, delay: float = 1.0) -> BeautifulSoup:
-    '''Fetch and parse a web page politely.'''
+    """Fetch and parse a web page politely."""
     headers = {
         "User-Agent": "Mozilla/5.0 (compatible; PythonBot/1.0)"
     }
@@ -266,7 +266,7 @@ def scrape_page(url: str, delay: float = 1.0) -> BeautifulSoup:
     return BeautifulSoup(resp.text, "html.parser")
 
 def scrape_quotes(url: str = "https://quotes.toscrape.com") -> list[dict]:
-    '''Example: scrape quotes from quotes.toscrape.com'''
+    """Example: scrape quotes from quotes.toscrape.com"""
     quotes = []
     page = 1
 
@@ -372,7 +372,7 @@ print("Key libraries: pathlib, shutil, subprocess, smtplib, schedule, watchdog, 
 ❌ Don't scrape sites that prohibit it in their terms of service
 ❌ Don't hardcode credentials — use environment variables
 ❌ subprocess with shell=True is a security risk — use the list form
-''',
+""",
   quiz: [
     Quiz(question: 'What is the safest way to run a shell command in Python?', options: [
       QuizOption(text: 'os.system("command")', correct: false),

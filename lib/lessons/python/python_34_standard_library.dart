@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson34 = Lesson(
   language: 'Python',
   title: 'Standard Library Deep Dive',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python's standard library is like a massive hardware store
 where everything is already paid for.
@@ -291,7 +291,7 @@ parser.add_argument("--count",  "-n",      type=int, default=10)
 ❌ Don't re-implement what's in the standard library
 ❌ Never use md5 or sha1 for password hashing — use pbkdf2/bcrypt/argon2
 ❌ subprocess.shell=True is a security risk with user input
-''',
+""",
   quiz: [
     Quiz(question: 'Which hashing function should you use for password storage?', options: [
       QuizOption(text: 'hashlib.md5 — fast and widely supported', correct: false),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson03 = Lesson(
   language: 'Python',
   title: 'Variables & Data Types',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A variable is like a labeled jar in your kitchen.
 The label (variable name) tells you what's inside.
@@ -169,7 +169,7 @@ b2 = bool("hello")   # str → bool (non-empty = True)
 ❌ Avoid single-letter names except loop counters (i, j, k)
 ❌ float arithmetic is imprecise — use decimal module for money
 ❌ None is not the same as 0, False, or empty string
-''',
+""",
   quiz: [
     Quiz(question: 'What is the result of type(3.14) in Python?', options: [
       QuizOption(text: "<class 'float'>", correct: true),

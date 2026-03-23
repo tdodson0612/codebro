@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson56 = Lesson(
   language: 'C#',
   title: 'Regular Expressions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A regular expression is a bloodhound trained to sniff
 for patterns in text. You describe the scent (the pattern):
@@ -171,7 +171,7 @@ class Program
 ✅ RegexOptions.Compiled pre-compiles the pattern — good for hot paths
 ❌ Don't create new Regex() inside a loop — it recompiles every time
 ❌ Catastrophic backtracking is a real risk with nested quantifiers — test with ReDoS checker
-''',
+""",
   quiz: [
     Quiz(question: 'What does \\d match in a regular expression?', options: [
       QuizOption(text: 'Any single digit character [0-9]', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson66 = Lesson(
   language: 'C#',
   title: 'Diagnostics, Logging, and Observability',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Diagnostics in software are like the instrument panel in an
 aircraft cockpit. You cannot see inside the engine while
@@ -184,7 +184,7 @@ Critical  → fatal, app unusable
 ✅ Stopwatch.GetTimestamp() is more precise than ElapsedMilliseconds
 ❌ Don't use string.Format or \$ in log messages — use structured logging placeholders
 ❌ Don't log at Debug level in production — it is expensive and verbose
-''',
+""",
   quiz: [
     Quiz(question: 'Why should you use structured logging placeholders instead of string interpolation?', options: [
       QuizOption(text: 'Structured logging preserves the values as typed properties for querying in log systems', correct: true),

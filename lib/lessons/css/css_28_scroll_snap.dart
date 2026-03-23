@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson28 = Lesson(
   language: 'CSS',
   title: 'Scroll Snap and Scroll Behavior',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Scroll snap is like a cassette tape that clicks into place.
 Without it, scrolling is freeform — you can stop anywhere.
@@ -181,7 +181,7 @@ body {
 ✅ Always wrap scroll-behavior: smooth in prefers-reduced-motion media query
 ❌ scroll-snap-type: y mandatory on html can feel jarring — test carefully on mobile
 ❌ Don't use mandatory snap on containers with variable-height children
-''',
+""",
   quiz: [
     Quiz(question: 'Where does scroll-snap-type go?', options: [
       QuizOption(text: 'On the scroll container', correct: true),

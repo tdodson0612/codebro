@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson43 = Lesson(
   language: 'CSS',
   title: 'Styling Forms and Inputs',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Forms are the most stubbornly ugly parts of the web by
 default. Browsers have strong opinions about how inputs,
@@ -279,7 +279,7 @@ input, textarea {
 ✅ font-family: inherit on inputs prevents browsers from using a different font
 ❌ Don't try to fully custom-style file inputs, date pickers, or color pickers — use JS libraries
 ❌ Don't use placeholder text as a label substitute — always include a visible label
-''',
+""",
   quiz: [
     Quiz(question: 'What does appearance: none do on a form element?', options: [
       QuizOption(text: 'Removes the browser\'s platform-specific styling so you can apply your own', correct: true),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson11 = Lesson(
   language: 'C',
   title: 'Comparison and Logical Operators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Comparison operators ask yes/no questions about values.
 "Is 5 greater than 3?" Yes (1). "Is 5 equal to 4?" No (0).
@@ -59,7 +59,7 @@ int main() {
 &&               ||
 =  +=  -= ...  (lowest)
 When in doubt, use parentheses!
-''',
+""",
   quiz: [
     Quiz(question: 'What does && mean?', options: [
       QuizOption(text: 'Logical AND — true only if both sides are true', correct: true),

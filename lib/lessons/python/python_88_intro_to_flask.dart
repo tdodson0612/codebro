@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson88 = Lesson(
   language: 'Python',
   title: 'Intro to Flask',
-  content: '''
+  content: """
 🎯 WHAT IS FLASK?
 Flask is Python's most popular micro web framework.
 "Micro" doesn't mean small or limited — it means Flask
@@ -314,7 +314,7 @@ print("Then visit: http://127.0.0.1:5000")
 ❌ Don't hardcode SECRET_KEY — use environment variables in production
 ❌ app.run(debug=True) in production is a massive security risk
 ❌ Flask has no async support by default — for async use FastAPI or Quart
-''',
+""",
   quiz: [
     Quiz(question: 'What does "micro" mean in Flask micro-framework?', options: [
       QuizOption(text: 'Flask is only suitable for small applications', correct: false),

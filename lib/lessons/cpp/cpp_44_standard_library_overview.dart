@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson44 = Lesson(
   language: 'C++',
   title: 'Standard Library Overview',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The C++ Standard Library is like the tools that come with
 a professional workshop. You could build every tool from
@@ -144,7 +144,7 @@ int main() {
 ✅ std::iota fills a range with incrementing values
 ❌ Never use rand() in serious code — the distribution is poor
 ❌ Don't use ctime for anything precision-sensitive — use chrono
-''',
+""",
   quiz: [
     Quiz(question: 'Which header provides modern random number generation in C++?', options: [
       QuizOption(text: '<random>', correct: true),

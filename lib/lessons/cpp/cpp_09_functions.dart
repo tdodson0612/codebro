@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson09 = Lesson(
   language: 'C++',
   title: 'Functions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A function is like a vending machine.
 You put something in (arguments), press a button (call it),
@@ -91,7 +91,7 @@ inline int square(int x) {
 ❌ Don't use global variables inside functions — pass them in
 ❌ Overloading on return type only is NOT allowed
 ❌ Don't make functions too long — if it scrolls, break it up
-''',
+""",
   quiz: [
     Quiz(question: 'What is a function prototype in C++?', options: [
       QuizOption(text: 'A declaration that tells the compiler a function exists before its definition', correct: true),

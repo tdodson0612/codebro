@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson75 = Lesson(
   language: 'Python',
   title: 'String Formatting Mastery',
-  content: '''
+  content: """
 🎯 METAPHOR:
 String formatting is like a mail merge template.
 You have a letter template with blank fields: 
@@ -241,7 +241,7 @@ import locale
 ❌ Don't use % formatting in new code — use f-strings
 ❌ f-strings can execute arbitrary Python — don't use with untrusted strings
 ❌ Forgetting the colon before the format spec: {n10} not {n:10}
-''',
+""",
   quiz: [
     Quiz(question: 'What does f"{value=}" do in Python 3.8+?', options: [
       QuizOption(text: 'Assigns the value to a variable named "value"', correct: false),

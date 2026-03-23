@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson26 = Lesson(
   language: 'C#',
   title: 'Value Types vs Reference Types',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Value types are like cash. When you hand someone \$20,
 they get their OWN \$20. You still have yours. Changes
@@ -172,7 +172,7 @@ array       reference  yes    no (copies ref)   references
 ✅ Boxing wraps a value type in an object on the heap — avoid in hot loops
 ❌ Don't assume == compares content for classes — override Equals() if needed
 ❌ Don't confuse "passing a reference type" with "passing by reference" (ref keyword)
-''',
+""",
   quiz: [
     Quiz(question: 'What happens when you assign one struct variable to another?', options: [
       QuizOption(text: 'A full copy is made — both variables are independent', correct: true),

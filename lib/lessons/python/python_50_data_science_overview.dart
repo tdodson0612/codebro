@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson50 = Lesson(
   language: 'Python',
   title: 'Data Science & Scientific Computing Overview',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python's data science stack is like a professional kitchen.
 NumPy is your sharp chef's knife — everything goes through it,
@@ -254,7 +254,7 @@ plt.close()
 ❌ Don't iterate over DataFrame rows with for row in df — use vectorized ops
 ❌ Avoid chained indexing df["a"]["b"] — use df.loc[:,"a"] for safety
 ❌ Don't load huge datasets into pandas — use chunked reading or Polars
-''',
+""",
   quiz: [
     Quiz(question: 'Why are NumPy vectorized operations faster than Python loops?', options: [
       QuizOption(text: 'NumPy runs in multiple threads automatically', correct: false),

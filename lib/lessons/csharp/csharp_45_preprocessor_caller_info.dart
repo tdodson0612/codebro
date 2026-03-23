@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson45 = Lesson(
   language: 'C#',
   title: 'Preprocessor Directives and Caller Info Attributes',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Preprocessor directives are like conditional assembly
 instructions. "If you are building the DEBUG edition of
@@ -209,7 +209,7 @@ class Program
 ✅ #region/#endregion are IDE folding helpers — use sparingly
 ❌ Don't abuse #define — prefer runtime configuration for feature flags
 ❌ Don't use preprocessor for large sections of different logic — too hard to test both paths
-''',
+""",
   quiz: [
     Quiz(question: 'What does [CallerMemberName] do when used as a default parameter?', options: [
       QuizOption(text: 'The compiler automatically fills in the name of the calling method or property', correct: true),

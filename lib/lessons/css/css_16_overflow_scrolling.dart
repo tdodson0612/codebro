@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson16 = Lesson(
   language: 'CSS',
   title: 'Overflow and Scrolling',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Overflow is like water in a glass. If you pour in too much,
 it overflows the rim — that's overflow: visible (the default).
@@ -166,7 +166,7 @@ html {
 ✅ scroll-padding-top fixes the sticky header / anchor link problem
 ❌ overflow: hidden on a parent clips position: absolute children too
 ❌ Styling scrollbars with ::-webkit-scrollbar is not standardized — use scrollbar-color for Firefox
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between overflow: hidden and overflow: clip?', options: [
       QuizOption(text: 'Both clip content but overflow: clip also disables scrolling programmatically', correct: true),

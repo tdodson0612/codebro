@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson50 = Lesson(
   language: 'C#',
   title: 'Channels and the Producer-Consumer Pattern',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A Channel is like a conveyor belt in a factory.
 The producer (worker A) puts items on the belt.
@@ -222,7 +222,7 @@ Channel             push-based, buffered, multi-consumer capable
 ✅ Channels handle all thread synchronization internally — no locks needed
 ❌ Don't forget to call channel.Writer.Complete() — consumers will wait forever
 ❌ Don't use BlockingCollection in async code — it blocks threads
-''',
+""",
   quiz: [
     Quiz(question: 'What does calling channel.Writer.Complete() do?', options: [
       QuizOption(text: 'Signals that no more items will be written — consumers will stop waiting after processing remaining items', correct: true),

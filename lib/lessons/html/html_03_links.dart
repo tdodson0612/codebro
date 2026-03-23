@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson03 = Lesson(
   language: 'HTML',
   title: 'Links and Navigation',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Hyperlinks are the veins and arteries of the internet.
 Without them, every web page would be an island — a document
@@ -170,7 +170,7 @@ tel:+15551234567            phone protocol
 ✅ download attribute forces file download instead of browser navigation
 ❌ Never use href="#" as a placeholder — use a button if there's no real destination
 ❌ Avoid using "click here" as link text — use descriptive text for accessibility
-''',
+""",
   quiz: [
     Quiz(question: 'Why should you add rel="noopener noreferrer" to target="_blank" links?', options: [
       QuizOption(text: 'Security — prevents the new tab from accessing the original window via window.opener', correct: true),

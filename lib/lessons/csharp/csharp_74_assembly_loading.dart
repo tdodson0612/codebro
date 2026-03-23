@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson74 = Lesson(
   language: 'C#',
   title: 'Assembly Loading and Plugin Systems',
-  content: '''
+  content: """
 🎯 METAPHOR:
 AssemblyLoadContext is like a sealed cargo container at a port.
 Each container (load context) has its own copies of everything
@@ -188,7 +188,7 @@ class Program
 ✅ GC.Collect() after Unload() helps trigger the actual unloading
 ❌ Assembly.LoadFrom shares types with the default context — no isolation
 ❌ References to types from an unloaded context will throw after unloading
-''',
+""",
   quiz: [
     Quiz(question: 'Why give each plugin its own AssemblyLoadContext?', options: [
       QuizOption(text: 'Isolation — each plugin can use different versions of dependencies without conflict', correct: true),

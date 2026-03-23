@@ -200,7 +200,7 @@ class Account {
     public List<String> getLog() { return Collections.unmodifiableList(log); }
 
     @Override public String toString() {
-        return String.format("Account[%s, $%.2f]", id, balance);
+        return String.format("Account[%s,\$%.2f]", id, balance);
     }
 }
 
@@ -276,7 +276,7 @@ public class ExceptionHandling {
 
         } catch (InsufficientFundsException e) {
             System.out.println("  ❌ " + e.getMessage());
-            System.out.printf("  Shortfall: $%.2f%n", e.getShortfall());
+            System.out.printf("  Shortfall:\$%.2f%n", e.getShortfall());
         }
 
         // Validation exception (unchecked)

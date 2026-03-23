@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson35 = Lesson(
   language: 'C++',
   title: 'The Preprocessor',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The preprocessor is like an editor who reads your manuscript
 BEFORE the publisher sees it. It does find-and-replace,
@@ -109,7 +109,7 @@ Prefer #pragma once in modern C++.
 ❌ Avoid function-like macros — prefer inline functions or templates
 ❌ Macros have NO type safety and NO scope — they are pure text substitution
 ❌ Don't use macros for constants — use constexpr instead
-''',
+""",
   quiz: [
     Quiz(question: 'When does the preprocessor run relative to the compiler?', options: [
       QuizOption(text: 'Before the compiler — it processes text before C++ parsing begins', correct: true),

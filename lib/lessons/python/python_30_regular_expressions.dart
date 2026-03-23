@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson30 = Lesson(
   language: 'Python',
   title: 'Regular Expressions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Regular expressions are like a metal detector at an airport.
 The metal detector doesn't care what your bags LOOK like —
@@ -211,7 +211,7 @@ if m:
 ❌ Don't use regex for simple string operations — use str methods (faster!)
 ❌ Beware catastrophic backtracking with complex nested patterns
 ❌ Regex is not suitable for parsing HTML/XML — use BeautifulSoup/lxml
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between re.match() and re.search()?', options: [
       QuizOption(text: 'match() is faster; search() is more accurate', correct: false),

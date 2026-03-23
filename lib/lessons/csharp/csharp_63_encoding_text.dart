@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson63 = Lesson(
   language: 'C#',
   title: 'Encoding, Text, and Globalization',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Text encoding is like a translation codebook.
 The letter "A" is not the number 65 — until you agree on
@@ -163,7 +163,7 @@ class Program
 ✅ StringComparer.OrdinalIgnoreCase makes Dictionary keys case-insensitive
 ❌ Never compare formatted numbers/dates across cultures without specifying the culture
 ❌ Don't use CurrentCulture for data storage — it changes per machine
-''',
+""",
   quiz: [
     Quiz(question: 'Which encoding should you use for data serialization that crosses different systems?', options: [
       QuizOption(text: 'CultureInfo.InvariantCulture — culture-independent formatting', correct: true),

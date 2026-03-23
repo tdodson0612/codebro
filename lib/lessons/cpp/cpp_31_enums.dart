@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson31 = Lesson(
   language: 'C++',
   title: 'Enums and Enum Classes',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An enum is like a set of labeled light switches on a panel.
 Instead of saying "set the switch to position 2" (magic number),
@@ -107,7 +107,7 @@ int main() {
 ✅ Use static_cast<int> to get the numeric value
 ❌ Avoid plain enums — they pollute the surrounding namespace
 ❌ Don't rely on enum values being specific integers unless you set them explicitly
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main advantage of enum class over plain enum?', options: [
       QuizOption(text: 'enum class is scoped and does not allow implicit conversion to int', correct: true),

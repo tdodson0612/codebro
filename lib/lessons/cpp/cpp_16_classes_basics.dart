@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson16 = Lesson(
   language: 'C++',
   title: 'Classes and Objects: Basics',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A class is a blueprint for a house.
 The blueprint describes how many rooms, where the doors go,
@@ -102,7 +102,7 @@ int main() {
 ❌ Don't make everything public — defeats the purpose of encapsulation
 ❌ Don't put implementation in header files for large projects
    (keep declarations in .h, definitions in .cpp)
-''',
+""",
   quiz: [
     Quiz(question: 'What is the default access level for class members in C++?', options: [
       QuizOption(text: 'private', correct: true),

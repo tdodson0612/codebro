@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson36 = Lesson(
   language: 'C#',
   title: 'Unsafe Code and Pointers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Unsafe code is like switching your car from automatic to
 manual transmission — with no guardrails on the road.
@@ -155,7 +155,7 @@ Native interop       → P/Invoke with safe marshaling
 ✅ Unsafe code is never needed for typical application development
 ❌ Never use unsafe code without understanding the consequences — buffer overflows are real
 ❌ Don't use unsafe to work around the type system — find a safe solution
-''',
+""",
   quiz: [
     Quiz(question: 'What does the "fixed" statement do in unsafe C# code?', options: [
       QuizOption(text: 'Pins the object in memory so the GC cannot move it while you hold a pointer', correct: true),

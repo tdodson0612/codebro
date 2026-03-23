@@ -222,7 +222,7 @@ public class ControlFlow {
                 case "D" -> 100;
                 default  -> 0;
             };
-            System.out.printf("  Grade %s → bonus: $%,d%n", grade, bonus);
+            System.out.printf("  Grade %s → bonus: \$%,d%n", grade, bonus);
         }
 
         // ─── PATTERN MATCHING switch (Java 21) ───────────

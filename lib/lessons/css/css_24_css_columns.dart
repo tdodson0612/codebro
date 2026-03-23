@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson24 = Lesson(
   language: 'CSS',
   title: 'CSS Columns, Logical Properties, and CSS Nesting',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS multi-column layout is like a newspaper printing press.
 The typesetter says "flow all this article text into 3 columns
@@ -191,7 +191,7 @@ CSS NESTING (modern CSS, 2023+):
 ✅ & in CSS nesting refers to the parent selector
 ❌ CSS nesting browser support: Chrome 112+, Firefox 117+, Safari 16.5+ — check before using
 ❌ Multi-column is for reading-flow text — not card/image grid layouts (use grid for those)
-''',
+""",
   quiz: [
     Quiz(question: 'What does break-inside: avoid do in a multi-column layout?', options: [
       QuizOption(text: 'Prevents the element from being split across two columns', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson28 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Full Page Layout',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A full-page layout is like an architect's floor plan.
 Before any furniture goes in (content), the architect
@@ -483,7 +483,7 @@ SEMANTIC STRUCTURE:
 ✅ Sticky header height via CSS variable makes sidebar top calculation DRY
 ❌ Don't use position: fixed for sidebar on mobile — it covers content
 ❌ footer margin-top: auto only works when body is a flex container
-''',
+""",
   quiz: [
     Quiz(question: 'How do you push a footer to the bottom of the page even when content is short?', options: [
       QuizOption(text: 'Set body to min-height: 100dvh + display: flex + flex-direction: column, then flex: 1 on main', correct: true),

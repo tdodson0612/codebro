@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson76 = Lesson(
   language: 'Python',
   title: 'Environment & Configuration Management',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Configuration is like the settings on a professional camera.
 A photographer doesn't re-solder circuits to change exposure.
@@ -364,7 +364,7 @@ Path("config.json").unlink(missing_ok=True)
 ❌ Committing .env or config files with secrets to git — catastrophic
 ❌ Reading secrets from config files in production — use env vars or secrets manager
 ❌ No validation on config values — use pydantic-settings or manual checks
-''',
+""",
   quiz: [
     Quiz(question: 'What is the correct priority order for configuration sources?', options: [
       QuizOption(text: 'Config files highest, then env vars, then defaults', correct: false),

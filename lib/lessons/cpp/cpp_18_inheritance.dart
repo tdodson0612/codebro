@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson18 = Lesson(
   language: 'C++',
   title: 'Inheritance',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Inheritance is like a family tree.
 A child inherits their parents' traits — eye color, height,
@@ -123,7 +123,7 @@ Each level inherits all of the above and can add more.
 ❌ Don't use inheritance for "has-a" relationships — use composition
 ❌ Avoid deep inheritance chains (more than 3 levels) — gets complex fast
 ❌ Never override without virtual in base — calls won't be polymorphic
-''',
+""",
   quiz: [
     Quiz(question: 'What keyword is used in C++ to inherit from a base class?', options: [
       QuizOption(text: ': public BaseClass', correct: true),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson40 = Lesson(
   language: 'Python',
   title: 'Virtual Environments & Packaging',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A virtual environment is like a spaceship airlock.
 Outside (your system Python) is the vast shared universe.
@@ -318,7 +318,7 @@ print("4. Freeze: pip freeze > requirements.txt")
 ❌ Never pip install globally (without a venv) for project work
 ❌ Don't commit .venv/ to git — commit requirements.txt or pyproject.toml
 ❌ Pinning all versions too tightly causes "dependency hell" — use ranges
-''',
+""",
   quiz: [
     Quiz(question: 'Why should each Python project have its own virtual environment?', options: [
       QuizOption(text: 'Virtual environments make Python run faster', correct: false),

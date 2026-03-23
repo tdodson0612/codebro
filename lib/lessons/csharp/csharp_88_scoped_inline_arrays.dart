@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson88 = Lesson(
   language: 'C#',
   title: 'scoped, Inline Arrays, and C# 12/13 Low-Level Features',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The scoped keyword is like a "stay in this room" rule
 for a reference. Normally a ref parameter could escape —
@@ -215,7 +215,7 @@ Can be converted to Span<T>
 ✅ These features are primarily for high-performance library code
 ❌ Inline arrays can only have one private field — it becomes the element type
 ❌ scoped parameters cannot be stored in fields or returned — that is the point
-''',
+""",
   quiz: [
     Quiz(question: 'What does the "scoped" keyword on a ref parameter prevent?', options: [
       QuizOption(text: 'The reference from escaping the current scope — it cannot be stored or returned', correct: true),

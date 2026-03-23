@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson32 = Lesson(
   language: 'Python',
   title: 'itertools & functools',
-  content: '''
+  content: """
 🎯 METAPHOR:
 itertools is like a Lego set for data pipelines.
 Each tool is a small, well-engineered piece that snaps
@@ -255,7 +255,7 @@ process(3.14)         # Generic: 3.14
 ❌ groupby doesn't group ALL equal items — only consecutive ones (sort first!)
 ❌ lru_cache arguments must be hashable — can't cache with list/dict args
 ❌ Infinite iterators (count, cycle) must be used with islice or break
-''',
+""",
   quiz: [
     Quiz(question: 'Why must data be sorted before using itertools.groupby()?', options: [
       QuizOption(text: 'groupby only groups CONSECUTIVE equal items, not all matching items in the sequence', correct: true),

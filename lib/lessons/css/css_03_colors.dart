@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson03 = Lesson(
   language: 'CSS',
   title: 'Colors',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Colors in CSS are like paint — but you can specify any color
 in four completely different ways depending on what's most
@@ -104,7 +104,7 @@ p  { color: dimgray; }
 ✅ CSS Custom Properties (variables) make color systems manageable
 ❌ Opacity (opacity: 0.5) affects the whole element AND its children — rgba is more precise
 ❌ Avoid color names for important colors — they're browser-interpreted
-''',
+""",
   quiz: [
     Quiz(question: 'What does the "L" in HSL control?', options: [
       QuizOption(text: 'Lightness — 0% is black, 50% is the pure color, 100% is white', correct: true),

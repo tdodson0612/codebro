@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson27 = Lesson(
   language: 'C++',
   title: 'STL: Algorithms',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The STL algorithms are like a Swiss Army knife for data.
 Instead of writing a loop to search through data,
@@ -138,7 +138,7 @@ int main() {
 ✅ Include <numeric> for accumulate, iota, inner_product
 ❌ std::remove does NOT erase — it just moves elements to the end
 ❌ Don't forget the second argument to erase after remove
-''',
+""",
   quiz: [
     Quiz(question: 'What does std::remove actually do to a vector?', options: [
       QuizOption(text: 'Moves matching elements to the end and returns a new end iterator', correct: true),

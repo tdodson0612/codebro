@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson62 = Lesson(
   language: 'Python',
   title: 'Scope: LEGB, global & nonlocal',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Scope is like finding where a name lives.
 When Python sees a variable name, it searches through
@@ -286,7 +286,7 @@ print(double.__closure__[0].cell_contents) # 2
 ❌ Don't overuse global — it makes functions harder to test and reason about
 ❌ Don't shadow built-in names (len, list, type, id, etc.)
 ❌ Class attributes are NOT visible inside methods via plain name lookup
-''',
+""",
   quiz: [
     Quiz(question: 'In what order does Python search for a variable name?', options: [
       QuizOption(text: 'Global → Local → Enclosing → Built-in', correct: false),

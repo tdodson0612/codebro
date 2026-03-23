@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson23 = Lesson(
   language: 'C#',
   title: 'File I/O',
-  content: '''
+  content: """
 🎯 METAPHOR:
 File I/O is like a post office and filing cabinet combined.
 File.WriteAllText is like dropping a letter in the outbox —
@@ -146,7 +146,7 @@ Directory.GetFiles(path, pattern) list files
 ✅ using ensures StreamReader/StreamWriter are properly closed
 ❌ Don't hardcode path separators — use Path.Combine
 ❌ Don't read huge files with ReadAllText — use streaming
-''',
+""",
   quiz: [
     Quiz(question: 'Why should you use Path.Combine() instead of string concatenation for file paths?', options: [
       QuizOption(text: 'It uses the correct path separator for the current OS automatically', correct: true),

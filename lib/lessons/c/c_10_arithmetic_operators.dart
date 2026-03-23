@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson10 = Lesson(
   language: 'C',
   title: 'Arithmetic Operators',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Arithmetic operators are exactly like math class — plus,
 minus, multiply, divide. The only tricky one is % (modulo),
@@ -63,7 +63,7 @@ int main() {
     
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'What does 17 % 5 equal?', options: [
       QuizOption(text: '2', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson04 = Lesson(
   language: 'CSS',
   title: 'The Box Model',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Every HTML element is a box — like a picture frame.
 Working from the outside in:
@@ -125,7 +125,7 @@ button:focus {
 ❌ Without border-box, padding and border add to the width — confusing!
 ❌ Margins between siblings collapse vertically — only one of the two margins applies
 ❌ margin: auto does not work for vertical centering (use flexbox instead)
-''',
+""",
   quiz: [
     Quiz(question: 'With box-sizing: border-box, what does width: 300px mean?', options: [
       QuizOption(text: 'The element is 300px total including padding and border', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson86 = Lesson(
   language: 'C#',
   title: 'Sockets and Low-Level Networking',
-  content: '''
+  content: """
 🎯 METAPHOR:
 HttpClient is like ordering pizza by phone — comfortable,
 high-level, and handles all the details for you.
@@ -226,7 +226,7 @@ Use UDP for: gaming, live video, DNS, IoT telemetry
 ✅ UDP is fire-and-forget — implement your own reliability if needed
 ❌ Don't use synchronous socket methods — they block threads
 ❌ Always dispose TcpClient and NetworkStream — they hold OS socket handles
-''',
+""",
   quiz: [
     Quiz(question: 'What does a return value of 0 from NetworkStream.ReadAsync() indicate?', options: [
       QuizOption(text: 'The client has disconnected', correct: true),

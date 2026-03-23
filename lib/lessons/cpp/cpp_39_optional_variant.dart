@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson39 = Lesson(
   language: 'C++',
   title: 'std::optional and std::variant',
-  content: '''
+  content: """
 🎯 METAPHOR:
 std::optional is like a gift box that might be empty.
 You shake it (check has_value()), and if there is something
@@ -118,7 +118,7 @@ int main() {
 ✅ std::get_if is safer than std::get — returns nullptr instead of throwing
 ❌ Calling .value() on an empty optional throws std::bad_optional_access
 ❌ Don't use std::any unless you truly need a completely unknown type
-''',
+""",
   quiz: [
     Quiz(question: 'What does std::nullopt represent?', options: [
       QuizOption(text: 'An empty optional — representing the absence of a value', correct: true),

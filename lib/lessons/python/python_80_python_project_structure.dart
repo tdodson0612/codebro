@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson80 = Lesson(
   language: 'Python',
   title: 'Python Project Structure & Best Project Setup',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A well-structured Python project is like a professional kitchen.
 Everything has a designated place: ingredients (source code) in
@@ -238,10 +238,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python\${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version:\${{ matrix.python-version }}
           cache: pip
 
       - name: Install dependencies
@@ -263,7 +263,7 @@ jobs:
       - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token:\${{ secrets.CODECOV_TOKEN }}
 
   publish:
     needs: test
@@ -278,7 +278,7 @@ jobs:
           twine upload dist/*
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+          TWINE_PASSWORD:\${{ secrets.PYPI_TOKEN }}
 """
 
 # ── PRE-COMMIT CONFIG ─────────────
@@ -440,7 +440,7 @@ Quick start:
 ❌ Don't skip the src/ layout for anything beyond a single script
 ❌ Don't use separate config files (pytest.ini, .mypy.ini) — put it all in pyproject.toml
 ❌ Don't commit without running tests and lint — use pre-commit hooks
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main benefit of the src/ layout for Python projects?', options: [
       QuizOption(text: 'It makes imports faster', correct: false),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson22 = Lesson(
   language: 'C',
   title: 'Arrays — Basics',
-  content: '''
+  content: """
 🎯 METAPHOR:
 An array is like a row of lockers at school. Each locker
 is numbered starting from 0, and every locker holds the
@@ -47,7 +47,7 @@ int main() {
 
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'For int arr[5], what is the valid index range?', options: [
       QuizOption(text: '0 to 4', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson10 = Lesson(
   language: 'HTML',
   title: 'The Head Element and Metadata',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The <head> of your HTML document is like the back-office of
 a restaurant. The dining room (body) is what guests see —
@@ -196,7 +196,7 @@ TWITTER CARD:
 ✅ defer on scripts is usually best — loads async, executes after DOM
 ❌ Don't put scripts without defer/async in <head> — they block page rendering
 ❌ Don't write <title> like "Home" — be specific ("About Us — Company Name")
-''',
+""",
   quiz: [
     Quiz(question: 'Why must <meta charset="UTF-8"> be the very first meta tag?', options: [
       QuizOption(text: 'Browsers need it within the first 1024 bytes to correctly decode the document', correct: true),

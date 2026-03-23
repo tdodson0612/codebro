@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson81 = Lesson(
   language: 'C#',
   title: 'IProgress<T>, Weak Events, and ConditionalWeakTable',
-  content: '''
+  content: """
 🎯 METAPHOR:
 IProgress<T> is like a progress bar update messenger.
 You hand a long-running task a messenger (IProgress<int>).
@@ -210,7 +210,7 @@ class Program
 ✅ Always call GC.Collect() + WaitForPendingFinalizers() in tests to verify weak ref cleanup
 ❌ Don't use weak events for short-lived publishers — overhead is not worth it
 ❌ ConditionalWeakTable is not a general-purpose dictionary — keys are by reference identity
-''',
+""",
   quiz: [
     Quiz(question: 'What does Progress<T> do with the callback when Report() is called?', options: [
       QuizOption(text: 'Dispatches the callback to the SynchronizationContext captured at construction time', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson38 = Lesson(
   language: 'CSS',
   title: 'Motion Path, Masking, and Cursor',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Motion path is like a train on rails. Without it, you can
 only move elements in straight lines (translate X and Y).
@@ -188,7 +188,7 @@ CURSOR:
 ✅ cursor: grab / grabbing provides intuitive drag UX
 ❌ mask-image support varies — test in Safari (requires -webkit- prefix)
 ❌ Don't override cursor to a confusing type — pointer means clickable
-''',
+""",
   quiz: [
     Quiz(question: 'What does offset-distance: 100% do in motion path animation?', options: [
       QuizOption(text: 'Moves the element to the end of the defined offset-path', correct: true),

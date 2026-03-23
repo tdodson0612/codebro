@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson14 = Lesson(
   language: 'C++',
   title: 'Memory Management: Stack and Heap',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Memory has two regions:
 
@@ -96,7 +96,7 @@ Buffer overflow → writing past array bounds
 ❌ Never use delete on stack memory
 ❌ Never delete[] with plain delete or vice versa
 ❌ Never access memory after it has been freed
-''',
+""",
   quiz: [
     Quiz(question: 'What is a memory leak?', options: [
       QuizOption(text: 'Heap memory that was allocated but never freed', correct: true),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson11 = Lesson(
   language: 'CSS',
   title: 'CSS Custom Properties (Variables)',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS custom properties are like paint color codes in an
 interior design firm. Instead of saying "paint the living
@@ -172,7 +172,7 @@ body {
 ✅ Fallback values: var(--thing, default) prevents broken layouts
 ❌ Custom properties must start with -- (two dashes)
 ❌ Unlike Sass variables, CSS custom properties are evaluated at render time
-''',
+""",
   quiz: [
     Quiz(question: 'What is the correct syntax to define a CSS custom property?', options: [
       QuizOption(text: '--variable-name: value; inside a selector block', correct: true),

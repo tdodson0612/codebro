@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson73 = Lesson(
   language: 'C#',
   title: 'MemoryPool, ObjectPool, and Allocation Optimization',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Object pooling is like a library instead of a bookstore.
 Every time you need a book (buffer, object), instead of
@@ -180,7 +180,7 @@ Expensive: new byte[] (heap, GC pressure)
 ✅ ObjectPool<T> is ideal for expensive-to-create objects like StringBuilder
 ❌ Never use a rented array after returning it — it may be given to another caller
 ❌ Don't return dirty arrays to ArrayPool without clearArray: true when data is sensitive
-''',
+""",
   quiz: [
     Quiz(question: 'What does ArrayPool<T>.Shared.Rent(1024) guarantee about the returned array?', options: [
       QuizOption(text: 'The array has at least 1024 elements — it may be larger', correct: true),

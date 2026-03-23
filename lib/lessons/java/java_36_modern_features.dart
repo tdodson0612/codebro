@@ -225,7 +225,7 @@ public class ModernJava {
         String template = """
                 Dear %s,
                 Your order #%d has been shipped.
-                Total: $%.2f
+                Total:\$%.2f
                 Thank you!
                 """;
         String letter = template.formatted("Alice", 12345, 99.95);

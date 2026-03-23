@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson17 = Lesson(
   language: 'C',
   title: 'goto and Labels',
-  content: '''
+  content: """
 🎯 METAPHOR:
 goto is like a teleporter in a building that can take
 you to any room instantly. Sounds useful, but imagine
@@ -61,7 +61,7 @@ int main() {
 - Cannot jump over variable declarations
 - Label names end with a colon (:)
 - Prefer break, continue, return over goto
-''',
+""",
   quiz: [
     Quiz(question: 'Why is goto generally avoided?', options: [
       QuizOption(text: 'It creates spaghetti code that is hard to follow', correct: true),

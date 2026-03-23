@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson19 = Lesson(
   language: 'C++',
   title: 'Polymorphism and Virtual Functions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Polymorphism is like a universal remote control.
 The same "PLAY" button works on a DVD player, a TV, a Blu-ray —
@@ -119,7 +119,7 @@ destructor → resource leak!
 ✅ Use base class pointers/references to achieve runtime polymorphism
 ❌ Forgetting virtual destructor is a classic C++ resource leak bug
 ❌ Calling virtual functions in constructors/destructors doesn't work as expected
-''',
+""",
   quiz: [
     Quiz(question: 'What makes a class abstract in C++?', options: [
       QuizOption(text: 'Having at least one pure virtual function (= 0)', correct: true),

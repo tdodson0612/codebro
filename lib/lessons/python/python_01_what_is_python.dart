@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson01 = Lesson(
   language: 'Python',
   title: 'What is Python?',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Python is like a Swiss Army knife compared to other languages.
 C++ is a custom-forged samurai sword — incredibly powerful,
@@ -98,7 +98,7 @@ CPython    — Official (python.org). Written in C.
 PyPy       — JIT-compiled. Up to 10x faster for some tasks.
 Jython     — Runs on the JVM.
 MicroPython — For microcontrollers (Raspberry Pi Pico).
-''',
+""",
   quiz: [
     Quiz(question: 'Who created Python?', options: [
       QuizOption(text: 'Guido van Rossum', correct: true),

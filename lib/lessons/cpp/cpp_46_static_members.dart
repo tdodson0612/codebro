@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson46 = Lesson(
   language: 'C++',
   title: 'Static Members',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Static members are like the shared whiteboard in an office.
 Each employee (object) has their own desk (instance members)
@@ -141,7 +141,7 @@ int main() {
 ✅ C++17 allows inline static members defined inside the class
 ❌ Don't use static members as a backdoor for global variables
 ❌ Static local variables in functions are also initialized once (thread-safe in C++11)
-''',
+""",
   quiz: [
     Quiz(question: 'What makes a static member different from a regular member?', options: [
       QuizOption(text: 'It belongs to the class itself and is shared by all instances', correct: true),

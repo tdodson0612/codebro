@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson20 = Lesson(
   language: 'C',
   title: 'Recursion',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Recursion is like Russian nesting dolls. Each doll
 contains a smaller doll, until you reach the tiniest
@@ -62,7 +62,7 @@ int main() {
     
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'What is the base case in recursion?', options: [
       QuizOption(text: 'The condition that stops the recursion', correct: true),

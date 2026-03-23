@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson50 = Lesson(
   language: 'C++',
   title: 'Function Pointers and std::function',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A function pointer is like a remote control button that
 you can reprogram. Normally, the Play button always plays.
@@ -140,7 +140,7 @@ int main() {
 ✅ Member function pointers use the ->* or .* operators
 ❌ Raw function pointers cannot store lambdas with captures
 ❌ std::function has slightly more overhead than raw pointers — profile if critical
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main limitation of raw function pointers vs std::function?', options: [
       QuizOption(text: 'Raw function pointers cannot store lambdas that capture variables', correct: true),

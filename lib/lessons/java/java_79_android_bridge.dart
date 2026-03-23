@@ -234,7 +234,7 @@ public class AndroidPreview {
           @Composable
           fun Greeting(name: String) {
               Column(modifier = Modifier.padding(16.dp)) {
-                  Text(text = "Hello, $name!")
+                  Text(text = "Hello,\$name!")
                   Button(onClick = { /* handle click */ }) {
                       Text("Press me")
                   }

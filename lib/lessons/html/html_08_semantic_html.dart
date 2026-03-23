@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson08 = Lesson(
   language: 'HTML',
   title: 'Semantic HTML',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Semantic HTML is like labeling every box when you move house.
 You could put everything in unmarked boxes — technically
@@ -201,7 +201,7 @@ Use <div> only when no semantic element fits.
 ✅ <aside> is for content tangentially related to the main content
 ❌ Don't use <section> as a generic wrapper — that is what <div> is for
 ❌ Don't use <article> for every single card — only for independently meaningful content
-''',
+""",
   quiz: [
     Quiz(question: 'How many <main> elements should a page have?', options: [
       QuizOption(text: 'Exactly one — it represents the primary unique content of the page', correct: true),

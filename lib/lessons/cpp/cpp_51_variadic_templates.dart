@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson51 = Lesson(
   language: 'C++',
   title: 'Variadic Templates and Perfect Forwarding',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A variadic template is like a recipe that works for any
 number of ingredients. "Make a sandwich with whatever you
@@ -151,7 +151,7 @@ auto sumFold(Args... args) {
 ✅ C++17 fold expressions replace manual recursion for variadic ops
 ❌ Don't use C-style variadic (...) in new code — no type safety
 ❌ std::forward outside a template context doesn't do anything useful
-''',
+""",
   quiz: [
     Quiz(question: 'What does sizeof...(Args) evaluate to?', options: [
       QuizOption(text: 'The number of arguments in the variadic parameter pack', correct: true),

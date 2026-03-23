@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson20 = Lesson(
   language: 'C++',
   title: 'Operator Overloading',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Operator overloading is like teaching a new word a new meaning
 in a specific context. The word "plus" normally means adding
@@ -118,7 +118,7 @@ Non-member: 2.0 * vec   (need non-member for left-hand scalar)
 ❌ Don't overload operators to mean something unintuitive
 ❌ Don't overload && and || — short-circuit evaluation breaks
 ❌ If you overload ==, also overload != for consistency
-''',
+""",
   quiz: [
     Quiz(question: 'What does "return *this" mean in an operator= overload?', options: [
       QuizOption(text: 'Returns a reference to the current object, enabling chained assignment', correct: true),

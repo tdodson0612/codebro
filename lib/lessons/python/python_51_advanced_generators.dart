@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson51 = Lesson(
   language: 'Python',
   title: 'Advanced Generators & Coroutines',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A generator with send() is like a walkie-talkie conversation.
 Without send(), it's a radio broadcast — one way only,
@@ -294,7 +294,7 @@ print(list(sliding_window(range(6),3))) # [(0,1,2),(1,2,3),(2,3,4),(3,4,5)]
 ❌ Calling send() before priming raises TypeError
 ❌ GeneratorExit from close() should NOT be caught (or re-raise it)
 ❌ Don't use generator send() for new code — async/await is cleaner for coroutines
-''',
+""",
   quiz: [
     Quiz(question: 'What must you do before calling gen.send(value) on a fresh generator?', options: [
       QuizOption(text: 'Call gen.start()', correct: false),

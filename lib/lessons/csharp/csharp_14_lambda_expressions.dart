@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson14 = Lesson(
   language: 'C#',
   title: 'Lambda Expressions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A lambda is like a one-time instruction note.
 A regular method is a framed manual on the wall — named,
@@ -137,7 +137,7 @@ Both are equivalent — expression is preferred when possible
 ✅ Lambdas are the foundation of LINQ, events, and async callbacks
 ❌ Don't capture variables that will be null or disposed before the lambda runs
 ❌ Avoid complex logic in lambdas — extract to a named method for readability
-''',
+""",
   quiz: [
     Quiz(question: 'What does a closure mean in the context of C# lambdas?', options: [
       QuizOption(text: 'The lambda captures and holds a reference to variables from its surrounding scope', correct: true),

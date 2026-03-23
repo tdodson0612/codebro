@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson05 = Lesson(
   language: 'CSS',
   title: 'Typography and Text',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Typography in CSS is like being a typesetter at a printing
 press. You choose the typeface (font-family), the size of
@@ -134,7 +134,7 @@ h1 {
 ✅ The truncation pattern (white-space + overflow + text-overflow) is commonly needed
 ❌ Don't use px for font-size on body text — breaks browser zoom accessibility
 ❌ text-align: justify can create uneven word spacing — use carefully
-''',
+""",
   quiz: [
     Quiz(question: 'Why is "rem" preferred over "px" for font sizes?', options: [
       QuizOption(text: 'rem respects the user\'s browser base font size setting — better accessibility', correct: true),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson38 = Lesson(
   language: 'Python',
   title: 'Abstract Classes & Protocols',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Abstract classes are like building codes.
 They define the REQUIREMENTS a building must meet —
@@ -317,7 +317,7 @@ print(list(reversed(fib)))       # reversed!
 ❌ Forgetting even ONE abstract method prevents instantiation
 ❌ Protocols are not enforced at runtime without @runtime_checkable
 ❌ Don't use ABCs when a simple Protocol would do — ABCs create tight coupling
-''',
+""",
   quiz: [
     Quiz(question: 'What happens if a subclass of an ABC does not implement all abstract methods?', options: [
       QuizOption(text: 'The missing methods default to None', correct: false),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson29 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Animations and Visual Effects',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Animation is the difference between a photograph and a film.
 Both can be beautiful. But film communicates RELATIONSHIPS:
@@ -353,7 +353,7 @@ PERFORMANCE RULES:
 ✅ cubic-bezier(0.34, 1.56, 0.64, 1) is a spring easing — natural and satisfying
 ❌ Never animate layout properties (width, height, margin, top) — they cause reflow
 ❌ Don't use animations as decoration without purpose — they should communicate
-''',
+""",
   quiz: [
     Quiz(question: 'Why should you only animate transform and opacity properties?', options: [
       QuizOption(text: 'They are handled by the GPU compositor — no layout or paint recalculation needed', correct: true),

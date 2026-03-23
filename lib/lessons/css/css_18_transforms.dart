@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson18 = Lesson(
   language: 'CSS',
   title: 'Transforms',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS transforms are like camera tricks in photography.
 You can move the subject (translate), zoom in or out (scale),
@@ -157,7 +157,7 @@ MULTIPLE TRANSFORMS:
 ✅ preserve-3d on parent enables true 3D child transforms
 ❌ Don't mix transforms with top/left/margin for animation — use transform only
 ❌ backface-visibility: hidden is needed for card-flip effects
-''',
+""",
   quiz: [
     Quiz(question: 'Why is transform preferred over top/left for animations?', options: [
       QuizOption(text: 'Transform does not cause layout recalculation — it is GPU-accelerated and does not affect other elements', correct: true),

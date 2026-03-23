@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson47 = Lesson(
   language: 'C#',
   title: 'checked, unchecked, and Numeric Overflow',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Integer overflow is like an odometer that wraps around.
 When it reaches 999,999, the next mile shows 000,000.
@@ -163,7 +163,7 @@ decimal    throws      throws (same)   throws (same)
 ✅ Enable <CheckForOverflowUnderflow>true in .csproj for global checked behavior
 ❌ Silent integer overflow is a real security vulnerability — NEVER ignore it in critical code
 ❌ Don't assume +1 to MaxValue produces a reasonable positive number
-''',
+""",
   quiz: [
     Quiz(question: 'What happens by default when an int overflows in C#?', options: [
       QuizOption(text: 'It wraps around silently — no exception is thrown', correct: true),

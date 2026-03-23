@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson12 = Lesson(
   language: 'HTML',
   title: 'Audio, Video, and Embedded Media',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Before HTML5, embedding video on a web page was like trying
 to show a movie at a house party — you needed a special
@@ -209,7 +209,7 @@ Always provide MP4 + WebM for full browser coverage.
 ✅ sandbox on iframes restricts potentially dangerous third-party content
 ❌ Never use video/audio autoplay without muted — browsers will block it
 ❌ Providing only one format risks the video not playing in some browsers
-''',
+""",
   quiz: [
     Quiz(question: 'Why does autoplay only work when the muted attribute is also present?', options: [
       QuizOption(text: 'Browsers block autoplay with sound to prevent unwanted audio — muted satisfies this policy', correct: true),

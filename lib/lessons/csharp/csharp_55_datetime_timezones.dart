@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson55 = Lesson(
   language: 'C#',
   title: 'DateTime, DateTimeOffset, and TimeZones',
-  content: '''
+  content: """
 🎯 METAPHOR:
 DateTime without a timezone is like writing "3:00 PM"
 on a note with no location. Is that 3 PM in Tokyo? New York?
@@ -160,7 +160,7 @@ class Program
 ✅ DateTimeOffset.ToUnixTimeSeconds() and FromUnixTimeSeconds() for API interop
 ❌ Never store DateTime.Now in a database — always use UTC or DateTimeOffset
 ❌ DateTime.Kind = Unspecified is a trap — always specify Local or Utc
-''',
+""",
   quiz: [
     Quiz(question: 'Why is DateTimeOffset preferred over DateTime for most applications?', options: [
       QuizOption(text: 'DateTimeOffset always includes the UTC offset — eliminating timezone ambiguity', correct: true),

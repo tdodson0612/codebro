@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson75 = Lesson(
   language: 'C#',
   title: 'System.IO.Pipelines and High-Performance I/O',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Traditional stream I/O is like a one-person assembly line.
 Read some bytes into a buffer, process them, read more.
@@ -201,7 +201,7 @@ Pipeline:
 ✅ ReadOnlySequence<byte> may span multiple memory segments — handle both cases
 ❌ Don't advance past examined — you'll lose unprocessed data
 ❌ Pipelines have a learning curve — use streams for simple file I/O
-''',
+""",
   quiz: [
     Quiz(question: 'What is the role of writer.Advance(n) in a PipeWriter?', options: [
       QuizOption(text: 'Tells the pipe how many bytes were written into the buffer', correct: true),

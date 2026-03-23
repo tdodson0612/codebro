@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson73 = Lesson(
   language: 'Python',
   title: 'pathlib Deep Dive',
-  content: '''
+  content: """
 🎯 METAPHOR:
 pathlib.Path is like a GPS navigator for your file system.
 The old way (os.path) was like using string directions:
@@ -256,7 +256,7 @@ print("\\nDemo directory cleaned up")
 ❌ Don't use os.path.join() — use Path("/dir") / "file" instead
 ❌ p.rmdir() only deletes empty directories — use shutil.rmtree() for trees
 ❌ Forgetting exist_ok=True in mkdir raises FileExistsError if dir already exists
-''',
+""",
   quiz: [
     Quiz(question: 'How do you create the path /home/alice/data/report.csv with pathlib?', options: [
       QuizOption(text: 'Path("/home/alice/data/report.csv")', correct: true),

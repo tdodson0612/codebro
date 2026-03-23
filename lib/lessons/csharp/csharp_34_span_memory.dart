@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson34 = Lesson(
   language: 'C#',
   title: 'Span<T> and Memory<T>',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Span<T> is like a window into a wall of bookshelves.
 The bookshelf is the actual array in memory. The window
@@ -160,7 +160,7 @@ ArrayPool      large buffers you need temporarily
 ✅ ArrayPool<T> reuses large buffers to avoid GC pressure
 ❌ Span<T> cannot be stored as a field or used with async/await
 ❌ Always return rented ArrayPool buffers — they are shared resources
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main advantage of Span<T> over creating a sub-array?', options: [
       QuizOption(text: 'Span<T> creates a view with zero heap allocation — no copy is made', correct: true),

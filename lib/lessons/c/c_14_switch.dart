@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson14 = Lesson(
   language: 'C',
   title: 'switch Statement',
-  content: '''
+  content: """
 🎯 METAPHOR:
 switch is like a vending machine. You press a button
 (the value), and the machine goes directly to that item
@@ -54,7 +54,7 @@ int main() {
     
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'What happens if you forget break in a switch case?', options: [
       QuizOption(text: 'Execution falls through to the next case', correct: true),

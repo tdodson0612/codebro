@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson84 = Lesson(
   language: 'C#',
   title: 'Volatile, Memory Barriers, and Interlocked',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Modern CPUs and compilers are secretly optimistic — they
 reorder instructions and cache values in registers to go
@@ -221,7 +221,7 @@ lock                compound operations on shared state
 ✅ Interlocked.Read is needed for atomic 64-bit reads on 32-bit systems
 ❌ volatile bool _flag; _flag++ is STILL a race condition — use Interlocked
 ❌ CAS loops can spin forever under extreme contention — use lock instead
-''',
+""",
   quiz: [
     Quiz(question: 'What does the volatile keyword guarantee for a field?', options: [
       QuizOption(text: 'Every read comes from main memory and every write goes directly to main memory — no register caching', correct: true),

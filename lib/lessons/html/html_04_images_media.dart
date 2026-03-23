@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson04 = Lesson(
   language: 'HTML',
   title: 'Images and Media',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Images on the web are like paintings in a gallery —
 but this gallery has a twist. Every painting needs a
@@ -189,7 +189,7 @@ Text in image      → include the text in alt
 ✅ srcset + sizes gives the browser multiple image options to choose from
 ❌ Never skip alt — it hurts accessibility, SEO, and broken-image UX
 ❌ Don't set width/height in HTML with a different aspect ratio than the actual image
-''',
+""",
   quiz: [
     Quiz(question: 'What should alt="" (empty alt) be used for?', options: [
       QuizOption(text: 'Decorative images that add no information — screen readers will skip them', correct: true),

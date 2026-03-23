@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson23 = Lesson(
   language: 'CSS',
   title: 'CSS Shapes and clip-path',
-  content: '''
+  content: """
 🎯 METAPHOR:
 clip-path is like a cookie cutter pressed onto an element.
 The element is the dough — it can be any color, any content.
@@ -168,7 +168,7 @@ SHAPE-OUTSIDE:
 ✅ Use the online tool "clippy" (bennettfeely.com/clippy) to generate polygon values
 ❌ Elements outside clip-path are invisible but still capture mouse events by default
 ❌ shape-outside only affects text flow when the element is floated
-''',
+""",
   quiz: [
     Quiz(question: 'What does clip-path do to an element?', options: [
       QuizOption(text: 'Makes only the specified shape visible — clips everything outside the shape', correct: true),

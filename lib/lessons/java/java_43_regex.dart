@@ -57,7 +57,7 @@ REGEX BUILDING BLOCKS:
 
   ANCHORS:
   ^         → start of string (or line with MULTILINE)
-  $         → end of string (or line with MULTILINE)
+ \$         → end of string (or line with MULTILINE)
   \\b        → word boundary
   \\B        → non-word boundary
 
@@ -108,7 +108,7 @@ COMMON REGEX PATTERNS:
 FLAGS:
 ─────────────────────────────────────
   Pattern.CASE_INSENSITIVE   → (?i)  ignore case
-  Pattern.MULTILINE          → (?m)  ^ and $ match lines
+  Pattern.MULTILINE          → (?m)  ^ and\$ match lines
   Pattern.DOTALL             → (?s)  . matches newline too
   Pattern.COMMENTS           → (?x)  allow whitespace/comments
   Pattern.LITERAL            → treat pattern as literal
@@ -153,7 +153,7 @@ public class RegularExpressions {
                 Contact us at support@example.com or sales@company.org.
                 Call (555) 123-4567 or 555-987-6543.
                 Schedule: 2024-01-15, 2024-06-30, or 2024-12-25.
-                Prices: $10, $250, and $1999.
+                Prices:\$10,\$250, and\$1999.
                 """;
 
         // Find all emails
@@ -177,7 +177,7 @@ public class RegularExpressions {
             .map(MatchResult::group)
             .forEach(d -> System.out.println("    " + d));
 
-        // Find all prices ($ + digits)
+        // Find all prices (\$ + digits)
         System.out.println("  Prices found:");
         Pattern pricePattern = Pattern.compile("\\\\$\\\\d+");
         pricePattern.matcher(text).results()
@@ -280,7 +280,7 @@ public class RegularExpressions {
 ✅ matcher.find() searches anywhere; matcher.matches() requires full match
 ✅ Use named groups (?<name>...) for readable group extraction
 ✅ matcher.results() returns Stream<MatchResult> (Java 9+) — use with streams
-✅ Use $1, $2 in replaceAll() to reference captured groups
+✅ Use\$1,\$2 in replaceAll() to reference captured groups
 ✅ Pattern.CASE_INSENSITIVE flag (or (?i) inline) for case-insensitive match
 ✅ Split with limit: split("regex", n) creates at most n parts
 ❌ Don't use str.matches() in a loop — it compiles the pattern every time
@@ -302,7 +302,7 @@ public class RegularExpressions {
       QuizOption(text: 'Pattern.matches() is required for patterns containing quantifiers', correct: false),
     ]),
     Quiz(question: 'How do you reference a captured group in a replaceAll() replacement string?', options: [
-      QuizOption(text: 'Use $1, $2 etc.: "([\\\\d]+)-([\\\\d]+)" replaced with "$2-$1" swaps the two numbers', correct: true),
+      QuizOption(text: 'Use\$1,\$2 etc.: "([\\\\d]+)-([\\\\d]+)" replaced with "$2-$1" swaps the two numbers', correct: true),
       QuizOption(text: 'Use \\\\1, \\\\2 etc.: the same backreference syntax as in the pattern', correct: false),
       QuizOption(text: 'Use {1}, {2} etc.: curly brace syntax for group references', correct: false),
       QuizOption(text: 'Groups cannot be referenced in replacement strings — use Matcher.group() instead', correct: false),

@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson08 = Lesson(
   language: 'C++',
   title: 'Loops: for, while, do-while',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A loop is like a workout routine.
 "Do 10 push-ups" is a for loop — you know exactly how many.
@@ -98,7 +98,7 @@ int main() {
 ❌ Infinite loops happen when the condition never becomes false
 ❌ Off-by-one errors: i < n vs i <= n — know which you need
 ❌ Don't modify the loop variable inside the loop body (confusing)
-''',
+""",
   quiz: [
     Quiz(question: 'Which loop is guaranteed to execute its body at least once?', options: [
       QuizOption(text: 'do-while', correct: true),

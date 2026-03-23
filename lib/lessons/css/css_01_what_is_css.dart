@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson01 = Lesson(
   language: 'CSS',
   title: 'What is CSS?',
-  content: '''
+  content: """
 🎯 METAPHOR:
 HTML is the skeleton of a webpage — the bones and structure.
 CSS is the skin, clothes, and makeup on top of that skeleton.
@@ -84,7 +84,7 @@ CSS COMMENTS:
 ✅ CSS is case-insensitive but by convention use lowercase
 ❌ Don't use inline styles for anything beyond quick tests
 ❌ CSS does NOT use // for comments — only /* */
-''',
+""",
   quiz: [
     Quiz(question: 'What does CSS stand for?', options: [
       QuizOption(text: 'Cascading Style Sheets', correct: true),

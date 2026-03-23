@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson23 = Lesson(
   language: 'C++',
   title: 'Exception Handling',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Exception handling is like a safety net under a trapeze act.
 The performer (your code) tries their best. If they fall
@@ -124,7 +124,7 @@ catch(...)                 // catch-all — always last
 ❌ Don't use exceptions for normal control flow — they're for errors
 ❌ Don't throw from destructors — can cause std::terminate
 ❌ Don't ignore exceptions — at minimum log them
-''',
+""",
   quiz: [
     Quiz(question: 'In what order should catch blocks be arranged?', options: [
       QuizOption(text: 'Most specific exception type first, most general last', correct: true),

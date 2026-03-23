@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson79 = Lesson(
   language: 'Python',
   title: 'Type Checking Tools: mypy & pyright',
-  content: '''
+  content: """
 🎯 METAPHOR:
 mypy is like a spell-checker for your code's data types.
 Your word processor doesn't prevent you from typing
@@ -327,7 +327,7 @@ print("Or:  pip install pyright && pyright .")
 ❌ # type: ignore is a last resort — fix the real issue instead
 ❌ Don't use Any unless truly necessary — it disables type checking
 ❌ Type hints alone don't enforce types at runtime — use pydantic for that
-''',
+""",
   quiz: [
     Quiz(question: 'What is the purpose of a static type checker like mypy?', options: [
       QuizOption(text: 'It runs your code faster by optimizing types', correct: false),

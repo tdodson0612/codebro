@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson22 = Lesson(
   language: 'HTML',
   title: 'HTML + CSS: Navbars and Navigation',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A navigation bar is the front door and lobby of your website.
 It is the first thing visitors see, the thing they return
@@ -324,7 +324,7 @@ PATTERNS:
 ✅ Skip links let keyboard users bypass the repeated navigation
 ❌ Don't use hover-only dropdowns — keyboard users need :focus-within too
 ❌ Don't forget aria-label on multiple <nav> elements to differentiate them
-''',
+""",
   quiz: [
     Quiz(question: 'Why should navigation links always use a <ul> list structure?', options: [
       QuizOption(text: 'Screen readers announce the number of items in a list — helping users understand the nav scope', correct: true),

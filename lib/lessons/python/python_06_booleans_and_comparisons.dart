@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson06 = Lesson(
   language: 'Python',
   title: 'Booleans & Comparisons',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Booleans are like light switches — they are either ON (True)
 or OFF (False). No dimmer, no maybe, no 37% on. Just on or off.
@@ -206,7 +206,7 @@ print(all(n > 3 for n in nums))    # False (1, 2, 3 not > 3)
 ❌ Never use is to compare numbers or strings (use ==)
 ❌ "not empty list" check: use "if mylist:" not "if len(mylist) > 0:"
 ❌ and/or don't always return True/False — they return one of their operands
-''',
+""",
   quiz: [
     Quiz(question: 'What is the result of [] or "default"?', options: [
       QuizOption(text: '"default" — because [] is falsy, or returns the second operand', correct: true),

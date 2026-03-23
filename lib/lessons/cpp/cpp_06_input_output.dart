@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson06 = Lesson(
   language: 'C++',
   title: 'Input and Output',
-  content: '''
+  content: """
 🎯 METAPHOR:
 cin and cout are like a two-way intercom system.
 cout is the speaker — you push information OUT to the user.
@@ -91,7 +91,7 @@ std::cout << std::setw(10) << "hello";
 ✅ Chain << to print multiple values on one line
 ❌ Don't mix cin >> and getline without cin.ignore() between them
 ❌ Don't forget #include <string> when using std::string
-''',
+""",
   quiz: [
     Quiz(question: 'Which operator sends data to cout?', options: [
       QuizOption(text: '<<', correct: true),

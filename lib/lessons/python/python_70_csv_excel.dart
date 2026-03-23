@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson70 = Lesson(
   language: 'Python',
   title: 'CSV & Excel with Python',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSV files are like plain-text spreadsheets.
 No formatting, no formulas, just data rows separated
@@ -160,11 +160,11 @@ for row in reader:
 
 # ── HANDLING EDGE CASES ────────────
 
-tricky_csv = '''Name,Description,Price
+tricky_csv = """Name,Description,Price
 "Apple, Red",A fresh apple,$1.99
 "Banana Bread","Bread with banana, walnuts","$4.50"
 Widget,"Contains ""quotes""",9.99
-'''
+"""
 
 reader = csv.reader(io.StringIO(tricky_csv))
 for row in reader:
@@ -305,7 +305,7 @@ print("Libraries: csv (built-in), openpyxl, pandas")
 ❌ Forgetting newline="" on Windows creates empty rows between data rows
 ❌ Don't manually parse CSV with str.split(",") — quoted commas will break it
 ❌ xlrd 2.0+ dropped .xlsx support — use openpyxl for modern Excel files
-''',
+""",
   quiz: [
     Quiz(question: 'Why must you open CSV files with newline="" on Windows when writing?', options: [
       QuizOption(text: 'It makes the file smaller', correct: false),

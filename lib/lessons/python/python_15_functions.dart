@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson15 = Lesson(
   language: 'Python',
   title: 'Functions',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A function is like a vending machine with a purpose.
 You put in coins (arguments), push a button (call the function),
@@ -282,7 +282,7 @@ print(circle_area(5))
 ❌ NEVER use mutable types (list, dict) as default arguments
 ❌ Calling global variables from inside functions is fine; MODIFYING requires global keyword
 ❌ Don't put code after return — it's unreachable
-''',
+""",
   quiz: [
     Quiz(question: 'What is the mutable default argument trap?', options: [
       QuizOption(text: 'Mutable defaults are created once at definition time and shared across all calls', correct: true),

@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson08 = Lesson(
   language: 'C',
   title: 'Constants and #define',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Constants are like the speed of light — a fixed value
 that never changes. Using named constants instead of
@@ -60,7 +60,7 @@ const:
   ❌ Can cause subtle bugs without parentheses
 
 CONVENTION: ALL_CAPS_WITH_UNDERSCORES for constants
-''',
+""",
   quiz: [
     Quiz(question: 'What is the naming convention for constants?', options: [
       QuizOption(text: 'ALL_CAPS_WITH_UNDERSCORES', correct: true),

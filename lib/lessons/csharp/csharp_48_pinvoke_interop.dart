@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson48 = Lesson(
   language: 'C#',
   title: 'P/Invoke and Native Interop',
-  content: '''
+  content: """
 🎯 METAPHOR:
 P/Invoke is like a certified interpreter at a diplomatic
 meeting. Your C# code speaks "managed .NET." The native
@@ -182,7 +182,7 @@ C# struct          →  struct (LayoutKind.Sequential required)
 ✅ Check RuntimeInformation.IsOSPlatform for cross-platform code
 ❌ Don't forget to free manually allocated native memory — it won't be GC'd
 ❌ Wrong data type sizes in struct marshaling cause subtle data corruption
-''',
+""",
   quiz: [
     Quiz(question: 'What does [DllImport] do in C#?', options: [
       QuizOption(text: 'Declares a native function from an external DLL that can be called from C#', correct: true),

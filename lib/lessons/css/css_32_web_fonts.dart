@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson32 = Lesson(
   language: 'CSS',
   title: '@font-face and Web Fonts',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Web fonts are like shipping a custom typeface to every
 visitor's browser. The font file travels from your server
@@ -193,7 +193,7 @@ body {
 ✅ unicode-range enables per-script subsetting — only loads what the page uses
 ❌ Don't load more font weights than you actually use — each is a network request
 ❌ Don't use font-display: block on body text — invisible text hurts UX
-''',
+""",
   quiz: [
     Quiz(question: 'What does font-display: swap do?', options: [
       QuizOption(text: 'Shows fallback text immediately, then swaps to custom font when loaded', correct: true),

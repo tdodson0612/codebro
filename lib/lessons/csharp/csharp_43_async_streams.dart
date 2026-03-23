@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson43 = Lesson(
   language: 'C#',
   title: 'Async Streams and IAsyncEnumerable',
-  content: '''
+  content: """
 🎯 METAPHOR:
 IAsyncEnumerable is like a live news ticker.
 Regular IEnumerable is like a printed newspaper — all items
@@ -184,7 +184,7 @@ When to use IAsyncEnumerable:
 ✅ Add System.Linq.Async NuGet package for ToListAsync(), WhereAsync() etc.
 ❌ Don't collect all items to a list if you can process them one by one
 ❌ Don't use IAsyncEnumerable for CPU-bound work — use Parallel/PLINQ instead
-''',
+""",
   quiz: [
     Quiz(question: 'What is the key difference between Task<IEnumerable<T>> and IAsyncEnumerable<T>?', options: [
       QuizOption(text: 'Task<IEnumerable<T>> loads all items at once; IAsyncEnumerable yields them one at a time', correct: true),

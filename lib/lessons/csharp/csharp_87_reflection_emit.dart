@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson87 = Lesson(
   language: 'C#',
   title: 'Reflection.Emit and Dynamic Code Generation',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Reflection.Emit is like being a compiler yourself.
 Normal C# code is text you write → compiler turns it into IL
@@ -229,7 +229,7 @@ using System.Linq;
 ❌ Reflection.Emit requires understanding IL — it is an advanced topic
 ❌ In AOT-compiled apps (.NET Native, Blazor AOT), Reflection.Emit is not supported
 ❌ Prefer Expression Trees over raw Emit when possible — they're safer and more readable
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main performance advantage of using Reflection.Emit over PropertyInfo.GetValue?', options: [
       QuizOption(text: 'Generated code runs at native speed — no runtime reflection overhead in the hot path', correct: true),

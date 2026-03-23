@@ -130,7 +130,7 @@ PRACTICAL REALITY:
 ─────────────────────────────────────
 jlink — creating a custom runtime:
 ─────────────────────────────────────
-  jlink --module-path mods:$JAVA_HOME/jmods \\
+  jlink --module-path mods:\$JAVA_HOME/jmods \\
         --add-modules com.myapp.main \\
         --output myapp-runtime
 
@@ -280,8 +280,8 @@ public class ModuleSystem {
         System.out.println("""
           Create a minimal JVM containing only needed modules:
 
-          $ jlink \\
-              --module-path $JAVA_HOME/jmods:mods \\
+         \$ jlink \\
+              --module-path\$JAVA_HOME/jmods:mods \\
               --add-modules com.myapp.main \\
               --output myapp-runtime \\
               --strip-debug \\

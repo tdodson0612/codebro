@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson62 = Lesson(
   language: 'C#',
   title: 'Advanced Numeric Types',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Most programming lives in the middle of the number line —
 ints and doubles handle everyday math. But sometimes you
@@ -137,7 +137,7 @@ class Program
 ✅ MathF avoids float→double promotion — use for float-heavy computation
 ❌ double.NaN != double.NaN always — use double.IsNaN() to check for NaN
 ❌ Half has limited precision (~3 decimal digits) — not for financial work
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main advantage of BigInteger over long?', options: [
       QuizOption(text: 'BigInteger can represent arbitrarily large integers without overflow', correct: true),

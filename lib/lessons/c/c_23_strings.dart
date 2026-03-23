@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson23 = Lesson(
   language: 'C',
   title: 'Strings in C',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A C string is like a line of train cars where each car
 carries one character. The last car is always a special
@@ -60,7 +60,7 @@ int main() {
 
     return 0;
 }
-''',
+""",
   quiz: [
     Quiz(question: 'What marks the end of a C string?', options: [
       QuizOption(text: 'The null character \\0', correct: true),

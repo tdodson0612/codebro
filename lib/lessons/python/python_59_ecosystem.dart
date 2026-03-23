@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson59 = Lesson(
   language: 'Python',
   title: 'The Python Ecosystem & Popular Libraries',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The Python ecosystem is like a massive hardware store
 where the community has stocked every tool imaginable.
@@ -360,7 +360,7 @@ print("\\nRun 'pip install <package>' to get started!")
 ❌ Don't install packages globally — always use a virtual environment
 ❌ Don't use unmaintained packages — check last release date and stars
 ❌ Don't skip reading the docs — most confusion comes from guessing the API
-''',
+""",
   quiz: [
     Quiz(question: 'What is Pydantic primarily used for?', options: [
       QuizOption(text: 'Database migrations and schema management', correct: false),

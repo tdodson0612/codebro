@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson55 = Lesson(
   language: 'Python',
   title: 'Web Frameworks: Flask, FastAPI & Django',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Flask is like a LEGO base plate — minimal, just enough
 to build on. You choose every piece: what database library,
@@ -332,7 +332,7 @@ print(COMPARISON)
 ❌ Don't use Flask's built-in server in production — use gunicorn
 ❌ Don't expose debug=True in production
 ❌ Don't put secret keys in source code — use environment variables
-''',
+""",
   quiz: [
     Quiz(question: 'What is the main advantage of FastAPI over Flask for REST APIs?', options: [
       QuizOption(text: 'FastAPI is older and more battle-tested', correct: false),

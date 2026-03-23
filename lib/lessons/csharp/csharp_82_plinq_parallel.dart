@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson82 = Lesson(
   language: 'C#',
   title: 'PLINQ and Parallel Programming',
-  content: '''
+  content: """
 🎯 METAPHOR:
 PLINQ is like upgrading a one-lane highway to an eight-lane
 freeway. The same cars (data items) travel the same route
@@ -180,7 +180,7 @@ Use Parallel:   independent side-effecting operations
 ❌ Don't parallelize I/O-bound work — use async/await instead
 ❌ Don't access shared mutable state without ConcurrentXxx or Interlocked
 ❌ Small data sets often run SLOWER with PLINQ due to partitioning overhead
-''',
+""",
   quiz: [
     Quiz(question: 'What does .AsParallel() do to a LINQ query?', options: [
       QuizOption(text: 'Enables parallel execution across multiple threads', correct: true),

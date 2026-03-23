@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final csharpLesson71 = Lesson(
   language: 'C#',
   title: 'IDisposable and IAsyncDisposable In Depth',
-  content: '''
+  content: """
 🎯 METAPHOR:
 IDisposable is a rental agreement with a strict return policy.
 When you rent a car (acquire a resource), you MUST return it
@@ -231,7 +231,7 @@ await using var r = new AR();       async C# 8 declaration
 ✅ GC.SuppressFinalize(this) skips the finalizer when Dispose() already ran
 ❌ Never use a disposed object — check _disposed and throw ObjectDisposedException
 ❌ Don't do heavy work in finalizers — they run on the GC finalizer thread
-''',
+""",
   quiz: [
     Quiz(question: 'What does "await using" do differently from "using"?', options: [
       QuizOption(text: 'It calls DisposeAsync() and awaits it — for async cleanup', correct: true),

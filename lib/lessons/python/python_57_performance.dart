@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson57 = Lesson(
   language: 'Python',
   title: 'Performance Optimization',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Optimizing code without profiling is like fixing a car
 without knowing what's broken. You might replace the
@@ -284,7 +284,7 @@ print(f"Slotted instance: {sys.getsizeof(slotted[0])} bytes")
 ❌ Never optimize without measuring — you'll fix the wrong thing
 ❌ O(n²) algorithms become catastrophically slow — fix the algorithm first
 ❌ PyPy can't use C extensions easily — check compatibility first
-''',
+""",
   quiz: [
     Quiz(question: 'Why is "x in my_set" faster than "x in my_list"?', options: [
       QuizOption(text: 'Sets use binary search while lists scan linearly', correct: false),

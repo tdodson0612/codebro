@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final cLesson05 = Lesson(
   language: 'C',
   title: 'Integer Types',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Integer types are like different sized containers at a store.
 A tiny cup holds less than a bucket, but takes up less space.
@@ -59,7 +59,7 @@ int main() {
 - Use long / long long for very large numbers
 - Use unsigned when value is never negative
 - L suffix = long literal, LL = long long, U = unsigned
-''',
+""",
   quiz: [
     Quiz(question: 'How many bytes does int typically use?', options: [
       QuizOption(text: '4 bytes', correct: true),

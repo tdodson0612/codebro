@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson29 = Lesson(
   language: 'CSS',
   title: 'Container Queries',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Media queries listen to the WINDOW. "Is the browser window
 wider than 768px? OK, change the layout."
@@ -199,7 +199,7 @@ STYLE QUERIES (newer):
 ✅ Combine media queries (overall layout) with container queries (component style)
 ❌ You cannot query the container from within itself — only descendants can query it
 ❌ The container must have an explicit container-type — it is not inherited
-''',
+""",
   quiz: [
     Quiz(question: 'What does container-type: inline-size do?', options: [
       QuizOption(text: 'Makes the element a container that children can query by width', correct: true),

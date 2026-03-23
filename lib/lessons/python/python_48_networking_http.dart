@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson48 = Lesson(
   language: 'Python',
   title: 'Networking & HTTP',
-  content: '''
+  content: """
 🎯 METAPHOR:
 HTTP requests are like sending a formal letter to a business.
 You put your letter in an envelope (the request body),
@@ -291,7 +291,7 @@ print(urljoin(base, "users/42"))     # https://api.example.com/v1/users/42
 ❌ Never hardcode credentials — use environment variables
 ❌ Don't ignore SSL certificate verification in production (verify=False)
 ❌ Always handle timeout and connection errors — networks are unreliable
-''',
+""",
   quiz: [
     Quiz(question: 'What HTTP method should you use to retrieve data without side effects?', options: [
       QuizOption(text: 'POST', correct: false),

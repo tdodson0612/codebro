@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson20 = Lesson(
   language: 'CSS',
   title: 'CSS Functions: calc, min, max, clamp, and More',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS functions are like a calculator built into your stylesheet.
 Instead of doing the math yourself and hardcoding "I need
@@ -168,7 +168,7 @@ ol.custom li::before {
 ✅ CSS counters with counter-reset/counter-increment create automatic numbering
 ❌ calc() operators (+, -) require spaces around them: calc(100% - 20px) not calc(100%-20px)
 ❌ Nesting calc() is valid but limit depth — calc(calc(100% - 20px) / 2) can be written as calc((100% - 20px) / 2)
-''',
+""",
   quiz: [
     Quiz(question: 'What does calc(100% - 32px) compute when the container is 500px wide?', options: [
       QuizOption(text: '468px — it subtracts the fixed 32px from the current percentage width', correct: true),

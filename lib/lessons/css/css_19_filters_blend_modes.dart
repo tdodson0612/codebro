@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cssLesson19 = Lesson(
   language: 'CSS',
   title: 'Filters and Blend Modes',
-  content: '''
+  content: """
 🎯 METAPHOR:
 CSS filters are like Instagram filters applied to elements —
 blur, brightness, contrast, grayscale, sepia — all the classics,
@@ -156,7 +156,7 @@ img.blur      { filter: blur(4px); }
 ❌ backdrop-filter requires -webkit- prefix for Safari — add both
 ❌ mix-blend-mode works relative to what's visually beneath — stacking context matters
 ❌ Heavy filters (blur especially) are expensive — don't animate blur
-''',
+""",
   quiz: [
     Quiz(question: 'What is the difference between filter: blur() and backdrop-filter: blur()?', options: [
       QuizOption(text: 'filter blurs the element itself; backdrop-filter blurs what is visible behind the element', correct: true),

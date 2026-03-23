@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson23 = Lesson(
   language: 'Python',
   title: 'Inheritance & Polymorphism',
-  content: '''
+  content: """
 🎯 METAPHOR:
 Inheritance is like a family tree.
 A child inherits traits from their parents — eye color,
@@ -275,7 +275,7 @@ print(json_str)   # {"name": "Alice", "email": "alice@example.com"}
 ❌ Don't forget super().__init__() — parent state won't be set up
 ❌ Deep inheritance chains > 3 levels are hard to follow — prefer composition
 ❌ Multiple inheritance can cause ambiguity — use with care
-''',
+""",
   quiz: [
     Quiz(question: 'What does super().__init__() do in a child class?', options: [
       QuizOption(text: 'Creates a new parent class instance', correct: false),

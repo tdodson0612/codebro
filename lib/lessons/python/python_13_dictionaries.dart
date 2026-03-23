@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson13 = Lesson(
   language: 'Python',
   title: 'Dictionaries',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A dictionary is like a real-world phone book — but instant.
 In a phone book, you look up a NAME (the key) to find a
@@ -224,7 +224,7 @@ print(tally)  # {'Alice': 3, 'Bob': 2, 'Carol': 1}
 ❌ d["missing_key"] raises KeyError — use .get() instead
 ❌ Lists cannot be dict keys (they're mutable/unhashable)
 ❌ Modifying a dict while iterating raises RuntimeError — iterate d.copy()
-''',
+""",
   quiz: [
     Quiz(question: 'What is the safest way to access a possibly-missing dictionary key?', options: [
       QuizOption(text: 'd.get("key", default_value)', correct: true),

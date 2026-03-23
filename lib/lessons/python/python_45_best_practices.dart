@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson45 = Lesson(
   language: 'Python',
   title: 'Python Best Practices & Pythonic Code',
-  content: '''
+  content: """
 🎯 METAPHOR:
 "Pythonic" code is like a native speaker vs a translator.
 A tourist in France might say "I desire to buy one bread."
@@ -320,7 +320,7 @@ cProfile.run("slow_function()")
 ❌ Writing Python like it's Java or C++ — learn the Python way
 ❌ Mutable default args, bare except:, == None — classic anti-patterns
 ❌ Premature optimization — write clean readable code first
-''',
+""",
   quiz: [
     Quiz(question: 'What is the Pythonic way to check if a list is not empty?', options: [
       QuizOption(text: 'if len(my_list) > 0:', correct: false),

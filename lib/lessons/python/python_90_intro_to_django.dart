@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson90 = Lesson(
   language: 'Python',
   title: 'Intro to Django',
-  content: '''
+  content: """
 🎯 WHAT IS DJANGO?
 Django is Python's "batteries-included" full-stack web framework.
 Where Flask says "here are the tools, you build the kitchen,"
@@ -372,7 +372,7 @@ print("  3. 'Django for Beginners' by William S. Vincent")
 ❌ Don't skip migrations — always run makemigrations after changing models
 ❌ Don't disable Django's CSRF protection without understanding the implications
 ❌ Don't use DEBUG=True in production
-''',
+""",
   quiz: [
     Quiz(question: 'What is Django\'s automatic admin interface?', options: [
       QuizOption(text: 'A third-party package that must be installed separately', correct: false),

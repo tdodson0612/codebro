@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final htmlLesson07 = Lesson(
   language: 'HTML',
   title: 'Forms: The Basics',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A form is a conversation between your website and its visitor.
 "What's your name?" — text input.
@@ -244,7 +244,7 @@ COMMON ATTRIBUTES:
 ✅ required, minlength, max etc. give browser native validation for free
 ❌ Never use placeholder as a replacement for a label
 ❌ type="button" does NOT submit the form; type="submit" does
-''',
+""",
   quiz: [
     Quiz(question: 'Why must every input have a matching <label>?', options: [
       QuizOption(text: 'Screen readers need it to announce what the input is, and it enlarges the click target', correct: true),

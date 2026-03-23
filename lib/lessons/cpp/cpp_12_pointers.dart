@@ -6,7 +6,7 @@ import '../../models/quiz.dart';
 final cppLesson12 = Lesson(
   language: 'C++',
   title: 'Pointers',
-  content: '''
+  content: """
 🎯 METAPHOR:
 A pointer is like a street address written on paper.
 The paper is NOT the house — it tells you WHERE the house is.
@@ -89,7 +89,7 @@ int** pp       pointer to pointer to int
 ❌ Never dereference nullptr — instant crash
 ❌ Never access memory after it has been freed (dangling pointer)
 ❌ Wild pointers (uninitialized) point to random memory — always init
-''',
+""",
   quiz: [
     Quiz(question: 'What does the & operator do when used with a variable?', options: [
       QuizOption(text: 'Returns the memory address of the variable', correct: true),

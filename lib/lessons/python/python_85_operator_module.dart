@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson85 = Lesson(
   language: 'Python',
   title: 'The operator Module & Bitwise Operations',
-  content: '''
+  content: """
 🎯 METAPHOR:
 The operator module is like a spare parts catalog for
 Python's built-in operators. When you need to pass "addition"
@@ -299,7 +299,7 @@ operator.concat([1,2], [3,4])  # [1, 2, 3, 4]
 ❌ operator.and_ (with underscore) is bitwise AND; "and" (keyword) is logical AND
 ❌ Don't use bitwise & | for boolean logic — use "and" "or" for booleans
 ❌ Bitwise NOT (~) on Python ints can surprise: ~0 is -1, not 1
-''',
+""",
   quiz: [
     Quiz(question: 'What does operator.itemgetter(1) return?', options: [
       QuizOption(text: 'The integer 1', correct: false),
