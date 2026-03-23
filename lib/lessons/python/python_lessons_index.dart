@@ -60,6 +60,36 @@ import 'python_57_performance.dart';
 import 'python_58_security.dart';
 import 'python_59_ecosystem.dart';
 import 'python_60_concurrency_patterns.dart';
+import 'python_61_args_kwargs.dart';
+import 'python_62_scope_legb.dart';
+import 'python_63_unpacking.dart';
+import 'python_64_sorting_algorithms.dart';
+import 'python_65_recursion.dart';
+import 'python_66_object_copying.dart';
+import 'python_67_json_serialization.dart';
+import 'python_68_functional_programming.dart';
+import 'python_69_pydantic.dart';
+import 'python_70_csv_excel.dart';
+import 'python_71_working_with_apis.dart';
+import 'python_72_automation_scripting.dart';
+import 'python_73_pathlib_deep_dive.dart';
+import 'python_74_comprehensions_mastery.dart';
+import 'python_75_string_formatting.dart';
+import 'python_76_environment_config.dart';
+import 'python_77_pickling_serialization.dart';
+import 'python_78_advanced_oop_patterns.dart';
+import 'python_79_type_checking_tools.dart';
+import 'python_80_python_project_structure.dart';
+import 'python_81_bytes_encoding.dart';
+import 'python_82_namedtuple_collections.dart';
+import 'python_83_numeric_types.dart';
+import 'python_84_truthy_falsy_operators.dart';
+import 'python_85_operator_module.dart';
+import 'python_86_archives_compression.dart';
+import 'python_87_inspect_ast.dart';
+import 'python_88_intro_to_flask.dart';
+import 'python_89_intro_to_fastapi.dart';
+import 'python_90_intro_to_django.dart';
 
 final List<Lesson> pythonLessons = [
   pythonLesson01,
@@ -122,4 +152,34 @@ final List<Lesson> pythonLessons = [
   pythonLesson58,
   pythonLesson59,
   pythonLesson60,
+  pythonLesson61,
+  pythonLesson62,
+  pythonLesson63,
+  pythonLesson64,
+  pythonLesson65,
+  pythonLesson66,
+  pythonLesson67,
+  pythonLesson68,
+  pythonLesson69,
+  pythonLesson70,
+  pythonLesson71,
+  pythonLesson72,
+  pythonLesson73,
+  pythonLesson74,
+  pythonLesson75,
+  pythonLesson76,
+  pythonLesson77,
+  pythonLesson78,
+  pythonLesson79,
+  pythonLesson80,
+  pythonLesson81,
+  pythonLesson82,
+  pythonLesson83,
+  pythonLesson84,
+  pythonLesson85,
+  pythonLesson86,
+  pythonLesson87,
+  pythonLesson88,
+  pythonLesson89,
+  pythonLesson90,
 ];
