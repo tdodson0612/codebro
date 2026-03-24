@@ -54,7 +54,7 @@ from typing import Optional
 # ── TWO SUM ───────────────────────
 
 def two_sum(nums: list[int], target: int) -> list[int]:
-    """Find two numbers that add to target. O(n)."""
+    '''Find two numbers that add to target. O(n).'''
     seen = {}   # value → index
     for i, num in enumerate(nums):
         complement = target - num
@@ -69,11 +69,11 @@ print(two_sum([3, 2, 4], 6))         # [1, 2]
 # ── ANAGRAM DETECTION ─────────────
 
 def is_anagram(s: str, t: str) -> bool:
-    """Check if t is an anagram of s."""
+    '''Check if t is an anagram of s.'''
     return Counter(s) == Counter(t)
 
 def group_anagrams(strs: list[str]) -> list[list[str]]:
-    """Group words that are anagrams of each other."""
+    '''Group words that are anagrams of each other.'''
     groups = defaultdict(list)
     for word in strs:
         key = "".join(sorted(word))   # canonical form
@@ -86,7 +86,7 @@ print(group_anagrams(["eat","tea","tan","ate","nat","bat"]))
 # ── SLIDING WINDOW ────────────────
 
 def max_sum_subarray(nums: list[int], k: int) -> int:
-    """Max sum of subarray of length k. O(n)."""
+    '''Max sum of subarray of length k. O(n).'''
     if len(nums) < k:
         return 0
     window_sum = sum(nums[:k])
@@ -97,7 +97,7 @@ def max_sum_subarray(nums: list[int], k: int) -> int:
     return max_sum
 
 def longest_unique_substring(s: str) -> int:
-    """Length of longest substring without repeating chars."""
+    '''Length of longest substring without repeating chars.'''
     char_index = {}
     left = max_len = 0
     for right, char in enumerate(s):
@@ -113,7 +113,7 @@ print(longest_unique_substring("abcabcbb"))       # 3
 # ── STACK PATTERNS ────────────────
 
 def is_valid_brackets(s: str) -> bool:
-    """Valid parentheses/brackets/braces."""
+    '''Valid parentheses/brackets/braces.'''
     pairs = {")": "(", "]": "[", "}": "{"}
     stack = []
     for char in s:
@@ -130,7 +130,7 @@ print(is_valid_brackets("([)]"))     # False
 print(is_valid_brackets("{[]}"))     # True
 
 def daily_temperatures(temps: list[int]) -> list[int]:
-    """Days until warmer temperature. O(n)."""
+    '''Days until warmer temperature. O(n).'''
     result = [0] * len(temps)
     stack = []   # indices of days waiting for warmer temp
     for i, temp in enumerate(temps):
@@ -146,7 +146,7 @@ print(daily_temperatures([73, 74, 75, 71, 69, 72, 76, 73]))
 # ── LINKED LIST (without class) ───
 
 def reverse_linked_list(head: Optional["ListNode"]):
-    """Reverse a linked list. O(n)."""
+    '''Reverse a linked list. O(n).'''
     prev, curr = None, head
     while curr:
         next_node = curr.next
@@ -163,7 +163,7 @@ def fib(n: int) -> int:
     return fib(n-1) + fib(n-2)
 
 def climb_stairs(n: int) -> int:
-    """Ways to climb n stairs (1 or 2 steps). O(n)."""
+    '''Ways to climb n stairs (1 or 2 steps). O(n).'''
     if n <= 2: return n
     dp = [0] * (n + 1)
     dp[1], dp[2] = 1, 2
@@ -172,7 +172,7 @@ def climb_stairs(n: int) -> int:
     return dp[n]
 
 def coin_change(coins: list[int], amount: int) -> int:
-    """Minimum coins to make amount. O(amount × coins)."""
+    '''Minimum coins to make amount. O(amount × coins).'''
     dp = [float("inf")] * (amount + 1)
     dp[0] = 0
     for coin in coins:
@@ -198,7 +198,7 @@ def binary_search(arr: list[int], target: int) -> int:
     return -1
 
 def search_rotated(nums: list[int], target: int) -> int:
-    """Binary search in rotated sorted array."""
+    '''Binary search in rotated sorted array.'''
     lo, hi = 0, len(nums) - 1
     while lo <= hi:
         mid = (lo + hi) // 2
@@ -229,7 +229,7 @@ def k_smallest(nums: list[int], k: int) -> list[int]:
     return heapq.nsmallest(k, nums)
 
 def merge_sorted_lists(lists: list[list[int]]) -> list[int]:
-    """Merge k sorted lists efficiently. O(n log k)."""
+    '''Merge k sorted lists efficiently. O(n log k).'''
     heap = []
     for i, lst in enumerate(lists):
         if lst:
@@ -253,7 +253,7 @@ print(merge_sorted_lists(lists))  # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 # ── MATRIX PATTERNS ───────────────
 
 def rotate_matrix_90(matrix: list[list]) -> list[list]:
-    """Rotate NxN matrix 90° clockwise in-place."""
+    '''Rotate NxN matrix 90° clockwise in-place.'''
     n = len(matrix)
     # Transpose
     for i in range(n):
@@ -265,7 +265,7 @@ def rotate_matrix_90(matrix: list[list]) -> list[list]:
     return matrix
 
 def spiral_order(matrix: list[list]) -> list:
-    """Return elements in spiral order."""
+    '''Return elements in spiral order.'''
     result = []
     while matrix:
         result += matrix.pop(0)

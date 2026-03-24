@@ -73,7 +73,7 @@ import re
 
 # Organize files in a directory by extension
 def organize_downloads(source_dir: str):
-    """Move files into subdirectories by type."""
+    '''Move files into subdirectories by type.'''
     source = Path(source_dir)
     if not source.exists():
         print(f"Directory not found: {source_dir}")
@@ -110,7 +110,7 @@ def organize_downloads(source_dir: str):
 
 # Batch rename files
 def batch_rename(directory: str, pattern: str, replacement: str):
-    """Rename all files matching pattern using regex."""
+    '''Rename all files matching pattern using regex.'''
     path = Path(directory)
     renamed = 0
     for file in path.glob("*"):
@@ -127,7 +127,7 @@ def batch_rename(directory: str, pattern: str, replacement: str):
 
 # Find duplicate files by hash
 def find_duplicates(directory: str) -> dict:
-    """Find files with identical content."""
+    '''Find files with identical content.'''
     import hashlib
     hashes = {}
     for file in Path(directory).rglob("*"):
@@ -140,7 +140,7 @@ def find_duplicates(directory: str) -> dict:
 
 # Backup modified files
 def backup_changed_files(source: str, backup: str, since: datetime = None):
-    """Copy files modified after 'since' to backup directory."""
+    '''Copy files modified after 'since' to backup directory.'''
     src = Path(source)
     dst = Path(backup)
     dst.mkdir(parents=True, exist_ok=True)
@@ -164,7 +164,7 @@ def backup_changed_files(source: str, backup: str, since: datetime = None):
 import subprocess
 
 def run_command(cmd: list, capture=True) -> tuple[int, str, str]:
-    """Run a command and return (returncode, stdout, stderr)."""
+    '''Run a command and return (returncode, stdout, stderr).'''
     result = subprocess.run(
         cmd,
         capture_output=capture,
@@ -196,7 +196,7 @@ def git_pull(repo_path: str) -> bool:
 
 # ── EMAIL AUTOMATION ──────────────
 
-EMAIL_EXAMPLE = """
+EMAIL_EXAMPLE = '''
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -210,7 +210,7 @@ def send_email(
     html: str = None,
     attachments: list[str] = None
 ):
-    """Send email via Gmail SMTP."""
+    '''Send email via Gmail SMTP.'''
     smtp_user = os.environ["GMAIL_USER"]
     smtp_pass = os.environ["GMAIL_APP_PASSWORD"]  # App Password, not account pw!
 
@@ -245,18 +245,18 @@ send_email(
     html="<h1>Daily Report</h1><p>All numbers look good!</p>",
     attachments=["report.csv", "chart.png"]
 )
-"""
+'''
 
 # ── WEB SCRAPING ──────────────────
 
-SCRAPING_EXAMPLE = """
+SCRAPING_EXAMPLE = '''
 import requests
 from bs4 import BeautifulSoup
 import time
 import random
 
 def scrape_page(url: str, delay: float = 1.0) -> BeautifulSoup:
-    """Fetch and parse a web page politely."""
+    '''Fetch and parse a web page politely.'''
     headers = {
         "User-Agent": "Mozilla/5.0 (compatible; PythonBot/1.0)"
     }
@@ -266,7 +266,7 @@ def scrape_page(url: str, delay: float = 1.0) -> BeautifulSoup:
     return BeautifulSoup(resp.text, "html.parser")
 
 def scrape_quotes(url: str = "https://quotes.toscrape.com") -> list[dict]:
-    """Example: scrape quotes from quotes.toscrape.com"""
+    '''Example: scrape quotes from quotes.toscrape.com'''
     quotes = []
     page = 1
 
@@ -293,11 +293,11 @@ def scrape_quotes(url: str = "https://quotes.toscrape.com") -> list[dict]:
 # quotes = scrape_quotes()
 # for q in quotes[:3]:
 #     print(f'"{q["text"]}" — {q["author"]}')
-"""
+'''
 
 # ── SCHEDULING ────────────────────
 
-SCHEDULE_EXAMPLE = """
+SCHEDULE_EXAMPLE = '''
 import schedule
 import time
 
@@ -323,11 +323,11 @@ print("Scheduler running. Press Ctrl+C to stop.")
 while True:
     schedule.run_pending()
     time.sleep(30)
-"""
+'''
 
 # ── WATCHDOG — MONITOR FILESYSTEM ──
 
-WATCHDOG_EXAMPLE = """
+WATCHDOG_EXAMPLE = '''
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 import time
@@ -356,7 +356,7 @@ try:
 except KeyboardInterrupt:
     observer.stop()
 observer.join()
-"""
+'''
 
 print("Automation examples ready!")
 print("Key libraries: pathlib, shutil, subprocess, smtplib, schedule, watchdog, bs4")

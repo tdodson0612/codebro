@@ -68,7 +68,7 @@ funcs[0]()  → 0  ✅
 💻 CODE:
 # Basic closure
 def make_multiplier(factor):
-    """Returns a function that multiplies by factor."""
+    '''Returns a function that multiplies by factor.'''
     def multiply(x):
         return x * factor   # captures 'factor' from outer scope
     return multiply

@@ -345,7 +345,7 @@ void webSocketExample() async {
 */
 
 void main() {
-  print('''
+  print("""
 Dart Server Options:
 ─────────────────────────────────────
 shelf            → low-level, composable HTTP
@@ -366,7 +366,7 @@ Getting started with dart_frog:
 Compile to native for deployment:
   dart compile exe bin/server.dart -o server
   ./server
-''');
+""");
 }
 
 📝 KEY POINTS:

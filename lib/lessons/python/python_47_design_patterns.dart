@@ -280,7 +280,7 @@ for _ in range(6):
 # ── PROXY ────────────────────────
 
 class LazyLoadProxy:
-    """Loads the expensive object only when first accessed."""
+    '''Loads the expensive object only when first accessed.'''
     def __init__(self, target_class, *args, **kwargs):
         self._target_class = target_class
         self._args = args

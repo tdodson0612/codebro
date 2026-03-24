@@ -122,7 +122,7 @@ print(Point._fields)   # ('x', 'y')
 # ── NAMEDTUPLE NEW STYLE (preferred) ──
 
 class Employee(NamedTuple):
-    """An employee record."""
+    '''An employee record.'''
     name: str
     department: str
     salary: float

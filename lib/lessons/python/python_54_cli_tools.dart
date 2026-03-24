@@ -61,7 +61,7 @@ import click
 @click.option("--verbose", "-v", is_flag=True)
 @click.option("--count", "-n", default=10, type=int)
 def main(filename, output, verbose, count):
-    """Process FILENAME and write to OUTPUT."""
+    '''Process FILENAME and write to OUTPUT.'''
     click.echo(f"Processing {filename}")
 
 if __name__ == "__main__":
@@ -235,7 +235,7 @@ parser = build_parser()
 # @click.option("--debug/--no-debug", default=False, envvar="APP_DEBUG")
 # @click.pass_context
 # def cli(ctx, debug):
-#     """My CLI application."""
+#     '''My CLI application.'''
 #     ctx.ensure_object(dict)
 #     ctx.obj["debug"] = debug
 #     if debug:
@@ -249,7 +249,7 @@ parser = build_parser()
 # @click.option("--verbose", "-v", is_flag=True)
 # @click.pass_obj
 # def process(obj, filename, output, count, format, verbose):
-#     """Process FILENAME."""
+#     '''Process FILENAME.'''
 #     if verbose or obj["debug"]:
 #         click.secho(f"Processing {filename}", fg="green")
 #     with click.progressbar(range(count), label="Processing") as bar:
@@ -262,7 +262,7 @@ parser = build_parser()
 # @click.option("--name", prompt="Your name", help="Name to greet")
 # @click.option("--count", "-n", default=1, help="Times to greet")
 # def greet(name, count):
-#     """Greet NAME."""
+#     '''Greet NAME.'''
 #     for _ in range(count):
 #         click.echo(f"Hello, {click.style(name, fg='cyan', bold=True)}!")
 #
@@ -270,7 +270,7 @@ parser = build_parser()
 # @click.option("--url", envvar="DATABASE_URL", required=True)
 # @click.confirmation_option(prompt="This will reset the database. Continue?")
 # def db_init(url):
-#     """Initialize the database."""
+#     '''Initialize the database.'''
 #     click.echo(f"Connecting to {url}...")
 #
 # if __name__ == "__main__":
@@ -299,7 +299,7 @@ parser = build_parser()
 
 # ── PYPROJECT.TOML ENTRY POINTS ────
 
-ENTRY_POINTS_EXAMPLE = """
+ENTRY_POINTS_EXAMPLE = '''
 [project.scripts]
 # Makes "mytool" available as a command after pip install
 mytool = "mypackage.cli:main"
@@ -310,7 +310,7 @@ myapp = "mypackage.cli:cli"
 # Multiple entry points
 myapp-server = "mypackage.server:serve"
 myapp-worker = "mypackage.worker:run"
-"""
+'''
 
 print("CLI tool examples ready!")
 print("Run with: python script.py --help")

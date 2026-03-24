@@ -145,7 +145,7 @@ app_logger.debug("Debug message (file only if configured)")
 # ── ROTATING FILE HANDLER ──────────
 
 def setup_rotating_logger(name: str, log_file: str):
-    """Log files that auto-rotate at 1MB, keep 5 backups."""
+    '''Log files that auto-rotate at 1MB, keep 5 backups.'''
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
@@ -198,7 +198,7 @@ if logger.isEnabledFor(logging.DEBUG):
 # ── LOGGING CONTEXT ────────────────
 
 class RequestContext:
-    """Add request context to all log messages."""
+    '''Add request context to all log messages.'''
     def __init__(self, request_id: str):
         self.request_id = request_id
 
@@ -230,7 +230,7 @@ def buggy_function(data):
 
 # Debugging without breakpoint — print debugging (quick and dirty)
 def debug_trace(func):
-    """Decorator that prints function calls and returns."""
+    '''Decorator that prints function calls and returns.'''
     @wraps(func)
     def wrapper(*args, **kwargs):
         print(f"→ {func.__name__}({args}, {kwargs})")
@@ -292,7 +292,7 @@ print(stream.getvalue()[:500])   # show first 500 chars
 # ── TIMING DECORATOR ──────────────
 
 def timer(func=None, *, repeats=1):
-    """Measure execution time of a function."""
+    '''Measure execution time of a function.'''
     if func is None:
         return lambda f: timer(f, repeats=repeats)
 

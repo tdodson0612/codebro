@@ -117,7 +117,7 @@ D().method()
 # ── MIXIN PATTERN ──────────────────
 
 class LogMixin:
-    """Adds structured logging to any class."""
+    '''Adds structured logging to any class.'''
     def log(self, level, message):
         print(f"[{level.upper()}] {type(self).__name__}: {message}")
 
@@ -126,7 +126,7 @@ class LogMixin:
     def log_error(self, msg):   self.log("error", msg)
 
 class ValidateMixin:
-    """Adds __post_init__ validation support."""
+    '''Adds __post_init__ validation support.'''
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         if hasattr(cls, "validate"):
@@ -137,7 +137,7 @@ class ValidateMixin:
             cls.__init__ = new_init
 
 class SerializeMixin:
-    """Adds JSON serialization."""
+    '''Adds JSON serialization.'''
     def to_dict(self):
         return {k: v for k, v in self.__dict__.items()
                 if not k.startswith("_")}
@@ -153,7 +153,7 @@ class SerializeMixin:
         return obj
 
 class TimestampMixin:
-    """Adds created_at and updated_at timestamps."""
+    '''Adds created_at and updated_at timestamps.'''
     from datetime import datetime
 
     def __init__(self, *args, **kwargs):
@@ -207,7 +207,7 @@ class AudioSystem:
         return f"🎵 Now playing: {song}"
 
 class Car:
-    """Car is composed of components — it HAS them, not IS them."""
+    '''Car is composed of components — it HAS them, not IS them.'''
     def __init__(self, make: str, hp: int):
         self.make = make
         self.engine = Engine(hp)     # HAS an engine
@@ -264,7 +264,7 @@ print(prius.start())          # electric
 # ── __init_subclass__ ──────────────
 
 class Registry:
-    """Any subclass is automatically registered."""
+    '''Any subclass is automatically registered.'''
     _registry = {}
 
     def __init_subclass__(cls, category=None, **kwargs):
@@ -290,7 +290,7 @@ print(Registry._registry)
 # Alternative to metaclasses for many use cases
 
 def singleton(cls):
-    """Class decorator that makes a class a singleton."""
+    '''Class decorator that makes a class a singleton.'''
     instances = {}
     def get_instance(*args, **kwargs):
         if cls not in instances:
@@ -310,7 +310,7 @@ s2 = AppSettings()
 print(s1 is s2)   # True
 
 def add_repr(cls):
-    """Add a generic __repr__ to any class."""
+    '''Add a generic __repr__ to any class.'''
     def __repr__(self):
         attrs = ", ".join(f"{k}={v!r}" for k,v in self.__dict__.items())
         return f"{type(self).__name__}({attrs})"

@@ -222,7 +222,7 @@ print_tree(work_dir, max_depth=2)
 # ── PRACTICAL SCRIPTS ─────────────
 
 def find_large_files(directory: Path, min_mb: float = 10) -> list:
-    """Find files larger than min_mb."""
+    '''Find files larger than min_mb.'''
     min_bytes = min_mb * 1024 * 1024
     large = []
     for f in directory.rglob("*"):
@@ -231,7 +231,7 @@ def find_large_files(directory: Path, min_mb: float = 10) -> list:
     return sorted(large, key=lambda x: x[1], reverse=True)
 
 def cleanup_old_files(directory: Path, days_old: int = 30):
-    """Delete files older than days_old days."""
+    '''Delete files older than days_old days.'''
     import time
     cutoff = time.time() - (days_old * 86400)
     deleted = 0

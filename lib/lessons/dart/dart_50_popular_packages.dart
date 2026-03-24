@@ -351,7 +351,7 @@ void collectionExample() {
 */
 
 void main() {
-  print('''
+  print("""
 Essential Dart Package Categories:
 ───────────────────────────────────
 Networking:    http, dio
@@ -364,7 +364,7 @@ Testing:       mockito, mocktail, faker
 Utilities:     collection, equatable, logger, rxdart
 
 Browse all packages at: https://pub.dev
-''');
+""");
 }
 
 📝 KEY POINTS:

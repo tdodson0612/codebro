@@ -92,7 +92,7 @@ def complex_function(
     verbose: bool = False,
     **kwargs
 ) -> dict:
-    """
+    '''
     A complex function demonstrating all parameter types.
 
     Args:
@@ -102,7 +102,7 @@ def complex_function(
         *tags: Variable tags
         verbose: Whether to be verbose (keyword-only)
         **kwargs: Extra keyword arguments
-    """
+    '''
     return {"name": name, "age": age}
 
 # Get signature
@@ -174,7 +174,7 @@ level1()
 
 # ── AST PARSING ───────────────────
 
-source_code = """
+source_code = '''
 def add(x, y):
     return x + y
 
@@ -183,7 +183,7 @@ class Calculator:
         return a * b
 
 result = add(3, 4)
-"""
+'''
 
 tree = ast.parse(source_code)
 print(f"\\nAST root type: {type(tree).__name__}")
@@ -220,7 +220,7 @@ except (ValueError, SyntaxError) as e:
 # ── AST VISITOR PATTERN ───────────
 
 class FunctionFinder(ast.NodeVisitor):
-    """Find all function definitions in source code."""
+    '''Find all function definitions in source code.'''
 
     def __init__(self):
         self.functions = []
@@ -238,7 +238,7 @@ class FunctionFinder(ast.NodeVisitor):
         })
         self.generic_visit(node)   # continue visiting children
 
-code = """
+code = '''
 def add(x, y):
     "Add two numbers."
     return x + y
@@ -249,7 +249,7 @@ def multiply(a, b, c=1):
 class MyClass:
     def method(self, value):
         pass
-"""
+'''
 
 finder = FunctionFinder()
 finder.visit(ast.parse(code))
@@ -261,7 +261,7 @@ for fn in finder.functions:
 # ── VARIABLE USAGE ANALYSIS ───────
 
 class VariableUsage(ast.NodeVisitor):
-    """Track which variables are assigned vs. used."""
+    '''Track which variables are assigned vs. used.'''
 
     def __init__(self):
         self.assigned = set()
@@ -285,7 +285,7 @@ print(f"Undefined:{analyzer.used - analyzer.assigned - {'z'}}")  # z not assigne
 # ── AST TRANSFORMER ──────────────
 
 class PowerToMul(ast.NodeTransformer):
-    """Transform x**2 to x*x for small exponents."""
+    '''Transform x**2 to x*x for small exponents.'''
 
     def visit_BinOp(self, node):
         self.generic_visit(node)   # visit children first
@@ -313,7 +313,7 @@ print(f"Transformed: {transformed}")   # result = x * x + y * y
 
 # Decorator that validates types using inspection
 def validate_types(func):
-    """Decorator that checks argument types at runtime."""
+    '''Decorator that checks argument types at runtime.'''
     hints = get_type_hints(func)
     sig = inspect.signature(func)
 

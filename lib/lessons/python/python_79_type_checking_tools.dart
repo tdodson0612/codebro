@@ -259,7 +259,7 @@ print(create_user(user))   # type-safe!
 
 # ── MYPY CONFIGURATION ─────────────
 
-MYPY_CONFIG = """
+MYPY_CONFIG = '''
 # pyproject.toml
 [tool.mypy]
 python_version = "3.11"
@@ -278,9 +278,9 @@ ignore_missing_imports = true
 [[tool.mypy.overrides]]
 module = "tests.*"
 disallow_untyped_defs = false  # relax for test files
-"""
+'''
 
-PYRIGHT_CONFIG = """
+PYRIGHT_CONFIG = '''
 # pyrightconfig.json
 {
   "pythonVersion": "3.11",
@@ -290,11 +290,11 @@ PYRIGHT_CONFIG = """
   "include": ["src"],
   "exclude": ["tests", "**/__pycache__"]
 }
-"""
+'''
 
 # ── GRADUAL TYPING STRATEGY ────────
 
-GRADUAL_STRATEGY = """
+GRADUAL_STRATEGY = '''
 Phase 1: Add types to new code only
   → Run mypy with --ignore-missing-imports
   → Fix errors only in new files
@@ -310,7 +310,7 @@ Phase 3: Increase strictness
 Phase 4: Full strict mode
   → mypy --strict . with zero errors
   → CI blocks PRs that introduce type errors
-"""
+'''
 
 print("Type checking setup complete!")
 print("Run: pip install mypy && mypy .")

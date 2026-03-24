@@ -61,7 +61,7 @@ T = TypeVar("T")
 # ── RATE LIMITER ──────────────────
 
 class RateLimiter:
-    """Limit to N calls per second using a token bucket."""
+    '''Limit to N calls per second using a token bucket.'''
 
     def __init__(self, calls_per_second: float):
         self.rate = calls_per_second
@@ -104,7 +104,7 @@ async def retry(
     exceptions: tuple = (Exception,),
     **kwargs
 ) -> Any:
-    """Retry a coroutine with exponential backoff."""
+    '''Retry a coroutine with exponential backoff.'''
     last_exception = None
     for attempt in range(1, max_attempts + 1):
         try:
@@ -124,12 +124,12 @@ async def retry(
 # ── FAN-OUT / FAN-IN ───────────────
 
 async def simulate_api_call(url: str, delay: float) -> dict:
-    """Simulate an API call with variable latency."""
+    '''Simulate an API call with variable latency.'''
     await asyncio.sleep(delay)
     return {"url": url, "data": f"Response from {url}", "latency": delay}
 
 async def fan_out_gather():
-    """Run all tasks concurrently, wait for ALL to complete."""
+    '''Run all tasks concurrently, wait for ALL to complete.'''
     urls = [f"https://api.example.com/resource/{i}" for i in range(5)]
     delays = [random.uniform(0.1, 0.5) for _ in urls]
 
@@ -143,7 +143,7 @@ async def fan_out_gather():
     return results
 
 async def fan_in_as_completed():
-    """Process results as they arrive (fastest first)."""
+    '''Process results as they arrive (fastest first).'''
     urls = [f"https://api.example.com/resource/{i}" for i in range(5)]
     delays = [random.uniform(0.1, 0.5) for _ in urls]
 
@@ -171,7 +171,7 @@ async def fetch_with_limit(urls: list[str], max_concurrent: int = 3):
 # ── TASK GROUP (Python 3.11+) ──────
 
 async def task_group_example():
-    """Structured concurrency — all tasks cancelled if one fails."""
+    '''Structured concurrency — all tasks cancelled if one fails.'''
     async with asyncio.TaskGroup() as tg:
         task1 = tg.create_task(simulate_api_call("url1", 0.1))
         task2 = tg.create_task(simulate_api_call("url2", 0.2))
@@ -260,11 +260,11 @@ async def use_connection(task_id: int):
 # ── RUN SYNC CODE IN ASYNC ─────────
 
 def cpu_intensive(n: int) -> int:
-    """A blocking, CPU-intensive function."""
+    '''A blocking, CPU-intensive function.'''
     return sum(i**2 for i in range(n))
 
 async def run_in_thread(n: int) -> int:
-    """Run blocking code without freezing the event loop."""
+    '''Run blocking code without freezing the event loop.'''
     loop = asyncio.get_event_loop()
     result = await loop.run_in_executor(None, cpu_intensive, n)
     return result

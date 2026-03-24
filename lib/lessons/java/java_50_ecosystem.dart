@@ -393,7 +393,7 @@ public class JavaEcosystem {
         System.out.println(ctrl.createUser("Dave", "notanemail"));
 
         System.out.println("\n=== Maven/Gradle Quick Reference ===");
-        System.out.println("""
+        System.out.println('''
           Maven commands:
             mvn compile          → compile
             mvn test             → test
@@ -411,7 +411,7 @@ public class JavaEcosystem {
 
           Spring Boot quickstart:
             start.spring.io → select deps → generate → unzip → code!
-          """);
+          ''');
     }
 }
 

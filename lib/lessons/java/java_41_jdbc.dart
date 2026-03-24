@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final javaLesson41 = Lesson(
   language: 'Java',
   title: 'JDBC and Database Access',
-  content: """
+  content: '''
 🎯 METAPHOR:
 JDBC is like a universal language translator between Java
 and any database. Different databases speak different
@@ -122,7 +122,6 @@ public class JDBCDemo {
     // ─── TABLE SETUP ──────────────────────────────────
     static void setupDatabase(Connection conn) throws SQLException {
         try (Statement stmt = conn.createStatement()) {
-            // Create tables
             stmt.execute("""
                 CREATE TABLE IF NOT EXISTS departments (
                     id   INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -141,13 +140,11 @@ public class JDBCDemo {
                 )
                 """);
 
-            // Seed departments
             stmt.execute("""
                 INSERT INTO departments (name) VALUES
                 ('Engineering'), ('Marketing'), ('HR'), ('Finance')
                 """);
 
-            // Seed employees
             stmt.execute("""
                 INSERT INTO employees (name, email, dept_id, salary, hired_date) VALUES
                 ('Alice Chen',  'alice@corp.com',   1, 95000.00, '2018-03-15'),
@@ -165,7 +162,7 @@ public class JDBCDemo {
 
     // ─── BASIC SELECT ─────────────────────────────────
     static void demoSelect(Connection conn) throws SQLException {
-        System.out.println("\n=== SELECT — Read all employees ===");
+        System.out.println("\\n=== SELECT — Read all employees ===");
 
         String sql = "SELECT e.*, d.name AS dept FROM employees e " +
                      "JOIN departments d ON e.dept_id = d.id " +
@@ -182,7 +179,7 @@ public class JDBCDemo {
                 System.out.printf("  %-15s %-10s %10s %-12s%n",
                     rs.getString("name"),
                     rs.getString("dept"),
-                    String.format("$%,.0f", rs.getDouble("salary")),
+                    String.format("\$%,.0f", rs.getDouble("salary")),
                     rs.getDate("hired_date").toString());
             }
         }
@@ -190,9 +187,8 @@ public class JDBCDemo {
 
     // ─── PARAMETERIZED QUERY ──────────────────────────
     static void demoParameterized(Connection conn) throws SQLException {
-        System.out.println("\n=== PreparedStatement — Parameterized queries ===");
+        System.out.println("\\n=== PreparedStatement — Parameterized queries ===");
 
-        // Query by department
         String byDeptSQL = """
                 SELECT e.name, e.salary
                 FROM employees e
@@ -203,26 +199,25 @@ public class JDBCDemo {
 
         try (PreparedStatement ps = conn.prepareStatement(byDeptSQL)) {
             for (String dept : new String[]{"Engineering", "Marketing"}) {
-                ps.setString(1, dept);  // safe — no SQL injection!
+                ps.setString(1, dept);
                 try (ResultSet rs = ps.executeQuery()) {
                     System.out.println("  " + dept + ":");
                     while (rs.next()) {
-                        System.out.printf("    %-15s \$%,.0f%n",
+                        System.out.printf("    %-15s\$%,.0f%n",
                             rs.getString("name"), rs.getDouble("salary"));
                     }
                 }
             }
         }
 
-        // Range query
         String rangeSQL = "SELECT name, salary FROM employees WHERE salary BETWEEN ? AND ?";
         try (PreparedStatement ps = conn.prepareStatement(rangeSQL)) {
             ps.setDouble(1, 80_000);
             ps.setDouble(2, 110_000);
             try (ResultSet rs = ps.executeQuery()) {
-                System.out.println("  Salary range\$80k-$110k:");
+                System.out.println("  Salary range\$80k-\$110k:");
                 while (rs.next()) {
-                    System.out.printf("    %-15s \$%,.0f%n",
+                    System.out.printf("    %-15s\$%,.0f%n",
                         rs.getString("name"), rs.getDouble("salary"));
                 }
             }
@@ -231,9 +226,8 @@ public class JDBCDemo {
 
     // ─── INSERT, UPDATE, DELETE ───────────────────────
     static void demoCUD(Connection conn) throws SQLException {
-        System.out.println("\n=== INSERT / UPDATE / DELETE ===");
+        System.out.println("\\n=== INSERT / UPDATE / DELETE ===");
 
-        // INSERT
         String insertSQL = "INSERT INTO employees (name, email, dept_id, salary, hired_date) VALUES (?, ?, ?, ?, ?)";
         int newId;
         try (PreparedStatement ps = conn.prepareStatement(insertSQL,
@@ -252,7 +246,6 @@ public class JDBCDemo {
             }
         }
 
-        // UPDATE
         String updateSQL = "UPDATE employees SET salary = salary * 1.1 WHERE id = ?";
         try (PreparedStatement ps = conn.prepareStatement(updateSQL)) {
             ps.setInt(1, newId);
@@ -260,7 +253,6 @@ public class JDBCDemo {
             System.out.println("  UPDATE: " + rows + " row(s) affected (10% raise)");
         }
 
-        // Verify update
         try (PreparedStatement ps = conn.prepareStatement(
                 "SELECT name, salary FROM employees WHERE id = ?")) {
             ps.setInt(1, newId);
@@ -272,7 +264,6 @@ public class JDBCDemo {
             }
         }
 
-        // DELETE
         try (PreparedStatement ps = conn.prepareStatement(
                 "DELETE FROM employees WHERE id = ?")) {
             ps.setInt(1, newId);
@@ -283,11 +274,10 @@ public class JDBCDemo {
 
     // ─── TRANSACTIONS ─────────────────────────────────
     static void demoTransactions(Connection conn) throws SQLException {
-        System.out.println("\n=== Transactions ===");
+        System.out.println("\\n=== Transactions ===");
 
         conn.setAutoCommit(false);
         try {
-            // Operation 1: give Alice a raise
             try (PreparedStatement ps = conn.prepareStatement(
                     "UPDATE employees SET salary = salary + 5000 WHERE name = ?")) {
                 ps.setString(1, "Alice Chen");
@@ -295,8 +285,6 @@ public class JDBCDemo {
                 System.out.println("  Op1: Updated " + rows + " row");
             }
 
-            // Operation 2: record in a log table (simulated)
-            // If this fails, both operations roll back
             System.out.println("  Op2: Simulated log entry");
 
             conn.commit();
@@ -312,7 +300,7 @@ public class JDBCDemo {
 
     // ─── AGGREGATE QUERIES ────────────────────────────
     static void demoAggregates(Connection conn) throws SQLException {
-        System.out.println("\n=== Aggregate Queries ===");
+        System.out.println("\\n=== Aggregate Queries ===");
 
         String sql = """
                 SELECT d.name AS dept,
@@ -337,17 +325,14 @@ public class JDBCDemo {
                 System.out.printf("  %-15s %9d %12s %12s %12s%n",
                     rs.getString("dept"),
                     rs.getInt("headcount"),
-                    String.format("$%,.0f", rs.getDouble("avg_salary")),
-                    String.format("$%,.0f", rs.getDouble("max_salary")),
-                    String.format("$%,.0f", rs.getDouble("min_salary")));
+                    String.format("\$%,.0f", rs.getDouble("avg_salary")),
+                    String.format("\$%,.0f", rs.getDouble("max_salary")),
+                    String.format("\$%,.0f", rs.getDouble("min_salary")));
             }
         }
     }
 
     public static void main(String[] args) {
-        // Note: requires H2 dependency on classpath
-        // Maven: <dependency><groupId>com.h2database</groupId>
-        //        <artifactId>h2</artifactId><version>2.2.224</version></dependency>
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
             System.out.println("=== JDBC with H2 In-Memory Database ===");
             System.out.println("  Connected: " + conn.getMetaData().getURL());
@@ -381,7 +366,7 @@ public class JDBCDemo {
 ❌ Don't forget to close ResultSet, Statement, and Connection (use try-with-resources)
 ❌ Don't call commit() inside a loop — batch the changes and commit once
 ❌ DriverManager is for demos/simple apps — use DataSource in production
-""",
+''',
   quiz: [
     Quiz(question: 'Why should you always use PreparedStatement instead of Statement for user input?', options: [
       QuizOption(text: 'PreparedStatement uses parameterized queries that prevent SQL injection — unsafe input cannot alter the SQL structure', correct: true),

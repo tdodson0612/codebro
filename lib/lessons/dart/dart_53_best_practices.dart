@@ -296,7 +296,7 @@ Widget buildButton({
 
 // ── ANALYSIS_OPTIONS.YAML ─────────
 
-String analysisOptionsExample = '''
+String analysisOptionsExample = """
 # analysis_options.yaml
 include: package:lints/recommended.yaml
 
@@ -320,7 +320,7 @@ linter:
     - avoid_print         # use logging instead
     - no_leading_underscores_for_local_identifiers
     - prefer_relative_imports
-''';
+""";
 
 // Placeholder classes for compilation
 class User { final String id; final String name; const User({required this.id, required this.name}); }

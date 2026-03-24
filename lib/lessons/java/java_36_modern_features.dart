@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final javaLesson36 = Lesson(
   language: 'Java',
   title: 'var, Text Blocks, and Modern Java Features',
-  content: """
+  content: '''
 🎯 METAPHOR:
 Modern Java features are like QoL (Quality of Life) upgrades
 in a video game. The old mechanics still work — you can still
@@ -50,25 +50,25 @@ TEXT BLOCKS (Java 13 preview, Java 15 stable):
   String html = "<html>\\n  <body>\\n    Hello\\n  </body>\\n</html>";
 
   // Text block — formatted naturally:
-  String json = \"\"\"
+  String json = """
           {
               "name": "Terry",
               "age": 30
           }
-          \"\"\";
+          """;
 
-  String html = \"\"\"
+  String html = """
           <html>
             <body>
               Hello
             </body>
           </html>
-          \"\"\";
+          """;
 
   Rules:
-  • Opening \"\"\" must be on its own line (with code after it)
+  • Opening """ must be on its own line (with code after it)
   • Indentation is stripped based on leftmost content
-  • Closing \"\"\" controls indentation — aligning it left keeps it
+  • Closing """ controls indentation — aligning it left keeps it
   • Template: %s formatters still work with .formatted()
 
 ─────────────────────────────────────
@@ -196,7 +196,7 @@ public class ModernJava {
         }
 
         // ─── TEXT BLOCKS ──────────────────────────────────
-        System.out.println("\n=== Text Blocks ===");
+        System.out.println("\\n=== Text Blocks ===");
 
         var json = """
                 {
@@ -225,7 +225,7 @@ public class ModernJava {
         String template = """
                 Dear %s,
                 Your order #%d has been shipped.
-                Total:\$%.2f
+                Total: \$%.2f
                 Thank you!
                 """;
         String letter = template.formatted("Alice", 12345, 99.95);
@@ -259,7 +259,7 @@ public class ModernJava {
         }
 
         // ─── PATTERN MATCHING instanceof ──────────────────
-        System.out.println("\n=== Pattern Matching instanceof ===");
+        System.out.println("\\n=== Pattern Matching instanceof ===");
         Object[] items = { "hello", 42, 3.14, List.of(1,2,3), null, true };
 
         for (Object item : items) {
@@ -275,7 +275,7 @@ public class ModernJava {
         }
 
         // ─── COLLECTION FACTORY METHODS ───────────────────
-        System.out.println("\n=== Collection Factory Methods ===");
+        System.out.println("\\n=== Collection Factory Methods ===");
         var immutableList = List.of("a", "b", "c", "d");
         var immutableSet  = Set.of(1, 2, 3, 4, 5);
         var immutableMap  = Map.of("one", 1, "two", 2, "three", 3);
@@ -294,8 +294,8 @@ public class ModernJava {
         System.out.println("  Map.ofEntries: " + new TreeMap<>(bigMap));
 
         // ─── STRING IMPROVEMENTS ──────────────────────────
-        System.out.println("\n=== String Improvements (Java 11+) ===");
-        var messy = "  \t Hello World \n  ";
+        System.out.println("\\n=== String Improvements (Java 11+) ===");
+        var messy = "  \\t Hello World \\n  ";
         System.out.println("  strip():         '" + messy.strip() + "'");
         System.out.println("  stripLeading():  '" + messy.stripLeading() + "'");
         System.out.println("  stripTrailing(): '" + messy.stripTrailing() + "'");
@@ -304,13 +304,13 @@ public class ModernJava {
         System.out.println("  repeat(3):        " + "ha".repeat(3));
 
         // lines() — Stream<String>
-        var multiline = "line1\nline2\nline3\nline4";
+        var multiline = "line1\\nline2\\nline3\\nline4";
         var lineList  = multiline.lines().collect(Collectors.toList());
         System.out.println("  lines(): " + lineList);
 
         // indent()
-        System.out.println("\n  indent(4):");
-        System.out.print("alpha\nbeta\ngamma".indent(4));
+        System.out.println("\\n  indent(4):");
+        System.out.print("alpha\\nbeta\\ngamma".indent(4));
 
         // ─── Optional IMPROVEMENTS ────────────────────────
         System.out.println("=== Optional Improvements ===");
@@ -351,9 +351,9 @@ public class ModernJava {
 ✅ Virtual threads (Java 21) enable millions of lightweight concurrent tasks
 ❌ var cannot be used for fields, parameters, or return types
 ❌ var without initialization fails: var x = null fails to compile
-❌ Text blocks are not raw strings — \n and \t still work inside them
+❌ Text blocks are not raw strings — \\n and \\t still work inside them
 ❌ List.of() throws UnsupportedOperationException on add()/remove()
-""",
+''',
   quiz: [
     Quiz(question: 'Where can var be used in Java?', options: [
       QuizOption(text: 'Only for local variables inside methods — not for fields, parameters, or return types', correct: true),

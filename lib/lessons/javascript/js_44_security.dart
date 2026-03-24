@@ -119,7 +119,7 @@ INPUT VALIDATION:
   // ✅ Server-side validation (Node.js example):
   function validateUser(data) {
       const errors = [];
-      if (!data.email?.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/))
+      if (!data.email?.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+\$/))
           errors.push('Invalid email');
       if (!data.password || data.password.length < 8)
           errors.push('Password must be 8+ chars');
@@ -241,7 +241,7 @@ class Validator {
 
 const userValidator = new Validator();
 userValidator.field('name').required().string().min(2).max(50);
-userValidator.field('email').required().pattern(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/, 'Invalid email');
+userValidator.field('email').required().pattern(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+\$/, 'Invalid email');
 userValidator.field('age').number().range(0, 150, 'Age must be 0-150');
 userValidator.field('password').required().min(8, 'Password must be 8+ characters');
 

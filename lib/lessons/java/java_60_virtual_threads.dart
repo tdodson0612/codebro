@@ -225,7 +225,7 @@ public class VirtualThreads {
 
         // ─── THREAD EXECUTOR PATTERNS ─────────────────────
         System.out.println("\n=== Common Usage Patterns ===");
-        System.out.println("""
+        System.out.println('''
           // Web server handler (one virtual thread per request):
           ExecutorService handler = Executors.newVirtualThreadPerTaskExecutor();
           server.onRequest(req -> handler.submit(() -> handleRequest(req)));
@@ -241,7 +241,7 @@ public class VirtualThreads {
           // Replace cached thread pool for I/O work:
           // Before: Executors.newCachedThreadPool()
           // After:  Executors.newVirtualThreadPerTaskExecutor()
-          """);
+          ''');
 
         // ─── PINNING DEMO (avoid synchronized) ───────────
         System.out.println("=== Pinning: synchronized vs ReentrantLock ===");

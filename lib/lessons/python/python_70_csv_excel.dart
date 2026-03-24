@@ -80,13 +80,13 @@ from datetime import date, datetime
 # ── CSV READING ────────────────────
 
 # Create a sample CSV for demo
-sample_csv = """Name,Age,Department,Salary,Start Date
+sample_csv = '''Name,Age,Department,Salary,Start Date
 Alice,30,Engineering,95000,2020-03-15
 Bob,25,Marketing,72000,2021-06-01
 Carol,35,Engineering,98000,2019-01-10
 Dave,28,HR,65000,2022-09-20
 Eve,32,Marketing,78000,2020-11-05
-"""
+'''
 
 # Reader — rows as lists
 print("=== csv.reader ===")
@@ -160,11 +160,11 @@ for row in reader:
 
 # ── HANDLING EDGE CASES ────────────
 
-tricky_csv = """Name,Description,Price
-"Apple, Red",A fresh apple,$1.99
-"Banana Bread","Bread with banana, walnuts","$4.50"
-Widget,"Contains ""quotes""",9.99
-"""
+tricky_csv = '''Name,Description,Price
+"Apple, Red",A fresh apple,\$1.99
+"Banana Bread","Bread with banana, walnuts","\$4.50"
+Widget,"Contains ""quotes''',9.99
+'''
 
 reader = csv.reader(io.StringIO(tricky_csv))
 for row in reader:
@@ -174,7 +174,7 @@ for row in reader:
 # ── PANDAS CSV ────────────────────
 
 # (shown as strings since pandas may not be installed)
-PANDAS_CSV_EXAMPLE = """
+PANDAS_CSV_EXAMPLE = '''
 import pandas as pd
 
 # Read CSV
@@ -198,11 +198,11 @@ print(df.groupby("dept")["salary"].agg(["mean", "min", "max"]))
 # Export
 df.to_csv("output.csv", index=False)
 df.to_csv("output.csv", sep="\\t", encoding="utf-8")
-"""
+'''
 
 # ── OPENPYXL EXCEL ─────────────────
 
-OPENPYXL_EXAMPLE = """
+OPENPYXL_EXAMPLE = '''
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, numbers
 from openpyxl.utils import get_column_letter
@@ -242,7 +242,7 @@ for row_idx, (name, *quarters) in enumerate(data, 2):
 # Format currency columns
 for row in ws.iter_rows(min_row=2, min_col=2, max_col=6):
     for cell in row:
-        cell.number_format = '"$"#,##0'
+        cell.number_format = '"\$"#,##0'
 
 # Set column widths
 for col in range(1, 7):
@@ -269,11 +269,11 @@ for row in ws2.iter_rows(min_row=2, values_only=True):
     name, q1, q2, q3, q4, total = row
     if name:
         print(f"{name}: Total = {total}")
-"""
+'''
 
 # ── PANDAS EXCEL ──────────────────
 
-PANDAS_EXCEL_EXAMPLE = """
+PANDAS_EXCEL_EXAMPLE = '''
 import pandas as pd
 
 # Read Excel
@@ -289,7 +289,7 @@ with pd.ExcelWriter("multi_sheet.xlsx", engine="openpyxl") as writer:
 sheets = pd.read_excel("multi_sheet.xlsx", sheet_name=None)  # all sheets
 for name, df in sheets.items():
     print(f"{name}: {len(df)} rows")
-"""
+'''
 
 print("CSV & Excel examples ready!")
 print("Libraries: csv (built-in), openpyxl, pandas")

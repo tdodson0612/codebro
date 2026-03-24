@@ -50,7 +50,7 @@ NumberFormat — numbers and currency:
 
   nf.format(1234567.89)  → "1,234,567.89" (US)
                             "1.234.567,89" (Germany)
-  cf.format(99.99)       → "$99.99"  (US)
+  cf.format(99.99)       → "\$99.99"  (US)
                             "99,99 €" (Germany)
   pf.format(0.857)       → "85.7%"  (US)
 
@@ -281,7 +281,7 @@ public class Internationalization {
   quiz: [
     Quiz(question: 'What does NumberFormat.getCurrencyInstance(Locale.GERMANY).format(9.99) produce?', options: [
       QuizOption(text: 'A German-formatted currency string like "9,99 €" with the Euro symbol and comma as decimal separator', correct: true),
-      QuizOption(text: '$9.99 — currency format always uses the dollar sign', correct: false),
+      QuizOption(text: '\$9.99 — currency format always uses the dollar sign', correct: false),
       QuizOption(text: 'EUR 9.99 — the ISO currency code followed by the amount', correct: false),
       QuizOption(text: '9.99 — getCurrencyInstance() only formats the number, not the symbol', correct: false),
     ]),

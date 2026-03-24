@@ -182,12 +182,12 @@ public class JARDemo {
         // Create a temporary properties file to simulate classpath resource
         Path tempDir  = Files.createTempDirectory("jar-demo");
         Path propFile = tempDir.resolve("app.properties");
-        Files.writeString(propFile, """
+        Files.writeString(propFile, '''
                 app.name=Java Course App
                 app.version=1.0.0
                 app.author=Terry
                 debug=false
-                """);
+                ''');
 
         // Load as Properties
         Properties props = new Properties();

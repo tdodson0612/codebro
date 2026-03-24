@@ -129,16 +129,16 @@ my_project/
 # Controls what's exported when: import mypackage
 
 # __init__.py:
-"""
+'''
 MyPackage — A sample Python package.
-"""
+'''
 # from .core import MainClass, utility_func
 # from .config import Config
 # __version__ = "1.0.0"
 # __all__ = ["MainClass", "utility_func", "Config"]
 
 # ── PYPROJECT.TOML EXAMPLE ─────────
-PYPROJECT_EXAMPLE = """
+PYPROJECT_EXAMPLE = '''
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.backends.legacy:build"
@@ -175,10 +175,10 @@ strict = true
 [tool.ruff]
 line-length = 88
 select = ["E", "F", "I"]
-"""
+'''
 
 # ── REQUIREMENTS.TXT ──────────────
-REQUIREMENTS_EXAMPLE = """
+REQUIREMENTS_EXAMPLE = '''
 # Core dependencies
 requests==2.31.0
 pydantic>=2.0,<3.0
@@ -194,7 +194,7 @@ pytest-cov>=4.0
 black>=23.0
 mypy>=1.5
 ruff>=0.1.0
-"""
+'''
 
 # ── BUILDING AND DISTRIBUTING ──────
 
@@ -264,7 +264,7 @@ def get_package_info(package_name: str) -> dict:
         return {}
 
 # ── .gitignore for Python ──────────
-GITIGNORE = """
+GITIGNORE = '''
 # Virtual environments
 .venv/
 venv/
@@ -300,7 +300,7 @@ htmlcov/
 
 # Jupyter notebooks
 .ipynb_checkpoints/
-"""
+'''
 
 print("📦 Python packaging workflow ready!")
 print("1. Create venv: python3 -m venv .venv")

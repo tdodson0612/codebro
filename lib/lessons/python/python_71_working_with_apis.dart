@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final pythonLesson71 = Lesson(
   language: 'Python',
   title: 'Working with REST APIs',
-  content: """
+  content: '''
 🎯 METAPHOR:
 A REST API is like a restaurant menu with a specific ordering system.
 The menu (API documentation) tells you what dishes (endpoints) exist,
@@ -332,7 +332,7 @@ demo_jsonplaceholder()
 ❌ Never hardcode API keys — use environment variables
 ❌ Don't ignore SSL errors (verify=False) in production
 ❌ Don't make requests in tight loops without rate limiting
-""",
+''',
   quiz: [
     Quiz(question: 'What HTTP method should you use to partially update a resource?', options: [
       QuizOption(text: 'PUT — replace the entire resource', correct: false),

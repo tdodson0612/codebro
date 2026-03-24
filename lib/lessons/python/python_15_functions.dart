@@ -26,7 +26,7 @@ Functions are reusable blocks of code that:
 📐 DEFINING AND CALLING
 ─────────────────────────────────────
 def function_name(parameters):
-    """Docstring: explains what function does"""
+    '''Docstring: explains what function does'''
     # body
     return value   # optional
 
@@ -89,13 +89,13 @@ It's the first string literal in the function body.
 Access with: function.__doc__ or help(function)
 
 def area(radius):
-    """
+    '''
     Calculate circle area.
     Args:
         radius (float): Circle radius
     Returns:
         float: Area of the circle
-    """
+    '''
     return 3.14159 * radius ** 2
 
 ─────────────────────────────────────
@@ -132,7 +132,7 @@ def append_to(item, lst=None):
 💻 CODE:
 # Basic function
 def greet(name):
-    """Greet someone by name."""
+    '''Greet someone by name.'''
     return f"Hello, {name}!"
 
 print(greet("Alice"))   # Hello, Alice!
@@ -185,7 +185,7 @@ full_function(1, 2, 3, 4, 5, keyword_only="hello", x=10, y=20)
 
 # Multiple return values
 def stats(numbers):
-    """Return mean, min, and max."""
+    '''Return mean, min, and max.'''
     return sum(numbers)/len(numbers), min(numbers), max(numbers)
 
 mean, minimum, maximum = stats([4, 7, 2, 9, 1, 5])
@@ -251,7 +251,7 @@ print(add(**info))   # unpacks dict as keyword args
 
 # Docstring
 def circle_area(radius):
-    """
+    '''
     Calculate the area of a circle.
 
     Args:
@@ -262,7 +262,7 @@ def circle_area(radius):
 
     Raises:
         ValueError: If radius is negative.
-    """
+    '''
     if radius < 0:
         raise ValueError("Radius cannot be negative")
     import math

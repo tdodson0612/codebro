@@ -97,7 +97,7 @@ void main() {
   print('');
 
   // ── BASIC INTEROP PATTERNS ─────
-  final basicPattern = '''
+  final basicPattern = """
   // Import modern interop
   import "dart:js_interop";
 
@@ -115,11 +115,11 @@ void main() {
     console.log("Hello from Dart!".toJS);
     print(location.href.toDart);    // current URL as Dart String
   }
-  ''';
+  """;
   print('Basic Pattern:\n\$basicPattern');
 
   // ── DEFINING INTEROP TYPES ─────
-  final interopTypes = '''
+  final interopTypes = """
   import "dart:js_interop";
 
   // Define JS class bindings
@@ -147,11 +147,11 @@ void main() {
   }
 
   typedef EventListenerCallback = JSFunction;
-  ''';
+  """;
   print('Interop Types:\n\$interopTypes');
 
   // ── DOCUMENT & DOM ─────────────
-  final domExample = '''
+  final domExample = """
   import "dart:js_interop";
   import "dart:js_interop_unsafe";  // for operator []
 
@@ -177,11 +177,11 @@ void main() {
     div.id = "new-div";
     document.body.append(div);
   }
-  ''';
+  """;
   print('DOM Example:\n\$domExample');
 
   // ── PROMISES / FUTURES ─────────
-  final promisesExample = '''
+  final promisesExample = """
   import "dart:js_interop";
 
   @JS("fetch")
@@ -200,11 +200,11 @@ void main() {
     final text = await (response as Response).text().toDart;
     print(text.toDart);  // Dart String
   }
-  ''';
+  """;
   print('Promises:\n\$promisesExample');
 
   // ── TYPE CONVERSIONS ───────────
-  final conversions = '''
+  final conversions = """
   import "dart:js_interop";
 
   void conversionExamples() {
@@ -226,18 +226,18 @@ void main() {
         ? (maybeNull as JSString).toDart
         : null;
   }
-  ''';
+  """;
   print('Conversions:\n\$conversions');
 
   // ── CALLING JS FUNCTIONS ────────
-  final callingJS = '''
+  final callingJS = """
   import "dart:js_interop";
 
   // Declare a JS function
   @JS("Math.random")
   external JSNumber mathRandom();
 
-  @JS("JSON.stringify")  
+  @JS("JSON.stringify")
   external JSString jsonStringify(JSAny object, [JSAny? replacer, JSAny? space]);
 
   @JS("setTimeout")
@@ -255,15 +255,15 @@ void main() {
     void afterDelay() { print("Timer fired!"); }
     setTimeout(afterDelay.toJS, 1000.toJS);  // 1 second
   }
-  ''';
+  """;
   print('Calling JS:\n\$callingJS');
 
   // ── INTEROP WITH JS LIBRARY ────
-  final libraryInterop = '''
+  final libraryInterop = """
   // Example: wrapping a JS charting library
   import "dart:js_interop";
 
-  @JS("Chart")  
+  @JS("Chart")
   extension type Chart(JSObject _) implements JSObject {
     external factory Chart(HTMLCanvasElement canvas, JSObject config);
     external void update();
@@ -288,7 +288,7 @@ void main() {
     final chart = Chart(canvas, config as JSObject);
     // Later: chart.update(), chart.destroy()
   }
-  ''';
+  """;
   print('Library Interop:\n\$libraryInterop');
 
   print("""

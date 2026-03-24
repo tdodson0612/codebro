@@ -231,14 +231,14 @@ public class JVMInternals {
         System.out.println("  View bytecode: javap -c YourClass.class");
         System.out.println("  Verbose:       javap -v YourClass.class");
         System.out.println("  Example output for a simple method:");
-        System.out.println("""
+        System.out.println('''
             public static int add(int, int);
               Code:
                  0: iload_0          // load first param
                  1: iload_1          // load second param
                  2: iadd             // add them
                  3: ireturn          // return result
-          """);
+          ''');
 
         // ─── JVM TUNING REFERENCE ─────────────────────────
         System.out.println("=== JVM Flags Reference ===");

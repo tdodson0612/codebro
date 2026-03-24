@@ -125,7 +125,7 @@ full_example(1, 2, 3, 4, 5, 6, 7, kw_only="hi", flag=True, x=99, y=100)
 # ── Forwarding args and kwargs ──────
 
 def wrapper(*args, **kwargs):
-    """Pass everything through to another function."""
+    '''Pass everything through to another function.'''
     print(f"Before call: args={args}, kwargs={kwargs}")
     result = original(*args, **kwargs)
     print(f"After call: result={result}")
@@ -168,7 +168,7 @@ print(merged)  # {'color': 'red', 'size': 'M', 'weight': 1.5}
 # ── Keyword-only parameters ─────────
 
 def connect(host, port, *, timeout=30, retries=3, ssl=True):
-    """All params after * are keyword-only."""
+    '''All params after * are keyword-only.'''
     print(f"Connecting to {host}:{port}")
     print(f"  timeout={timeout}, retries={retries}, ssl={ssl}")
 
@@ -179,7 +179,7 @@ connect("prod.db", 5432, timeout=10, ssl=False)
 # ── Positional-only (Python 3.8+) ──
 
 def normalize(value, /, min_val=0, max_val=1):
-    """value is positional-only — can't pass as keyword."""
+    '''value is positional-only — can't pass as keyword.'''
     return (value - min_val) / (max_val - min_val)
 
 print(normalize(0.5))               # 0.5

@@ -148,7 +148,7 @@ match = re.search(r"line 1.*line 3", multiline, re.DOTALL)
 print(match.group() if match else "No match")
 
 # VERBOSE — write readable patterns
-phone_pattern = re.compile(r"""
+phone_pattern = re.compile(r'''
     \\b                 # word boundary
     (\\d{3})            # area code
     [-. ]              # separator
@@ -156,7 +156,7 @@ phone_pattern = re.compile(r"""
     [-. ]              # separator
     (\\d{4})            # last 4 digits
     \\b                 # word boundary
-""", re.VERBOSE)
+''', re.VERBOSE)
 
 phones = "Call 555-1234 or 555.9876 or 555 4321"
 for m in phone_pattern.finditer(phones):
@@ -165,7 +165,7 @@ for m in phone_pattern.finditer(phones):
 # Lookahead and lookbehind
 text = "price: \$100, discount: \$20, total: \$80"
 # Find numbers preceded by \$
-amounts = re.findall(r"(?<=\\\\\\$)\\d+", text)
+amounts = re.findall(r"(?<=\\\\\\\$)\\d+", text)
 print(amounts)   # ['100', '20', '80']
 
 # Negative lookahead — "python" not followed by "3"

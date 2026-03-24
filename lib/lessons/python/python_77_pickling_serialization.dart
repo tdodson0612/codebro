@@ -169,7 +169,7 @@ print(f"Inventory: {loaded_save.inventory}")
 # ── CUSTOM __GETSTATE__ / __SETSTATE__ ─
 
 class DatabaseConnection:
-    """Can't pickle open connections — customize pickling."""
+    '''Can't pickle open connections — customize pickling.'''
 
     def __init__(self, host: str, port: int, db: str):
         self.host = host
@@ -186,13 +186,13 @@ class DatabaseConnection:
         return f"Results for: {sql}"
 
     def __getstate__(self):
-        """What to save — exclude unpicklable connection."""
+        '''What to save — exclude unpicklable connection.'''
         state = self.__dict__.copy()
         del state["_connection"]   # remove the connection
         return state
 
     def __setstate__(self, state):
-        """How to restore — reconnect after unpickling."""
+        '''How to restore — reconnect after unpickling.'''
         self.__dict__.update(state)
         self._connect()   # reconnect on restore
 
@@ -249,12 +249,12 @@ with shelve.open("myshelf2", writeback=True) as db:
 # ── MULTIPLE OBJECTS IN ONE FILE ──
 
 def save_all(filepath: str, **objects):
-    """Save multiple named objects to one file."""
+    '''Save multiple named objects to one file.'''
     with open(filepath, "wb") as f:
         pickle.dump(objects, f, protocol=pickle.HIGHEST_PROTOCOL)
 
 def load_all(filepath: str) -> dict:
-    """Load all objects from file."""
+    '''Load all objects from file.'''
     with open(filepath, "rb") as f:
         return pickle.load(f)
 

@@ -127,7 +127,7 @@ print(f"s5 is s6 (interned): {s5 is s6}")  # True
 # ── BYTECODE DISASSEMBLY ──────────
 
 def simple_func(x, y):
-    """Add two numbers and return if positive."""
+    '''Add two numbers and return if positive.'''
     result = x + y
     if result > 0:
         return result
@@ -147,7 +147,7 @@ dis.dis(code)
 # ── REFERENCE COUNTING ────────────
 
 def ref_count(obj):
-    """Get true reference count (subtract temporary refs)."""
+    '''Get true reference count (subtract temporary refs).'''
     return sys.getrefcount(obj) - 1   # -1 for getrefcount's own ref
 
 x = [1, 2, 3]
@@ -208,17 +208,17 @@ sys.path.insert(0, "/my/custom/modules")
 import timeit
 
 # Global vs local variable lookup
-setup_global = """
+setup_global = '''
 x = 42
 def global_lookup():
     return x
-"""
+'''
 
-setup_local = """
+setup_local = '''
 def local_lookup():
     x = 42
     return x
-"""
+'''
 
 global_time = timeit.timeit("global_lookup()", setup=setup_global, number=1_000_000)
 local_time  = timeit.timeit("local_lookup()",  setup=setup_local,  number=1_000_000)

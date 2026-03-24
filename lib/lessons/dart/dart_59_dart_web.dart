@@ -292,7 +292,7 @@ external void shareUrl(String url, String title);  // calls JS shareUrl()
 
 // ── WEBASSEMBLY (DART → WASM) ──────
 
-String wasmNote = '''
+String wasmNote = """
 Dart → WebAssembly (WasmGC) is in progress.
 Flutter Web already uses WASM in some configurations.
 dart compile wasm main.dart (experimental)
@@ -302,7 +302,7 @@ Benefits of WASM:
   → Better performance for compute-heavy code
   → Smaller binary in some cases
   → Will gradually replace JS compilation
-''';
+""";
 
 void main() {
   print('Dart Web Compilation Options:');

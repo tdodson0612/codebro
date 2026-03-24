@@ -203,7 +203,7 @@ __mangled = True          # __prefix = name-mangled
 # ── DOCSTRINGS ─────────────────────
 
 def calculate_discount(price: float, rate: float) -> float:
-    """
+    '''
     Calculate the discounted price.
 
     Args:
@@ -219,7 +219,7 @@ def calculate_discount(price: float, rate: float) -> float:
     Example:
         >>> calculate_discount(100.0, 0.2)
         80.0
-    """
+    '''
     if price < 0:
         raise ValueError(f"Price cannot be negative: {price}")
     if not 0.0 <= rate <= 1.0:
@@ -265,7 +265,7 @@ if not r.success:
     print(f"Error: {r.error}")
 
 # ── TOOLS CONFIGURATION ────────────
-PYPROJECT_TOOLS = """
+PYPROJECT_TOOLS = '''
 [tool.black]
 line-length = 88
 target-version = ['py311']
@@ -283,7 +283,7 @@ ignore_missing_imports = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-v --tb=short --cov=src"
-"""
+'''
 
 # ── PERFORMANCE PROFILING ──────────
 import timeit

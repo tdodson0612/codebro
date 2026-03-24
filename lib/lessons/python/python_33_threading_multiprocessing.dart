@@ -182,7 +182,7 @@ for t in threads: t.join()
 # ── MULTIPROCESSING ────────────────
 
 def cpu_task(n):
-    """CPU-intensive task — benefits from multiprocessing."""
+    '''CPU-intensive task — benefits from multiprocessing.'''
     return sum(i**2 for i in range(n))
 
 if __name__ == "__main__":   # REQUIRED for multiprocessing on Windows!

@@ -40,8 +40,8 @@ num     → supertype of int AND double
 ─────────────────────────────────────
 String  → sequence of UTF-16 code units
           'Hello'  or  "Hello"  (both identical)
-          '''Multi
-             line'''   (triple quotes)
+          \'''Multi
+             line\'''   (triple quotes)
           r'Raw \$string \n'  (raw — no escaping)
 
 ─────────────────────────────────────
@@ -187,10 +187,10 @@ void main() {
   // ── String ───────────────────────────────────────
   String single = 'Hello, World!';
   String double_ = "Also works";
-  String multiLine = '''
+  String multiLine = """
 Line one
 Line two
-Line three''';
+Line three""";
   String raw = r'No \n escape here: \$variable';
 
   print(single);

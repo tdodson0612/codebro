@@ -217,11 +217,11 @@ print(textwrap.fill(long_text, width=40))
 print(textwrap.indent(long_text, "    "))
 
 # Dedent (remove common leading whitespace)
-indented = """
+indented = '''
     Line one
     Line two
     Line three
-"""
+'''
 print(textwrap.dedent(indented))
 
 # ── LOCALE-AWARE ─────────────────

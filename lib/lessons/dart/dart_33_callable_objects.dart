@@ -232,7 +232,7 @@ class Counter {
 }
 
 class EmailValidator {
-  static final _regex = RegExp(r'^[\w-\.]+@[\w-]+\.[a-zA-Z]{2,}$');
+  static final _regex = RegExp(r'^[\w-\.]+@[\w-]+\.[a-zA-Z]{2,}\$');
   bool call(String email) => _regex.hasMatch(email);
 }
 

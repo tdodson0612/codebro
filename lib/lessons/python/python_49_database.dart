@@ -91,7 +91,7 @@ conn.row_factory = sqlite3.Row   # rows accessible by column name!
 cursor = conn.cursor()
 
 # Create table
-cursor.execute("""
+cursor.execute('''
     CREATE TABLE users (
         id       INTEGER PRIMARY KEY AUTOINCREMENT,
         name     TEXT    NOT NULL,
@@ -100,9 +100,9 @@ cursor.execute("""
         created  TEXT    DEFAULT CURRENT_TIMESTAMP,
         active   INTEGER DEFAULT 1
     )
-""")
+''')
 
-cursor.execute("""
+cursor.execute('''
     CREATE TABLE posts (
         id        INTEGER PRIMARY KEY AUTOINCREMENT,
         user_id   INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -110,7 +110,7 @@ cursor.execute("""
         content   TEXT,
         created   TEXT DEFAULT CURRENT_TIMESTAMP
     )
-""")
+''')
 
 conn.commit()
 
@@ -168,7 +168,7 @@ print(f"Deleted {cursor.rowcount} users")
 conn.commit()
 
 # AGGREGATE queries
-cursor.execute("""
+cursor.execute('''
     SELECT
         COUNT(*) as total,
         AVG(age) as avg_age,
@@ -176,19 +176,19 @@ cursor.execute("""
         MAX(age) as max_age
     FROM users
     WHERE active = 1
-""")
+''')
 stats = dict(cursor.fetchone())
 print(f"Stats: {stats}")
 
 # GROUP BY
-cursor.execute("""
+cursor.execute('''
     SELECT
         CASE WHEN age < 30 THEN 'young' ELSE 'senior' END as group_name,
         COUNT(*) as count
     FROM users
     GROUP BY group_name
     ORDER BY count DESC
-""")
+''')
 for row in cursor.fetchall():
     print(f"{row['group_name']}: {row['count']}")
 
@@ -203,12 +203,12 @@ cursor.executemany(
 )
 conn.commit()
 
-cursor.execute("""
+cursor.execute('''
     SELECT u.name, p.title, p.created
     FROM users u
     JOIN posts p ON u.id = p.user_id
     ORDER BY u.name, p.created
-""")
+''')
 for row in cursor.fetchall():
     print(f"{row['name']}: {row['title']}")
 

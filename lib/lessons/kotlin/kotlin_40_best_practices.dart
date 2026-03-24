@@ -224,7 +224,7 @@ class Idiomatic {
 // Extension functions over utility classes
 fun String.isPalindrome() = this.lowercase() == this.lowercase().reversed()
 fun String.words() = this.trim().split("\\s+".toRegex())
-fun Double.formatAsCurrency() = "\$${"%.2f".format(this)}"
+fun Double.formatAsCurrency() = "\$\${"%.2f".format(this)}"
 fun Int.pluralize(word: String) = "\$this \${if (this == 1) word else word + "s"}"
 
 // Idiomatic null handling

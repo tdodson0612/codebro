@@ -141,11 +141,11 @@ class TestDivide(unittest.TestCase):
 class TestBankAccount(unittest.TestCase):
 
     def setUp(self):
-        """Runs before EACH test method."""
+        '''Runs before EACH test method.'''
         self.account = BankAccount("Alice", 100.0)
 
     def tearDown(self):
-        """Runs after EACH test method."""
+        '''Runs after EACH test method.'''
         pass  # cleanup if needed
 
     def test_initial_balance(self):
@@ -191,7 +191,7 @@ class NotificationService:
         self.email_service.send(
             to="user@example.com",
             subject="Deposit received",
-            body=f"\\${amount} deposited to {account.owner}'s account"
+            body=f"\\\${amount} deposited to {account.owner}'s account"
         )
 
 class TestNotificationService(unittest.TestCase):
@@ -209,7 +209,7 @@ class TestNotificationService(unittest.TestCase):
         self.mock_email.send.assert_called_once_with(
             to="user@example.com",
             subject="Deposit received",
-            body="\\$50 deposited to Bob's account"
+            body="\\\$50 deposited to Bob's account"
         )
 
 # patch() — temporarily replace a module-level name

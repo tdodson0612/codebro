@@ -196,7 +196,7 @@ with ExitStack() as stack:
 # Database connection context manager
 @contextmanager
 def db_transaction(connection):
-    """Commit on success, rollback on failure."""
+    '''Commit on success, rollback on failure.'''
     try:
         yield connection
         connection.commit()

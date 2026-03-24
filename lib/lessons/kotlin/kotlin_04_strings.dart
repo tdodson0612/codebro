@@ -35,15 +35,15 @@ Rule: use \$ for simple variable names.
 ─────────────────────────────────────
 RAW STRINGS (triple-quoted):
 ─────────────────────────────────────
-Use triple quotes """ for multi-line strings.
+Use triple quotes ''' for multi-line strings.
 No escape sequences needed inside them.
 
-  val poem = """
+  val poem = '''
       Roses are red,
       Violets are blue,
       Kotlin is awesome,
       And Java is too.
-  """.trimIndent()
+  '''.trimIndent()
 
 .trimIndent() removes the common leading whitespace
 from all lines — keeps the code readable.
@@ -101,11 +101,11 @@ fun main() {
     println("Uppercase: \${firstName.uppercase()}")
 
     // Multi-line raw string
-    val bio = """
+    val bio = '''
         Name: \$firstName \$lastName
         Age:  \$age
         Job:  Developer
-    """.trimIndent()
+    '''.trimIndent()
     println(bio)
 
     // String operations
@@ -143,7 +143,7 @@ fun main() {
 📝 KEY POINTS:
 ✅ Use \$ for simple variable names in templates
 ✅ Use \${} for expressions: \${a + b}, \${obj.method()}
-✅ Triple quotes """ create raw multi-line strings
+✅ Triple quotes ''' create raw multi-line strings
 ✅ .trimIndent() cleans up indentation in triple-quoted strings
 ✅ == compares content in Kotlin (unlike Java)
 ✅ isEmpty() checks for zero length; isBlank() checks whitespace

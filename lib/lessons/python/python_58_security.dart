@@ -110,7 +110,7 @@ print(f"Good hex:   {good_hex}")
 
 # Generate API keys
 def generate_api_key(prefix="sk") -> str:
-    """Generate a secure API key like OpenAI/Stripe do."""
+    '''Generate a secure API key like OpenAI/Stripe do.'''
     return f"{prefix}_{secrets.token_urlsafe(32)}"
 
 api_key = generate_api_key()
@@ -198,21 +198,21 @@ import re
 from typing import Optional
 
 def validate_email(email: str) -> bool:
-    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+    pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}\$"
     return bool(re.match(pattern, email))
 
 def validate_username(username: str) -> Optional[str]:
-    """Returns error message or None if valid."""
+    '''Returns error message or None if valid.'''
     if not username:
         return "Username is required"
     if len(username) < 3 or len(username) > 30:
         return "Username must be 3-30 characters"
-    if not re.match(r"^[a-zA-Z0-9_-]+$", username):
+    if not re.match(r"^[a-zA-Z0-9_-]+\$", username):
         return "Username can only contain letters, numbers, _ and -"
     return None
 
 def sanitize_filename(filename: str) -> str:
-    """Remove dangerous path traversal characters."""
+    '''Remove dangerous path traversal characters.'''
     # Remove directory separators and null bytes
     filename = re.sub(r"[/\\\\\\0]", "", filename)
     # Remove leading dots (hidden files)
@@ -235,7 +235,7 @@ print(sanitize_filename("../../../etc/passwd"))  # "etcpasswd"
 
 # SAFE — list form, no shell
 def safe_word_count(filename: str) -> int:
-    """Count words in a file safely."""
+    '''Count words in a file safely.'''
     # Validate the filename first
     path = Path(filename)
     if not path.exists() or not path.is_file():
@@ -260,7 +260,7 @@ user_input = "2 + 2"
 import ast
 
 def safe_eval_math(expression: str) -> float:
-    """Safely evaluate a math expression."""
+    '''Safely evaluate a math expression.'''
     # Parse the AST and only allow safe nodes
     try:
         tree = ast.parse(expression, mode="eval")
@@ -289,7 +289,7 @@ except ValueError as e:
 # ── HMAC FOR MESSAGE AUTHENTICITY ─
 
 def sign_message(message: str, secret_key: str) -> str:
-    """Sign a message with HMAC-SHA256."""
+    '''Sign a message with HMAC-SHA256.'''
     return hmac.new(
         secret_key.encode(),
         message.encode(),
@@ -297,7 +297,7 @@ def sign_message(message: str, secret_key: str) -> str:
     ).hexdigest()
 
 def verify_message(message: str, signature: str, secret_key: str) -> bool:
-    """Verify a message signature."""
+    '''Verify a message signature.'''
     expected = sign_message(message, secret_key)
     return hmac.compare_digest(signature, expected)
 

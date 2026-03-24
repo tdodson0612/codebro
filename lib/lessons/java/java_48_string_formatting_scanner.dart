@@ -176,13 +176,13 @@ public class StringFormattingScanner {
         for (var e : employees) {
             System.out.printf("  %-18s %-14s %12s %6d%n",
                 e.name(), e.dept(),
-                String.format("$%,.0f", e.salary()),
+                String.format("\$%,.0f", e.salary()),
                 e.years());
         }
 
         System.out.println("  " + "─".repeat(55));
         double total = employees.stream().mapToDouble(Employee::salary).sum();
-        System.out.printf("  %-32s %12s%n", "TOTAL PAYROLL:", String.format("$%,.0f", total));
+        System.out.printf("  %-32s %12s%n", "TOTAL PAYROLL:", String.format("\$%,.0f", total));
 
         // ─── String.format() vs .formatted() ─────────────
         System.out.println("\n=== String.format() vs .formatted() ===");
@@ -204,16 +204,16 @@ public class StringFormattingScanner {
             fmt.format("%-15s %10s %10s%n", "─".repeat(15), "─".repeat(10), "─".repeat(10));
 
             String[][] data = {
-                {"Widget A", "1,250",  "$31,250"},
-                {"Widget B",   "890",  "$44,500"},
-                {"Widget C", "2,100",  "$21,000"},
-                {"Widget D",   "450",  "$22,500"}
+                {"Widget A", "1,250",  "\$31,250"},
+                {"Widget B",   "890",  "\$44,500"},
+                {"Widget C", "2,100",  "\$21,000"},
+                {"Widget D",   "450",  "\$22,500"}
             };
             for (String[] row : data) {
                 fmt.format("%-15s %10s %10s%n", row[0], row[1], row[2]);
             }
             fmt.format("%-15s %10s %10s%n", "─".repeat(15), "─".repeat(10), "─".repeat(10));
-            fmt.format("%-15s %10s %10s%n", "TOTAL", "4,690", "$119,250");
+            fmt.format("%-15s %10s %10s%n", "TOTAL", "4,690", "\$119,250");
         }
         System.out.println(sw);
 
@@ -270,7 +270,7 @@ public class StringFormattingScanner {
         // ─── KEYBOARD INPUT DEMO (simulated) ─────────────
         System.out.println("\n=== Scanner Keyboard Input (simulated) ===");
         System.out.println("  In real programs, use Scanner to read keyboard input:");
-        System.out.println("""
+        System.out.println('''
               Scanner sc = new Scanner(System.in);
               System.out.print("Enter your name: ");
               String name = sc.nextLine();
@@ -278,7 +278,7 @@ public class StringFormattingScanner {
               int age = sc.nextInt();
               System.out.printf("Hello %s, you are %d years old!%n", name, age);
               sc.close();
-            """);
+            ''');
 
         // Simulated version with a fake input
         Scanner fakeInput = new Scanner("Terry\n30");

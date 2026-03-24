@@ -108,7 +108,7 @@ void main() {
   // (On macOS/Linux, use DynamicLibrary.open for .so/.dylib)
   // (On all platforms, DynamicLibrary.process() for already-loaded libs)
 
-  final libmExample = '''
+  final libmExample = """
   // Load math library
   final libm = DynamicLibrary.open(
     Platform.isLinux ? 'libm.so.6' : 'libm.dylib'
@@ -123,11 +123,11 @@ void main() {
 
   print(sqrt(144.0));   // 12.0
   print(sqrt(2.0));     // 1.4142135623730951
-  ''';
+  """;
   print('libm example:\n\$libmExample');
 
   // ── STRUCT EXAMPLE ─────────────
-  final structExample = '''
+  final structExample = """
   // import "package:ffi/ffi.dart" for calloc
   import "dart:ffi";
   import "package:ffi/ffi.dart";
@@ -152,29 +152,29 @@ void main() {
 
   // MUST free — not garbage collected!
   calloc.free(ptr);
-  ''';
+  """;
   print('Struct example:\n\$structExample');
 
   // ── STRINGS IN FFI ─────────────
-  final stringExample = '''
+  final stringExample = """
   import "package:ffi/ffi.dart";
 
   // Dart String → C String (char*)
   final nativeName = "Alice".toNativeUtf8();   // Pointer<Char>
-  
+
   // Use in C function call...
-  
+
   // C String → Dart String
   final dartString = nativeName.toDartString();
   print(dartString);  // Alice
-  
+
   // Free!
   calloc.free(nativeName);
-  ''';
+  """;
   print('String example:\n\$stringExample');
 
   // ── CALLBACKS ─────────────────
-  final callbackExample = '''
+  final callbackExample = """
   // C function that takes a callback
   // void processItems(int count, void (*callback)(int item));
 
@@ -187,13 +187,13 @@ void main() {
 
   // Pass to C function
   cProcessItems(5, callback.nativeFunction);
-  
+
   callback.close();  // Clean up native callable
-  ''';
+  """;
   print('Callback example:\n\$callbackExample');
 
   // ── SQLITE INTEGRATION ─────────
-  final sqliteExample = '''
+  final sqliteExample = """
   // Real-world: Dart FFI bindings for SQLite
   // (package:sqlite3 does this for you!)
 
@@ -208,32 +208,32 @@ void main() {
   using((arena) {
     final path = "/tmp/test.db".toNativeUtf8(allocator: arena);
     final dbPtr = arena.allocate<Pointer<Void>>();
-    
+
     final rc = openFn(path.cast(), dbPtr);
     if (rc != 0) throw Exception("Failed to open database");
-    
+
     // ... use database ...
-    
+
     // Close database
     // arena frees all arena allocations on exit
   });
-  ''';
+  """;
   print('SQLite FFI example:\n\$sqliteExample');
 
   // ── ARENA ALLOCATOR PATTERN ────
-  final arenaExample = '''
+  final arenaExample = """
   // import "package:ffi/ffi.dart";
-  
+
   // Arena automatically frees all allocations at end of using()
   using((arena) {
     // All allocations in this arena are freed when using() exits
     final p1 = arena.allocate<Int32>(count: 10);
     final p2 = "Hello".toNativeUtf8(allocator: arena);
-    
+
     // use p1 and p2...
     // No need to manually free!
   });  // ← p1 and p2 freed here automatically
-  ''';
+  """;
   print('Arena example:\n\$arenaExample');
 
   // ── WHEN TO USE dart:ffi ────────

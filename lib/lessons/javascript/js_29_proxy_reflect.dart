@@ -136,7 +136,7 @@ function createValidated(schema) {
 const userSchema = {
     name:  { type: 'string', required: true },
     age:   { type: 'number', min: 0, max: 150 },
-    email: { type: 'string', pattern: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/ },
+    email: { type: 'string', pattern: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+\$/ },
 };
 
 const validatedUser = createValidated(userSchema);
@@ -229,7 +229,7 @@ function reactive(target) {
         }
     });
 
-    proxy.$watch = (prop, callback) => {
+    proxy.\$watch = (prop, callback) => {
         if (!handlers.has(prop)) handlers.set(prop, []);
         handlers.get(prop).push(callback);
     };
@@ -239,9 +239,9 @@ function reactive(target) {
 
 const state = reactive({ count: 0, name: "Alice" });
 
-state.$watch('count', (newVal, oldVal) =>
+state.\$watch('count', (newVal, oldVal) =>
     console.log(\`  count changed: \${oldVal} → \${newVal}\`));
-state.$watch('name', (newVal, oldVal) =>
+state.\$watch('name', (newVal, oldVal) =>
     console.log(\`  name changed: "\${oldVal}" → "\${newVal}"\`));
 
 state.count = 1;

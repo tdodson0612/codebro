@@ -265,7 +265,7 @@ void handleResult(ApiResult<User> result) {
 
 // ── RUNNING BUILD_RUNNER ──────────
 
-String buildRunnerCommands = '''
+String buildRunnerCommands = """
 # One-time build:
 dart run build_runner build
 
@@ -283,11 +283,11 @@ flutter pub run build_runner watch
 find . -name "*.g.dart" -delete
 find . -name "*.freezed.dart" -delete
 dart run build_runner build --delete-conflicting-outputs
-''';
+""";
 
 // ── OTHER POPULAR GENERATORS ──────
 
-String otherGenerators = '''
+String otherGenerators = """
 Package               → Generates
 ─────────────────────────────────────
 json_serializable     → fromJson/toJson
@@ -302,7 +302,7 @@ mockito               → test mocks
 retrofit              → type-safe HTTP client
 openapi_generator     → from OpenAPI/Swagger spec
 protoc                → from protobuf definitions
-''';
+""";
 
 void main() {
   jsonSerializableExample();

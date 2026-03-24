@@ -149,12 +149,12 @@ public class RegularExpressions {
 
         // ─── FIND (SEARCH IN TEXT) ────────────────────────
         System.out.println("\n=== Finding Matches ===");
-        String text = """
+        String text = '''
                 Contact us at support@example.com or sales@company.org.
                 Call (555) 123-4567 or 555-987-6543.
                 Schedule: 2024-01-15, 2024-06-30, or 2024-12-25.
                 Prices:\$10,\$250, and\$1999.
-                """;
+                ''';
 
         // Find all emails
         System.out.println("  Emails found:");
@@ -179,7 +179,7 @@ public class RegularExpressions {
 
         // Find all prices (\$ + digits)
         System.out.println("  Prices found:");
-        Pattern pricePattern = Pattern.compile("\\\\$\\\\d+");
+        Pattern pricePattern = Pattern.compile("\\\\\$\\\\d+");
         pricePattern.matcher(text).results()
             .map(MatchResult::group)
             .forEach(p -> System.out.println("    " + p));
@@ -224,7 +224,7 @@ public class RegularExpressions {
         String formatted = "2024-01-15 was a Monday, 2024-06-30 was a Sunday";
         String reordered = formatted.replaceAll(
             "(\\\\d{4})-(\\\\d{2})-(\\\\d{2})",
-            "$3/$2/$1");   // DD/MM/YYYY
+            "\$3/\$2/\$1");   // DD/MM/YYYY
         System.out.println("  Reorder date: " + reordered);
 
         // Redact emails
@@ -302,7 +302,7 @@ public class RegularExpressions {
       QuizOption(text: 'Pattern.matches() is required for patterns containing quantifiers', correct: false),
     ]),
     Quiz(question: 'How do you reference a captured group in a replaceAll() replacement string?', options: [
-      QuizOption(text: 'Use\$1,\$2 etc.: "([\\\\d]+)-([\\\\d]+)" replaced with "$2-$1" swaps the two numbers', correct: true),
+      QuizOption(text: 'Use\$1,\$2 etc.: "([\\\\d]+)-([\\\\d]+)" replaced with "\$2-\$1" swaps the two numbers', correct: true),
       QuizOption(text: 'Use \\\\1, \\\\2 etc.: the same backreference syntax as in the pattern', correct: false),
       QuizOption(text: 'Use {1}, {2} etc.: curly brace syntax for group references', correct: false),
       QuizOption(text: 'Groups cannot be referenced in replacement strings — use Matcher.group() instead', correct: false),

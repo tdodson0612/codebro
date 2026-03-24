@@ -185,7 +185,7 @@ void main() {
   print(parsed);  // Color.red
 
   // Enum to JSON
-  String toJson = '"${favorite.name}"';
+  String toJson = '"\${favorite.name}"';
   print(toJson);  // "blue"
 }
 

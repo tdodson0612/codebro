@@ -219,7 +219,7 @@ class JsonObject extends JsonValue { final Map<String, JsonValue> fields; JsonOb
 String prettyPrint(JsonValue value, int indent) {
   final pad = '  ' * indent;
   return switch (value) {
-    JsonString(:final value) => '"$value"',
+    JsonString(:final value) => '"\$value"',
     JsonNumber(:final value) => '\$value',
     JsonBool(:final value) => '\$value',
     JsonNull() => 'null',

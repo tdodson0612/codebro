@@ -198,7 +198,7 @@ public class AndroidPreview {
         }
 
         System.out.println("\n=== Sample Android Activity (Java) ===\n");
-        System.out.println("""
+        System.out.println('''
           // Activity = a screen in your app
           public class MainActivity extends AppCompatActivity {
 
@@ -226,10 +226,10 @@ public class AndroidPreview {
                   // Save state when app loses focus
               }
           }
-          """);
+          ''');
 
         System.out.println("=== Jetpack Compose (Kotlin) ===\n");
-        System.out.println("""
+        System.out.println('''
           // Compose: declarative UI (like Flutter!)
           @Composable
           fun Greeting(name: String) {
@@ -241,7 +241,7 @@ public class AndroidPreview {
               }
           }
           // Familiar: functions, parameters, events — just different syntax
-          """);
+          ''');
 
         System.out.println("=== Your Next Steps ===\n");
         System.out.println("  1. Complete the Kotlin lessons in this app");

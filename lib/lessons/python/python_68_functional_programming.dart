@@ -181,7 +181,7 @@ print(result_pythonic)     # [4, 16, 36, 64, 100]
 
 # Manual composition
 def compose(*fns):
-    """Compose functions right-to-left: compose(f, g)(x) = f(g(x))"""
+    '''Compose functions right-to-left: compose(f, g)(x) = f(g(x))'''
     def composed(x):
         for fn in reversed(fns):
             x = fn(x)
@@ -189,7 +189,7 @@ def compose(*fns):
     return composed
 
 def pipe(*fns):
-    """Compose functions left-to-right: pipe(f, g)(x) = g(f(x))"""
+    '''Compose functions left-to-right: pipe(f, g)(x) = g(f(x))'''
     def piped(x):
         for fn in fns:
             x = fn(x)
@@ -246,7 +246,7 @@ print(join_home("docs", "report.txt"))
 # ── CURRYING ──────────────────────
 
 def curry(func):
-    """Convert f(a,b,c) to f(a)(b)(c)."""
+    '''Convert f(a,b,c) to f(a)(b)(c).'''
     import inspect
     n = len(inspect.signature(func).parameters)
 
@@ -268,7 +268,7 @@ print(add3(1)(2, 3))    # 6
 
 @lru_cache(maxsize=256)
 def expensive(n: int) -> int:
-    """Pure function — safe to memoize."""
+    '''Pure function — safe to memoize.'''
     return sum(i**2 for i in range(n))
 
 print(expensive(1000))   # computed

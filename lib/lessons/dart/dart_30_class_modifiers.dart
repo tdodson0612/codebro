@@ -83,7 +83,7 @@ abstract interface class Serializable {
   String toJsonString() {
     final json = toJson();
     return json.entries
-        .map((e) => '"${e.key}": "${e.value}"')
+        .map((e) => '"\${e.key}": "\${e.value}"')
         .join(', ');
   }
 }
@@ -204,7 +204,7 @@ abstract base class Validator<T> {
 final class EmailValidator extends Validator<String> {
   @override
   bool validate(String value) =>
-      RegExp(r'^[\w-\.]+@[\w-]+\.[a-zA-Z]{2,}$').hasMatch(value);
+      RegExp(r'^[\w-\.]+@[\w-]+\.[a-zA-Z]{2,}\$').hasMatch(value);
 }
 
 final class AgeValidator extends Validator<int> {

@@ -129,18 +129,18 @@ WIDTH AND PRECISION:
 ─────────────────────────────────────
 KOTLIN'S trimMargin AND trimIndent:
 ─────────────────────────────────────
-  val sql = """
+  val sql = ''' 
       |SELECT id, name
       |FROM users
       |WHERE active = true
       |ORDER BY name
-  """.trimMargin()   // removes | and leading whitespace
+  '''.trimMargin()   // removes | and leading whitespace
 
-  val html = """
+  val html = '''
       <div>
           <p>Hello</p>
       </div>
-  """.trimIndent()   // removes common leading whitespace
+  '''.trimIndent()   // removes common leading whitespace
 
 💻 CODE:
 // ─── BITWISE OPERATORS ───────────────────────────────
@@ -248,7 +248,7 @@ fun formattingDemo() {
 
     // trimMargin — raw string with alignment
     println("\\n=== trimMargin ===")
-    val sql = """
+    val sql = '''
         |SELECT u.name, u.email, COUNT(o.id) as order_count
         |FROM users u
         |LEFT JOIN orders o ON u.id = o.user_id
@@ -256,7 +256,7 @@ fun formattingDemo() {
         |GROUP BY u.id
         |ORDER BY order_count DESC
         |LIMIT 10
-    """.trimMargin()
+    '''.trimMargin()
     println(sql)
 
     // Number formatting

@@ -141,7 +141,7 @@ interface Clickable {
 class Button(val label: String, var size: Double = 1.0)
     : Drawable, Resizable, Clickable {
 
-    override fun draw() = println("Drawing button: [$label] (size \${"%.1f".format(size)}x)")
+    override fun draw() = println("Drawing button: [\$label] (size \${"%.1f".format(size)}x)")
 
     override fun resize(factor: Double) {
         size *= factor

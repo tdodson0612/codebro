@@ -260,7 +260,7 @@ print(Fraction(1, 3) + 0.5)   # 0.833... as float
 
 # ── WHEN TO USE EACH ──────────────
 
-print("""
+print('''
 USE:
   int     → integers (arbitrary precision), loop counters
   float   → scientific computing, approximate real numbers
@@ -272,7 +272,7 @@ AVOID:
   float for money → use Decimal
   float == float  → use math.isclose()
   Decimal(0.1)    → use Decimal("0.1") (string!)
-""")
+''')
 
 📝 KEY POINTS:
 ✅ Float arithmetic is imprecise — 0.1 + 0.2 ≠ 0.3 in float

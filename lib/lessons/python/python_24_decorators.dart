@@ -116,7 +116,7 @@ def timer(func):
 
 @timer
 def slow_sum(n):
-    """Sum numbers 0 to n."""
+    '''Sum numbers 0 to n.'''
     return sum(range(n))
 
 print(slow_sum(1_000_000))   # prints timing + result

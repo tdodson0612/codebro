@@ -162,7 +162,7 @@ extension StringExtensions on String {
   }
 
   bool get isEmail =>
-      RegExp(r'^[\w-\.]+@[\w-]+\.[a-zA-Z]{2,}$').hasMatch(this);
+      RegExp(r'^[\w-\.]+@[\w-]+\.[a-zA-Z]{2,}\$').hasMatch(this);
 
   String truncate(int maxLength, {String ellipsis = '...'}) {
     if (length <= maxLength) return this;

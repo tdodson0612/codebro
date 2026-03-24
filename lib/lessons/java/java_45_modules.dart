@@ -277,7 +277,7 @@ public class ModuleSystem {
 
         // ─── jlink EXAMPLE (documentation only) ──────────
         System.out.println("=== jlink — Custom Runtime Example ===");
-        System.out.println("""
+        System.out.println('''
           Create a minimal JVM containing only needed modules:
 
          \$ jlink \\
@@ -291,11 +291,11 @@ public class ModuleSystem {
 
           Result: myapp-runtime/bin/java (tiny custom JVM)
           Typical size reduction: 400MB JDK → 30-50MB custom runtime
-          """);
+          ''');
 
         // ─── PRACTICAL ADVICE ─────────────────────────────
         System.out.println("=== Practical Advice ===");
-        System.out.println("""
+        System.out.println('''
           When to add module-info.java:
           → Building a reusable library
           → Creating a jlink custom runtime
@@ -312,7 +312,7 @@ public class ModuleSystem {
           You'll encounter module errors when framework internals change
           (Spring, Hibernate, Jackson need reflection access).
           Fix: add --add-opens JVM flags or update dependencies.
-          """);
+          ''');
     }
 }
 

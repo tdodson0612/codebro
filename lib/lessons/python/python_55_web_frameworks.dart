@@ -77,7 +77,7 @@ Django:  full web apps, content sites, admin panel,
 # ── FLASK ──────────────────────────
 # pip install flask
 
-FLASK_EXAMPLE = """
+FLASK_EXAMPLE = '''
 from flask import Flask, request, jsonify, abort
 from functools import wraps
 
@@ -150,12 +150,12 @@ def unauthorized(e):
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
-"""
+'''
 
 # ── FASTAPI ────────────────────────
 # pip install fastapi uvicorn pydantic
 
-FASTAPI_EXAMPLE = """
+FASTAPI_EXAMPLE = '''
 from fastapi import FastAPI, HTTPException, Depends, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from pydantic import BaseModel, EmailStr, Field
@@ -171,7 +171,7 @@ app = FastAPI(
 # ── PYDANTIC MODELS (Request/Response schemas) ──
 class UserBase(BaseModel):
     name: str = Field(..., min_length=1, max_length=100)
-    email: str = Field(..., pattern=r"^[^@]+@[^@]+\\\\.[^@]+$")
+    email: str = Field(..., pattern=r"^[^@]+@[^@]+\\\\.[^@]+\$")
     age: Optional[int] = Field(None, ge=0, le=150)
 
 class UserCreate(UserBase):
@@ -236,11 +236,11 @@ async def delete_user(user_id: int, token: str = Depends(verify_token)):
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
     # Visit http://localhost:8000/docs for auto-generated Swagger UI!
-"""
+'''
 
 # ── DJANGO OVERVIEW ────────────────
 
-DJANGO_OVERVIEW = """
+DJANGO_OVERVIEW = '''
 # 1. Create project:
 django-admin startproject mysite
 cd mysite
@@ -303,10 +303,10 @@ class PostViewSet(viewsets.ModelViewSet):
 
 router = routers.DefaultRouter()
 router.register("posts", PostViewSet)
-"""
+'''
 
 # Summary comparison
-COMPARISON = """
+COMPARISON = '''
 Feature         Flask      FastAPI    Django
 ─────────────────────────────────────────────
 Type           Micro      Micro+     Full-stack
@@ -318,7 +318,7 @@ Validation     Manual     Pydantic   Forms/DRF
 Auto Docs      No         Yes        DRF only
 Performance    Good       Excellent  Good
 Learning Curve Low        Low-Med    Medium-High
-"""
+'''
 
 print(COMPARISON)
 

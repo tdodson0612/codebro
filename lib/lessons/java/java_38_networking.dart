@@ -4,7 +4,7 @@ import '../../models/quiz.dart';
 final javaLesson38 = Lesson(
   language: 'Java',
   title: 'Networking and HTTP',
-  content: """
+  content: '''
 🎯 METAPHOR:
 Java networking is like the postal system. A socket is
 your mailbox — it has an address (IP + port) where messages
@@ -66,7 +66,7 @@ HttpClient (Java 11) — modern HTTP:
 ─────────────────────────────────────
 REQUEST BODY PUBLISHERS:
 ─────────────────────────────────────
-  HttpRequest.BodyPublishers.ofString("{\"name\":\"Terry\"}")
+  HttpRequest.BodyPublishers.ofString("{\\"name\\":\\"Terry\\"}")
   HttpRequest.BodyPublishers.ofFile(Path.of("data.json"))
   HttpRequest.BodyPublishers.noBody()  // for GET/DELETE
 
@@ -144,7 +144,7 @@ public class NetworkingHTTP {
         }
 
         // ─── HttpClient — REAL API CALL ────────────────────
-        System.out.println("\n=== HttpClient ===");
+        System.out.println("\\n=== HttpClient ===");
 
         HttpClient client = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_2)
@@ -169,13 +169,11 @@ public class NetworkingHTTP {
             System.out.println("  Status: " + response.statusCode());
             System.out.println("  HTTP version: " + response.version());
 
-            // Print selected headers
             response.headers().map().entrySet().stream()
                 .filter(e -> e.getKey().equalsIgnoreCase("content-type") ||
                              e.getKey().equalsIgnoreCase("content-length"))
                 .forEach(e -> System.out.println("  Header: " + e.getKey() + ": " + e.getValue()));
 
-            // Print truncated body
             String body = response.body();
             System.out.println("  Body (first 200 chars):");
             System.out.println("  " + body.substring(0, Math.min(200, body.length())) + "...");
@@ -186,7 +184,7 @@ public class NetworkingHTTP {
         }
 
         // ─── POST request (simulated) ─────────────────────
-        System.out.println("\n  POST request (simulated — not sent):");
+        System.out.println("\\n  POST request (simulated — not sent):");
         String jsonBody = """
                 {
                     "name": "Terry",
@@ -210,30 +208,14 @@ public class NetworkingHTTP {
             .reduce((a, b) -> a + ", " + b).orElse(""));
 
         // ─── ASYNC HTTP (simulated) ───────────────────────
-        System.out.println("\n=== Async HttpClient ===");
+        System.out.println("\\n=== Async HttpClient ===");
         System.out.println("  (Simulating async pattern — not sending real requests)");
-
-        // Pattern demonstration
-        HttpRequest asyncReq = HttpRequest.newBuilder()
-            .uri(URI.create("https://api.example.com/data"))
-            .GET()
-            .build();
-
-        // In real code:
-        // CompletableFuture<HttpResponse<String>> future =
-        //     client.sendAsync(asyncReq, HttpResponse.BodyHandlers.ofString());
-        // future
-        //     .thenApply(HttpResponse::body)
-        //     .thenApply(body -> parseJson(body))
-        //     .thenAccept(data -> updateUI(data))
-        //     .exceptionally(ex -> { log(ex); return null; });
 
         System.out.println("  CompletableFuture pattern:");
         CompletableFuture<String> simulated = CompletableFuture
             .supplyAsync(() -> {
-                // Simulate network delay
                 try { Thread.sleep(100); } catch (InterruptedException e) {}
-                return "{\"status\": \"ok\", \"data\": [1, 2, 3]}";
+                return "{\\"status\\": \\"ok\\", \\"data\\": [1, 2, 3]}";
             })
             .thenApply(body -> "Parsed: " + body.replace("{", "< ").replace("}", " >"))
             .exceptionally(ex -> "Error: " + ex.getMessage());
@@ -241,9 +223,8 @@ public class NetworkingHTTP {
         System.out.println("  Result: " + simulated.get(5, TimeUnit.SECONDS));
 
         // ─── TCP SOCKET (echo server simulation) ──────────
-        System.out.println("\n=== TCP Socket (echo server) ===");
+        System.out.println("\\n=== TCP Socket (echo server) ===");
 
-        // Start a tiny echo server in a thread
         ExecutorService pool = Executors.newCachedThreadPool();
         int port = 9876;
         CountDownLatch serverReady = new CountDownLatch(1);
@@ -267,7 +248,6 @@ public class NetworkingHTTP {
 
         serverReady.await(1, TimeUnit.SECONDS);
 
-        // TCP Client
         try (Socket socket = new Socket("localhost", port);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
              BufferedReader in  = new BufferedReader(
@@ -303,9 +283,9 @@ public class NetworkingHTTP {
 ❌ Don't create a new HttpClient per request — it's expensive (pool)
 ❌ HTTP responses always have a body — always read or discard it to free connections
 ❌ Sockets are not thread-safe — each client connection needs its own thread
-""",
+''',
   quiz: [
-    Quiz(question: 'What is the advantage of using HttpClient.sendAsync() over sendAsync()?', options: [
+    Quiz(question: 'What is the advantage of using HttpClient.sendAsync() over send()?', options: [
       QuizOption(text: 'sendAsync() returns a CompletableFuture and does not block the calling thread', correct: true),
       QuizOption(text: 'sendAsync() is more reliable and retries automatically on failure', correct: false),
       QuizOption(text: 'sendAsync() supports HTTP/2 while send() only supports HTTP/1.1', correct: false),

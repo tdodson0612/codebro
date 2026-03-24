@@ -25,8 +25,8 @@ cannot be changed. "Modifications" always produce new strings.
 ─────────────────────────────────────
 single    = 'Hello'
 double    = "World"
-triple    = """Multi
-line string"""
+triple    = '''Multi
+line string'''
 raw       = r"C:\\Users\\name"   # raw: backslashes literal
 bytes_str = b"bytes data"        # bytes, not str
 
@@ -168,12 +168,12 @@ print("Hello {}, you are {}".format("Bob", 25))
 print(f"Hello {'Bob'}, you are {25}")
 
 # Multi-line string
-poem = """
+poem = '''
 Roses are red,
 Violets are blue,
 Python is awesome,
 And so are you!
-"""
+'''
 print(poem.strip())
 
 # Raw strings — backslashes are literal

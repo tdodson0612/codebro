@@ -120,7 +120,7 @@ Mega-Tutorial:   https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-pa
 
 # Install first: pip install flask flask-sqlalchemy
 
-FULL_FLASK_EXAMPLE = """
+FULL_FLASK_EXAMPLE = '''
 from flask import Flask, request, jsonify, abort
 from datetime import datetime
 from functools import wraps
@@ -286,7 +286,7 @@ if __name__ == "__main__":
 
 # Production: use gunicorn instead of app.run()!
 # gunicorn "app:create_app()" --workers 4 --bind 0.0.0.0:5000
-"""
+'''
 
 print("Flask overview loaded!")
 print()

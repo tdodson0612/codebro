@@ -201,7 +201,7 @@ record PercentageDiscount(double percent) implements DiscountStrategy {
 
 record FixedDiscount(double amount) implements DiscountStrategy {
     public double apply(double price) { return Math.max(0, price - amount); }
-    public String name() { return "$" + amount + " off"; }
+    public String name() { return "\$" + amount + " off"; }
 }
 
 record NoDiscount() implements DiscountStrategy {

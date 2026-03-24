@@ -135,7 +135,7 @@ humanize                   → human-readable formats
 # ── PYDANTIC — DATA VALIDATION ─────
 # pip install pydantic
 
-PYDANTIC_EXAMPLE = """
+PYDANTIC_EXAMPLE = '''
 from pydantic import BaseModel, Field, validator, EmailStr
 from typing import Optional
 from datetime import datetime
@@ -164,12 +164,12 @@ print(user.model_dump())
 
 # Raises ValidationError for bad data:
 # User(id=1, name="", email="bad")  → ValidationError
-"""
+'''
 
 # ── CELERY — DISTRIBUTED TASKS ─────
 # pip install celery redis
 
-CELERY_EXAMPLE = """
+CELERY_EXAMPLE = '''
 from celery import Celery
 
 app = Celery('tasks', broker='redis://localhost:6379/0')
@@ -194,12 +194,12 @@ result.get(timeout=10)           # wait for result
 from celery import chain
 pipeline = chain(add.s(2, 2), add.s(4))
 result = pipeline.delay()
-"""
+'''
 
 # ── HTTPX — MODERN HTTP CLIENT ─────
 # pip install httpx
 
-HTTPX_EXAMPLE = """
+HTTPX_EXAMPLE = '''
 import httpx
 import asyncio
 
@@ -220,12 +220,12 @@ async def fetch_many(urls):
 transport = httpx.HTTPTransport(retries=3)
 with httpx.Client(transport=transport) as client:
     r = client.get("https://api.example.com")
-"""
+'''
 
 # ── SQLALCHEMY — ORM ──────────────
 # pip install sqlalchemy
 
-SQLALCHEMY_EXAMPLE = """
+SQLALCHEMY_EXAMPLE = '''
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import DeclarativeBase, Session, relationship
 from datetime import datetime
@@ -265,12 +265,12 @@ with Session(engine) as session:
     users = session.query(User).filter(User.name.startswith("A")).all()
     for u in users:
         print(u.name, [p.title for p in u.posts])
-"""
+'''
 
 # ── RICH — BEAUTIFUL OUTPUT ────────
 # pip install rich
 
-RICH_EXAMPLE = """
+RICH_EXAMPLE = '''
 from rich.console import Console
 from rich.table import Table
 from rich.progress import track
@@ -303,11 +303,11 @@ for item in track(range(100), description="Processing..."):
 code = "def hello(name: str) -> str:\\n    return f'Hello, {name}!'"
 syntax = Syntax(code, "python", theme="monokai")
 console.print(Panel(syntax, title="Code Example"))
-"""
+'''
 
 # ── KEY COMMANDS REFERENCE ─────────
 
-COMMANDS = """
+COMMANDS = '''
 Package Management:
   pip install package           Install latest
   pip install package==1.2.3   Install specific version
@@ -338,7 +338,7 @@ Project Init (with poetry):
   poetry install
   poetry run python main.py
   poetry build
-"""
+'''
 
 print("Python ecosystem overview complete!")
 print("\\n=== Key Categories ===")

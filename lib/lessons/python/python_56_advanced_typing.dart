@@ -109,7 +109,7 @@ print(add_numbers(1.5, 2.5))   # 4.0
 # ── GENERIC CLASSES ───────────────
 
 class Stack(Generic[T]):
-    """Type-safe stack."""
+    '''Type-safe stack.'''
     def __init__(self) -> None:
         self._items: list[T] = []
 
@@ -296,7 +296,7 @@ P = ParamSpec("P")
 R = TypeVar("R")
 
 def log_calls(func: Callable[P, R]) -> Callable[P, R]:
-    """Decorator that preserves the function signature."""
+    '''Decorator that preserves the function signature.'''
     @functools.wraps(func)
     def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
         print(f"Calling {func.__name__}")

@@ -73,7 +73,7 @@ generally tries to coerce:
 # pip install pydantic (already assumed installed)
 # Note: This uses Pydantic V2 syntax
 
-PYDANTIC_CODE = """
+PYDANTIC_CODE = '''
 from pydantic import (
     BaseModel, Field, field_validator, model_validator,
     EmailStr, HttpUrl, ValidationError, ConfigDict
@@ -124,7 +124,7 @@ class Product(BaseModel):
                       description="Product name")
     price: float = Field(..., gt=0, description="Price > 0")
     quantity: int = Field(0, ge=0, description="Stock quantity")
-    sku: str = Field(..., pattern=r"^[A-Z]{2}-\\\\d{4}$",
+    sku: str = Field(..., pattern=r"^[A-Z]{2}-\\\\d{4}\$",
                      description="Format: XX-0000")
     category: str = Field("general")
     tags: list[str] = Field(default_factory=list)
@@ -172,7 +172,7 @@ class SignupForm(BaseModel):
     @classmethod
     def username_alphanumeric(cls, v: str) -> str:
         import re
-        if not re.match(r"^[a-zA-Z0-9_-]+$", v):
+        if not re.match(r"^[a-zA-Z0-9_-]+\$", v):
             raise ValueError("Username: only letters, numbers, _ and -")
         return v.lower()   # normalize to lowercase
 
@@ -190,7 +190,7 @@ class SignupForm(BaseModel):
     @classmethod
     def valid_email(cls, v: str) -> str:
         import re
-        pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}$"
+        pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\\\.[a-zA-Z]{2,}\$"
         if not re.match(pattern, v):
             raise ValueError("Invalid email format")
         return v.lower()
@@ -278,13 +278,13 @@ except Exception as e:
 
 # Can be used as dict key (hashable when frozen)
 d = {p: "origin"}
-"""
+'''
 
 print("Pydantic examples ready!")
 print("Install: pip install pydantic pydantic-settings")
 
 # Actual runnable summary (no pydantic import needed for display)
-print("""
+print('''
 Pydantic Key Concepts:
   BaseModel     → base class for all models
   Field(...)    → required field
@@ -296,7 +296,7 @@ Pydantic Key Concepts:
   model.model_dump_json() → to JSON string
   Model(**dict) → from dict (auto-validates)
   ValidationError → raised with clear messages
-""")
+''')
 
 📝 KEY POINTS:
 ✅ Pydantic validates data at runtime using type hints — catches bad data early

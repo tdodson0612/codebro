@@ -81,7 +81,7 @@ import math
 # ── PROPERTIES ────────────────────
 
 class Temperature:
-    """Temperature class with Celsius/Fahrenheit conversion."""
+    '''Temperature class with Celsius/Fahrenheit conversion.'''
 
     def __init__(self, celsius: float = 0.0):
         self._celsius = celsius   # note: calls the setter!
@@ -286,7 +286,7 @@ print(f"Value: {s1.value}")           # 10 (not overwritten)
 
 # __ new__ for immutable subtypes
 class PositiveInt(int):
-    """int subclass that must be positive."""
+    '''int subclass that must be positive.'''
 
     def __new__(cls, value: int):
         if value <= 0:
@@ -304,7 +304,7 @@ except ValueError as e:
 # ── ATTRIBUTE ACCESS CONTROL ───────
 
 class ValidatedRecord:
-    """All attributes validated on assignment."""
+    '''All attributes validated on assignment.'''
 
     _validators: dict = {}
 

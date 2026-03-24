@@ -86,7 +86,7 @@ On every PR:
 💻 CODE:
 # ── COMPLETE PYPROJECT.TOML ────────
 
-PYPROJECT_TOML = """
+PYPROJECT_TOML = '''
 [build-system]
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.backends.legacy:build"
@@ -214,11 +214,11 @@ known-first-party = ["my_package"]
 [tool.black]
 line-length = 88
 target-version = ["py310", "py311"]
-"""
+'''
 
 # ── .GITHUB/WORKFLOWS/CI.YML ──────
 
-CI_YAML = """
+CI_YAML = '''
 name: CI
 
 on:
@@ -279,11 +279,11 @@ jobs:
         env:
           TWINE_USERNAME: __token__
           TWINE_PASSWORD:\${{ secrets.PYPI_TOKEN }}
-"""
+'''
 
 # ── PRE-COMMIT CONFIG ─────────────
 
-PRE_COMMIT_CONFIG = """
+PRE_COMMIT_CONFIG = '''
 # .pre-commit-config.yaml
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -312,11 +312,11 @@ repos:
     hooks:
       - id: mypy
         additional_dependencies: ['pydantic>=2.0']
-"""
+'''
 
 # ── MAKEFILE ──────────────────────
 
-MAKEFILE = """
+MAKEFILE = '''
 .PHONY: install test lint format type-check clean build publish
 
 install:
@@ -353,11 +353,11 @@ publish: build
 
 docs:
 \tsphinx-build -b html docs/ docs/_build/html
-"""
+'''
 
 # ── CONFTEST.PY (pytest fixtures) ─
 
-CONFTEST_PY = """
+CONFTEST_PY = '''
 # tests/conftest.py
 import pytest
 from pathlib import Path
@@ -393,11 +393,11 @@ def database(request):
     if request.param == "sqlite":
         return setup_sqlite()
     return setup_postgresql()
-"""
+'''
 
 # ── SRC LAYOUT BENEFITS ───────────
 
-SRC_LAYOUT_BENEFITS = """
+SRC_LAYOUT_BENEFITS = '''
 Why src/ layout?
   1. Prevents accidental imports from the working directory
      instead of the installed package
@@ -414,10 +414,10 @@ With src/:
   /src/my_package/__init__.py
   /src/my_package/core.py
   → 'import my_package' MUST come from installed package
-"""
+'''
 
 print("Project structure best practices ready!")
-print("""
+print('''
 Quick start:
   mkdir my_project && cd my_project
   python -m venv .venv
@@ -427,7 +427,7 @@ Quick start:
   touch pyproject.toml README.md .gitignore
   pip install -e ".[dev]"
   pre-commit install
-""")
+''')
 
 📝 KEY POINTS:
 ✅ Use src/ layout — prevents local import conflicts

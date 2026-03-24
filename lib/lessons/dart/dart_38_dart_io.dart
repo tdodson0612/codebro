@@ -219,7 +219,7 @@ Future<void> main() async {
   // Simple HTTP server example:
   // (commented out to avoid actually binding a port)
 
-  final serverExample = '''
+  final serverExample = """
   // Start a server
   final server = await HttpServer.bind('localhost', 8080);
   print('Server on http://localhost:8080');
@@ -235,7 +235,7 @@ Future<void> main() async {
       ..write(jsonEncode({'message': 'Hello from Dart!', 'path': path}));
     await request.response.close();
   }
-  ''';
+  """;
   print('\nHTTP server example (not run):\n\$serverExample');
 
   // ── WEBSOCKET ──────────────────

@@ -70,10 +70,10 @@ Immutable — once created, cannot be changed in place.
 
 name = "Python"
 single = 'also works'
-multiline = """
+multiline = '''
 This spans
 multiple lines
-"""
+'''
 
 ─────────────────────────────────────
 ⚖️  BOOL — Boolean

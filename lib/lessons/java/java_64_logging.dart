@@ -213,7 +213,7 @@ public class LoggingDemo {
 
         // ─── SLF4J PATTERN DEMO (without library) ─────────
         System.out.println("\n=== SLF4J Usage Pattern (conceptual) ===");
-        System.out.println("""
+        System.out.println('''
           // pom.xml:
           <dependency>
             <groupId>org.slf4j</groupId>
@@ -244,7 +244,7 @@ public class LoggingDemo {
           } finally {
               MDC.clear();
           }
-          """);
+          ''');
 
         // ─── LOGGING LEVELS REFERENCE ────────────────────
         System.out.println("=== Log Level Reference ===");
@@ -273,7 +273,7 @@ public class LoggingDemo {
         // ─── STRUCTURED LOG SIMULATION ────────────────────
         System.out.println("\n=== Structured Log Entry (JSON format) ===");
         // This is what logback with JsonLayout produces:
-        String jsonLog = """
+        String jsonLog = '''
                 {
                   "timestamp": "2024-01-15T14:30:00Z",
                   "level": "INFO",
@@ -286,7 +286,7 @@ public class LoggingDemo {
                   "requestId": "req-abc123",
                   "duration_ms": 145
                 }
-                """;
+                ''';
         System.out.println(jsonLog);
     }
 }

@@ -137,7 +137,7 @@ DRF docs:        https://www.django-rest-framework.org
   • Classy Class-Based Views: ccbv.co.uk (reference for Django's CBVs)
 
 💻 CODE:
-DJANGO_MODELS_EXAMPLE = """
+DJANGO_MODELS_EXAMPLE = '''
 # blog/models.py
 from django.db import models
 from django.contrib.auth.models import User
@@ -187,9 +187,9 @@ class Post(models.Model):
 # Terminal commands:
 # python manage.py makemigrations blog
 # python manage.py migrate
-"""
+'''
 
-DJANGO_ADMIN_EXAMPLE = """
+DJANGO_ADMIN_EXAMPLE = '''
 # blog/admin.py
 from django.contrib import admin
 from .models import Post, Category, Tag
@@ -212,9 +212,9 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Category)
 # Now visit /admin — full CRUD for Post and Category!
-"""
+'''
 
-DJANGO_VIEWS_EXAMPLE = """
+DJANGO_VIEWS_EXAMPLE = '''
 # blog/views.py
 from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
@@ -265,9 +265,9 @@ def search_posts(request):
         status="published"
     ).order_by("-publish")[:20]
     return render(request, "blog/search.html", {"posts": posts, "query": q})
-"""
+'''
 
-DJANGO_URLS_EXAMPLE = """
+DJANGO_URLS_EXAMPLE = '''
 # blog/urls.py
 from django.urls import path
 from . import views
@@ -291,9 +291,9 @@ urlpatterns = [
     path("blog/",   include("blog.urls")),
     path("api/",    include("api.urls")),
 ]
-"""
+'''
 
-DRF_EXAMPLE = """
+DRF_EXAMPLE = '''
 # Using Django REST Framework
 # pip install djangorestframework
 
@@ -337,7 +337,7 @@ router = DefaultRouter()
 router.register("posts", PostViewSet)
 urlpatterns = router.urls
 # This creates: GET/POST /posts/, GET/PUT/PATCH/DELETE /posts/{id}/
-"""
+'''
 
 print("Django overview loaded!")
 print()

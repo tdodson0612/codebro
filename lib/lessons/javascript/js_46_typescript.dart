@@ -251,7 +251,7 @@ const schema = {
             if (typeof v !== 'string') throw new Error('Expected string');
             if (opts.min && v.length < opts.min) throw new Error(\`Min length \${opts.min}\`);
             if (opts.max && v.length > opts.max) throw new Error(\`Max length \${opts.max}\`);
-            if (opts.email && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(v)) throw new Error('Invalid email');
+            if (opts.email && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+\$/.test(v)) throw new Error('Invalid email');
             return v;
         }
     }),

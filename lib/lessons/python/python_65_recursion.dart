@@ -67,7 +67,7 @@ from functools import lru_cache
 # ── CLASSIC EXAMPLES ──────────────
 
 def factorial(n):
-    """n! = n × (n-1) × ... × 1"""
+    '''n! = n × (n-1) × ... × 1'''
     if n <= 1:          # base case
         return 1
     return n * factorial(n - 1)   # recursive case
@@ -86,7 +86,7 @@ for i in range(8):
 #   returns 4 * 6 = 24
 
 def fibonacci(n):
-    """F(n) = F(n-1) + F(n-2)"""
+    '''F(n) = F(n-1) + F(n-2)'''
     if n < 2:           # base cases: F(0)=0, F(1)=1
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
@@ -141,18 +141,18 @@ class TreeNode:
         self.children = children or []
 
 def tree_sum(node):
-    """Sum all values in tree."""
+    '''Sum all values in tree.'''
     if not node: return 0
     return node.val + sum(tree_sum(child) for child in node.children)
 
 def tree_depth(node):
-    """Maximum depth of tree."""
+    '''Maximum depth of tree.'''
     if not node.children:
         return 1
     return 1 + max(tree_depth(child) for child in node.children)
 
 def tree_to_list(node):
-    """Depth-first traversal."""
+    '''Depth-first traversal.'''
     result = [node.val]
     for child in node.children:
         result.extend(tree_to_list(child))
@@ -180,7 +180,7 @@ import os
 from pathlib import Path
 
 def count_files(directory):
-    """Recursively count all files in directory."""
+    '''Recursively count all files in directory.'''
     count = 0
     try:
         for item in Path(directory).iterdir():
@@ -197,7 +197,7 @@ def count_files(directory):
 # ── BACKTRACKING ───────────────────
 
 def permutations(items):
-    """Generate all orderings of items."""
+    '''Generate all orderings of items.'''
     if len(items) <= 1:
         return [list(items)]
     result = []
@@ -214,7 +214,7 @@ for p in perms:
 
 # Maze solver (backtracking)
 def solve_maze(maze, row, col, path=None):
-    """Find a path through a maze (0=open, 1=wall)."""
+    '''Find a path through a maze (0=open, 1=wall).'''
     if path is None: path = []
     rows, cols = len(maze), len(maze[0])
 

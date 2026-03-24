@@ -316,9 +316,9 @@ fun main() {
     // Secondary constructors
     println("\\n=== Secondary constructors ===")
     val get = HttpRequest("https://api.example.com/users")
-    val post = HttpRequest("https://api.example.com/users", """{"name":"Terry"}""")
+    val post = HttpRequest("https://api.example.com/users", '''{"name":"Terry"}''')
     val custom = HttpRequest("PUT", "https://api.example.com/users/1",
-        mapOf("Auth" to "Bearer abc"), """{"name":"Bob"}""")
+        mapOf("Auth" to "Bearer abc"), '''{"name":"Bob"}''')
 
     println(get)
     println(post)

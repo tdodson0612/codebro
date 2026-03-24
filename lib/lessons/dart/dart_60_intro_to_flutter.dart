@@ -166,7 +166,7 @@ dart:typed_data → image manipulation
 💻 CODE:
 // ── YOUR FIRST FLUTTER APP ────────
 
-String flutterQuickstart = '''
+String flutterQuickstart = """
 // lib/main.dart
 import 'package:flutter/material.dart';
 
@@ -233,11 +233,11 @@ class _CounterScreenState extends State<CounterScreen> {
     );
   }
 }
-''';
+""";
 
 // ── APPLYING YOUR DART KNOWLEDGE ──
 
-String dartToFlutter = '''
+String dartToFlutter = """
 // Null safety in Flutter models:
 class User {
   final String id;           // always present
@@ -288,7 +288,7 @@ Widget build(BuildContext context) {
     UsersError(:final message) => ErrorView(message: message),
   };
 }
-''';
+""";
 
 void main() {
   print('🎉 Congratulations on completing the Dart course!');

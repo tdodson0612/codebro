@@ -257,7 +257,7 @@ class NumberValidator {
     message() { return \`Must be a number between \${this.min} and \${this.max}\`; }
 }
 class EmailValidator {
-    validate(value) { return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value); }
+    validate(value) { return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+\$/.test(value); }
     message() { return "Must be a valid email address"; }
 }
 class RegexValidator {
@@ -280,7 +280,7 @@ const validators = {
     name:  validatorFactory('text'),
     age:   validatorFactory('number', { min: 0, max: 150 }),
     email: validatorFactory('email'),
-    slug:  validatorFactory('regex', { pattern: /^[a-z0-9-]+$/, message: "Use lowercase, digits, hyphens" }),
+    slug:  validatorFactory('regex', { pattern: /^[a-z0-9-]+\$/, message: "Use lowercase, digits, hyphens" }),
 };
 
 const testData = [

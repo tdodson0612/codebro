@@ -132,13 +132,13 @@ fun demonstrateFileOps() {
     println("=== Writing ===")
 
     // Write a file (creates or overwrites)
-    file.writeText("""
+    file.writeText('''
         Line 1: Hello from Kotlin!
         Line 2: File I/O is easy.
         Line 3: Kotlin extensions make it clean.
         Line 4: 42
         Line 5: Last line.
-    """.trimIndent())
+    '''.trimIndent())
     println("Written to: \${file.absolutePath}")
     println("File size: \${file.length()} bytes")
 

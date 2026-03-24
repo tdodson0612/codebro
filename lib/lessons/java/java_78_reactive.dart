@@ -240,7 +240,7 @@ public class ReactiveFlow {
 
         // ─── REACTIVE CONCEPT COMPARISON ──────────────────
         System.out.println("\n=== Reactive vs Traditional Comparison ===");
-        System.out.println("""
+        System.out.println('''
           Traditional (blocking):
             for (Event event : eventSource.getAll()) {  // blocks until done
                 process(event);
@@ -256,11 +256,11 @@ public class ReactiveFlow {
                     // request more when ready
                 }
             });
-          """);
+          ''');
 
         // ─── REAL FRAMEWORKS REFERENCE ────────────────────
         System.out.println("=== Real Reactive Frameworks ===");
-        System.out.println("""
+        System.out.println('''
           Project Reactor (Spring WebFlux):
             Mono<User> user = userRepo.findById(id);   // 0 or 1
             Flux<Order> orders = orderRepo.findAll();  // stream
@@ -281,7 +281,7 @@ public class ReactiveFlow {
             zip(), merge(), concat(), switchMap()
             retry(), timeout(), onErrorReturn()
             buffer(), window(), debounce(), throttle()
-          """);
+          ''');
     }
 }
 

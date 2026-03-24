@@ -96,25 +96,25 @@ from collections.abc import Sequence, Mapping
 # ── ABSTRACT BASE CLASSES ──────────
 
 class Shape(ABC):
-    """Abstract base class for all shapes."""
+    '''Abstract base class for all shapes.'''
 
     def __init__(self, color: str = "black"):
         self.color = color
 
     @abstractmethod
     def area(self) -> float:
-        """Return the area of the shape."""
+        '''Return the area of the shape.'''
         ...
 
     @abstractmethod
     def perimeter(self) -> float:
-        """Return the perimeter of the shape."""
+        '''Return the perimeter of the shape.'''
         ...
 
     @property
     @abstractmethod
     def name(self) -> str:
-        """Return the shape's name."""
+        '''Return the shape's name.'''
         ...
 
     # Concrete method — shared by all subclasses
@@ -123,7 +123,7 @@ class Shape(ABC):
                 f"area={self.area():.2f}, perimeter={self.perimeter():.2f}")
 
     def scale(self, factor: float) -> "Shape":
-        """Create a scaled copy — subclasses should override."""
+        '''Create a scaled copy — subclasses should override.'''
         raise NotImplementedError(f"{type(self).__name__} doesn't support scale()")
 
 class Circle(Shape):
@@ -224,7 +224,7 @@ class Resizable(Protocol):
 
 @runtime_checkable
 class Drawable2D(Drawable, Resizable, Protocol):
-    """Combined protocol."""
+    '''Combined protocol.'''
     ...
 
 # Classes that SATISFY the protocol without inheriting

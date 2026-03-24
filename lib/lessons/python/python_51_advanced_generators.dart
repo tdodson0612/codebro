@@ -69,7 +69,7 @@ Memory usage is O(1) regardless of data size.
 # ── SEND() — BIDIRECTIONAL GENERATOR ─
 
 def running_average():
-    """Generator that maintains a running average via send()."""
+    '''Generator that maintains a running average via send().'''
     total = 0.0
     count = 0
     average = None
@@ -102,7 +102,7 @@ def coroutine(func):
 
 @coroutine
 def logger(filename):
-    """Coroutine that logs values to a file."""
+    '''Coroutine that logs values to a file.'''
     print(f"Opening log to {filename}")
     try:
         while True:
@@ -175,12 +175,12 @@ mc.close()
 import itertools
 
 def read_data(data):
-    """Source generator."""
+    '''Source generator.'''
     for item in data:
         yield item
 
 def parse_line(lines):
-    """Transform: parse CSV-like lines."""
+    '''Transform: parse CSV-like lines.'''
     for line in lines:
         parts = line.strip().split(",")
         if len(parts) >= 3:
@@ -191,19 +191,19 @@ def parse_line(lines):
             }
 
 def filter_active(records, min_score=0):
-    """Filter: keep records above min_score."""
+    '''Filter: keep records above min_score.'''
     for r in records:
         if r["score"] >= min_score:
             yield r
 
 def enrich(records):
-    """Transform: add computed fields."""
+    '''Transform: add computed fields.'''
     for r in records:
         r["grade"] = "A" if r["score"] >= 90 else "B" if r["score"] >= 80 else "C"
         yield r
 
 def top_n(records, n):
-    """Sink: get top N by score."""
+    '''Sink: get top N by score.'''
     yield from itertools.islice(
         sorted(records, key=lambda r: r["score"], reverse=True), n
     )
@@ -238,7 +238,7 @@ for record in pipeline:
 import asyncio
 
 async def async_range(n: int, delay=0.1):
-    """Async generator — yields with async delays."""
+    '''Async generator — yields with async delays.'''
     for i in range(n):
         await asyncio.sleep(delay)
         yield i
@@ -264,7 +264,7 @@ def take(n, iterable):
     return itertools.islice(iterable, n)
 
 def chunked(iterable, n):
-    """Yield successive n-sized chunks."""
+    '''Yield successive n-sized chunks.'''
     it = iter(iterable)
     while True:
         chunk = list(itertools.islice(it, n))
@@ -273,7 +273,7 @@ def chunked(iterable, n):
         yield chunk
 
 def sliding_window(iterable, size):
-    """Sliding window over iterable."""
+    '''Sliding window over iterable.'''
     iters = itertools.tee(iterable, size)
     for i, it in enumerate(iters):
         for _ in range(i):

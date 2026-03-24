@@ -152,14 +152,14 @@ class Config:
         self.cache = cache or {}  # should NOT be shared
 
     def __copy__(self):
-        """Shallow copy: new Config but shared settings."""
+        '''Shallow copy: new Config but shared settings.'''
         new = Config.__new__(Config)
         new.settings = self.settings    # shared reference
         new.cache = {}                  # fresh cache for each copy
         return new
 
     def __deepcopy__(self, memo):
-        """Deep copy: independent settings and cache."""
+        '''Deep copy: independent settings and cache.'''
         new = Config.__new__(Config)
         memo[id(self)] = new
         new.settings = copy.deepcopy(self.settings, memo)

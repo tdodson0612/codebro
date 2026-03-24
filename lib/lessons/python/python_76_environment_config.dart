@@ -80,7 +80,7 @@ api_key  = os.environ.get("API_KEY")   # None if not set
 
 # Validate required variables
 def require_env(*keys: str) -> dict:
-    """Get required env vars or raise with clear message."""
+    '''Get required env vars or raise with clear message.'''
     result = {}
     missing = []
     for key in keys:
@@ -99,7 +99,7 @@ def require_env(*keys: str) -> dict:
 # ── .ENV FILE HANDLING ────────────
 
 # .env file format:
-DOT_ENV_EXAMPLE = """
+DOT_ENV_EXAMPLE = '''
 # Development settings
 DATABASE_URL=postgresql://localhost/mydb_dev
 SECRET_KEY=dev-secret-key-change-in-prod
@@ -113,10 +113,10 @@ multiline value"
 
 # These override system env vars by default? No — dotenv
 # respects already-set environment variables unless override=True
-"""
+'''
 
 # Load .env file (requires: pip install python-dotenv)
-DOTENV_USAGE = """
+DOTENV_USAGE = '''
 from dotenv import load_dotenv, dotenv_values
 
 # Load into os.environ
@@ -127,7 +127,7 @@ load_dotenv(override=True)       # override existing env vars
 # Load as dict WITHOUT touching os.environ
 config = dotenv_values(".env")
 print(config["DATABASE_URL"])
-"""
+'''
 
 # ── JSON CONFIG ───────────────────
 
@@ -161,7 +161,7 @@ if not config_path.exists():
 
 # Load config with deep merge
 def load_config(config_file: str = "config.json") -> dict:
-    """Load config file, falling back to defaults."""
+    '''Load config file, falling back to defaults.'''
     config = default_config.copy()
     path = Path(config_file)
     if path.exists():
@@ -170,7 +170,7 @@ def load_config(config_file: str = "config.json") -> dict:
     return config
 
 def deep_merge(base: dict, override: dict) -> dict:
-    """Deep merge override into base (modifies base)."""
+    '''Deep merge override into base (modifies base).'''
     for key, value in override.items():
         if key in base and isinstance(base[key], dict) and isinstance(value, dict):
             deep_merge(base[key], value)
@@ -206,7 +206,7 @@ print(parser.get("missing", "key", fallback="default"))
 
 # ── TOML CONFIG (Python 3.11+) ────
 
-TOML_EXAMPLE = """
+TOML_EXAMPLE = '''
 # config.toml
 [app]
 name = "MyApp"
@@ -221,9 +221,9 @@ pool_size = 10
 
 [logging]
 level = "INFO"
-"""
+'''
 
-TOML_USAGE = """
+TOML_USAGE = '''
 # Python 3.11+
 import tomllib
 
@@ -236,11 +236,11 @@ print(config["database"]["host"])
 import tomli
 with open("config.toml", "rb") as f:
     config = tomli.load(f)
-"""
+'''
 
 # ── PYDANTIC SETTINGS ─────────────
 
-PYDANTIC_SETTINGS_EXAMPLE = """
+PYDANTIC_SETTINGS_EXAMPLE = '''
 from pydantic_settings import BaseSettings
 from pydantic import Field, SecretStr
 
@@ -278,12 +278,12 @@ print(settings.app_name)
 print(settings.debug)
 # print(settings.secret_key)  → would print "**secret**"
 # print(settings.secret_key.get_secret_value())  → actual value
-"""
+'''
 
 # ── LAYERED CONFIG SYSTEM ─────────
 
 class LayeredConfig:
-    """Config that merges defaults < file < env vars < kwargs."""
+    '''Config that merges defaults < file < env vars < kwargs.'''
 
     def __init__(self, config_file: str = None, **overrides):
         self._config = {}
@@ -337,7 +337,7 @@ cfg = LayeredConfig(debug=True)
 print(f"debug={cfg['debug']}, port={cfg['port']}")
 
 # ── .GITIGNORE FOR CONFIG ─────────
-GITIGNORE_ENTRIES = """
+GITIGNORE_ENTRIES = '''
 # Config files with secrets — NEVER commit these
 .env
 .env.local
@@ -348,7 +348,7 @@ secrets.yaml
 # But DO commit:
 # config.example.json  (template with fake values)
 # config.json          (if no secrets — just structure)
-"""
+'''
 
 print("Configuration management examples ready!")
 Path("config.json").unlink(missing_ok=True)

@@ -92,7 +92,7 @@ extension type ProductId(int value) {
 }
 
 extension type OrderId(String value) {
-  bool get isValid => RegExp(r'^ORD-\\d{6}$').hasMatch(value);
+  bool get isValid => RegExp(r'^ORD-\\d{6}\$').hasMatch(value);
 }
 
 // ── UNITS OF MEASURE ───────────
@@ -116,7 +116,7 @@ extension type Email(String value) {
   Email.validate(String s) : this(_validate(s));
 
   static String _validate(String s) {
-    if (!RegExp(r'^[\\w-\\.]+@[\\w-]+\\.[a-zA-Z]{2,}$').hasMatch(s)) {
+    if (!RegExp(r'^[\\w-\\.]+@[\\w-]+\\.[a-zA-Z]{2,}\$').hasMatch(s)) {
       throw ArgumentError('Invalid email: \$s');
     }
     return s;

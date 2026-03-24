@@ -216,7 +216,7 @@ public class ServiceLoaderDemo {
 
         // ─── SPI STRUCTURE REFERENCE ─────────────────────
         System.out.println("\n=== SPI File Structure ===");
-        System.out.println("""
+        System.out.println('''
           src/
           ├── META-INF/
           │   └── services/
@@ -233,11 +233,11 @@ public class ServiceLoaderDemo {
           ServiceLoader<Serializer> loader = ServiceLoader.load(Serializer.class);
           loader.forEach(s -> System.out.println(s.getName()));
           loader.findFirst().ifPresent(s -> s.serialize(data));
-          """);
+          ''');
 
         // ─── MODULE SYSTEM SPI ────────────────────────────
         System.out.println("=== Module System SPI (Java 9+) ===");
-        System.out.println("""
+        System.out.println('''
           // module-info.java of the API module:
           module com.example.api {
               exports com.example;
@@ -255,7 +255,7 @@ public class ServiceLoaderDemo {
               requires com.example.api;
               uses com.example.Serializer;
           }
-          """);
+          ''');
     }
 }
 

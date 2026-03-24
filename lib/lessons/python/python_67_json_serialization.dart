@@ -95,7 +95,7 @@ print(parsed["name"])     # Alice
 print(type(parsed))       # dict
 
 # JSON type mapping
-json_all = """
+json_all = '''
 {
   "string": "hello",
   "integer": 42,
@@ -106,7 +106,7 @@ json_all = """
   "array": [1, 2, 3],
   "object": {"nested": "value"}
 }
-"""
+'''
 py = json.loads(json_all)
 for k, v in py.items():
     print(f"  {k:12s}: {type(v).__name__:6s} = {v!r}")
@@ -202,7 +202,7 @@ print(json_str)
 # ── CUSTOM DECODER ────────────────
 
 def date_decoder(obj):
-    """Revive ISO datetime strings during parsing."""
+    '''Revive ISO datetime strings during parsing.'''
     for key, value in obj.items():
         if isinstance(value, str):
             try:
@@ -279,7 +279,7 @@ print(loaded_records)
 # ── SAFE JSON OPERATIONS ──────────
 
 def safe_json_load(path: str, default: Any = None) -> Any:
-    """Load JSON file, return default on any error."""
+    '''Load JSON file, return default on any error.'''
     try:
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -293,7 +293,7 @@ print(missing)
 
 # Validate JSON structure
 def validate_user_json(data: dict) -> list[str]:
-    """Returns list of validation errors."""
+    '''Returns list of validation errors.'''
     errors = []
     required = ["name", "email", "age"]
     for field in required:
