@@ -40,8 +40,8 @@ num     → supertype of int AND double
 ─────────────────────────────────────
 String  → sequence of UTF-16 code units
           'Hello'  or  "Hello"  (both identical)
-          \'''Multi
-             line\'''   (triple quotes)
+          """Multi
+             line"""   (triple quotes)
           r'Raw \$string \n'  (raw — no escaping)
 
 ─────────────────────────────────────
