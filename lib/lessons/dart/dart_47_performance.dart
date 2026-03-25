@@ -113,7 +113,8 @@ void main() {
   final sw = Stopwatch()..start();
   _doWork(100000);
   sw.stop();
-  print('doWork took: \${sw.elapsedMicroseconds}μs');
+  print('doWork took: ${
+sw.elapsedMicroseconds}μs');
 
   // ── CONST CANONICALIZATION ─────
   // These all point to the SAME object in memory:
@@ -137,7 +138,8 @@ void main() {
   for (var i = 0; i < size; i++) list[i] = i;
   final listSum = list.fold(0, (a, b) => a + b);
   sw.stop();
-  print('List<int>:    \${sw.elapsedMilliseconds}ms (sum=\$listSum)');
+  print('List<int>:    ${
+sw.elapsedMilliseconds}ms (sum=\$listSum)');
 
   // Uint32List — unboxed, cache-friendly
   sw.reset(); sw.start();
@@ -146,7 +148,8 @@ void main() {
   var typedSum = 0;
   for (var i = 0; i < size; i++) typedSum += typed[i];
   sw.stop();
-  print('Uint32List:   \${sw.elapsedMilliseconds}ms (sum=\$typedSum)');
+  print('Uint32List:   ${
+sw.elapsedMilliseconds}ms (sum=\$typedSum)');
 
   // ── STRING BUILDING ────────────
   const iterations = 10000;
@@ -158,7 +161,8 @@ void main() {
     bad += 'x';  // O(n) each concat → O(n²) total!
   }
   sw.stop();
-  print('String +=:    \${sw.elapsedMicroseconds}μs');
+  print('String +=:    ${
+sw.elapsedMicroseconds}μs');
 
   // Good: StringBuffer
   sw.reset(); sw.start();
@@ -168,7 +172,8 @@ void main() {
   }
   final good = sb.toString();
   sw.stop();
-  print('StringBuffer: \${sw.elapsedMicroseconds}μs');
+  print('StringBuffer: ${
+sw.elapsedMicroseconds}μs');
 
   // ── AVOID CLOSURE ALLOCATION IN LOOPS ──
   // Bad: creates a new closure every iteration
@@ -185,15 +190,19 @@ void main() {
   for (var i = 0; i < data.length; i++) { sumGood += data[i]; }
   sw.stop();
   final loopTime = sw.elapsedMicroseconds;
-  print('forEach: \${closureTime}μs  vs  for loop: \${loopTime}μs');
+  print('forEach: ${
+closureTime}μs  vs  for loop: ${
+loopTime}μs');
 
   // ── LATE LAZY INITIALIZATION ───
   // With late, expensive init only runs if field is accessed
   final obj = ExpensiveObject();
   print('Object created (no computation yet)');
   // ...
-  print('Accessing result: \${obj.result}');  // computed here
-  print('Accessing again:  \${obj.result}');  // cached!
+  print('Accessing result: ${
+obj.result}');  // computed here
+  print('Accessing again:  ${
+obj.result}');  // cached!
 
   // ── AVOID DYNAMIC ─────────────
   // dynamic disables static optimization
@@ -212,7 +221,9 @@ void main() {
     for (var i = 0; i < 10000; i++) i * 2,
   ];
   sw.stop();
-  print('Collection for: \${sw.elapsedMicroseconds}μs, len=\${built.length}');
+  print('Collection for: ${
+sw.elapsedMicroseconds}μs, len=${
+built.length}');
 
   // ── TIMELINE EVENTS (DevTools) ─
   dev.Timeline.startSync('myOperation');
@@ -239,7 +250,8 @@ void main() {
     totalDist += math.sqrt(xs[i] * xs[i] + ys[i] * ys[i]);
   }
   sw.stop();
-  print('Parallel arrays: \${sw.elapsedMilliseconds}ms');
+  print('Parallel arrays: ${
+sw.elapsedMilliseconds}ms');
 }
 
 void _doWork(int n) {

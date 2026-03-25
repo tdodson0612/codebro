@@ -109,7 +109,8 @@ With inline + reified, you can use the type at runtime:
 
 💻 CODE:
 // Generic function
-fun <T> printItem(item: T) = println("Item: \$item (\${item!!::class.simpleName})")
+fun <T> printItem(item: T) = println("Item: \$item (${
+item!!::class.simpleName})")
 
 fun <T> List<T>.second(): T {
     if (size < 2) throw NoSuchElementException("List has fewer than 2 elements")
@@ -210,8 +211,10 @@ fun main() {
     }
 
     when (val result = fetchUser(5)) {
-        is ApiResult.Success -> println("Got: \${result.data}")
-        is ApiResult.Error   -> println("Error: \${result.message}")
+        is ApiResult.Success -> println("Got: ${
+result.data}")
+        is ApiResult.Error   -> println("Error: ${
+result.message}")
     }
 
     // Reified types

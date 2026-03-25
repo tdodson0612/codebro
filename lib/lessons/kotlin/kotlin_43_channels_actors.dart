@@ -176,15 +176,18 @@ fun CoroutineScope.bankActor(initialBalance: Double) = actor<BankMessage> {
         when (msg) {
             is Deposit -> {
                 balance += msg.amount
-                println("  Deposited \${msg.amount}, balance now \$balance")
+                println("  Deposited ${
+msg.amount}, balance now \$balance")
             }
             is Withdraw -> {
                 if (msg.amount <= balance) {
                     balance -= msg.amount
-                    println("  Withdrew \${msg.amount}, balance now \$balance")
+                    println("  Withdrew ${
+msg.amount}, balance now \$balance")
                     msg.response.complete(true)
                 } else {
-                    println("  Insufficient funds for \${msg.amount}, balance \$balance")
+                    println("  Insufficient funds for ${
+msg.amount}, balance \$balance")
                     msg.response.complete(false)
                 }
             }
@@ -283,13 +286,16 @@ fun main() = runBlocking {
         launch { bank.send(Withdraw(300.0, wd1)) }
         launch { bank.send(Withdraw(2000.0, wd2)) }
 
-        println("Withdraw 300: \${wd1.await()}")
-        println("Withdraw 2000: \${wd2.await()}")
+        println("Withdraw 300: ${
+wd1.await()}")
+        println("Withdraw 2000: ${
+wd2.await()}")
     }
 
     val finalBalance = CompletableDeferred<Double>()
     bank.send(Balance(finalBalance))
-    println("Final balance: \${finalBalance.await()}")
+    println("Final balance: ${
+finalBalance.await()}")
     bank.close()
 }
 

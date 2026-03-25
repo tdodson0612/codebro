@@ -154,7 +154,8 @@ console.log("Multiplication table (3×3):");
 for (let i = 1; i <= 3; i++) {
   let row = "";
   for (let j = 1; j <= 3; j++) {
-    row += \`\${i * j}\`.padStart(3);
+    row += \`${
+i * j}\`.padStart(3);
   }
   console.log(row);
 }
@@ -183,7 +184,9 @@ let success = false;
 do {
   attempts++;
   success = Math.random() > 0.5;
-  console.log(\`Attempt \${attempts}: \${success ? "✅ Success!" : "❌ Failed"}\`);
+  console.log(\`Attempt ${
+attempts}: ${
+success ? "✅ Success!" : "❌ Failed"}\`);
 } while (!success && attempts < 5);
 
 // ─── for...of ─────────────────────────────────────────
@@ -197,7 +200,9 @@ for (const fruit of fruits) {
 
 // With index (entries):
 for (const [i, fruit] of fruits.entries()) {
-  console.log(\`\${i + 1}. \${fruit}\`);
+  console.log(\`${
+i + 1}. ${
+fruit}\`);
 }
 
 // Strings
@@ -210,7 +215,9 @@ console.log();
 // Map
 const map = new Map([["one", 1], ["two", 2], ["three", 3]]);
 for (const [key, value] of map) {
-  console.log(\`\${key} = \${value}\`);
+  console.log(\`${
+key} = ${
+value}\`);
 }
 
 // Set
@@ -224,13 +231,17 @@ console.log();
 console.log("\n=== for...in (objects) ===");
 const person = { name: "Alice", age: 28, city: "London" };
 for (const key in person) {
-  console.log(\`\${key}: \${person[key]}\`);
+  console.log(\`${
+key}: ${
+person[key]}\`);
 }
 
 // Safer: use Object.entries() instead
 console.log("Using Object.entries():");
 for (const [key, value] of Object.entries(person)) {
-  console.log(\`\${key}: \${value}\`);
+  console.log(\`${
+key}: ${
+value}\`);
 }
 
 // ─── BREAK AND CONTINUE ───────────────────────────────
@@ -261,10 +272,14 @@ console.log("Labeled break:");
 outer: for (let i = 0; i < 4; i++) {
   for (let j = 0; j < 4; j++) {
     if (i + j === 5) {
-      console.log(\`Breaking at i=\${i}, j=\${j}\`);
+      console.log(\`Breaking at i=${
+i}, j=${
+j}\`);
       break outer;  // exits both loops
     }
-    process.stdout.write(\`(\${i},\${j}) \`);
+    process.stdout.write(\`(${
+i},${
+j}) \`);
   }
 }
 console.log();

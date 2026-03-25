@@ -117,10 +117,8 @@ void main() {
   print(user.validate()); // true (name and age are valid)
 
   // ── MIXIN LINEARIZATION ───────
-  // Order of with determines override order
   var logger = LoggedPrinter();
   logger.printMessage('Hello');
-  // Output depends on which mixin's printMessage runs first
 
   // ── MIXIN CLASS ────────────────
   var d = Dog2();
@@ -245,12 +243,9 @@ mixin M2 {
 
 class LoggedPrinter with M1, M2 {
   // M2 takes precedence (right-most mixin wins)
-  // greeting → M2's version
-  // printMessage → M2's version
 }
 
 // ── MIXIN CLASS (Dart 3) ───────
-// Can be both extended and mixed in
 mixin class AnimalLogger {
   void log(String action) {
     print('[LOG] \${runtimeType}: \$action at \${DateTime.now()}');
@@ -265,7 +260,6 @@ class Dog2 extends Animal with AnimalLogger {
   }
 }
 
-// AnimalLogger used as a regular class:
 class StandaloneLogger extends AnimalLogger {
   void info(String msg) {
     log(msg);

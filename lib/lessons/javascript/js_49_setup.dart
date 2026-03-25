@@ -224,7 +224,8 @@ DEBUGGING IN VS CODE:
       "request": "launch",
       "name": "Debug",
       "runtimeExecutable": "tsx",
-      "args": ["\${workspaceFolder}/src/index.ts"],
+      "args": ["${
+workspaceFolder}/src/index.ts"],
       "console": "integratedTerminal"
     }]
   }
@@ -280,12 +281,17 @@ const setup = {
 
 // Print the setup guide:
 Object.entries(setup).forEach(([category, info]) => {
-    console.log(\`=== \${category.toUpperCase()} ===\`);
+    console.log(\`=== ${
+category.toUpperCase()} ===\`);
     Object.entries(info).forEach(([key, value]) => {
         if (Array.isArray(value)) {
-            console.log(\`  \${key.padEnd(12)}: \${value.join(', ')}\`);
+            console.log(\`  ${
+key.padEnd(12)}: ${
+value.join(', ')}\`);
         } else {
-            console.log(\`  \${key.padEnd(12)}: \${value}\`);
+            console.log(\`  ${
+key.padEnd(12)}: ${
+value}\`);
         }
     });
     console.log();

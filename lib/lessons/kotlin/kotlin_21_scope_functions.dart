@@ -162,12 +162,15 @@ fun main() {
     // let — null-safe transform (returns lambda result)
     val maybeUser: User? = fetchUser(1)
     val greeting = maybeUser?.let {
-        "Welcome back, \${it.name}! (age \${it.age})"
+        "Welcome back, ${
+it.name}! (age ${
+it.age})"
     } ?: "No user found"
     println(greeting)
 
     val noUser: User? = fetchUser(-1)
-    val msg = noUser?.let { "Found: \${it.name}" } ?: "User not found"
+    val msg = noUser?.let { "Found: ${
+it.name}" } ?: "User not found"
     println(msg)
 
     // also — side effects (returns the object)
@@ -206,7 +209,8 @@ fun main() {
 
     // Chaining scope functions
     val processedName = fetchUser(1)
-        ?.also { println("Fetched user: \${it.name}") }
+        ?.also { println("Fetched user: ${
+it.name}") }
         ?.let { it.name.uppercase() }
         ?.also { println("Processed name: \$it") }
         ?: "UNKNOWN"

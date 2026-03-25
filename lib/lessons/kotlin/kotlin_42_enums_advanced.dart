@@ -241,7 +241,9 @@ enum class CardRank(val value: Int, val display: String) {
 }
 
 data class Card(val rank: CardRank, val suit: CardSuit) {
-    override fun toString() = "\${rank}\${suit}"
+    override fun toString() = "${
+rank}${
+suit}"
 }
 
 fun main() {
@@ -249,8 +251,11 @@ fun main() {
     println("=== Planet weights ===")
     val earthWeight = 75.0  // kg
     Planet.values().forEach { planet ->
-        println("\${planet.name.padEnd(8)}: \${"%.2f".format(planet.weightOn(earthWeight))} kg" +
-            " (gravity: \${"%.2f".format(planet.surfaceGravity)} m/s²)")
+        println("${
+planet.name.padEnd(8)}: ${
+"%.2f".format(planet.weightOn(earthWeight))} kg" +
+            " (gravity: ${
+"%.2f".format(planet.surfaceGravity)} m/s²)")
     }
 
     // Operation enum
@@ -258,26 +263,34 @@ fun main() {
     val a = 10.0
     val b = 3.0
     Operation.values().forEach { op ->
-        println("\$a \$op \$b = \${"%.4f".format(op.apply(a, b))}")
+        println("\$a \$op \$b = ${
+"%.4f".format(op.apply(a, b))}")
     }
 
     // Enum iteration with ordinal and name
     println("\\n=== Enum metadata ===")
     HttpStatus.values().forEach { status ->
-        println("[\${status.ordinal}] \${status.name} → \${status.toDisplayString()} (success: \${status.isSuccess})")
+        println("[${
+status.ordinal}] ${
+status.name} → ${
+status.toDisplayString()} (success: ${
+status.isSuccess})")
     }
 
     // Companion factory
     println("\\n=== Lookup by code ===")
     listOf(200, 404, 503, 999).forEach { code ->
         val status = HttpStatus.fromCodeOrDefault(code)
-        println("\$code → \${status.toDisplayString()}")
+        println("\$code → ${
+status.toDisplayString()}")
     }
 
     // Card suit enum
     println("\\n=== Card suits ===")
     CardSuit.values().forEach { suit ->
-        println("\$suit \${suit.name.padEnd(8)} → \${suit.color}")
+        println("\$suit ${
+suit.name.padEnd(8)} → ${
+suit.color}")
     }
 
     // Build a hand of cards
@@ -290,7 +303,8 @@ fun main() {
         Card(CardRank.TWO, CardSuit.HEARTS)
     )
     val handValue = hand.sumOf { it.rank.value }
-    println("Hand: \${hand.joinToString(" ")} = \$handValue points")
+    println("Hand: ${
+hand.joinToString(" ")} = \$handValue points")
 
     // Enum.valueOf and enumValueOf
     println("\\n=== Enum lookup by name ===")
@@ -299,7 +313,8 @@ fun main() {
 
     // Safe lookup
     val allOps = enumValues<Operation>()
-    println("All operations: \${allOps.map { it.symbol }}")
+    println("All operations: ${
+allOps.map { it.symbol }}")
 }
 
 📝 KEY POINTS:

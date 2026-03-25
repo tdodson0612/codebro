@@ -340,7 +340,9 @@ const tests = [
 
 tests.forEach(t => {
     const short = t.length > 25 ? t.slice(0, 22) + "..." : t;
-    console.log(\`  \${isValidJSON(t) ? '✅' : '❌'} \${short}\`);
+    console.log(\`  ${
+isValidJSON(t) ? '✅' : '❌'} ${
+short}\`);
 });
 
 📝 KEY POINTS:

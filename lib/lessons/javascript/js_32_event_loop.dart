@@ -170,7 +170,8 @@ let microtaskCount = 0;
 
 function spawnMicrotasks(n) {
     if (n <= 0) {
-        console.log(\`  ✅ Spawned \${microtaskCount} microtasks — all before next macrotask\`);
+        console.log(\`  ✅ Spawned ${
+microtaskCount} microtasks — all before next macrotask\`);
         return;
     }
     microtaskCount++;
@@ -214,8 +215,11 @@ function nonBlockingWork(items) {
 console.log("  Starting non-blocking work...");
 const start = Date.now();
 nonBlockingWork(Array.from({ length: 1000 }, (_, i) => i)).then(results => {
-    console.log(\`  ✅ Processed \${results.length} items in \${Date.now() - start}ms\`);
-    console.log(\`  First 5 results: \${results.slice(0, 5)}\`);
+    console.log(\`  ✅ Processed ${
+results.length} items in ${
+Date.now() - start}ms\`);
+    console.log(\`  First 5 results: ${
+results.slice(0, 5)}\`);
 });
 console.log("  (other code can run while work processes in chunks)");
 
@@ -224,9 +228,11 @@ setTimeout(() => {
     console.log("\n=== Promise Chain Execution Order ===");
 
     async function step(name) {
-        console.log(\`  → entering \${name}\`);
+        console.log(\`  → entering ${
+name}\`);
         await new Promise(resolve => setTimeout(resolve, 10));
-        console.log(\`  ← returning \${name}\`);
+        console.log(\`  ← returning ${
+name}\`);
         return name;
     }
 

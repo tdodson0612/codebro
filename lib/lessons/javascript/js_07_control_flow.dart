@@ -187,7 +187,8 @@ const getLabel = (code) => {
     case 401: return "Unauthorized";
     case 404: return "Not Found";
     case 500: return "Server Error";
-    default:  return \`Unknown (\${code})\`;
+    default:  return \`Unknown (${
+code})\`;
   }
 };
 console.log(getLabel(200));  // "OK"
@@ -202,7 +203,8 @@ console.log(status); // "adult"
 
 // Ternary in template literal
 const hour = new Date().getHours();
-const greeting = \`Good \${hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening"}!\`;
+const greeting = \`Good ${
+hour < 12 ? "morning" : hour < 18 ? "afternoon" : "evening"}!\`;
 console.log(greeting);
 
 // Conditional rendering pattern (React-style):
@@ -253,7 +255,8 @@ const statusMessages = {
 };
 
 const getStatus = (code) =>
-  statusMessages[code] ?? \`Unknown (\${code})\`;
+  statusMessages[code] ?? \`Unknown (${
+code})\`;
 
 console.log(getStatus(200)); // "OK"
 console.log(getStatus(404)); // "Not Found"
@@ -271,7 +274,9 @@ const conditions = [
 
 const weatherDesc = conditions.find(([test]) =>
   test(temperature))?.[1] ?? "Unknown";
-console.log(\`\${temperature}°C: \${weatherDesc}\`);  // 28°C: Warm ☀️
+console.log(\`${
+temperature}°C: ${
+weatherDesc}\`);  // 28°C: Warm ☀️
 
 📝 KEY POINTS:
 ✅ if/else evaluates truthiness — not just strict boolean true/false

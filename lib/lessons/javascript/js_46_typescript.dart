@@ -66,7 +66,8 @@ TYPE ANNOTATIONS:
 
   // Functions:
   function add(a: number, b: number): number { return a + b; }
-  const greet = (name: string): string => \`Hello, \${name}!\`;
+  const greet = (name: string): string => \`Hello, ${
+name}!\`;
   const log = (msg: string): void => console.log(msg);  // void = no return
 
 ─────────────────────────────────────
@@ -249,8 +250,10 @@ const schema = {
         ...opts,
         parse: (v) => {
             if (typeof v !== 'string') throw new Error('Expected string');
-            if (opts.min && v.length < opts.min) throw new Error(\`Min length \${opts.min}\`);
-            if (opts.max && v.length > opts.max) throw new Error(\`Max length \${opts.max}\`);
+            if (opts.min && v.length < opts.min) throw new Error(\`Min length ${
+opts.min}\`);
+            if (opts.max && v.length > opts.max) throw new Error(\`Max length ${
+opts.max}\`);
             if (opts.email && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+\$/.test(v)) throw new Error('Invalid email');
             return v;
         }
@@ -260,8 +263,10 @@ const schema = {
         ...opts,
         parse: (v) => {
             if (typeof v !== 'number') throw new Error('Expected number');
-            if (opts.min !== undefined && v < opts.min) throw new Error(\`Min value \${opts.min}\`);
-            if (opts.max !== undefined && v > opts.max) throw new Error(\`Max value \${opts.max}\`);
+            if (opts.min !== undefined && v < opts.min) throw new Error(\`Min value ${
+opts.min}\`);
+            if (opts.max !== undefined && v > opts.max) throw new Error(\`Max value ${
+opts.max}\`);
             return v;
         }
     }),
@@ -293,9 +298,11 @@ const testCases = [
 testCases.forEach((data, i) => {
     try {
         const result = userSchema.parse(data);
-        console.log(\`  Test \${i+1}: ✅ Valid:`, JSON.stringify(result));
+        console.log(\`  Test ${
+i+1}: ✅ Valid:`, JSON.stringify(result));
     } catch (e) {
-        console.log(\`  Test \${i+1}: ❌ Errors:`, JSON.stringify(e.errors || e.message));
+        console.log(\`  Test ${
+i+1}: ❌ Errors:`, JSON.stringify(e.errors || e.message));
     }
 });
 
@@ -321,7 +328,9 @@ const tsExamples = [
 ];
 
 tsExamples.forEach(([concept, code]) => {
-    console.log(\`  \${concept.padEnd(22)}: \${code}\`);
+    console.log(\`  ${
+concept.padEnd(22)}: ${
+code}\`);
 });
 
 // ─── NEXT STEPS ───────────────────────────────────────
@@ -343,7 +352,8 @@ const steps = [
     "→ Total TypeScript by Matt Pocock (course)",
     "→ type-challenges on GitHub (practice problems)",
 ];
-steps.forEach(s => console.log(\`  \${s}\`));
+steps.forEach(s => console.log(\`  ${
+s}\`));
 
 📝 KEY POINTS:
 ✅ TypeScript is a strict superset of JavaScript — all valid JS is valid TS

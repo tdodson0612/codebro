@@ -29,7 +29,8 @@ CREATING REGEX:
 
   // Constructor useful for dynamic patterns:
   const word = "hello";
-  const re = new RegExp(\`\\\\b\${word}\\\\b\`, 'gi');
+  const re = new RegExp(\`\\\\b${
+word}\\\\b\`, 'gi');
 
 ─────────────────────────────────────
 FLAGS:
@@ -172,7 +173,12 @@ const dateRegex = /(\\d{4})-(\\d{2})-(\\d{2})/g;
 
 for (const match of dateStr.matchAll(dateRegex)) {
     const [full, year, month, day] = match;
-    console.log(\`  Found: \${full} → Y:\${year} M:\${month} D:\${day} (at index \${match.index})\`);
+    console.log(\`  Found: ${
+full} → Y:${
+year} M:${
+month} D:${
+day} (at index ${
+match.index})\`);
 }
 
 // Named groups:
@@ -191,7 +197,8 @@ console.log("  replace all:  ", phrase.replace(/foo/g, "qux"));
 // Replace with function:
 const prices = "Item: \$10, Discount: \$2, Total: \$8";
 const inflated = prices.replace(/\\\$(\d+)/g, (match, amount) =>
-    \`\$\${parseInt(amount) * 1.1}\`);
+    \`\$${
+parseInt(amount) * 1.1}\`);
 console.log("  Inflated prices:", inflated);
 
 // Reformat date:
@@ -234,7 +241,10 @@ console.log("\\n=== Practical Patterns ===");
 
 function validate(pattern, value, name) {
     const result = pattern.test(value);
-    console.log(\`  \${name}: '\${value}' → \${result ? '✅' : '❌'}\`);
+    console.log(\`  ${
+name}: '${
+value}' → ${
+result ? '✅' : '❌'}\`);
     return result;
 }
 
@@ -262,7 +272,9 @@ const slugify = str => str
     .replace(/^-+|-+\$/g, '');
 
 const titles = ["  Hello, World!  ", "ES6+ Features & Syntax", "Node.js 101"];
-titles.forEach(t => console.log(\`  slugify: "\${t}" → "\${slugify(t)}"\`));
+titles.forEach(t => console.log(\`  slugify: "${
+t}" → "${
+slugify(t)}"\`));
 
 📝 KEY POINTS:
 ✅ Regex literals /pattern/flags are preferred over new RegExp() for static patterns

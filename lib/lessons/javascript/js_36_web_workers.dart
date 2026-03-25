@@ -238,13 +238,18 @@ const tasks = [
 computeWorker.onmessage = ({ data }) => {
     switch (data.type) {
         case 'PRIME_COUNT_RESULT':
-            console.log(\`  Primes up to \${data.upTo}: \${data.count}\`);
+            console.log(\`  Primes up to ${
+data.upTo}: ${
+data.count}\`);
             break;
         case 'FIBONACCI_RESULT':
-            console.log(\`  fib(\${data.n}) = \${data.value}\`);
+            console.log(\`  fib(${
+data.n}) = ${
+data.value}\`);
             break;
         case 'SORT_RESULT':
-            console.log(\`  Sorted: [\${data.sorted}]\`);
+            console.log(\`  Sorted: [${
+data.sorted}]\`);
             break;
     }
 };
@@ -302,8 +307,11 @@ setTimeout(() => {
     });
 
     imageWorker.onmessage = ({ data }) => {
-        console.log(\`  \${data.operation}: first 8 values = [\${data.pixels.slice(0, 8).join(', ')}]\`);
-        console.log(\`  Processing time: \${data.processingTime}ms\`);
+        console.log(\`  ${
+data.operation}: first 8 values = [${
+data.pixels.slice(0, 8).join(', ')}]\`);
+        console.log(\`  Processing time: ${
+data.processingTime}ms\`);
     };
 
     ['grayscale', 'invert'].forEach(op => {
@@ -372,7 +380,9 @@ setTimeout(() => {
     const tasks = [100, 200, 300, 400, 500, 600];
     Promise.all(tasks.map(n => pool.run({ n }))).then(results => {
         console.log("  All pool results:");
-        results.forEach(r => console.log(\`    sum(0..\${r.n}) = \${r.result}\`));
+        results.forEach(r => console.log(\`    sum(0..${
+r.n}) = ${
+r.result}\`));
     });
 
 }, 200);
@@ -392,7 +402,9 @@ setTimeout(() => {
         ["Shared memory",    "new SharedArrayBuffer(bytes)"],
         ["Atomic ops",       "Atomics.add/load/store/wait/notify"],
     ];
-    ref.forEach(([desc, code]) => console.log(\`  \${desc.padEnd(18)}: \${code}\`));
+    ref.forEach(([desc, code]) => console.log(\`  ${
+desc.padEnd(18)}: ${
+code}\`));
 }, 300);
 
 📝 KEY POINTS:

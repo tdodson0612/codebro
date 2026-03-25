@@ -176,7 +176,9 @@ class InsufficientFundsError(Exception):
         self.amount = amount
         self.balance = balance
         super().__init__(
-            f"Cannot withdraw \${amount:.2f}: balance is \${balance:.2f}"
+            f"Cannot withdraw ${
+amount:.2f}: balance is ${
+balance:.2f}"
         )
 
 class BankAccount:
@@ -194,8 +196,10 @@ try:
     account.withdraw(150)
 except InsufficientFundsError as e:
     print(f"Error: {e}")
-    print(f"Tried to withdraw: \${e.amount}")
-    print(f"Available: \${e.balance}")
+    print(f"Tried to withdraw: ${
+e.amount}")
+    print(f"Available: ${
+e.balance}")
 
 # Exception chaining
 class DatabaseError(Exception): pass

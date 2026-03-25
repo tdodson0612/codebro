@@ -111,9 +111,11 @@ EXCEPTION HANDLING WITH FILES:
   try {
       val content = File("missing.txt").readText()
   } catch (e: FileNotFoundException) {
-      println("File not found: \${e.message}")
+      println("File not found: ${
+e.message}")
   } catch (e: IOException) {
-      println("IO error: \${e.message}")
+      println("IO error: ${
+e.message}")
   }
 
   // Or idiomatic Kotlin:
@@ -139,8 +141,10 @@ fun demonstrateFileOps() {
         Line 4: 42
         Line 5: Last line.
     '''.trimIndent())
-    println("Written to: \${file.absolutePath}")
-    println("File size: \${file.length()} bytes")
+    println("Written to: ${
+file.absolutePath}")
+    println("File size: ${
+file.length()} bytes")
 
     // Append
     file.appendText("\\nLine 6: Appended after the fact.")
@@ -155,8 +159,10 @@ fun demonstrateFileOps() {
 
     // Read as list of lines
     val lines = file.readLines()
-    println("--- Line count: \${lines.size} ---")
-    lines.forEachIndexed { i, line -> println("\${i + 1}: \$line") }
+    println("--- Line count: ${
+lines.size} ---")
+    lines.forEachIndexed { i, line -> println("${
+i + 1}: \$line") }
 
     // Memory-efficient streaming
     println("\\n--- Line streaming ---")
@@ -169,13 +175,20 @@ fun demonstrateFileOps() {
 
     // ─── FILE PROPERTIES ───────────────────────
     println("\\n=== File properties ===")
-    println("Name:      \${file.name}")
-    println("Extension: \${file.extension}")
-    println("No ext:    \${file.nameWithoutExtension}")
-    println("Exists:    \${file.exists()}")
-    println("Is file:   \${file.isFile}")
-    println("Is dir:    \${file.isDirectory}")
-    println("Size:      \${file.length()} bytes")
+    println("Name:      ${
+file.name}")
+    println("Extension: ${
+file.extension}")
+    println("No ext:    ${
+file.nameWithoutExtension}")
+    println("Exists:    ${
+file.exists()}")
+    println("Is file:   ${
+file.isFile}")
+    println("Is dir:    ${
+file.isDirectory}")
+    println("Size:      ${
+file.length()} bytes")
 
     // ─── BUFFERED READ/WRITE ────────────────────
     println("\\n=== Buffered Writer ===")
@@ -207,7 +220,8 @@ fun demonstrateFileOps() {
     println("\\n=== Directories ===")
     val dir = File("output_dir")
     dir.mkdirs()
-    println("Directory created: \${dir.absolutePath}")
+    println("Directory created: ${
+dir.absolutePath}")
 
     // Write multiple files into directory
     listOf("alpha", "beta", "gamma").forEachIndexed { i, name ->
@@ -216,7 +230,9 @@ fun demonstrateFileOps() {
 
     // List directory
     dir.listFiles()?.sortedBy { it.name }?.forEach {
-        println("  \${it.name} (\${it.length()} bytes)")
+        println("  ${
+it.name} (${
+it.length()} bytes)")
     }
 
     // ─── ERROR HANDLING ─────────────────────────
@@ -224,7 +240,8 @@ fun demonstrateFileOps() {
     val missingContent = runCatching {
         File("nonexistent_file.txt").readText()
     }.getOrElse { e ->
-        "Default: file not found (\${e.javaClass.simpleName})"
+        "Default: file not found (${
+e.javaClass.simpleName})"
     }
     println(missingContent)
 
@@ -245,7 +262,8 @@ fun main() {
 
     // print("Enter two numbers: ")
     // val (a, b) = readLine()!!.split(" ").map { it.toInt() }
-    // println("Sum: \${a + b}")
+    // println("Sum: ${
+a + b}")
 }
 
 📝 KEY POINTS:

@@ -282,10 +282,14 @@ class ReactiveStorage extends TypedStorage {
 const reactiveStore = new ReactiveStorage(localStorage, 'react:');
 
 const unwatchTheme = reactiveStore.watch('theme', (newVal, oldVal) => {
-    console.log(\`  theme changed: "\${oldVal}" → "\${newVal}"\`);
+    console.log(\`  theme changed: "${
+oldVal}" → "${
+newVal}"\`);
 });
 reactiveStore.watch('count', (newVal, oldVal) => {
-    console.log(\`  count: \${oldVal ?? 0} → \${newVal}\`);
+    console.log(\`  count: ${
+oldVal ?? 0} → ${
+newVal}\`);
 });
 
 reactiveStore.set('theme', 'light');
@@ -315,7 +319,10 @@ class CookieManager {
             created:  Date.now(),
         };
         this.#cookies.set(name, cookie);
-        console.log(\`  Set cookie: \${name}=\${value.slice(0,20)} (sameSite=\${cookie.sameSite})\`);
+        console.log(\`  Set cookie: ${
+name}=${
+value.slice(0,20)} (sameSite=${
+cookie.sameSite})\`);
     }
 
     get(name) {
@@ -363,7 +370,9 @@ const guide = [
     ["Cache API",       "Cached API responses, offline assets (with Service Workers)"],
 ];
 guide.forEach(([storage, use]) => {
-    console.log(\`  \${storage.padEnd(18)}: \${use}\`);
+    console.log(\`  ${
+storage.padEnd(18)}: ${
+use}\`);
 });
 
 📝 KEY POINTS:

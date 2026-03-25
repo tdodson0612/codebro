@@ -191,7 +191,8 @@ class NotificationService:
         self.email_service.send(
             to="user@example.com",
             subject="Deposit received",
-            body=f"\\\${amount} deposited to {account.owner}'s account"
+            body=f"\\${
+amount} deposited to {account.owner}'s account"
         )
 
 class TestNotificationService(unittest.TestCase):

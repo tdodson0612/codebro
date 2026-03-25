@@ -155,7 +155,8 @@ fun stackDemo() {
 
     // Pop operations
     while (stack.isNotEmpty()) {
-        println("Popped: \${stack.removeLast()}")
+        println("Popped: ${
+stack.removeLast()}")
     }
 
     // Practical: undo history
@@ -166,7 +167,8 @@ fun stackDemo() {
 
     println("\\nUndo sequence:")
     repeat(3) {
-        if (undoStack.isNotEmpty()) println("Undone: \${undoStack.removeLast()}")
+        if (undoStack.isNotEmpty()) println("Undone: ${
+undoStack.removeLast()}")
     }
 }
 
@@ -185,7 +187,8 @@ fun queueDemo() {
 
     // Dequeue
     while (queue.isNotEmpty()) {
-        println("Serving: \${queue.removeFirst()}")
+        println("Serving: ${
+queue.removeFirst()}")
     }
 }
 
@@ -205,7 +208,8 @@ fun slidingWindowDemo() {
         window.addLast(value)
         if (window.size > windowSize) window.removeFirst()
         if (window.size == windowSize) {
-            print("\${"%.1f".format(window.average())} ")
+            print("${
+"%.1f".format(window.average())} ")
         }
     }
     println()
@@ -233,7 +237,8 @@ fun priorityQueueDemo() {
     println("Processing tasks by priority:")
     while (taskQueue.isNotEmpty()) {
         val task = taskQueue.poll()
-        println("  Processing: \$task — \${task.description}")
+        println("  Processing: \$task — ${
+task.description}")
     }
 
     // Dijkstra-style: min-priority queue for distances
@@ -249,7 +254,9 @@ fun priorityQueueDemo() {
     print("Visit order: ")
     while (pq.isNotEmpty()) {
         val node = pq.poll()
-        print("\${node.name}(\${node.dist}) ")
+        print("${
+node.name}(${
+node.dist}) ")
     }
     println()
 }

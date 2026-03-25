@@ -126,14 +126,16 @@ Symbol.toPrimitive — TYPE CONVERSION:
 
       [Symbol.toPrimitive](hint) {
           if (hint === 'number')  return this.celsius;
-          if (hint === 'string')  return \`\${this.celsius}°C\`;
+          if (hint === 'string')  return \`${
+this.celsius}°C\`;
           return this.celsius;  // 'default'
       }
   }
 
   const temp = new Temperature(22);
   +temp           // 22 (number hint)
-  \`Temp: \${temp}\` // "Temp: 22°C" (string hint)
+  \`Temp: ${
+temp}\` // "Temp: 22°C" (string hint)
   temp + 10       // 32 (default hint)
 
 💻 CODE:
@@ -241,7 +243,9 @@ class Money {
 
     [Symbol.toPrimitive](hint) {
         if (hint === 'number')  return this.amount;
-        if (hint === 'string')  return \`\${this.currency} \${this.amount.toFixed(2)}\`;
+        if (hint === 'string')  return \`${
+this.currency} ${
+this.amount.toFixed(2)}\`;
         return this.amount;  // default (e.g., comparison)
     }
 
@@ -254,7 +258,9 @@ const price = new Money(29.99);
 const tax   = new Money(2.40);
 
 console.log("  +price:", +price);                          // 29.99
-console.log("  \`\${price}\`:", \`\${price}\`);                  // "USD 29.99"
+console.log("  \`${
+price}\`:", \`${
+price}\`);                  // "USD 29.99"
 console.log("  price > 20:", price > 20);                  // true
 console.log("  price + tax:", (price.amount + +tax));      // 32.39
 

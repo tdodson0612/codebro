@@ -204,7 +204,7 @@ void main() {
 
   String? nullStr = null;
   if (nullStr case var s?) {
-    print('This won't print');
+    print('This won\'t print');
   } else {
     print('Was null');   // ← this
   }

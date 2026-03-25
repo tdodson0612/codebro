@@ -199,7 +199,8 @@ from decimal import Decimal
 price = Decimal('9.99')
 tax = Decimal('0.08')
 total = price * (1 + tax)
-print(f"Total: \${total:.2f}")  # Total: \$10.79
+print(f"Total: ${
+total:.2f}")  # Total: \$10.79
 
 # Number formatting
 big_number = 1_234_567_890  # readable!

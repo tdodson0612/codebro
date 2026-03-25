@@ -323,7 +323,8 @@ fun PostListScreen(
         }
         is PostViewModel.UiState.Error -> {
             Text(
-                text = "Error: \${state.message}",
+                text = "Error: ${
+state.message}",
                 color = MaterialTheme.colorScheme.error
             )
         }
@@ -405,13 +406,16 @@ fun main() = runBlocking {
                 is PostViewModel.UiState.Loading ->
                     println("UI: Showing loading spinner...")
                 is PostViewModel.UiState.Success -> {
-                    println("UI: Showing \${state.posts.size} posts:")
+                    println("UI: Showing ${
+state.posts.size} posts:")
                     state.posts.forEach { post ->
-                        println("  • \${post.title}")
+                        println("  • ${
+post.title}")
                     }
                 }
                 is PostViewModel.UiState.Error ->
-                    println("UI: Error — \${state.message}")
+                    println("UI: Error — ${
+state.message}")
             }
         }
     }

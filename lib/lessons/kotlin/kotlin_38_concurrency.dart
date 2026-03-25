@@ -27,7 +27,8 @@ THREADS IN KOTLIN/JVM:
 ─────────────────────────────────────
   // Creating a thread (Java-style)
   val thread = Thread {
-      println("Running on: \${Thread.currentThread().name}")
+      println("Running on: ${
+Thread.currentThread().name}")
   }
   thread.start()
   thread.join()
@@ -189,7 +190,8 @@ fun raceConditionDemo() {
         }
     }
     latch2.await()
-    println("Safe counter:   \${safeCounter.get()} (expected 10000, always correct)")
+    println("Safe counter:   ${
+safeCounter.get()} (expected 10000, always correct)")
 }
 
 fun synchronizedDemo() {
@@ -215,7 +217,8 @@ fun synchronizedDemo() {
         }
     }
     latch.await()
-    println("Synchronized counter: \${counter.get()} (operations balance to 0)")
+    println("Synchronized counter: ${
+counter.get()} (operations balance to 0)")
 }
 
 fun volatileDemo() {
@@ -261,7 +264,8 @@ fun coroutineMutexDemo() = runBlocking {
         }
     }
 
-    println("Shared list (10 items): \${sharedList.sorted()}")
+    println("Shared list (10 items): ${
+sharedList.sorted()}")
 
     // Counting with coroutines + mutex
     var counter = 0
@@ -292,7 +296,8 @@ fun threadSafeCollectionsDemo() {
         }
     }
     latch.await()
-    println("ConcurrentHashMap size: \${map.size} (expected 1000)")
+    println("ConcurrentHashMap size: ${
+map.size} (expected 1000)")
 
     // Atomic operations on ConcurrentHashMap
     val wordCount = ConcurrentHashMap<String, AtomicInteger>()
@@ -306,7 +311,8 @@ fun threadSafeCollectionsDemo() {
         }
     }
     latch2.await()
-    println("Word counts: \${wordCount.mapValues { it.value.get() }}")
+    println("Word counts: ${
+wordCount.mapValues { it.value.get() }}")
 }
 
 fun main() {

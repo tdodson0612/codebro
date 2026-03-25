@@ -85,7 +85,8 @@ CSRF — CROSS-SITE REQUEST FORGERY:
 INJECTION — SQL / COMMAND:
 ─────────────────────────────────────
   // ❌ SQL INJECTION VULNERABLE:
-  const query = \`SELECT * FROM users WHERE name = '\${input}'\`;
+  const query = \`SELECT * FROM users WHERE name = '${
+input}'\`;
   // If input = "'; DROP TABLE users; --"
   // → entire table dropped!
 
@@ -176,8 +177,10 @@ const maliciousInputs = [
 console.log("  Escaping dangerous HTML:");
 maliciousInputs.forEach(input => {
     const escaped = escapeHtml(input);
-    console.log(\`  Input:   \${input.slice(0, 50)}\`);
-    console.log(\`  Escaped: \${escaped.slice(0, 60)}\`);
+    console.log(\`  Input:   ${
+input.slice(0, 50)}\`);
+    console.log(\`  Escaped: ${
+escaped.slice(0, 60)}\`);
     console.log();
 });
 
@@ -192,31 +195,42 @@ class Validator {
         this.#rules[name] = rules;
 
         const builder = {
-            required: (msg = \`\${name} is required\`) => {
+            required: (msg = \`${
+name} is required\`) => {
                 rules.push(v => (v !== null && v !== undefined && v !== '') || msg);
                 return builder;
             },
-            string: (msg = \`\${name} must be a string\`) => {
+            string: (msg = \`${
+name} must be a string\`) => {
                 rules.push(v => typeof v === 'string' || msg);
                 return builder;
             },
-            min: (n, msg = \`\${name} must be at least \${n} chars\`) => {
+            min: (n, msg = \`${
+name} must be at least ${
+n} chars\`) => {
                 rules.push(v => !v || v.length >= n || msg);
                 return builder;
             },
-            max: (n, msg = \`\${name} must be at most \${n} chars\`) => {
+            max: (n, msg = \`${
+name} must be at most ${
+n} chars\`) => {
                 rules.push(v => !v || v.length <= n || msg);
                 return builder;
             },
-            pattern: (re, msg = \`\${name} format invalid\`) => {
+            pattern: (re, msg = \`${
+name} format invalid\`) => {
                 rules.push(v => !v || re.test(v) || msg);
                 return builder;
             },
-            number: (msg = \`\${name} must be a number\`) => {
+            number: (msg = \`${
+name} must be a number\`) => {
                 rules.push(v => v === undefined || v === null || typeof v === 'number' || msg);
                 return builder;
             },
-            range: (min, max, msg = \`\${name} must be between \${min} and \${max}\`) => {
+            range: (min, max, msg = \`${
+name} must be between ${
+min} and ${
+max}\`) => {
                 rules.push(v => v === undefined || (v >= min && v <= max) || msg);
                 return builder;
             },
@@ -253,10 +267,14 @@ const testUsers = [
 
 testUsers.forEach((user, i) => {
     const { valid, errors } = userValidator.validate(user);
-    console.log(\`  Test \${i + 1}: \${valid ? '✅ valid' : '❌ invalid'}\`);
+    console.log(\`  Test ${
+i + 1}: ${
+valid ? '✅ valid' : '❌ invalid'}\`);
     if (!valid) {
         Object.entries(errors).forEach(([field, errs]) => {
-            errs.forEach(err => console.log(\`    [\${field}] \${err}\`));
+            errs.forEach(err => console.log(\`    [${
+field}] ${
+err}\`));
         });
     }
 });
@@ -291,14 +309,16 @@ function validateCsrfToken(userId, submittedToken) {
 }
 
 const sessionToken = createSession('user-42');
-console.log(\`  Generated CSRF token: \${sessionToken.slice(0, 16)}...\`);
+console.log(\`  Generated CSRF token: ${
+sessionToken.slice(0, 16)}...\`);
 
 // Legitimate request (has token):
 try {
     validateCsrfToken('user-42', sessionToken);
     console.log("  ✅ Legitimate request: valid CSRF token");
 } catch (e) {
-    console.log(\`  ❌ \${e.message}\`);
+    console.log(\`  ❌ ${
+e.message}\`);
 }
 
 // Forged request (no/wrong token):
@@ -306,7 +326,8 @@ try {
     validateCsrfToken('user-42', 'forged-token-here');
     console.log("  ✅ Forged request passed! (should not happen)");
 } catch (e) {
-    console.log(\`  ❌ Forged request blocked: \${e.message}\`);
+    console.log(\`  ❌ Forged request blocked: ${
+e.message}\`);
 }
 
 // ─── RATE LIMITING ────────────────────────────────────
@@ -336,7 +357,8 @@ class RateLimiter {
 
         if (window.count > this.#limit) {
             const waitMs = window.resetAt - now;
-            throw new Error(\`Rate limit exceeded. Try again in \${Math.ceil(waitMs/1000)}s\`);
+            throw new Error(\`Rate limit exceeded. Try again in ${
+Math.ceil(waitMs/1000)}s\`);
         }
 
         return { remaining: this.#limit - window.count, resetAt: window.resetAt };
@@ -349,10 +371,15 @@ const loginLimiter = new RateLimiter(3, 60000);
 const attempts = ['alice', 'alice', 'alice', 'alice', 'alice'];
 attempts.forEach((user, i) => {
     try {
-        const info = loginLimiter.check(\`login:\${user}\`);
-        console.log(\`  Attempt \${i+1}: ✅ Allowed (remaining: \${info.remaining})\`);
+        const info = loginLimiter.check(\`login:${
+user}\`);
+        console.log(\`  Attempt ${
+i+1}: ✅ Allowed (remaining: ${
+info.remaining})\`);
     } catch (e) {
-        console.log(\`  Attempt \${i+1}: ❌ Blocked — \${e.message}\`);
+        console.log(\`  Attempt ${
+i+1}: ❌ Blocked — ${
+e.message}\`);
     }
 });
 
@@ -370,7 +397,9 @@ const headers = [
     ["Set-Cookie: Secure",             "Cookies only over HTTPS"],
 ];
 headers.forEach(([header, desc]) => {
-    console.log(\`  \${header.slice(0, 35).padEnd(36)}: \${desc}\`);
+    console.log(\`  ${
+header.slice(0, 35).padEnd(36)}: ${
+desc}\`);
 });
 
 📝 KEY POINTS:

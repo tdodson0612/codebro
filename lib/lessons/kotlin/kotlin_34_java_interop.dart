@@ -159,7 +159,8 @@ class ApiClient(val baseUrl: String) {
     // @JvmOverloads generates Java overloads for default params
     @JvmOverloads
     fun get(endpoint: String, timeout: Int = DEFAULT_TIMEOUT, retries: Int = 3): String {
-        return "GET \$baseUrl/\$endpoint (timeout=\${timeout}ms, retries=\$retries)"
+        return "GET \$baseUrl/\$endpoint (timeout=${
+timeout}ms, retries=\$retries)"
     }
 
     // @Throws declares checked exceptions Java callers must handle
@@ -177,7 +178,8 @@ fun javaTypesDemo() {
     // Java's LocalDate
     val today = LocalDate.now()
     val formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy")
-    println("Today: \${today.format(formatter)}")
+    println("Today: ${
+today.format(formatter)}")
 
     val birthday = LocalDate.of(1990, 6, 15)
     val age = today.year - birthday.year
@@ -189,20 +191,23 @@ fun javaTypesDemo() {
     cache["products"] = 4200
     cache["orders"] = 830
     println("\\nCache: \$cache")
-    println("Users: \${cache["users"]}")
+    println("Users: ${
+cache["users"]}")
 
     // Java regex
     val emailPattern = Pattern.compile("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")
     val emails = listOf("valid@test.com", "invalid-email", "another@valid.org")
     emails.forEach { email ->
         val valid = emailPattern.matcher(email).matches()
-        println("\$email: \${if (valid) "✅" else "❌"}")
+        println("\$email: ${
+if (valid) "✅" else "❌"}")
     }
 
     // Java's StringBuilder
     val sb = StringBuilder()
     repeat(5) { i ->
-        sb.append("Item \${i + 1}")
+        sb.append("Item ${
+i + 1}")
         if (i < 4) sb.append(", ")
     }
     println("\\nBuilt: \$sb")
@@ -214,14 +219,18 @@ fun platformTypeSafety() {
 
     // System.getenv() returns String? in reality
     val path: String? = System.getenv("PATH")
-    println("PATH exists: \${path != null}")
-    println("PATH length: \${path?.length ?: 0}")
+    println("PATH exists: ${
+path != null}")
+    println("PATH length: ${
+path?.length ?: 0}")
 
     // System.getProperty returns String?
     val osName: String? = System.getProperty("os.name")
     val javaVersion: String? = System.getProperty("java.version")
-    println("OS: \${osName ?: "Unknown"}")
-    println("Java: \${javaVersion ?: "Unknown"}")
+    println("OS: ${
+osName ?: "Unknown"}")
+    println("Java: ${
+javaVersion ?: "Unknown"}")
 }
 
 fun main() {
@@ -237,7 +246,8 @@ fun main() {
     try {
         println(client.post("data", ""))
     } catch (e: IllegalArgumentException) {
-        println("Caught: \${e.message}")
+        println("Caught: ${
+e.message}")
     }
 
     println(client.post("data", "{\\"key\\": \\"value\\"}"))

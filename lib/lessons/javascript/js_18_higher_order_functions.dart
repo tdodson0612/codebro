@@ -152,7 +152,9 @@ const withTax  = products.map(p => ({
 
 console.log("  Names:", names);
 console.log("  Prices:", prices);
-console.log("  With tax:", withTax.map(p => \`\${p.name}: \$\${p.priceWithTax}\`));
+console.log("  With tax:", withTax.map(p => \`${
+p.name}: \$${
+p.priceWithTax}\`));
 
 // ─── filter ───────────────────────────────────────────
 console.log("\\n=== filter ===");
@@ -193,7 +195,10 @@ const report = products
     .filter(p => p.price >= 100)
     .map(p => ({ ...p, discount: +(p.price * 0.1).toFixed(2) }))
     .sort((a, b) => b.price - a.price)
-    .map(p => \`\${p.name}: \$\${p.price} (save \$\${p.discount})\`);
+    .map(p => \`${
+p.name}: \$${
+p.price} (save \$${
+p.discount})\`);
 
 report.forEach(line => console.log("  " + line));
 
@@ -215,7 +220,9 @@ console.log("\\n=== Function Factories ===");
 
 const makeMultiplier  = factor => n => n * factor;
 const makeAdder       = x => y => x + y;
-const makeGreeter     = greeting => name => \`\${greeting}, \${name}!\`;
+const makeGreeter     = greeting => name => \`${
+greeting}, ${
+name}!\`;
 const makeValidator   = (min, max) => n => n >= min && n <= max;
 
 const double    = makeMultiplier(2);
@@ -235,7 +242,9 @@ console.log("  isPercent(150):", isPercent(150));
 const nums = [1, 2, 3, 4, 5];
 const transforms = [double, triple, add100];
 transforms.forEach(fn => {
-    console.log(\`  \${fn.name || 'fn'}([1..5]): \${nums.map(fn)}\`);
+    console.log(\`  ${
+fn.name || 'fn'}([1..5]): ${
+nums.map(fn)}\`);
 });
 
 // ─── COMPOSE / PIPE ───────────────────────────────────
@@ -252,7 +261,9 @@ const slugify = pipe(
 );
 
 const titles = ["  Hello World!  ", "  JavaScript 101  ", "  ES6+ Features  "];
-titles.forEach(t => console.log(\`  "\${t}" → "\${slugify(t)}"\`));
+titles.forEach(t => console.log(\`  "${
+t}" → "${
+slugify(t)}"\`));
 
 // ─── flatMap ──────────────────────────────────────────
 console.log("\\n=== flatMap ===");

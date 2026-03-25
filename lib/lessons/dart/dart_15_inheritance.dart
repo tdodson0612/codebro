@@ -217,7 +217,7 @@ class Rect extends Shape {
   double get perimeter => 2 * (width + height);
 
   @override
-  void draw() => print('Drawing \${width}x\$height rectangle');
+  void draw() => print('Drawing \${width}x\${height} rectangle');
 
   @override
   String describe() => 'Rectangle: area=\${area.toStringAsFixed(2)}';

@@ -220,10 +220,13 @@ fun runTests() {
             println("✅ PASS: \$name")
             passed++
         } catch (e: AssertionError) {
-            println("❌ FAIL: \$name — \${e.message}")
+            println("❌ FAIL: \$name — ${
+e.message}")
             failed++
         } catch (e: Exception) {
-            println("❌ ERROR: \$name — \${e.javaClass.simpleName}: \${e.message}")
+            println("❌ ERROR: \$name — ${
+e.javaClass.simpleName}: ${
+e.message}")
             failed++
         }
     }

@@ -111,20 +111,24 @@ fun main() {
 
     // filter
     val passing = students.filter { it.grade >= 80 }
-    println("Passing: \${passing.map { it.name }}")
+    println("Passing: ${
+passing.map { it.name }}")
     // [Alice, Charlie, Eve]
 
     // map
     val names = students.map { it.name }
     println("Names: \$names")
 
-    val gradeReport = students.map { "\${it.name}: \${it.grade}" }
+    val gradeReport = students.map { "${
+it.name}: ${
+it.grade}" }
     println(gradeReport)
 
     // sumOf and average
     val totalGrade = students.sumOf { it.grade }
     val avgGrade = students.map { it.grade }.average()
-    println("Total: \$totalGrade, Average: \${"%.1f".format(avgGrade)}")
+    println("Total: \$totalGrade, Average: ${
+"%.1f".format(avgGrade)}")
 
     // any / all / none
     println(students.any { it.grade == 100 })     // false
@@ -133,10 +137,12 @@ fun main() {
 
     // find
     val topStudent = students.maxBy { it.grade }
-    println("Top student: \${topStudent?.name}")  // Charlie
+    println("Top student: ${
+topStudent?.name}")  // Charlie
 
     val firstFailing = students.find { it.grade < 70 }
-    println("First failing: \${firstFailing?.name}")  // Dave
+    println("First failing: ${
+firstFailing?.name}")  // Dave
 
     // groupBy
     val bySubject = students.groupBy { it.subject }
@@ -147,13 +153,18 @@ fun main() {
 
     // partition
     val (honor, regular) = students.partition { it.grade >= 90 }
-    println("Honor roll: \${honor.map { it.name }}")  // [Alice, Charlie]
-    println("Regular: \${regular.map { it.name }}")
+    println("Honor roll: ${
+honor.map { it.name }}")  // [Alice, Charlie]
+    println("Regular: ${
+regular.map { it.name }}")
 
     // sortedBy
     val ranked = students.sortedByDescending { it.grade }
     ranked.forEachIndexed { i, s ->
-        println("\${i + 1}. \${s.name} — \${s.grade}")
+        println("${
+i + 1}. ${
+s.name} — ${
+s.grade}")
     }
 
     // flatMap
@@ -180,7 +191,9 @@ fun main() {
         .filter { it.subject == "Math" }
         .sortedByDescending { it.grade }
         .take(2)
-        .map { "\${it.name} (\${it.grade})" }
+        .map { "${
+it.name} (${
+it.grade})" }
     println("Top math students: \$topMathStudents")
 }
 

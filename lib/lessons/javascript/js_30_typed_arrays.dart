@@ -238,7 +238,11 @@ for (let y = 0; y < height; y++) {
     const row = [];
     for (let x = 0; x < width; x++) {
         const i = (y * width + x) * 4;
-        row.push(\`rgba(\${pixels[i]},\${pixels[i+1]},\${pixels[i+2]},\${pixels[i+3]})\`);
+        row.push(\`rgba(${
+pixels[i]},${
+pixels[i+1]},${
+pixels[i+2]},${
+pixels[i+3]})\`);
     }
     console.log("   ", row.map(c => c.slice(0, 16).padEnd(17)).join(" "));
 }

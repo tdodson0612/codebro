@@ -191,13 +191,17 @@ fun arrayDemo() {
     val squares = Array(6) { i -> i * i }
     val scores = IntArray(5) { 10 * (it + 1) }
 
-    println("Names: \${names.contentToString()}")
-    println("Squares: \${squares.contentToString()}")
-    println("Scores: \${scores.contentToString()}")
+    println("Names: ${
+names.contentToString()}")
+    println("Squares: ${
+squares.contentToString()}")
+    println("Scores: ${
+scores.contentToString()}")
 
     // Access and modify
     names[1] = "Barbara"
-    println("After update: \${names.contentToString()}")
+    println("After update: ${
+names.contentToString()}")
 
     // Iteration
     println("Iterating:")
@@ -206,10 +210,14 @@ fun arrayDemo() {
     }
 
     // Array operations
-    println("Sorted: \${scores.sorted()}")
-    println("Sum: \${scores.sum()}")
-    println("Max: \${scores.max()}")
-    println("Contains 30: \${30 in scores}")
+    println("Sorted: ${
+scores.sorted()}")
+    println("Sum: ${
+scores.sum()}")
+    println("Max: ${
+scores.max()}")
+    println("Contains 30: ${
+30 in scores}")
 
     // Multi-dimensional
     println("\\n=== Matrix ===")
@@ -219,29 +227,36 @@ fun arrayDemo() {
     for (row in matrix) {
         println(row.contentToString())
     }
-    println("Center: \${matrix[1][1]}")
+    println("Center: ${
+matrix[1][1]}")
 
     // Convert between arrays and lists
     val list = names.toList()
     val backToArray = list.toTypedArray()
-    println("Array → List → Array: \${backToArray.contentToString()}")
+    println("Array → List → Array: ${
+backToArray.contentToString()}")
 
     // Primitive arrays for efficiency
     val bigData = LongArray(5) { it.toLong() * 1_000_000L }
-    println("\\nLong array: \${bigData.contentToString()}")
+    println("\\nLong array: ${
+bigData.contentToString()}")
 
     val bytes = ByteArray(4) { (it * 64).toByte() }
-    println("Byte array: \${bytes.contentToString()}")
+    println("Byte array: ${
+bytes.contentToString()}")
 }
 
 // ─── Nested classes ───────────────────────────────────
 
 class Computer(val brand: String) {
-    private val serialNumber = "SN-\${brand.uppercase()}-001"
+    private val serialNumber = "SN-${
+brand.uppercase()}-001"
 
     // Nested class — no access to Computer's members
     class Specs(val cpu: String, val ram: Int, val storage: Int) {
-        fun summary() = "CPU: \$cpu | RAM: \${ram}GB | Storage: \${storage}GB"
+        fun summary() = "CPU: \$cpu | RAM: ${
+ram}GB | Storage: ${
+storage}GB"
         // Cannot access 'brand' or 'serialNumber' here
     }
 
@@ -249,7 +264,8 @@ class Computer(val brand: String) {
     inner class SystemInfo {
         fun report(): String {
             // Can access outer class private members
-            return "[\$brand] Serial: \$serialNumber | \${getSpecs()}"
+            return "[\$brand] Serial: \$serialNumber | ${
+getSpecs()}"
         }
 
         private fun getSpecs() = "Status: Online"
@@ -292,7 +308,8 @@ fun main() {
     try {
         service.query()         // throws before initialize
     } catch (e: IllegalStateException) {
-        println("Caught: \${e.message}")
+        println("Caught: ${
+e.message}")
     }
 
     service.initialize("localhost:5432", "users")
@@ -307,10 +324,13 @@ fun main() {
         fun isReady() = ::apiKey.isInitialized
     }
     val config = Config()
-    println("Ready before setup: \${config.isReady()}")
+    println("Ready before setup: ${
+config.isReady()}")
     config.setup()
-    println("Ready after setup:  \${config.isReady()}")
-    println("Key: \${config.apiKey}")
+    println("Ready after setup:  ${
+config.isReady()}")
+    println("Key: ${
+config.apiKey}")
 
     // Arrays
     arrayDemo()
@@ -337,8 +357,11 @@ fun main() {
     )
     results.forEach { result ->
         when (result) {
-            is Result.Success  -> println("✅ \${result.value}")
-            is Result.Failure  -> println("❌ \${result.error} (\${result.code})")
+            is Result.Success  -> println("✅ ${
+result.value}")
+            is Result.Failure  -> println("❌ ${
+result.error} (${
+result.code})")
             is Result.Empty    -> println("📭 Empty")
         }
     }
@@ -346,8 +369,10 @@ fun main() {
     // Local class sorter
     println("\\n=== Local class sorter ===")
     val numbers = listOf(5, 2, 8, 1, 9, 3, 7)
-    println("Ascending:  \${numbers.sortedWith(createSorter(false))}")
-    println("Descending: \${numbers.sortedWith(createSorter(true))}")
+    println("Ascending:  ${
+numbers.sortedWith(createSorter(false))}")
+    println("Descending: ${
+numbers.sortedWith(createSorter(true))}")
 }
 
 📝 KEY POINTS:

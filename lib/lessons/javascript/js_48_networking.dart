@@ -127,7 +127,8 @@ REQUEST INTERCEPTORS PATTERN:
           const response = await fetch(url, {
               ...options,
               headers: {
-                  'Authorization': \`Bearer \${token}\`,
+                  'Authorization': \`Bearer ${
+token}\`,
                   'Content-Type': 'application/json',
                   ...options.headers,
               },
@@ -136,7 +137,8 @@ REQUEST INTERCEPTORS PATTERN:
               await refreshToken();
               return api.fetch(url, options);  // retry once
           }
-          if (!response.ok) throw new Error(\`HTTP \${response.status}\`);
+          if (!response.ok) throw new Error(\`HTTP ${
+response.status}\`);
           return response.json();
       }
   };
@@ -150,7 +152,8 @@ RETRY AND CIRCUIT BREAKER:
           try {
               const res = await fetch(url, options);
               if (res.ok) return res.json();
-              throw new Error(\`HTTP \${res.status}\`);
+              throw new Error(\`HTTP ${
+res.status}\`);
           } catch (e) {
               lastError = e;
               await delay(2 ** i * 100);  // exponential backoff
@@ -209,13 +212,15 @@ class MockWebSocket {
 function chatServer(msg) {
     switch (msg.type) {
         case 'join':
-            return { type: 'system', text: \`\${msg.user} joined the room\`, users: ['Alice', 'Bob', msg.user] };
+            return { type: 'system', text: \`${
+msg.user} joined the room\`, users: ['Alice', 'Bob', msg.user] };
         case 'message':
             return { type: 'message', from: msg.user, text: msg.text, ts: Date.now() };
         case 'ping':
             return { type: 'pong', ts: msg.ts };
         default:
-            return { type: 'error', message: \`Unknown type: \${msg.type}\` };
+            return { type: 'error', message: \`Unknown type: ${
+msg.type}\` };
     }
 }
 
@@ -231,28 +236,35 @@ ws.onmessage = ({ data }) => {
     const msg = JSON.parse(data);
     switch (msg.type) {
         case 'system':
-            console.log(\`  [SYSTEM] \${msg.text} (users: \${msg.users.join(', ')})\`);
+            console.log(\`  [SYSTEM] ${
+msg.text} (users: ${
+msg.users.join(', ')})\`);
             // Send a message after joining:
             setTimeout(() => {
                 ws.send(JSON.stringify({ type: 'message', user: 'Terry', text: 'Hello everyone!' }));
             }, 30);
             break;
         case 'message':
-            console.log(\`  [\${msg.from}]: \${msg.text}\`);
+            console.log(\`  [${
+msg.from}]: ${
+msg.text}\`);
             // Send a ping:
             setTimeout(() => {
                 ws.send(JSON.stringify({ type: 'ping', ts: Date.now() }));
             }, 60);
             break;
         case 'pong':
-            console.log(\`  [PING] Latency: ~\${Date.now() - msg.ts}ms\`);
+            console.log(\`  [PING] Latency: ~${
+Date.now() - msg.ts}ms\`);
             ws.close(1000, 'Done');
             break;
     }
 };
 
 ws.onclose = ({ code, reason }) => {
-    console.log(\`  Disconnected: code=\${code} reason='\${reason}'\`);
+    console.log(\`  Disconnected: code=${
+code} reason='${
+reason}'\`);
 };
 
 // ─── SERVER-SENT EVENTS SIMULATION ────────────────────
@@ -267,7 +279,8 @@ setTimeout(() => {
 
         constructor(url) {
             this.url = url;
-            console.log(\`  [SSE] Connected to \${url}\`);
+            console.log(\`  [SSE] Connected to ${
+url}\`);
             this.#startStream();
         }
 
@@ -311,17 +324,22 @@ setTimeout(() => {
 
     es.onmessage = ({ data }) => {
         const metric = JSON.parse(data);
-        console.log(\`  [SSE] Metric: \${metric.metric} = \${metric.value}%\`);
+        console.log(\`  [SSE] Metric: ${
+metric.metric} = ${
+metric.value}%\`);
     };
 
     es.addEventListener('alert', ({ data }) => {
         const alert = JSON.parse(data);
-        console.log(\`  [SSE] ⚠️  Alert [\${alert.severity}]: \${alert.msg}\`);
+        console.log(\`  [SSE] ⚠️  Alert [${
+alert.severity}]: ${
+alert.msg}\`);
     });
 
     es.addEventListener('connected', ({ data }) => {
         const info = JSON.parse(data);
-        console.log(\`  [SSE] 👥 \${info.clientCount} clients connected\`);
+        console.log(\`  [SSE] 👥 ${
+info.clientCount} clients connected\`);
         setTimeout(() => es.close(), 10);
     });
 }, 200);
@@ -405,7 +423,9 @@ setTimeout(() => {
                 config = await interceptor(config);
             }
 
-            console.log(\`  → \${config.method || 'GET'} \${config.url}\`);
+            console.log(\`  → ${
+config.method || 'GET'} ${
+config.url}\`);
 
             // Simulate fetch response:
             let response = {
@@ -423,7 +443,9 @@ setTimeout(() => {
         }
 
         get(path, params = {}) {
-            const url = params ? \`\${path}?\${new URLSearchParams(params)}\` : path;
+            const url = params ? \`${
+path}?${
+new URLSearchParams(params)}\` : path;
             return this.fetch(url, { method: 'GET' });
         }
     }
@@ -436,7 +458,9 @@ setTimeout(() => {
             return config;
         })
         .addResponseInterceptor(async (response, config) => {
-            console.log(\`  ← \${response.status} in \${Date.now() - config.startTime}ms\`);
+            console.log(\`  ← ${
+response.status} in ${
+Date.now() - config.startTime}ms\`);
             return response;
         });
 

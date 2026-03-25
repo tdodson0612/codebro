@@ -238,10 +238,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python\${{ matrix.python-version }}
+      - name: Set up Python${
+{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version:\${{ matrix.python-version }}
+          python-version:${
+{ matrix.python-version }}
           cache: pip
 
       - name: Install dependencies
@@ -263,7 +265,8 @@ jobs:
       - name: Upload coverage
         uses: codecov/codecov-action@v3
         with:
-          token:\${{ secrets.CODECOV_TOKEN }}
+          token:${
+{ secrets.CODECOV_TOKEN }}
 
   publish:
     needs: test
@@ -278,7 +281,8 @@ jobs:
           twine upload dist/*
         env:
           TWINE_USERNAME: __token__
-          TWINE_PASSWORD:\${{ secrets.PYPI_TOKEN }}
+          TWINE_PASSWORD:${
+{ secrets.PYPI_TOKEN }}
 '''
 
 # ── PRE-COMMIT CONFIG ─────────────

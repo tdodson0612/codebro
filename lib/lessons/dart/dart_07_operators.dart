@@ -1,327 +1,269 @@
 import '../../models/lesson.dart';
 import '../../models/quiz.dart';
 
-final dartLesson07 = Lesson(
+final dartLesson06 = Lesson(
   language: 'Dart',
-  title: 'Operators',
+  title: 'Null Safety',
   content: '''
 🎯 METAPHOR:
-Operators are the verbs of Dart's sentence structure.
-Just as language has verbs (add, compare, negate), Dart has
-operators that act on values. Some are intuitive (+ - * /),
-some are Dart-specific (?? ?. ~/ >>>), and some can be
-overloaded — you teach YOUR objects what + or == means for them.
-The cascade operator .. is particularly elegant: it lets
-you call multiple methods on the same object without
-repeating its name, like signing a form once and then
-filling all the fields.
+Null safety is like a building with two types of rooms.
+Non-nullable rooms (T) have a guarantee: there is ALWAYS
+a tenant. The door is never empty. You can walk in anytime.
+Nullable rooms (T?) might be empty — the "?" is the
+"vacancy" sign. Before you use a nullable room, you check
+if anyone's home. Dart's type system enforces this at
+compile time — you literally cannot walk into a potentially
+empty room without checking first. No more "null pointer
+exceptions" crashing your app silently at 3am.
 
 📖 EXPLANATION:
-Dart has a rich set of operators, many inherited from C-family
-languages plus unique additions for null safety and cascades.
-All operators are actually method calls — a + b calls a.operator+(b).
+Sound null safety (added in Dart 2.12) means the type
+system GUARANTEES non-nullable types never contain null.
+Null errors are caught at compile time, not runtime.
+Every type T is non-nullable by default. Add ? to make
+it nullable: T becomes T?.
 
 ─────────────────────────────────────
-🔢 ARITHMETIC
+📐 THE CORE RULE
 ─────────────────────────────────────
-+    addition        5 + 3 → 8
--    subtraction     5 - 3 → 2
-*    multiplication  5 * 3 → 15
-/    division        5 / 2 → 2.5  (always double!)
-~/   int division    5 ~/ 2 → 2   (truncates to int)
-%    modulo          5 % 2 → 1    (remainder)
--x   negation        -(5) → -5
-++x  pre-increment   ++a (increment, then return)
-x++  post-increment  a++ (return, then increment)
---x  pre-decrement
-x--  post-decrement
+String name = 'Alice';  // NEVER null — guaranteed
+String? name = null;    // CAN be null — you must check
+
+Without ? → the compiler guarantees no null
+With    ? → you're responsible for null checks
 
 ─────────────────────────────────────
-⚖️  COMPARISON
+🔑 NULL-AWARE OPERATORS
 ─────────────────────────────────────
-==   equal          (checks value, not reference for most types)
-!=   not equal
-<    less than
->    greater than
-<=   less or equal
->=   greater or equal
+??   Null coalescing — provide a default
+     x ?? 'default'   → x if not null, else 'default'
+
+?.   Null-safe member access
+     x?.length        → x.length if not null, else null
+
+??=  Null-aware assignment
+     x ??= 'value'    → assign only if x is null
+
+!    Null assertion — "I know it's not null"
+     x!.length        → forces non-null (throws if null!)
 
 ─────────────────────────────────────
-🔠 TYPE OPERATORS
+🔍 NULL CHECKS & PROMOTION
 ─────────────────────────────────────
-is   type test      obj is String → true/false
-is!  not type test  obj is! String → true if NOT String
-as   type cast      (obj as String).length
+String? name = getName();
+
+// Method 1: if-null check (promotes type!)
+if (name != null) {
+  print(name.length); // name is String here, not String?
+}
+
+// Method 2: null coalescing
+print(name ?? 'Anonymous');
+
+// Method 3: null assertion (risky!)
+print(name!.length);  // crashes if name IS null
+
+// Method 4: late (promise to initialize)
+late String definite;
+definite = 'I promise this gets set';
+print(definite.length); // OK — no null check needed
 
 ─────────────────────────────────────
-🔗 LOGICAL
+🔄 TYPE PROMOTION
 ─────────────────────────────────────
-&&   AND (short-circuit)
-||   OR  (short-circuit)
-!    NOT
+After a null check, Dart "promotes" the type:
+  String? name = ...;
+  if (name == null) return;
+  // name is now promoted to String (not String?)
+  print(name.length);  // ✅ no null check needed
 
 ─────────────────────────────────────
-🔢 BITWISE
+⚡ LATE VARIABLES
 ─────────────────────────────────────
-&    bitwise AND
-|    bitwise OR
-^    bitwise XOR
-~    bitwise NOT (complement)
-<<   left shift
->>   right shift
->>>  unsigned right shift (Dart 2.14+)
+late String name;     // non-nullable, initialized later
+late final String id; // final late — set once, then frozen
+
+Use late when:
+  • Circular references
+  • Expensive initialization (lazy)
+  • Variables initialized in initState or setUp
 
 ─────────────────────────────────────
-📋 ASSIGNMENT
+🌊 NULLABLE vs OPTIONAL
 ─────────────────────────────────────
-=    assign
-+=   add and assign
--=   subtract and assign
-*=   multiply and assign
-/=   divide and assign
-~/=  int-divide and assign
-%=   modulo and assign
-??=  assign if null
-&=  |=  ^=  <<=  >>=  >>>=   bitwise compound assignment
+In Dart, null has meaning: "no value."
+Nullable parameters make intent explicit.
+T?  means "this might be absent"
+T   means "this is always present"
 
-─────────────────────────────────────
-🌊 CASCADE OPERATOR ..
-─────────────────────────────────────
-.. calls multiple methods on the same object, returning
-the original object. Perfect for builder patterns.
-
-StringBuffer sb = StringBuffer();
-sb.write('Hello');
-sb.write(', ');
-sb.write('World');
-
-// Same with cascade:
-StringBuffer sb2 = StringBuffer()
-  ..write('Hello')
-  ..write(', ')
-  ..write('World');
-
-?.  is the null-safe cascade:
-  obj?..method()  → only cascades if obj is not null
-
-─────────────────────────────────────
-🔀 TERNARY & SPREAD
-─────────────────────────────────────
-condition ? a : b      → ternary
-...list                → spread operator (in collections)
-...?nullableList       → null-aware spread
-
-─────────────────────────────────────
-🎯 OPERATOR PRECEDENCE (high → low)
-─────────────────────────────────────
-unary postfix  (++ -- . ?. !)
-unary prefix   (- ! ~ ++ --)
-multiplicative (* / ~/ %)
-additive       (+ -)
-shift          (<< >> >>>)
-bitwise AND    (&)
-bitwise XOR    (^)
-bitwise OR     (|)
-comparison     (< > <= >= as is is!)
-equality       (== !=)
-logical AND    (&&)
-logical OR     (||)
-if-null        (??)
-ternary        (? :)
-cascade        (..)
-assignment     (= += -= etc.)
+This is the opposite of Java/JavaScript where
+any reference could be null silently.
 
 💻 CODE:
 void main() {
-  // ── ARITHMETIC ────────────────
-  print(10 + 3);    // 13
-  print(10 - 3);    // 7
-  print(10 * 3);    // 30
-  print(10 / 3);    // 3.3333... (double always)
-  print(10 ~/ 3);   // 3 (integer division)
-  print(10 % 3);    // 1 (remainder)
-  print(-(-5));      // 5 (negation)
+  // ── Basic nullable types ───────
+  String nonNull = 'I am never null';
+  String? nullable = null;
+  String? alsoNullable = 'But I have a value';
 
-  int a = 5;
-  print(++a);   // 6  (increment first, then use)
-  print(a++);   // 6  (use first, then increment)
-  print(a);     // 7  (now it's 7)
-  print(--a);   // 6  (decrement first, then use)
+  print(nonNull);      // I am never null
+  print(nullable);     // null
+  print(alsoNullable); // But I have a value
 
-  // ── COMPARISON ────────────────
-  print(5 == 5);   // true
-  print(5 != 4);   // true
-  print(5 > 3);    // true
-  print(5 < 3);    // false
-  print(5 >= 5);   // true
-  print(5 <= 4);   // false
+  // ── ?? null coalescing ─────────
+  String? username;
+  print(username ?? 'Anonymous');    // Anonymous
+  username = 'Alice';
+  print(username ?? 'Anonymous');    // Alice
 
-  // String comparison
-  print('abc' == 'abc');   // true
-  print('abc' == 'ABC');   // false
+  // Chain ?? for multiple fallbacks
+  String? a, b;
+  String c = 'found!';
+  print(a ?? b ?? c);                // found!
 
-  // ── TYPE OPERATORS ────────────
-  Object val = 'hello';
+  // ── ??= null-aware assignment ──
+  String? config;
+  config ??= 'default_value';
+  print(config);      // default_value
+  config ??= 'other'; // NOT assigned — already non-null
+  print(config);      // default_value (unchanged!)
 
-  if (val is String) {
-    print('It is a String: \${val.length} chars'); // promoted!
+  // ── ?. null-safe access ────────
+  String? city = null;
+  print(city?.length);         // null (not a crash!)
+  print(city?.toUpperCase());  // null
+
+  city = 'London';
+  print(city?.length);         // 6
+  print(city?.toUpperCase());  // LONDON
+
+  // Chaining ?.
+  List<String>? names;
+  print(names?.first?.length); // null (safe chain)
+  names = ['Alice', 'Bob'];
+  print(names.first.length);   // 5 (non-null, no ? needed)
+
+  // ── if null check (promotes!) ──
+  String? maybeNull = _getMaybe(true);
+
+  if (maybeNull != null) {
+    // Inside here, maybeNull is promoted to String
+    print(maybeNull.toUpperCase()); // no ? needed!
+    print(maybeNull.length);
   }
-  if (val is! int) {
-    print('Not an int');
+
+  // Early return pattern
+  String? result = _getMaybe(false);
+  if (result == null) return; // exit early
+  // From here on, result is non-null String
+  print(result.length);
+
+  // ── ! null assertion ───────────
+  String? definitelySet = 'Hello';
+  print(definitelySet!.length);  // 5 — works fine
+
+  // Use ! only when you are CERTAIN it's not null
+  String? dangerous;
+  try {
+    print(dangerous!.length); // throws NullCheckException!
+  } catch (e) {
+    print('Caught: \$e');
   }
 
-  // as cast
-  String str = val as String;
-  print(str.toUpperCase());   // HELLO
+  // ── late variables ─────────────
+  late String initialized;
+  initialized = 'Set before use';
+  print(initialized);   // Set before use
 
-  // Safe cast pattern
-  dynamic d = 42;
-  String? safe = d is String ? d : null;
-  print(safe);  // null (42 is not a String)
+  // late + final (computed once, then cached)
+  late final String expensive = _computeOnce();
+  print(expensive);  // computed now
+  print(expensive);  // returned from cache — not computed again
 
-  // ── LOGICAL ───────────────────
-  bool x = true, y = false;
-  print(x && y);    // false
-  print(x || y);    // true
-  print(!x);        // false
+  // ── Null in collections ────────
+  List<String?> nullableList = ['Alice', null, 'Bob', null];
+  List<String> nonNullList = ['Alice', 'Bob'];
 
-  // Short-circuit: right side not evaluated if unnecessary
-  bool? result = false && _expensive(); // _expensive() NOT called!
-  result = true || _expensive();        // _expensive() NOT called!
+  // Filter nulls from nullable list
+  List<String> filtered = nullableList
+      .whereType<String>()
+      .toList();
+  print(filtered);  // [Alice, Bob]
 
-  // ── BITWISE ───────────────────
-  print(5 & 3);   // 1   (0101 & 0011 = 0001)
-  print(5 | 3);   // 7   (0101 | 0011 = 0111)
-  print(5 ^ 3);   // 6   (0101 ^ 0011 = 0110)
-  print(~5);      // -6  (bitwise NOT, two's complement)
-  print(1 << 3);  // 8   (left shift: 1 × 2³)
-  print(8 >> 2);  // 2   (right shift: 8 ÷ 2²)
-  print(-8 >>> 1);// large positive (unsigned right shift)
+  // Or use where + non-null cast
+  List<String> filtered2 = nullableList
+      .where((e) => e != null)
+      .cast<String>()
+      .toList();
 
-  // Flag pattern with bitwise
-  const int READ    = 1 << 0;   // 1
-  const int WRITE   = 1 << 1;   // 2
-  const int EXECUTE = 1 << 2;   // 4
-
-  int perms = READ | WRITE;
-  print((perms & READ) != 0);     // true — has READ
-  print((perms & EXECUTE) != 0);  // false — no EXECUTE
-  perms |= EXECUTE;               // grant execute
-  print((perms & EXECUTE) != 0);  // true
-
-  // ── ASSIGNMENT ────────────────
-  int n = 10;
-  n += 5;   print(n);   // 15
-  n -= 3;   print(n);   // 12
-  n *= 2;   print(n);   // 24
-  n ~/= 5;  print(n);   // 4
-  n %= 3;   print(n);   // 1
-
-  // ── NULL-AWARE ────────────────
-  String? name = null;
-  name ??= 'Default';    // assign if null
-  print(name);           // Default
-
-  String? city;
-  String result2 = city ?? 'Unknown';  // use Default
-  print(result2);   // Unknown
-
-  // ── TERNARY ───────────────────
-  int score = 85;
-  String grade = score >= 90 ? 'A' : score >= 80 ? 'B' : 'C';
-  print(grade);  // B
-
-  // ── CASCADE .. ─────────────────
-  // Without cascade:
-  StringBuffer sb1 = StringBuffer();
-  sb1.write('Hello');
-  sb1.write(', ');
-  sb1.write('World');
-  sb1.write('!');
-
-  // With cascade (same result, less repetition):
-  StringBuffer sb2 = StringBuffer()
-    ..write('Hello')
-    ..write(', ')
-    ..write('World')
-    ..write('!');
-
-  print(sb1.toString());   // Hello, World!
-  print(sb2.toString());   // Hello, World!
-
-  // Null-safe cascade
-  StringBuffer? maybeSb;
-  maybeSb?.write('ignored');   // null-safe, does nothing
-  print(maybeSb);              // null
-
-  // ── SPREAD ────────────────────
-  List<int> a2 = [1, 2, 3];
-  List<int> b2 = [4, 5, 6];
-  List<int> merged = [...a2, ...b2];
-  print(merged);  // [1, 2, 3, 4, 5, 6]
-
-  List<int>? maybe;
-  List<int> safe2 = [...a2, ...?maybe];  // null-safe spread
-  print(safe2);  // [1, 2, 3]
-
-  // ── OPERATOR PRECEDENCE ───────
-  print(2 + 3 * 4);      // 14 (not 20) — * before +
-  print((2 + 3) * 4);    // 20
-  print(true || false && false); // true — && before ||
-  print(null ?? 'a' ?? 'b');    // 'a' — left to right
+  // ── Required named parameters ──
+  greet(name: 'Alice');           // ✅
+  greet();                        // ✅ name defaults to null
 }
 
-bool _expensive() {
-  print('expensive called!');
-  return true;
+String? _getMaybe(bool returnValue) {
+  return returnValue ? 'has value' : null;
 }
 
-// Operator overloading
-class Vector {
-  final double x, y;
-  const Vector(this.x, this.y);
+String _computeOnce() {
+  print('  (computing...)');
+  return 'expensive result';
+}
 
-  Vector operator +(Vector other) => Vector(x + other.x, y + other.y);
-  Vector operator -(Vector other) => Vector(x - other.x, y - other.y);
-  Vector operator *(double scalar) => Vector(x * scalar, y * scalar);
-  bool operator ==(Object other) =>
-      other is Vector && x == other.x && y == other.y;
+void greet({String? name}) {
+  print('Hello, \${name ?? 'stranger'}!');
+}
 
-  @override
-  String toString() => 'Vector(\$x, \$y)';
+// ── Null safety with classes ────
+class User {
+  final String id;          // always present
+  final String name;        // always present
+  final String? email;      // optional
+  final String? phone;      // optional
+
+  User({
+    required this.id,
+    required this.name,
+    this.email,             // optional — defaults to null
+    this.phone,
+  });
+
+  String get displayEmail => email ?? 'No email on file';
+
+  bool get hasContact => email != null || phone != null;
 }
 
 📝 KEY POINTS:
-✅ / always returns double in Dart: 5 / 2 → 2.5
-✅ ~/ is integer division: 5 ~/ 2 → 2
-✅ .. cascade chains method calls on the same object
-✅ is and is! check types; as casts (throws if wrong type)
-✅ ??= assigns only if the variable is null
-✅ Short-circuit: && stops at first false, || stops at first true
-✅ Spread ... merges collections; ...? is null-safe spread
-✅ Operators can be overloaded by defining operator methods in classes
-❌ Don't confuse == (value equality) with identical() (reference equality)
-❌ ~/ truncates toward zero, not floor: -7 ~/ 2 → -3 (not -4)
-❌ as throws if the cast is wrong — use is check first if uncertain
+✅ By default, all Dart types are non-nullable — T can never be null
+✅ Add ? to make nullable: String? can hold null or a String
+✅ ?? provides a default when left side is null
+✅ ?. safely calls methods/properties on nullable values
+✅ ??= assigns only if the variable is currently null
+✅ null checks promote the type: inside if (x != null) { ... } x is T not T?
+✅ Use ! only when you are CERTAIN it's not null — it throws if wrong
+✅ late is for non-nullable variables you'll initialize before first use
+❌ ! is dangerous — prefer explicit null checks or ??
+❌ Avoid late unless you truly can't initialize at declaration
+❌ Never assign null to a non-nullable variable — compile error
 ''',
   quiz: [
-    Quiz(question: 'What does the .. (cascade) operator do in Dart?', options: [
-      QuizOption(text: 'Creates a copy of the object', correct: false),
-      QuizOption(text: 'Chains multiple method calls on the same object, returning the original object', correct: true),
-      QuizOption(text: 'Merges two lists together', correct: false),
-      QuizOption(text: 'Applies null safety to method chains', correct: false),
+    Quiz(question: 'What does the ?? operator do in Dart?', options: [
+      QuizOption(text: 'Checks if two values are equal including type', correct: false),
+      QuizOption(text: 'Returns the left value if not null, otherwise returns the right value', correct: true),
+      QuizOption(text: 'Throws an exception if either value is null', correct: false),
+      QuizOption(text: 'Converts null to an empty string', correct: false),
     ]),
-    Quiz(question: 'What is the result of 7 / 2 in Dart?', options: [
-      QuizOption(text: '3 — integer division', correct: false),
-      QuizOption(text: '3.5 — Dart / always returns double', correct: true),
-      QuizOption(text: '4 — rounded up', correct: false),
-      QuizOption(text: 'Depends on the type of the operands', correct: false),
+    Quiz(question: 'What happens when you call ! on a null value?', options: [
+      QuizOption(text: 'It returns null safely', correct: false),
+      QuizOption(text: 'It throws a NullCheckException at runtime', correct: true),
+      QuizOption(text: 'It returns false', correct: false),
+      QuizOption(text: 'It is a compile error', correct: false),
     ]),
-    Quiz(question: 'What does [...list1, ...?nullableList] do?', options: [
-      QuizOption(text: 'Throws an error if nullableList is null', correct: false),
-      QuizOption(text: 'Spreads list1 and safely spreads nullableList if non-null, ignoring it if null', correct: true),
-      QuizOption(text: 'Creates a list of lists', correct: false),
-      QuizOption(text: 'Concatenates the lists as strings', correct: false),
+    Quiz(question: 'What is type promotion in Dart?', options: [
+      QuizOption(text: 'Converting one type to another with a cast', correct: false),
+      QuizOption(text: 'After a null check, the compiler narrows String? to String inside that block', correct: true),
+      QuizOption(text: 'Upgrading to a parent class automatically', correct: false),
+      QuizOption(text: 'Making a variable const at compile time', correct: false),
     ]),
   ],
 );

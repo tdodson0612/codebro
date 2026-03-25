@@ -55,7 +55,8 @@ REACT — Component-Based UI:
       const [count, setCount] = useState(initialCount);  // state
 
       useEffect(() => {
-          document.title = \`Count: \${count}\`;   // side effect
+          document.title = \`Count: ${
+count}\`;   // side effect
           return () => { document.title = 'App'; }; // cleanup
       }, [count]);  // run when count changes
 
@@ -224,7 +225,8 @@ function Counter2({ initialCount = 0 }) {
     return {
         type: 'div',
         children: [
-            { type: 'p', text: \`Count: \${count}\` },
+            { type: 'p', text: \`Count: ${
+count}\` },
             Button({ label: '+', onClick: () => count++ }),
             Button({ label: '-', onClick: () => count-- }),
         ]
@@ -263,10 +265,13 @@ function createComputed(fn, deps) {
 
 const count  = createRef(0);
 const double = createComputed(() => count.value * 2, [count]);
-const label  = createComputed(() => \`Count: \${count.value}, Double: \${double.value}\`, [count, double]);
+const label  = createComputed(() => \`Count: ${
+count.value}, Double: ${
+double.value}\`, [count, double]);
 
 // Subscribe to changes (like useEffect in React):
-label.subscribe(text => console.log(\`  UI updated: "\${text}"\`));
+label.subscribe(text => console.log(\`  UI updated: "${
+text}"\`));
 
 count.value = 1;  // triggers UI updates
 count.value = 5;  // triggers again
@@ -287,7 +292,9 @@ function createHookState() {
             states[index] = typeof newValue === 'function'
                 ? newValue(states[index])
                 : newValue;
-            console.log(\`  [setState] states[\${index}] = \${states[index]}\`);
+            console.log(\`  [setState] states[${
+index}] = ${
+states[index]}\`);
         };
 
         return [states[index], setState];
@@ -307,11 +314,15 @@ function renderComponent() {
 }
 
 const state = renderComponent();
-console.log(\`  Initial: name=\${state.name}, age=\${state.age}\`);
+console.log(\`  Initial: name=${
+state.name}, age=${
+state.age}\`);
 state.setName('Bob');
 state.setAge(n => n + 1);
 const state2 = renderComponent();
-console.log(\`  After update: name=\${state2.name}, age=\${state2.age}\`);
+console.log(\`  After update: name=${
+state2.name}, age=${
+state2.age}\`);
 
 // ─── FRAMEWORK COMPARISON ─────────────────────────────
 console.log("\n=== Framework Comparison ===");
@@ -331,7 +342,11 @@ const comparison = [
 ];
 
 comparison.forEach(row => {
-    console.log(\`  \${row[0].padEnd(16)}\${row[1].padEnd(16)}\${row[2].padEnd(16)}\${row[3]}\`);
+    console.log(\`  ${
+row[0].padEnd(16)}${
+row[1].padEnd(16)}${
+row[2].padEnd(16)}${
+row[3]}\`);
 });
 
 // ─── YOUR NEXT STEPS ──────────────────────────────────
@@ -362,7 +377,9 @@ const nextSteps = [
 ];
 
 nextSteps.forEach(([prefix, text]) => {
-    if (text) console.log(\`  \${prefix.padEnd(4)}\${text}\`);
+    if (text) console.log(\`  ${
+prefix.padEnd(4)}${
+text}\`);
     else console.log();
 });
 

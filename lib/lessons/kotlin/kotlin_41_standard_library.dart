@@ -122,12 +122,14 @@ TIME MEASUREMENT:
   val time = measureTimeMillis {
       // code to measure
   }
-  println("Took: \${time}ms")
+  println("Took: ${
+time}ms")
 
   val (result, time2) = measureTimedValue {
       someComputation()
   }
-  println("Result: \$result, Time: \${time2.inWholeMilliseconds}ms")
+  println("Result: \$result, Time: ${
+time2.inWholeMilliseconds}ms")
 
 ─────────────────────────────────────
 MISCELLANEOUS UTILITIES:
@@ -177,13 +179,17 @@ fun stringUtilitiesDemo() {
 
     // Character analysis
     val mixed = "Hello123!@#"
-    println("Letters: \${mixed.filter { it.isLetter() }}")     // Hello
-    println("Digits:  \${mixed.filter { it.isDigit() }}")      // 123
-    println("Specials:\${mixed.filter { !it.isLetterOrDigit() }}")  // !@#
+    println("Letters: ${
+mixed.filter { it.isLetter() }}")     // Hello
+    println("Digits:  ${
+mixed.filter { it.isDigit() }}")      // 123
+    println("Specials:${
+mixed.filter { !it.isLetterOrDigit() }}")  // !@#
 
     // lines()
     val multiline = "Line 1\nLine 2\nLine 3"
-    println("Lines: \${multiline.lines().size}")  // 3
+    println("Lines: ${
+multiline.lines().size}")  // 3
 }
 
 fun numberUtilitiesDemo() {
@@ -208,7 +214,8 @@ fun numberUtilitiesDemo() {
 
     // Formatting
     val pi = PI
-    println("\${"%.5f".format(pi)}")    // 3.14159
+    println("${
+"%.5f".format(pi)}")    // 3.14159
 }
 
 fun collectionUtilitiesDemo() {
@@ -219,14 +226,17 @@ fun collectionUtilitiesDemo() {
     // zip and zipWithNext
     val letters = ('a'..'j').toList()
     val zipped = numbers.zip(letters)
-    println("Zipped: \${zipped.take(3)}")   // [(1, a), (2, b), (3, c)]
+    println("Zipped: ${
+zipped.take(3)}")   // [(1, a), (2, b), (3, c)]
 
     val consecutive = numbers.zipWithNext { a, b -> b - a }
     println("Differences: \$consecutive")   // [1, 1, 1, ...] (all 1)
 
     // chunked and windowed
-    println("Chunks of 3: \${numbers.chunked(3)}")
-    println("Windows of 3: \${numbers.windowed(3).take(4)}")
+    println("Chunks of 3: ${
+numbers.chunked(3)}")
+    println("Windows of 3: ${
+numbers.windowed(3).take(4)}")
 
     // Running totals
     val runningSum = numbers.runningFold(0) { acc, n -> acc + n }
@@ -234,7 +244,10 @@ fun collectionUtilitiesDemo() {
 
     // associate
     val squares = numbers.associate { it to it * it }
-    println("Squares: \${squares.entries.take(5).map { "\${it.key}=\${it.value}" }}")
+    println("Squares: ${
+squares.entries.take(5).map { "${
+it.key}=${
+it.value}" }}")
 
     // groupingBy eachCount — frequency map
     val words = "the quick brown fox jumps over the lazy fox".split(" ")
@@ -243,7 +256,8 @@ fun collectionUtilitiesDemo() {
 
     // flatten
     val nested = listOf(listOf(1, 2), listOf(3, 4, 5), listOf(6))
-    println("Flattened: \${nested.flatten()}")
+    println("Flattened: ${
+nested.flatten()}")
 }
 
 fun sequenceDemo() {
@@ -253,7 +267,8 @@ fun sequenceDemo() {
     val fibSequence = generateSequence(Pair(0L, 1L)) { (a, b) -> Pair(b, a + b) }
         .map { it.first }
 
-    println("First 10 Fibonacci: \${fibSequence.take(10).toList()}")
+    println("First 10 Fibonacci: ${
+fibSequence.take(10).toList()}")
 
     // Performance comparison
     val eagerTime = measureTimeMillis {
@@ -264,7 +279,9 @@ fun sequenceDemo() {
         (1..1_000_000).asSequence().filter { it % 2 == 0 }.map { it * it }.take(5).toList()
     }
 
-    println("Eager: \${eagerTime}ms, Lazy: \${lazyTime}ms")
+    println("Eager: ${
+eagerTime}ms, Lazy: ${
+lazyTime}ms")
 
     // Custom infinite sequence
     val naturals = generateSequence(1) { it + 1 }
@@ -288,7 +305,8 @@ fun miscUtilitiesDemo() {
         (1..100_000).filter { it % 7 == 0 }.sum()
     }
     println("Sum of multiples of 7 up to 100,000: \$result")
-    println("Computed in: \${duration.inWholeMilliseconds}ms")
+    println("Computed in: ${
+duration.inWholeMilliseconds}ms")
 
     // Pairs and Triples
     val coords = listOf(1 to 5, 2 to 3, 4 to 1)

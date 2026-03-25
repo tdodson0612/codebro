@@ -128,7 +128,8 @@ void main() async {
     },
     (error, stack) {
       // This catches EVERYTHING
-      print('  Caught: \${error.runtimeType}: \$error');
+      print('  Caught: ${
+error.runtimeType}: \$error');
     },
   );
 
@@ -177,7 +178,8 @@ void main() async {
     zoneSpecification: ZoneSpecification(
       createTimer: (zone, delegate, zoneThis, duration, callback) {
         timerCount++;
-        print('  [ZONE] Creating timer #\$timerCount for \${duration.inMilliseconds}ms');
+        print('  [ZONE] Creating timer #\$timerCount for ${
+duration.inMilliseconds}ms');
         return delegate.createTimer(zone, zoneThis, duration, callback);
       },
     ),
@@ -232,7 +234,9 @@ void main() async {
 
   print('Operation times:');
   for (final entry in operationTimes.entries) {
-    print('  \${entry.key}: \${entry.value.inMilliseconds}ms');
+    print('  ${
+entry.key}: ${
+entry.value.inMilliseconds}ms');
   }
 
   // ── ERROR MONITORING PATTERN ───
@@ -245,7 +249,8 @@ void main() async {
       (error, stack) {
         // In real code: send to error monitoring service
         print('[ERROR MONITOR] Caught: \$error');
-        print('[ERROR MONITOR] Stack: \${stack.toString().split('\n').first}');
+        print('[ERROR MONITOR] Stack: ${
+stack.toString().split('\n').first}');
         // Sentry.captureException(error, stackTrace: stack);
       },
     );

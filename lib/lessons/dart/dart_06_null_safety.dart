@@ -137,7 +137,7 @@ void main() {
   print(city?.length);         // 6
   print(city?.toUpperCase());  // LONDON
 
-  // Chaining ?. 
+  // Chaining ?.
   List<String>? names;
   print(names?.first?.length); // null (safe chain)
   names = ['Alice', 'Bob'];
@@ -145,7 +145,7 @@ void main() {
 
   // ── if null check (promotes!) ──
   String? maybeNull = _getMaybe(true);
-  
+
   if (maybeNull != null) {
     // Inside here, maybeNull is promoted to String
     print(maybeNull.toUpperCase()); // no ? needed!
@@ -163,7 +163,6 @@ void main() {
   print(definitelySet!.length);  // 5 — works fine
 
   // Use ! only when you are CERTAIN it's not null
-  // If you're wrong: Null check operator used on a null value
   String? dangerous;
   try {
     print(dangerous!.length); // throws NullCheckException!
@@ -198,8 +197,6 @@ void main() {
       .toList();
 
   // ── Required named parameters ──
-  // Named parameters are nullable by default unless marked required
-  // See the functions lesson for more
   greet(name: 'Alice');           // ✅
   greet();                        // ✅ name defaults to null
 }

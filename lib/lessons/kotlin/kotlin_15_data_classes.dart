@@ -169,11 +169,14 @@ fun main() {
     )
 
     val available = products.filter { it.inStock }
-    println("In stock: \${available.map { it.name }}")
+    println("In stock: ${
+available.map { it.name }}")
 
     val priceSummary = products
         .sortedBy { it.price }
-        .map { "\${it.name}: \$\${it.price}" }
+        .map { "${
+it.name}: \$${
+it.price}" }
     println(priceSummary)
 
     // hashCode — data classes work correctly in sets/maps

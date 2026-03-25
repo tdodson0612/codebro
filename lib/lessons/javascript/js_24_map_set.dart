@@ -129,7 +129,8 @@ WeakRef (ES2021) — weak reference:
   Use with FinalizationRegistry for cleanup callbacks:
   const registry = new FinalizationRegistry(key => {
       cache.delete(key);
-      console.log(\`\${key} was garbage collected\`);
+      console.log(\`${
+key} was garbage collected\`);
   });
   registry.register(obj, "myObject");
 
@@ -159,7 +160,9 @@ console.log("  Map size:  ", keyMap.size);
 // Iteration in insertion order:
 console.log("  Scores:");
 for (const [name, score] of scores) {
-    console.log(\`    \${name}: \${score}\`);
+    console.log(\`    ${
+name}: ${
+score}\`);
 }
 
 // Transforming a Map:
@@ -194,7 +197,9 @@ console.log("  Dedup:", nums, "→", unique);
 // Fast membership test O(1):
 const validRoles = new Set(["admin", "user", "moderator"]);
 ["admin", "guest", "user"].forEach(role => {
-    console.log(\`  '\${role}' is valid: \${validRoles.has(role)}\`);
+    console.log(\`  '${
+role}' is valid: ${
+validRoles.has(role)}\`);
 });
 
 // Set math:
@@ -250,7 +255,9 @@ class BankAccount {
     get balance()      { return _private.get(this).balance; }
     get transactions() { return [..._private.get(this).transactions]; }
 
-    toString() { return \`BankAccount(\${this.owner}: \$\${this.balance})\`; }
+    toString() { return \`BankAccount(${
+this.owner}: \$${
+this.balance})\`; }
 }
 
 const acc = new BankAccount("Alice", 1000);
@@ -266,11 +273,13 @@ const visited = new WeakSet();
 
 function processNode(node) {
     if (visited.has(node)) {
-        console.log(\`  ⚠️  Already visited: \${node.name}\`);
+        console.log(\`  ⚠️  Already visited: ${
+node.name}\`);
         return;
     }
     visited.add(node);
-    console.log(\`  ✅ Processing: \${node.name}\`);
+    console.log(\`  ✅ Processing: ${
+node.name}\`);
 }
 
 const nodes = [
@@ -291,7 +300,8 @@ console.log("  Map.size is O(1) — direct property");
 console.log("  Object.keys(obj).length is O(n) — must count");
 
 const largeMap = new Map();
-for (let i = 0; i < 10000; i++) largeMap.set(\`key\${i}\`, i);
+for (let i = 0; i < 10000; i++) largeMap.set(\`key${
+i}\`, i);
 console.log("  Map with 10k entries, .size:", largeMap.size);
 
 📝 KEY POINTS:

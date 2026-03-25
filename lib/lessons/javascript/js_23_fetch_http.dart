@@ -30,7 +30,9 @@ BASIC GET REQUEST:
 
   // ALWAYS check response.ok before using the data:
   if (!response.ok) {
-      throw new Error(\`HTTP \${response.status}: \${response.statusText}\`);
+      throw new Error(\`HTTP ${
+response.status}: ${
+response.statusText}\`);
   }
 
   const data = await response.json();   // parse JSON body
@@ -134,11 +136,13 @@ BUILDING A FETCH WRAPPER:
               ...options,
               headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': \`Bearer \${this.token}\`,
+                  'Authorization': \`Bearer ${
+this.token}\`,
                   ...options.headers
               }
           });
-          if (!res.ok) throw new Error(\`HTTP \${res.status}\`);
+          if (!res.ok) throw new Error(\`HTTP ${
+res.status}\`);
           return res.status === 204 ? null : res.json();
       }
 
@@ -161,7 +165,8 @@ FETCH ERROR HANDLING (key insight!):
   console.log(res.status);  // 404
 
   // Always check response.ok:
-  if (!res.ok) throw new Error(\`HTTP Error: \${res.status}\`);
+  if (!res.ok) throw new Error(\`HTTP Error: ${
+res.status}\`);
 
 💻 CODE:
 // Simulating fetch for environments without network access
@@ -220,18 +225,23 @@ class API {
 
     async request(path, options = {}) {
         const url = this.base + path;
-        console.log(\`  → \${options.method || 'GET'} \${path}\`);
+        console.log(\`  → ${
+options.method || 'GET'} ${
+path}\`);
 
         const res = await this.fetchFn(url, {
             headers: { 'Content-Type': 'application/json' },
             ...options
         });
 
-        console.log(\`  ← HTTP \${res.status}\`);
+        console.log(\`  ← HTTP ${
+res.status}\`);
 
         if (!res.ok) {
             const error = await res.json().catch(() => ({ error: res.statusText }));
-            throw new Error(\`HTTP \${res.status}: \${error.error || res.statusText}\`);
+            throw new Error(\`HTTP ${
+res.status}: ${
+error.error || res.statusText}\`);
         }
 
         if (res.status === 204) return null;
@@ -278,7 +288,9 @@ async function main() {
     // ─── GET ALL (updated) ────────────────────────────
     console.log("\\n=== GET /api/users (after create) ===");
     const updated = await api.get('/api/users');
-    console.log("  Users:", updated.map(u => \`\${u.id}:\${u.name}\`));
+    console.log("  Users:", updated.map(u => \`${
+u.id}:${
+u.name}\`));
 
     // ─── DELETE ───────────────────────────────────────
     console.log("\\n=== DELETE /api/users/2 ===");
@@ -292,7 +304,10 @@ async function main() {
         api.get('/api/users/1'),
         api.get('/api/users/3'),
     ]);
-    console.log(\`  Parallel: \${u1.name} + \${u3.name} in \${Date.now()-start}ms\`);
+    console.log(\`  Parallel: ${
+u1.name} + ${
+u3.name} in ${
+Date.now()-start}ms\`);
 
     // ─── ABORT CONTROLLER ─────────────────────────────
     console.log("\\n=== AbortController ===");

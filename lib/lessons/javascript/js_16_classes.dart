@@ -33,11 +33,14 @@ CLASS BASICS:
 
     // Method (on prototype — shared):
     speak() {
-      return \`\${this.name} makes a sound\`;
+      return \`${
+this.name} makes a sound\`;
     }
 
     // Getter:
-    get info() { return \`\${this.type}: \${this.name}\`; }
+    get info() { return \`${
+this.type}: ${
+this.name}\`; }
 
     // Static method:
     static create(name) { return new Animal(name); }
@@ -61,7 +64,8 @@ INHERITANCE (extends / super):
       return super.speak() + " — Woof!";  // call parent method
     }
 
-    fetch() { return \`\${this.name} fetches!\`; }
+    fetch() { return \`${
+this.name} fetches!\`; }
   }
 
   const dog = new Dog("Rex", "Labrador");
@@ -177,14 +181,18 @@ class Shape {
   get color()   { return this.#color; }
   set color(v)  {
     const valid = ["red","green","blue","black","white","yellow"];
-    if (!valid.includes(v)) throw new Error(\`Invalid color: \${v}\`);
+    if (!valid.includes(v)) throw new Error(\`Invalid color: ${
+v}\`);
     this.#color = v;
   }
   get created() { return this.#created; }
   get area()    { return 0; }  // override in subclasses
 
   describe() {
-    return \`\${this.constructor.name}: color=\${this.#color}, area=\${this.area.toFixed(2)}\`;
+    return \`${
+this.constructor.name}: color=${
+this.#color}, area=${
+this.area.toFixed(2)}\`;
   }
 
   toString() { return this.describe(); }
@@ -206,7 +214,8 @@ class Circle extends Shape {
   get perimeter() { return 2 * Math.PI * this.#radius; }
 
   describe() {
-    return super.describe() + \`, radius=\${this.#radius}\`;
+    return super.describe() + \`, radius=${
+this.#radius}\`;
   }
 
   scale(factor) {
@@ -228,7 +237,10 @@ class Rectangle extends Shape {
 
   describe() {
     return super.describe() +
-      \`, \${this.#width}×\${this.#height}\${this.isSquare ? " (square)" : ""}\`;
+      \`, ${
+this.#width}×${
+this.#height}${
+this.isSquare ? " (square)" : ""}\`;
   }
 }
 
@@ -248,7 +260,8 @@ console.log(rect instanceof Circle);    // false
 
 // Scale
 const bigCircle = circle.scale(2);
-console.log(\`Scaled: radius=\${bigCircle.radius.toFixed(1)}\`);
+console.log(\`Scaled: radius=${
+bigCircle.radius.toFixed(1)}\`);
 
 // ─── PRIVATE FIELDS ───────────────────────────────────
 console.log("\n=== Private Fields (Bank Account) ===");
@@ -290,7 +303,9 @@ class BankAccount {
   get history() { return [...this.#transactions]; }
 
   toString() {
-    return \`\${this.#owner}'s account: \$\${this.#balance.toFixed(2)}\`;
+    return \`${
+this.#owner}'s account: \$${
+this.#balance.toFixed(2)}\`;
   }
 }
 
@@ -322,15 +337,21 @@ class Temperature {
   static fromFahrenheit(f) { return new Temperature((f - 32) * 5/9); }
   static fromKelvin(k) { return new Temperature(k + Temperature.ABSOLUTE_ZERO_C); }
 
-  toString() { return \`\${this.#celsius}°C\`; }
+  toString() { return \`${
+this.#celsius}°C\`; }
 }
 
 const boiling = new Temperature(100);
 const body    = Temperature.fromFahrenheit(98.6);
 
-console.log(\`Boiling: \${boiling} = \${boiling.fahrenheit}°F = \${boiling.kelvin.toFixed(2)}K\`);
-console.log(\`Body: \${body.celsius.toFixed(1)}°C\`);
-console.log(\`Absolute zero: \${Temperature.ABSOLUTE_ZERO_C}°C\`);
+console.log(\`Boiling: ${
+boiling} = ${
+boiling.fahrenheit}°F = ${
+boiling.kelvin.toFixed(2)}K\`);
+console.log(\`Body: ${
+body.celsius.toFixed(1)}°C\`);
+console.log(\`Absolute zero: ${
+Temperature.ABSOLUTE_ZERO_C}°C\`);
 
 // ─── MIXIN PATTERN ────────────────────────────────────
 console.log("\n=== Mixin Pattern ===");

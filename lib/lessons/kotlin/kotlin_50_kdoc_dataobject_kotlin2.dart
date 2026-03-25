@@ -169,7 +169,8 @@ data class Money(val amount: Long, val currency: String) {
      */
     operator fun plus(other: Money): Money {
         require(currency == other.currency) {
-            "Cannot add \$currency and \${other.currency}"
+            "Cannot add \$currency and ${
+other.currency}"
         }
         return Money(amount + other.amount, currency)
     }
@@ -195,7 +196,8 @@ data class Money(val amount: Long, val currency: String) {
     override fun toString(): String {
         val dollars = amount / 100
         val cents = amount % 100
-        return "\$currency \$dollars.\${cents.toString().padStart(2, '0')}"
+        return "\$currency \$dollars.${
+cents.toString().padStart(2, '0')}"
     }
 }
 
@@ -247,8 +249,13 @@ data class Rectangle(val width: Double, val height: Double) : Shape {
 
 // 2.0-style: smarter flow analysis in when
 fun describeShape(shape: Shape): String = when (shape) {
-    is Circle    -> "Circle r=\${"%.2f".format(shape.radius)}, area=\${"%.2f".format(shape.area)}"
-    is Rectangle -> "Rect \${shape.width}x\${shape.height}, area=\${"%.2f".format(shape.area)}"
+    is Circle    -> "Circle r=${
+"%.2f".format(shape.radius)}, area=${
+"%.2f".format(shape.area)}"
+    is Rectangle -> "Rect ${
+shape.width}x${
+shape.height}, area=${
+"%.2f".format(shape.area)}"
     else         -> "Unknown shape"
 }
 
@@ -277,11 +284,13 @@ fun main() {
     println("Price:    \$price")
     println("Tax:      \$tax")
     println("Total:    \$total")
-    println("Discount: \${total.discount(10.0)}")
+    println("Discount: ${
+total.discount(10.0)}")
 
     val parsed = "EUR 49.99".toMoneyOrNull()
     println("Parsed:   \$parsed")
-    println("Invalid:  \${"not money".toMoneyOrNull()}")
+    println("Invalid:  ${
+"not money".toMoneyOrNull()}")
 
     // data object
     println("\\n=== data object toString ===")
@@ -318,8 +327,10 @@ fun main() {
     events.forEach { event ->
         when (event) {
             AppEvent.AppStarted       -> println("App initialized")
-            is AppEvent.UserLoggedIn  -> println("User \${event.userId} logged in")
-            is AppEvent.NavigateTo    -> println("Navigating to: \${event.screen}")
+            is AppEvent.UserLoggedIn  -> println("User ${
+event.userId} logged in")
+            is AppEvent.NavigateTo    -> println("Navigating to: ${
+event.screen}")
             AppEvent.UserLoggedOut    -> println("User logged out")
         }
     }
@@ -337,7 +348,8 @@ fun main() {
     // Number categorization
     println("\\n=== Number categorization ===")
     listOf(-5, 0, 7, 42, 97, 100, 1009).forEach { n ->
-        println("  \$n → \${categorizeNumber(n)}")
+        println("  \$n → ${
+categorizeNumber(n)}")
     }
 }
 

@@ -77,7 +77,8 @@ ADDING BEHAVIOR:
       fun isAboveBoiling() = celsius > 100.0
       fun isBelowFreezing() = celsius < 0.0
 
-      override fun toString() = "\${celsius}°C"
+      override fun toString() = "${
+celsius}°C"
   }
 
 ─────────────────────────────────────
@@ -156,14 +157,16 @@ value class Meters(val value: Double) {
     operator fun plus(other: Meters) = Meters(value + other.value)
     operator fun minus(other: Meters) = Meters(value - other.value)
     operator fun times(factor: Double) = Meters(value * factor)
-    override fun toString() = "\${value}m"
+    override fun toString() = "${
+value}m"
 }
 
 @JvmInline
 value class Percentage(val value: Double) {
     init { require(value in 0.0..100.0) { "Percentage out of range: \$value" } }
     val asDecimal: Double get() = value / 100.0
-    override fun toString() = "\${value}%"
+    override fun toString() = "${
+value}%"
 }
 
 @JvmInline
@@ -184,7 +187,8 @@ fun sendEmail(to: Email, subject: String, body: String) {
 
 fun processOrder(userId: UserId, productCode: ProductCode, discount: Percentage) {
     println("Order for \$userId: product=\$productCode, discount=\$discount")
-    println("  Discount as decimal: \${discount.asDecimal}")
+    println("  Discount as decimal: ${
+discount.asDecimal}")
 }
 
 fun calculateDistance(from: Meters, to: Meters): Meters {
@@ -199,27 +203,33 @@ fun main() {
     val id = UserId(42)
     println(id)
 
-    try { UserId(-1) } catch (e: IllegalArgumentException) { println("Caught: \${e.message}") }
+    try { UserId(-1) } catch (e: IllegalArgumentException) { println("Caught: ${
+e.message}") }
 
     // Email
     println("\\n=== Email ===")
     val email = Email("terry@example.com")
     println("Email: \$email")
-    println("Domain: \${email.domain}")
+    println("Domain: ${
+email.domain}")
 
-    try { Email("notanemail") } catch (e: IllegalArgumentException) { println("Caught: \${e.message}") }
+    try { Email("notanemail") } catch (e: IllegalArgumentException) { println("Caught: ${
+e.message}") }
 
     // Meters
     println("\\n=== Meters ===")
     val marathon = Meters(42195.0)
     println("Marathon: \$marathon")
-    println("  = \${"%.3f".format(marathon.kilometers)} km")
-    println("  = \${"%.3f".format(marathon.miles)} miles")
+    println("  = ${
+"%.3f".format(marathon.kilometers)} km")
+    println("  = ${
+"%.3f".format(marathon.miles)} miles")
 
     val lap = Meters(400.0)
     val halfMarathon = marathon * 0.5
     println("Half marathon: \$halfMarathon")
-    println("Laps to complete: \${"%.1f".format(halfMarathon.value / lap.value)}")
+    println("Laps to complete: ${
+"%.1f".format(halfMarathon.value / lap.value)}")
 
     // Type safety — compile-time errors prevent mixups
     println("\\n=== Type safety ===")
@@ -251,7 +261,10 @@ fun main() {
         ProductCode("EF9999")
     )
     codes.forEach { code ->
-        println("\$code → valid=\${code.isValid}, category=\${code.category}, number=\${code.number}")
+        println("\$code → valid=${
+code.isValid}, category=${
+code.category}, number=${
+code.number}")
     }
 
     // Distance calculation
@@ -259,7 +272,8 @@ fun main() {
     val start = Meters(0.0)
     val end = Meters(5000.0)
     val dist = calculateDistance(start, end)
-    println("Distance: \$dist (\${"%.2f".format(dist.kilometers)}km)")
+    println("Distance: \$dist (${
+"%.2f".format(dist.kilometers)}km)")
 }
 
 📝 KEY POINTS:

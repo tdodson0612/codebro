@@ -73,54 +73,82 @@ import 'dart:math' as math;
 void main() {
   // ── CONSTANTS ─────────────────
   print('Constants:');
-  print('  π = \${math.pi}');
-  print('  e = \${math.e}');
-  print('  √2 = \${math.sqrt2}');
-  print('  ln2 = \${math.ln2}');
+  print('  π = ${
+math.pi}');
+  print('  e = ${
+math.e}');
+  print('  √2 = ${
+math.sqrt2}');
+  print('  ln2 = ${
+math.ln2}');
 
   // ── ARITHMETIC FUNCTIONS ───────
   print('\nArithmetic:');
-  print('  sqrt(144) = \${math.sqrt(144)}');        // 12.0
-  print('  pow(2, 10) = \${math.pow(2, 10)}');      // 1024
-  print('  pow(8, 1/3) = \${math.pow(8, 1/3)}');   // 2.0 (cube root)
-  print('  exp(1) = \${math.exp(1)}');               // e = 2.718...
-  print('  exp(0) = \${math.exp(0)}');               // 1.0
-  print('  log(e) = \${math.log(math.e)}');          // 1.0 (natural log)
-  print('  log(1) = \${math.log(1)}');               // 0.0
-  print('  log2(8) = \${math.log(8) / math.ln2}');  // 3.0
-  print('  log10(1000) = \${math.log(1000) / math.ln10}'); // 3.0
+  print('  sqrt(144) = ${
+math.sqrt(144)}');        // 12.0
+  print('  pow(2, 10) = ${
+math.pow(2, 10)}');      // 1024
+  print('  pow(8, 1/3) = ${
+math.pow(8, 1/3)}');   // 2.0 (cube root)
+  print('  exp(1) = ${
+math.exp(1)}');               // e = 2.718...
+  print('  exp(0) = ${
+math.exp(0)}');               // 1.0
+  print('  log(e) = ${
+math.log(math.e)}');          // 1.0 (natural log)
+  print('  log(1) = ${
+math.log(1)}');               // 0.0
+  print('  log2(8) = ${
+math.log(8) / math.ln2}');  // 3.0
+  print('  log10(1000) = ${
+math.log(1000) / math.ln10}'); // 3.0
 
   // ── TRIGONOMETRY ───────────────
   print('\nTrigonometry (in radians):');
-  print('  sin(0) = \${math.sin(0)}');               // 0.0
-  print('  sin(π/2) = \${math.sin(math.pi/2)}');    // 1.0
-  print('  cos(0) = \${math.cos(0)}');               // 1.0
-  print('  cos(π) = \${math.cos(math.pi)}');         // -1.0
-  print('  tan(π/4) = \${math.tan(math.pi/4)}');    // 1.0
+  print('  sin(0) = ${
+math.sin(0)}');               // 0.0
+  print('  sin(π/2) = ${
+math.sin(math.pi/2)}');    // 1.0
+  print('  cos(0) = ${
+math.cos(0)}');               // 1.0
+  print('  cos(π) = ${
+math.cos(math.pi)}');         // -1.0
+  print('  tan(π/4) = ${
+math.tan(math.pi/4)}');    // 1.0
 
   // Degree → Radian conversion
   double toRadians(double degrees) => degrees * (math.pi / 180);
   double toDegrees(double radians) => radians * (180 / math.pi);
 
   print('\nTrig with degrees:');
-  print('  sin(30°) = \${math.sin(toRadians(30)).toStringAsFixed(4)}');  // 0.5
-  print('  cos(60°) = \${math.cos(toRadians(60)).toStringAsFixed(4)}');  // 0.5
-  print('  tan(45°) = \${math.tan(toRadians(45)).toStringAsFixed(4)}');  // 1.0
+  print('  sin(30°) = ${
+math.sin(toRadians(30)).toStringAsFixed(4)}');  // 0.5
+  print('  cos(60°) = ${
+math.cos(toRadians(60)).toStringAsFixed(4)}');  // 0.5
+  print('  tan(45°) = ${
+math.tan(toRadians(45)).toStringAsFixed(4)}');  // 1.0
 
   // Inverse trig
-  print('  asin(0.5) = \${toDegrees(math.asin(0.5)).toStringAsFixed(1)}°');  // 30.0°
-  print('  acos(0.5) = \${toDegrees(math.acos(0.5)).toStringAsFixed(1)}°');  // 60.0°
-  print('  atan(1.0) = \${toDegrees(math.atan(1.0)).toStringAsFixed(1)}°');  // 45.0°
+  print('  asin(0.5) = ${
+toDegrees(math.asin(0.5)).toStringAsFixed(1)}°');  // 30.0°
+  print('  acos(0.5) = ${
+toDegrees(math.acos(0.5)).toStringAsFixed(1)}°');  // 60.0°
+  print('  atan(1.0) = ${
+toDegrees(math.atan(1.0)).toStringAsFixed(1)}°');  // 45.0°
 
   // atan2 for angle between two points
   final angle = math.atan2(3, 4);  // angle of vector (4, 3)
-  print('  angle of (4,3): \${toDegrees(angle).toStringAsFixed(1)}°');
+  print('  angle of (4,3): ${
+toDegrees(angle).toStringAsFixed(1)}°');
 
   // ── MIN / MAX ─────────────────
   print('\nMin/Max:');
-  print('  min(3, 7) = \${math.min(3, 7)}');    // 3
-  print('  max(3, 7) = \${math.max(3, 7)}');    // 7
-  print('  min(-5.0, 2.0) = \${math.min(-5.0, 2.0)}');  // -5.0
+  print('  min(3, 7) = ${
+math.min(3, 7)}');    // 3
+  print('  max(3, 7) = ${
+math.max(3, 7)}');    // 7
+  print('  min(-5.0, 2.0) = ${
+math.min(-5.0, 2.0)}');  // -5.0
 
   // ── PRACTICAL GEOMETRY ─────────
   print('\nGeometry:');
@@ -129,7 +157,9 @@ void main() {
   double radius = 5.0;
   double circumference = 2 * math.pi * radius;
   double area = math.pi * radius * radius;
-  print('  Circle r=5: circumference=\${circumference.toStringAsFixed(2)}, area=\${area.toStringAsFixed(2)}');
+  print('  Circle r=5: circumference=${
+circumference.toStringAsFixed(2)}, area=${
+area.toStringAsFixed(2)}');
 
   // Distance between two points
   double distance(double x1, double y1, double x2, double y2) {
@@ -137,20 +167,25 @@ void main() {
     final dy = y2 - y1;
     return math.sqrt(dx * dx + dy * dy);
   }
-  print('  Distance (0,0)→(3,4) = \${distance(0,0,3,4)}');  // 5.0
+  print('  Distance (0,0)→(3,4) = ${
+distance(0,0,3,4)}');  // 5.0
 
   // Hypotenuse
   double hypotenuse(double a, double b) => math.sqrt(a*a + b*b);
-  print('  hyp(3,4) = \${hypotenuse(3, 4)}');  // 5.0
+  print('  hyp(3,4) = ${
+hypotenuse(3, 4)}');  // 5.0
 
   // ── RANDOM ─────────────────────
   print('\nRandom:');
 
   // Non-deterministic
   final rng = math.Random();
-  print('  nextInt(100) = \${rng.nextInt(100)}');   // 0-99
-  print('  nextDouble() = \${rng.nextDouble().toStringAsFixed(4)}');  // 0.0-1.0
-  print('  nextBool() = \${rng.nextBool()}');
+  print('  nextInt(100) = ${
+rng.nextInt(100)}');   // 0-99
+  print('  nextDouble() = ${
+rng.nextDouble().toStringAsFixed(4)}');  // 0.0-1.0
+  print('  nextBool() = ${
+rng.nextBool()}');
 
   // Seeded (reproducible)
   final seeded = math.Random(42);
@@ -160,11 +195,13 @@ void main() {
   final seeded2 = math.Random(42);
   final sequence2 = List.generate(5, (_) => seeded2.nextInt(100));
   print('  Seeded(42) again: \$sequence2');   // identical!
-  print('  Same sequence: \${sequence.toString() == sequence2.toString()}');  // true
+  print('  Same sequence: ${
+sequence.toString() == sequence2.toString()}');  // true
 
   // Secure random (for crypto)
   final secure = math.Random.secure();
-  print('  Secure nextInt: \${secure.nextInt(1000000)}');
+  print('  Secure nextInt: ${
+secure.nextInt(1000000)}');
 
   // ── RANDOM UTILITIES ──────────
   // Random element from list
@@ -180,13 +217,15 @@ void main() {
   }
 
   final cards = ['A', 'K', 'Q', 'J', '10'];
-  print('  Shuffled: \${shuffle(cards)}');
+  print('  Shuffled: ${
+shuffle(cards)}');
 
   // Random in range [min, max]
   double randomInRange(double min, double max) =>
       min + rng.nextDouble() * (max - min);
 
-  print('  Random [-10, 10]: \${randomInRange(-10, 10).toStringAsFixed(2)}');
+  print('  Random [-10, 10]: ${
+randomInRange(-10, 10).toStringAsFixed(2)}');
 
   // Weighted random
   int weightedRandom(List<double> weights) {
@@ -203,7 +242,8 @@ void main() {
   final results = List.generate(1000, (_) => weightedRandom([70, 20, 10]));
   final counts = [0, 0, 0];
   for (final r in results) counts[r]++;
-  print('  Weighted (70/20/10): \${counts.map((c) => (c/10).round()).toList()}%');
+  print('  Weighted (70/20/10): ${
+counts.map((c) => (c/10).round()).toList()}%');
 
   // ── STATISTICS ─────────────────
   final nums = List.generate(100, (_) => rng.nextDouble() * 100);
@@ -219,11 +259,16 @@ void main() {
   }
 
   print('\nStatistics (100 random values 0-100):');
-  print('  Mean: \${mean(nums).toStringAsFixed(2)}');
-  print('  Std dev: \${stdDev(nums).toStringAsFixed(2)}');
-  print('  Min: \${sorted.first.toStringAsFixed(2)}');
-  print('  Max: \${sorted.last.toStringAsFixed(2)}');
-  print('  Median: \${sorted[50].toStringAsFixed(2)}');
+  print('  Mean: ${
+mean(nums).toStringAsFixed(2)}');
+  print('  Std dev: ${
+stdDev(nums).toStringAsFixed(2)}');
+  print('  Min: ${
+sorted.first.toStringAsFixed(2)}');
+  print('  Max: ${
+sorted.last.toStringAsFixed(2)}');
+  print('  Median: ${
+sorted[50].toStringAsFixed(2)}');
 }
 
 📝 KEY POINTS:

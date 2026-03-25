@@ -97,7 +97,8 @@ class _MultiLangConsolePageState extends State<MultiLangConsolePage> {
           setState(() => _output = data['output'] ?? 'No output');
         } else {
           setState(() =>
-              _output = 'API Error:\${response.statusCode}\n${response.body}');
+              _output = 'API Error:${
+response.statusCode}\n${response.body}');
         }
       }
     } catch (e) {
@@ -157,7 +158,8 @@ class _MultiLangConsolePageState extends State<MultiLangConsolePage> {
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(12),
                     border: InputBorder.none,
-                    hintText: 'Enter\${widget.language} code here...',
+                    hintText: 'Enter${
+widget.language} code here...',
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),

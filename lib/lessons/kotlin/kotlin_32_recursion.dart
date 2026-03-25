@@ -205,7 +205,8 @@ fun main() {
     // Factorial
     println("=== Tail-recursive factorial ===")
     for (n in listOf(0L, 1L, 5L, 10L, 20L)) {
-        println("\$n! = \${factorial(n)}")
+        println("\$n! = ${
+factorial(n)}")
     }
 
     // Fibonacci
@@ -217,15 +218,19 @@ fun main() {
     println("\\n=== Binary search ===")
     val sorted = listOf(2, 5, 8, 12, 16, 23, 38, 56, 72, 91)
     println("List: \$sorted")
-    println("Search 23: index \${binarySearch(sorted, 23)}")  // 5
-    println("Search 72: index \${binarySearch(sorted, 72)}")  // 8
-    println("Search 99: index \${binarySearch(sorted, 99)}")  // -1
+    println("Search 23: index ${
+binarySearch(sorted, 23)}")  // 5
+    println("Search 72: index ${
+binarySearch(sorted, 72)}")  // 8
+    println("Search 99: index ${
+binarySearch(sorted, 99)}")  // -1
 
     // Flatten
     println("\\n=== Flatten nested list ===")
     val nested: List<Any> = listOf(1, listOf(2, 3), listOf(4, listOf(5, 6)), 7)
     println("Nested: \$nested")
-    println("Flat:   \${flattenNested(nested)}")
+    println("Flat:   ${
+flattenNested(nested)}")
 
     // Tree operations
     println("\\n=== Tree traversal ===")
@@ -234,20 +239,26 @@ fun main() {
         TreeNode(5, TreeNode(2), TreeNode(7)),
         TreeNode(15, TreeNode(12), TreeNode(20))
     )
-    println("In-order: \${treeInOrder(tree)}")   // [2, 5, 7, 10, 12, 15, 20]
-    println("Sum:   \${treeSum(tree)}")           // 71
-    println("Depth: \${treeDepth(tree)}")         // 3
+    println("In-order: ${
+treeInOrder(tree)}")   // [2, 5, 7, 10, 12, 15, 20]
+    println("Sum:   ${
+treeSum(tree)}")           // 71
+    println("Depth: ${
+treeDepth(tree)}")         // 3
 
     // Merge sort
     println("\\n=== Merge sort ===")
     val unsorted = listOf(38, 27, 43, 3, 9, 82, 10)
     println("Before: \$unsorted")
-    println("After:  \${mergeSort(unsorted)}")
+    println("After:  ${
+mergeSort(unsorted)}")
 
     // Tail recursion handles large inputs safely
     println("\\n=== Large input (tail recursion) ===")
-    println("100,000! ends in: ...(\${factorial(100_000L).toString().takeLast(5)})")
-    println("fib(80) = \${fib(80)}")
+    println("100,000! ends in: ...(${
+factorial(100_000L).toString().takeLast(5)})")
+    println("fib(80) = ${
+fib(80)}")
 }
 
 📝 KEY POINTS:

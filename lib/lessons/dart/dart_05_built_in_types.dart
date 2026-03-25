@@ -143,9 +143,6 @@ void main() {
   print(42.isEven);        // true
   print(7.isOdd);          // true
   print((-5).abs());       // 5
-  print(2.pow(10));        // 1024 — wait, int has no pow!
-  // Use dart:math for pow:
-  // import 'dart:math'; print(pow(2, 10));
   print(255.toRadixString(16));  // 'ff'
   print(255.toRadixString(2));   // '11111111'
 

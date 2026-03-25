@@ -116,7 +116,9 @@ void main() {
 
   // Named records
   ({String name, int score}) result = (name: 'Alice', score: 95);
-  print('\${result.name}: \${result.score}');
+  print('${
+result.name}: ${
+result.score}');
 
   // Multiple return values
   var (min, max) = minMax([3, 1, 4, 1, 5, 9, 2]);
@@ -182,7 +184,9 @@ void main() {
       Rectangle(:var width, :var height) => width * height,
       Triangle(:var a, :var b, :var c) => _triangleArea(a, b, c),
     };
-    print('\${shape.runtimeType}: area = \${area.toStringAsFixed(2)}');
+    print('${
+shape.runtimeType}: area = ${
+area.toStringAsFixed(2)}');
   }
 
   // ── 4. CLASS MODIFIERS ────────
@@ -225,7 +229,8 @@ void main() {
   ];
 
   for (final (i, feature) in features.indexed) {
-    print('\${i + 1}. \$feature');
+    print('${
+i + 1}. \$feature');
   }
 }
 

@@ -170,7 +170,9 @@ class BankAccount(val owner: String, initialBalance: Double = 0.0) {
     fun deposit(amount: Double) {
         require(amount > 0) { "Deposit must be positive" }
         balance += amount
-        println("Deposited \${"%.2f".format(amount)} → Balance: \${"%.2f".format(balance)}")
+        println("Deposited ${
+"%.2f".format(amount)} → Balance: ${
+"%.2f".format(balance)}")
     }
 
     fun withdraw(amount: Double): Boolean {
@@ -179,7 +181,9 @@ class BankAccount(val owner: String, initialBalance: Double = 0.0) {
             return false
         }
         balance -= amount
-        println("Withdrew \${"%.2f".format(amount)} → Balance: \${"%.2f".format(balance)}")
+        println("Withdrew ${
+"%.2f".format(amount)} → Balance: ${
+"%.2f".format(balance)}")
         return true
     }
 }
@@ -213,13 +217,15 @@ fun main() {
     account.deposit(50.0)
     account.withdraw(30.0)
     account.withdraw(200.0)    // Insufficient funds
-    println("Final: \${account.balance}")
+    println("Final: ${
+account.balance}")
 
     // Companion object (static-like)
     Counter()
     Counter()
     Counter()
-    println("Instances created: \${Counter.getCount()}")  // 3
+    println("Instances created: ${
+Counter.getCount()}")  // 3
 }
 
 📝 KEY POINTS:

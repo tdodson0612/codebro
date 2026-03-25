@@ -198,10 +198,13 @@ const virtualFS = new Map();
 const fs = {
     async writeFile(path, data) {
         virtualFS.set(path, typeof data === 'string' ? data : JSON.stringify(data, null, 2));
-        console.log(\`  writeFile: \${path} (\${virtualFS.get(path).length} bytes)\`);
+        console.log(\`  writeFile: ${
+path} (${
+virtualFS.get(path).length} bytes)\`);
     },
     async readFile(path, encoding) {
-        if (!virtualFS.has(path)) throw new Error(\`ENOENT: no such file: \${path}\`);
+        if (!virtualFS.has(path)) throw new Error(\`ENOENT: no such file: ${
+path}\`);
         const data = virtualFS.get(path);
         return encoding === 'utf8' ? data : Buffer.from(data);
     },
@@ -210,7 +213,8 @@ const fs = {
         virtualFS.set(path, existing + data);
     },
     async unlink(path) {
-        if (!virtualFS.has(path)) throw new Error(\`ENOENT: \${path}\`);
+        if (!virtualFS.has(path)) throw new Error(\`ENOENT: ${
+path}\`);
         virtualFS.delete(path);
     },
     async readdir(dir) {
@@ -219,7 +223,8 @@ const fs = {
             .map(k => k.slice(dir.length + 1).split('/')[0]);
     },
     async stat(path) {
-        if (!virtualFS.has(path)) throw new Error(\`ENOENT: \${path}\`);
+        if (!virtualFS.has(path)) throw new Error(\`ENOENT: ${
+path}\`);
         const content = virtualFS.get(path);
         return {
             size: content.length,
@@ -229,12 +234,17 @@ const fs = {
         };
     },
     async mkdir(path, opts) {
-        console.log(\`  mkdir: \${path} (recursive=\${opts?.recursive})\`);
+        console.log(\`  mkdir: ${
+path} (recursive=${
+opts?.recursive})\`);
     },
     async copyFile(src, dest) {
-        if (!virtualFS.has(src)) throw new Error(\`ENOENT: \${src}\`);
+        if (!virtualFS.has(src)) throw new Error(\`ENOENT: ${
+src}\`);
         virtualFS.set(dest, virtualFS.get(src));
-        console.log(\`  copyFile: \${src} → \${dest}\`);
+        console.log(\`  copyFile: ${
+src} → ${
+dest}\`);
     },
 };
 
@@ -288,7 +298,9 @@ class HttpSimulator extends EventEmitter {
     #routes = new Map();
 
     route(method, path, handler) {
-        this.#routes.set(\`\${method}:\${path}\`, handler);
+        this.#routes.set(\`${
+method}:${
+path}\`, handler);
         return this;
     }
 
@@ -299,7 +311,9 @@ class HttpSimulator extends EventEmitter {
 
     async request(method, url, body = null) {
         const parsed = new URL(url, 'http://localhost');
-        const key = \`\${method}:\${parsed.pathname}\`;
+        const key = \`${
+method}:${
+parsed.pathname}\`;
         const handler = this.#routes.get(key);
 
         const req = {
@@ -329,10 +343,14 @@ class HttpSimulator extends EventEmitter {
             responseBody = JSON.stringify({ error: 'Not Found' });
         }
 
-        console.log(\`  \${method} \${parsed.pathname} → \${statusCode}\`);
+        console.log(\`  ${
+method} ${
+parsed.pathname} → ${
+statusCode}\`);
         if (responseBody) {
             const display = responseBody.slice(0, 80) + (responseBody.length > 80 ? '...' : '');
-            console.log(\`    Response: \${display}\`);
+            console.log(\`    Response: ${
+display}\`);
         }
         return { statusCode, body: responseBody };
     }

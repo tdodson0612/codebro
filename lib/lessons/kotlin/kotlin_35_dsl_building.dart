@@ -170,7 +170,9 @@ class HtmlElement(val tag: String) {
     fun render(indent: Int = 0): String {
         val pad = "  ".repeat(indent)
         val attrs = if (attributes.isEmpty()) ""
-            else " " + attributes.map { "\${it.key}=\\"\${it.value}\\"" }.joinToString(" ")
+            else " " + attributes.map { "${
+it.key}=\\"${
+it.value}\\"" }.joinToString(" ")
         return buildString {
             if (text.isNotBlank()) {
                 appendLine("\$pad<\$tag\$attrs>\$text</\$tag>")
@@ -293,7 +295,8 @@ fun main() {
         appendLine("REPORT")
         appendLine("=".repeat(30))
         for (i in 1..5) {
-            appendLine("Item \$i: value = \${i * i}")
+            appendLine("Item \$i: value = ${
+i * i}")
         }
         appendLine("=".repeat(30))
     }

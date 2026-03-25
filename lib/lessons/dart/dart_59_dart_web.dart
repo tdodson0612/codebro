@@ -183,7 +183,8 @@ void callEval() {
 // Passing Dart functions to JS
 void dartFunctionToJS() {
   final callback = ((JSString event) {
-    print('Event received: \${event.toDart}');
+    print('Event received: ${
+event.toDart}');
   }).toJS;
 
   // Pass to JS as a callback
@@ -232,7 +233,9 @@ void domManipulation() {
 }
 
 void handleClick(MouseEvent event) {
-  print('Clicked at \${event.client.x}, \${event.client.y}');
+  print('Clicked at ${
+event.client.x}, ${
+event.client.y}');
 }
 
 // Form handling
@@ -272,8 +275,10 @@ void packageWebExample() {
 
   // Typed access to window
   final location = window.location;
-  print('Host: \${location.host}');
-  print('Pathname: \${location.pathname}');
+  print('Host: ${
+location.host}');
+  print('Pathname: ${
+location.pathname}');
 }
 */
 

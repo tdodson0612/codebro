@@ -94,7 +94,9 @@ class SettingsPage extends StatelessWidget {
                   color: Colors.amber),
               title: const Text('Level'),
               trailing: Text(
-                'Level\${progress.level} ·\${progress.levelTitle}',
+                'Level${
+progress.level} ·${
+progress.levelTitle}',
                 style:
                     const TextStyle(fontWeight: FontWeight.bold),
               ),

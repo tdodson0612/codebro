@@ -213,7 +213,10 @@ fun main() {
     val engineeringSummary = employees
         .filter { it.department == "Engineering" }
         .sortedByDescending { it.salary }
-        .map { "\${it.name}: \$\${"%.0f".format(it.salary)} (\${it.yearsExp}y)" }
+        .map { "${
+it.name}: \$${
+"%.0f".format(it.salary)} (${
+it.yearsExp}y)" }
     println("Engineering (by salary):")
     engineeringSummary.forEach { println("  \$it") }
 
@@ -224,9 +227,11 @@ fun main() {
         acc[e.department] = (acc[e.department] ?: 0.0) + e.salary
         acc
     }
-    println("Total payroll: \$\${"%.0f".format(totalSalary)}")
+    println("Total payroll: \$${
+"%.0f".format(totalSalary)}")
     deptSalaries.forEach { (dept, total) ->
-        println("  \$dept: \$\${"%.0f".format(total)}")
+        println("  \$dept: \$${
+"%.0f".format(total)}")
     }
 
     // Function composition
@@ -237,7 +242,8 @@ fun main() {
 
     val process = pipe(pipe(trim, capitalize), exclaim)
     listOf("  hello  ", "  kotlin  ", "  world  ").forEach {
-        println("'\$it' → '\${process(it)}'")
+        println("'\$it' → '${
+process(it)}'")
     }
 
     // Currying
@@ -251,10 +257,14 @@ fun main() {
     // Memoization
     println("\\n=== Memoization ===")
     val memoFactorial = memoize<Long, Long> { n -> factorial(n) }
-    println("5! = \${memoFactorial(5L)}")   // computes
-    println("5! = \${memoFactorial(5L)}")   // cached
-    println("7! = \${memoFactorial(7L)}")   // computes
-    println("7! = \${memoFactorial(7L)}")   // cached
+    println("5! = ${
+memoFactorial(5L)}")   // computes
+    println("5! = ${
+memoFactorial(5L)}")   // cached
+    println("7! = ${
+memoFactorial(7L)}")   // computes
+    println("7! = ${
+memoFactorial(7L)}")   // cached
 
     // Railway / Result chaining
     println("\\n=== Railway (Result) ===")
@@ -267,7 +277,8 @@ fun main() {
     inputs.forEach { input ->
         validateUser(input)
             .onSuccess { println("✅ \$it") }
-            .onFailure { println("❌ \${it.message}") }
+            .onFailure { println("❌ ${
+it.message}") }
     }
 
     // Prime numbers (pure function)

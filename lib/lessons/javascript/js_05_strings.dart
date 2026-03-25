@@ -29,11 +29,13 @@ STRING CREATION:
 
   Template literals:
   const name = "World";
-  const msg = \`Hello, \${name}!\`;          // interpolation
+  const msg = \`Hello, ${
+name}!\`;          // interpolation
   const multi = \`Line 1
   Line 2
   Line 3\`;                                 // multi-line
-  const math = \`2 + 2 = \${2 + 2}\`;        // expressions
+  const math = \`2 + 2 = ${
+2 + 2}\`;        // expressions
 
 ─────────────────────────────────────
 ACCESSING CHARACTERS:
@@ -104,9 +106,12 @@ TEMPLATE LITERAL ADVANCED:
   const highlight = (strings, ...values) => {
     return strings.reduce((result, str, i) =>
       result + str + (values[i] !== undefined
-        ? \`<b>\${values[i]}</b>\` : ""), "");
+        ? \`<b>${
+values[i]}</b>\` : ""), "");
   };
-  const result = highlight\`Hello \${name}, you are \${age}!\`;
+  const result = highlight\`Hello ${
+name}, you are ${
+age}!\`;
 
   // String.raw — no escape processing:
   String.raw\`C:\\Users\\terry\` → "C:\\\\Users\\\\terry"
@@ -134,7 +139,9 @@ USEFUL PATTERNS:
 console.log("=== String Creation ===");
 const single = 'Hello';
 const double = "World";
-const template = \`\${single}, \${double}!\`;  // interpolation
+const template = \`${
+single}, ${
+double}!\`;  // interpolation
 
 // Multi-line template literals
 const poem = \`
@@ -147,8 +154,12 @@ console.log(poem);
 
 // Expressions in templates
 const a = 5, b = 10;
-console.log(\`\${a} + \${b} = \${a + b}\`);    // 5 + 10 = 15
-console.log(\`Is adult: \${a > 18 ? 'yes' : 'no'}\`);
+console.log(\`${
+a} + ${
+b} = ${
+a + b}\`);    // 5 + 10 = 15
+console.log(\`Is adult: ${
+a > 18 ? 'yes' : 'no'}\`);
 
 // ─── ACCESSING ────────────────────────────────────────
 console.log("\n=== Accessing Characters ===");
@@ -207,9 +218,12 @@ console.log("\n=== Template Literal Power ===");
 const user = { name: "Terry", score: 95, level: "Expert" };
 const card = \`
   ┌─────────────────────────┐
-  │  Player: \${user.name.padEnd(16)}│
-  │  Score:  \${String(user.score).padEnd(16)}│
-  │  Level:  \${user.level.padEnd(16)}│
+  │  Player: ${
+user.name.padEnd(16)}│
+  │  Score:  ${
+String(user.score).padEnd(16)}│
+  │  Level:  ${
+user.level.padEnd(16)}│
   └─────────────────────────┘
 \`.trim();
 console.log(card);

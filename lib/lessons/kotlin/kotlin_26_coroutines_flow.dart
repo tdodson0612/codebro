@@ -142,7 +142,10 @@ fun numberStream(): Flow<Int> = flow {
 fun pagedResults(pages: Int): Flow<List<String>> = flow {
     for (page in 1..pages) {
         delay(200)
-        emit(listOf("Item \${(page - 1) * 3 + 1}", "Item \${(page - 1) * 3 + 2}", "Item \${(page - 1) * 3 + 3}"))
+        emit(listOf("Item ${
+(page - 1) * 3 + 1}", "Item ${
+(page - 1) * 3 + 2}", "Item ${
+(page - 1) * 3 + 3}"))
     }
 }
 
@@ -159,7 +162,8 @@ fun main() = runBlocking {
     // Terminal operators
     println("\\n--- Terminal operators ---")
     val numbers = numberStream()
-    println("Sum: \${numbers.toList().sum()}")
+    println("Sum: ${
+numbers.toList().sum()}")
 
     val firstEven = numberStream().filter { it % 2 == 0 }.first()
     println("First even: \$firstEven")
@@ -187,7 +191,8 @@ fun main() = runBlocking {
         throw RuntimeException("Stream error!")
         emit(3)   // never reached
     }
-    .catch { e -> println("Caught: \${e.message}") }
+    .catch { e -> println("Caught: ${
+e.message}") }
     .onCompletion { println("Done (after catch)") }
     .collect { println("Got: \$it") }
 

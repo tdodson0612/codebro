@@ -83,7 +83,8 @@ MULTIPLE CATCH BLOCKS:
   } catch (e: IOException) {
       println("IO problem")
   } catch (e: Exception) {
-      println("Something else: \${e.message}")
+      println("Something else: ${
+e.message}")
   }
 
 Catch from MOST specific to LEAST specific.
@@ -114,7 +115,8 @@ runCatching — functional exception handling:
 ─────────────────────────────────────
   val result = runCatching { "abc".toInt() }
   result.onSuccess { println("Got: \$it") }
-  result.onFailure { println("Failed: \${it.message}") }
+  result.onFailure { println("Failed: ${
+it.message}") }
   val value = result.getOrDefault(-1)
   val value2 = result.getOrElse { -1 }
 
@@ -169,7 +171,8 @@ fun main() {
         val result = 10 / 0
         println(result)
     } catch (e: ArithmeticException) {
-        println("Cannot divide by zero: \${e.message}")
+        println("Cannot divide by zero: ${
+e.message}")
     } finally {
         println("This always runs")
     }
@@ -197,20 +200,24 @@ fun main() {
     try {
         account.withdraw(1000.0)   // will throw IllegalStateException
     } catch (e: IllegalStateException) {
-        println("Caught: \${e.message}")
+        println("Caught: ${
+e.message}")
     }
 
     try {
         account.withdraw(-50.0)    // will throw IllegalArgumentException
     } catch (e: IllegalArgumentException) {
-        println("Caught: \${e.message}")
+        println("Caught: ${
+e.message}")
     }
 
     // Custom exception
     try {
         validateUser("", 25)
     } catch (e: ValidationException) {
-        println("Validation failed on field '\${e.field}': \${e.message}")
+        println("Validation failed on field '${
+e.field}': ${
+e.message}")
     }
 
     // Multiple catch blocks
@@ -219,11 +226,14 @@ fun main() {
         try {
             println(riskyOperation(input))
         } catch (e: NullPointerException) {
-            println("NPE: \${e.message}")
+            println("NPE: ${
+e.message}")
         } catch (e: IOException) {
-            println("IO error: \${e.message}")
+            println("IO error: ${
+e.message}")
         } catch (e: IllegalArgumentException) {
-            println("Arg error: \${e.message}")
+            println("Arg error: ${
+e.message}")
         }
     }
 
@@ -236,7 +246,8 @@ fun main() {
     results.forEach { result ->
         result
             .onSuccess { println("Success: \$it") }
-            .onFailure { println("Failed: \${it.message}") }
+            .onFailure { println("Failed: ${
+it.message}") }
     }
 
     val values = results.map { it.getOrDefault(0) }

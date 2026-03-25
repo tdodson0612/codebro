@@ -55,7 +55,8 @@ CREATING OBJECTS WITH PROTOTYPES:
   // Object.create():
   const animal = {
     type: "Animal",
-    describe() { return \`I am a \${this.type}\`; }
+    describe() { return \`I am a ${
+this.type}\`; }
   };
   const dog = Object.create(animal);
   dog.type = "Dog";
@@ -66,7 +67,8 @@ CREATING OBJECTS WITH PROTOTYPES:
     this.type = type;
   }
   Animal.prototype.describe = function() {
-    return \`I am a \${this.type}\`;
+    return \`I am a ${
+this.type}\`;
   };
   const cat = new Animal("Cat");
 
@@ -140,10 +142,13 @@ console.log("\n=== Object.create ===");
 const vehicleProto = {
   type: "Vehicle",
   describe() {
-    return \`I am a \${this.type} named \${this.name}\`;
+    return \`I am a ${
+this.type} named ${
+this.name}\`;
   },
   start() {
-    return \`\${this.name} started!\`;
+    return \`${
+this.name} started!\`;
   }
 };
 
@@ -170,10 +175,13 @@ function Animal(name, sound) {
 }
 // Methods on prototype — shared by all instances:
 Animal.prototype.speak = function() {
-  return \`\${this.name} says \${this.sound}!\`;
+  return \`${
+this.name} says ${
+this.sound}!\`;
 };
 Animal.prototype.toString = function() {
-  return \`Animal(\${this.name})\`;
+  return \`Animal(${
+this.name})\`;
 };
 
 const dog = new Animal("Rex", "Woof");
@@ -192,7 +200,8 @@ function Dog(name) {
 Dog.prototype = Object.create(Animal.prototype);
 Dog.prototype.constructor = Dog;
 Dog.prototype.fetch = function() {
-  return \`\${this.name} fetches the ball!\`;
+  return \`${
+this.name} fetches the ball!\`;
 };
 
 const rex = new Dog("Rex");
@@ -233,7 +242,8 @@ class PersonClass {
     this.name = name;
   }
   greet() {
-    return \`Hello, I'm \${this.name}!\`;
+    return \`Hello, I'm ${
+this.name}!\`;
   }
 }
 

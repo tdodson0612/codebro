@@ -307,7 +307,8 @@ class _LessonDetailPageState extends State<LessonDetailPage> {
                       child: ElevatedButton.icon(
                         icon: const Icon(Icons.arrow_forward),
                         label: Text(
-                          'Next:\${nextLesson.title}',
+                          'Next:${
+nextLesson.title}',
                           overflow: TextOverflow.ellipsis,
                         ),
                         style: ElevatedButton.styleFrom(

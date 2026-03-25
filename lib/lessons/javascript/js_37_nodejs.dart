@@ -69,7 +69,8 @@ EVENTS MODULE — EventEmitter:
   }
 
   const server = new Server();
-  server.on('listening', ({ port }) => console.log(\`Listening on \${port}\`));
+  server.on('listening', ({ port }) => console.log(\`Listening on ${
+port}\`));
   server.start();
 
 ─────────────────────────────────────
@@ -219,11 +220,16 @@ class HttpServer extends EventEmitter {
 const server = new HttpServer(8080);
 
 server.on('listening', ({ port, host }) => {
-    console.log(\`  ✅ Server listening on \${host}:\${port}\`);
+    console.log(\`  ✅ Server listening on ${
+host}:${
+port}\`);
 });
 
 server.on('request', ({ method, path, timestamp }) => {
-    console.log(\`  📨 \${method} \${path} at \${timestamp}\`);
+    console.log(\`  📨 ${
+method} ${
+path} at ${
+timestamp}\`);
 });
 
 server.on('close', () => {
@@ -231,7 +237,8 @@ server.on('close', () => {
 });
 
 server.on('error', (err) => {
-    console.log(\`  ⚠️  Error: \${err.message}\`);
+    console.log(\`  ⚠️  Error: ${
+err.message}\`);
 });
 
 server.start();
@@ -326,8 +333,10 @@ setTimeout(() => {
     const target = {};
     asyncSetProperty(target, 'name', 'Alice', (err, val) => {
         if (err) return console.error(err);
-        console.log(\`  Property set to: \${val}\`);
-        console.log(\`  Object: \${JSON.stringify(target)}\`);
+        console.log(\`  Property set to: ${
+val}\`);
+        console.log(\`  Object: ${
+JSON.stringify(target)}\`);
     });
 }, 200);
 

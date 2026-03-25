@@ -124,7 +124,8 @@ Future<void> httpExample() async {
 
   if (response.statusCode == 200) {
     final data = jsonDecode(response.body) as Map<String, dynamic>;
-    print('Title: \${data['title']}');
+    print('Title: ${
+data['title']}');
   }
 
   // POST
@@ -133,7 +134,8 @@ Future<void> httpExample() async {
     headers: {'Content-Type': 'application/json'},
     body: jsonEncode({'title': 'New Post', 'body': 'Content', 'userId': 1}),
   );
-  print('Created: \${postResponse.statusCode}');
+  print('Created: ${
+postResponse.statusCode}');
 }
 */
 
@@ -151,11 +153,13 @@ final dio = Dio(BaseOptions(
 // Interceptors (like middleware)
 dio.interceptors.add(InterceptorsWrapper(
   onRequest: (options, handler) {
-    options.headers['Authorization'] = 'Bearer \${getToken()}';
+    options.headers['Authorization'] = 'Bearer ${
+getToken()}';
     return handler.next(options);
   },
   onResponse: (response, handler) {
-    print('Response: \${response.statusCode}');
+    print('Response: ${
+response.statusCode}');
     return handler.next(response);
   },
   onError: (error, handler) {
@@ -180,7 +184,8 @@ Future<void> dioExample() async {
       '/files/large.zip',
       '/local/path/large.zip',
       onReceiveProgress: (received, total) {
-        print('\${(received / total * 100).toStringAsFixed(1)}%');
+        print('${
+(received / total * 100).toStringAsFixed(1)}%');
       },
     );
   } on DioException catch (e) {
@@ -188,9 +193,11 @@ Future<void> dioExample() async {
       case DioExceptionType.connectionTimeout:
         print('Connection timed out');
       case DioExceptionType.badResponse:
-        print('Bad response: \${e.response?.statusCode}');
+        print('Bad response: ${
+e.response?.statusCode}');
       default:
-        print('Error: \${e.message}');
+        print('Error: ${
+e.message}');
     }
   }
 }

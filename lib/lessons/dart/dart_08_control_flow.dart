@@ -115,8 +115,6 @@ void main() {
   if (name == null) {
     print('No name provided');
   }
-  // After null check, name is promoted to String
-  // (nothing here since we entered the if-null branch)
 
   // ── CLASSIC SWITCH ────────────
   String day = 'Monday';
@@ -154,7 +152,6 @@ void main() {
     Season.summer => 'Go swimming',
     Season.autumn => 'Pick apples',
     Season.winter => 'Build a snowman',
-    // No default needed — enum is exhaustive!
   };
   print(activity);   // Go swimming
 
@@ -198,12 +195,7 @@ void main() {
       print('Starts with \$first, \$second...');  // ← matches
   }
 
-  // ── SWITCH ON SEALED CLASS ────
-  // (Sealed classes covered in depth later)
-  // When switching on sealed class, Dart ensures exhaustiveness
-
   // ── IF-CASE STATEMENT (Dart 3) ─
-  // pattern matching in if statements!
   Object shape = Circle(radius: 5.0);
 
   if (shape case Circle(radius: var r) when r > 3) {
@@ -220,7 +212,7 @@ void main() {
   if (temp > 30) {
     advice = isRaining ? 'Hot and rainy — stay in' : 'Very hot — use sunscreen';
   } else if (temp > 20) {
-    advice = isRaining ? 'Warm rain — take an umbrella' : 'Perfect weather!'; // ← this
+    advice = isRaining ? 'Warm rain — take an umbrella' : 'Perfect weather!';
   } else {
     advice = 'Chilly — wear a jacket';
   }

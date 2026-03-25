@@ -57,7 +57,9 @@ IN FUNCTION PARAMETERS:
 
   // Object params:
   function greet({ name, age = 0 }) {
-    return \`\${name} is \${age}\`;
+    return \`${
+name} is ${
+age}\`;
   }
   greet({ name: "Alice", age: 28 });
 
@@ -86,7 +88,8 @@ REST PARAMETERS (...rest):
 ─────────────────────────────────────
   In FUNCTION parameters — collects remaining args:
   function log(level, ...messages) {
-    console.log(\`[\${level}]\`, ...messages);
+    console.log(\`[${
+level}]\`, ...messages);
   }
 
   In DESTRUCTURING — collects remaining items:
@@ -142,7 +145,9 @@ console.log(p, q);  // world hello
 // From function return
 const getCoords = () => [40.7128, -74.0060];
 const [lat, lng] = getCoords();
-console.log(\`Lat: \${lat}, Lng: \${lng}\`);
+console.log(\`Lat: ${
+lat}, Lng: ${
+lng}\`);
 
 // ─── OBJECT DESTRUCTURING ─────────────────────────────
 console.log("\n=== Object Destructuring ===");
@@ -240,13 +245,17 @@ const team = [
 ];
 
 for (const { name: memberName, score } of team) {
-  console.log(\`\${memberName}: \${score}\`);
+  console.log(\`${
+memberName}: ${
+score}\`);
 }
 
 // entries() with destructuring
 const fruits = ["apple", "banana", "cherry"];
 for (const [idx, fruit] of fruits.entries()) {
-  console.log(\`\${idx + 1}. \${fruit}\`);
+  console.log(\`${
+idx + 1}. ${
+fruit}\`);
 }
 
 // ─── ADVANCED PATTERNS ────────────────────────────────
@@ -257,7 +266,9 @@ function minMax(arr) {
   return [Math.min(...arr), Math.max(...arr)];
 }
 const [min, max] = minMax([3, 1, 4, 1, 5, 9, 2, 6]);
-console.log(\`Min: \${min}, Max: \${max}\`);  // Min: 1, Max: 9
+console.log(\`Min: ${
+min}, Max: ${
+max}\`);  // Min: 1, Max: 9
 
 // Nested with defaults
 const response = {

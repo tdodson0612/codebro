@@ -139,9 +139,11 @@ void main() {
   sb.writeAll(['a', 'b', 'c'], ' | ');
 
   print(sb.toString());
-  print('Length: \${sb.length}');
+  print('Length: ${
+sb.length}');
   sb.clear();
-  print('After clear: "\${sb.toString()}"');  // ""
+  print('After clear: "${
+sb.toString()}"');  // ""
 
   // ── DATETIME ──────────────────
   final now = DateTime.now();
@@ -153,11 +155,16 @@ void main() {
   print('Now: \$now');
   print('UTC: \$utcNow');
   print('Specific: \$specific');
-  print('Year: \${now.year}');
-  print('Month: \${now.month}');
-  print('Day: \${now.day}');
-  print('Weekday: \${now.weekday}');  // 1=Mon, 7=Sun
-  print('Is UTC: \${now.isUtc}');    // false
+  print('Year: ${
+now.year}');
+  print('Month: ${
+now.month}');
+  print('Day: ${
+now.day}');
+  print('Weekday: ${
+now.weekday}');  // 1=Mon, 7=Sun
+  print('Is UTC: ${
+now.isUtc}');    // false
 
   // Comparisons
   print(specific.isBefore(now));   // true
@@ -168,10 +175,14 @@ void main() {
   final tomorrow = now.add(Duration(days: 1));
   final lastWeek = now.subtract(Duration(days: 7));
   final diff = now.difference(specific);
-  print('Days since 2024-03-15: \${diff.inDays}');
+  print('Days since 2024-03-15: ${
+diff.inDays}');
 
   // Formatting (basic)
-  String formatted = '\${now.year}-\${now.month.toString().padLeft(2,'0')}-\${now.day.toString().padLeft(2,'0')}';
+  String formatted = '${
+now.year}-${
+now.month.toString().padLeft(2,'0')}-${
+now.day.toString().padLeft(2,'0')}';
   print('Formatted: \$formatted');
   // For proper formatting, use package:intl
 
@@ -194,8 +205,10 @@ void main() {
   final sw = Stopwatch()..start();
   // ... some work ...
   sw.stop();
-  print('Elapsed: \${sw.elapsed}');
-  print('Milliseconds: \${sw.elapsedMilliseconds}');
+  print('Elapsed: ${
+sw.elapsed}');
+  print('Milliseconds: ${
+sw.elapsedMilliseconds}');
   sw.reset();
   sw.start();   // can restart after reset
 
@@ -216,17 +229,22 @@ void main() {
   final dateRegex = RegExp(r'(\d{4})-(\d{2})-(\d{2})');
   final match = dateRegex.firstMatch('Today is 2024-03-15');
   if (match != null) {
-    print('Year: \${match.group(1)}');   // 2024
-    print('Month: \${match.group(2)}');  // 03
-    print('Day: \${match.group(3)}');    // 15
-    print('Full: \${match.group(0)}');   // 2024-03-15
+    print('Year: ${
+match.group(1)}');   // 2024
+    print('Month: ${
+match.group(2)}');  // 03
+    print('Day: ${
+match.group(3)}');    // 15
+    print('Full: ${
+match.group(0)}');   // 2024-03-15
   }
 
   // Named groups
   final namedRegex = RegExp(r'(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})');
   final nm = namedRegex.firstMatch('2024-06-21');
   if (nm != null) {
-    print('Year: \${nm.namedGroup('year')}');  // 2024
+    print('Year: ${
+nm.namedGroup('year')}');  // 2024
   }
 
   // All matches
@@ -238,7 +256,8 @@ void main() {
   // Replace with regex
   final spaced = 'helloWorld'.replaceAllMapped(
     RegExp(r'[A-Z]'),
-    (m) => ' \${m.group(0)}',
+    (m) => ' ${
+m.group(0)}',
   );
   print(spaced);  // hello World
 

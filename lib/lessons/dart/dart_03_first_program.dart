@@ -108,9 +108,6 @@ null   → absence of value     null
 💻 CODE:
 // The complete anatomy of a Dart program
 
-// Import packages from dart: core library (always available)
-// import 'dart:math'; // not needed here but shown for reference
-
 /// A simple greeting function.
 /// [name] is the person to greet.
 /// Returns a formatted greeting string.

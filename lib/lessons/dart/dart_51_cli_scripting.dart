@@ -207,7 +207,8 @@ void argsPackageExample(List<String> arguments) {
     print('Files: \$rest');
 
   } on FormatException catch (e) {
-    stderr.writeln('Error: \${e.message}');
+    stderr.writeln('Error: ${
+e.message}');
     print(parser.usage);
     exit(1);
   }
@@ -228,7 +229,8 @@ class BuildCommand extends Command {
   @override
   void run() {
     final isRelease = argResults!['release'] as bool;
-    print('Building\${isRelease ? ' in release mode' : ''}...');
+    print('Building${
+isRelease ? ' in release mode' : ''}...');
   }
 }
 
@@ -255,19 +257,29 @@ void envExample() {
   final apiKey = Platform.environment['API_KEY'];
 
   print('HOME: \$home');
-  print('PATH length: \${path.length}');
+  print('PATH length: ${
+path.length}');
   print('DART_SDK: \$dartSdk');
-  print('API_KEY: \${apiKey != null ? '***set***' : 'not set'}');
+  print('API_KEY: ${
+apiKey != null ? '***set***' : 'not set'}');
 
   // Platform info
-  print('OS: \${Platform.operatingSystem}');
-  print('OS version: \${Platform.operatingSystemVersion}');
-  print('Processors: \${Platform.numberOfProcessors}');
-  print('Script: \${Platform.script.path}');
-  print('Dart version: \${Platform.version}');
-  print('Is Windows: \${Platform.isWindows}');
-  print('Is macOS: \${Platform.isMacOS}');
-  print('Is Linux: \${Platform.isLinux}');
+  print('OS: ${
+Platform.operatingSystem}');
+  print('OS version: ${
+Platform.operatingSystemVersion}');
+  print('Processors: ${
+Platform.numberOfProcessors}');
+  print('Script: ${
+Platform.script.path}');
+  print('Dart version: ${
+Platform.version}');
+  print('Is Windows: ${
+Platform.isWindows}');
+  print('Is macOS: ${
+Platform.isMacOS}');
+  print('Is Linux: ${
+Platform.isLinux}');
 }
 
 // ── RUNNING CHILD PROCESSES ───────
@@ -280,9 +292,12 @@ Future<void> processExample() async {
     runInShell: true,
   );
 
-  print('Exit code: \${result.exitCode}');
-  print('stdout: \${result.stdout}');
-  if (result.stderr.isNotEmpty) print('stderr: \${result.stderr}');
+  print('Exit code: ${
+result.exitCode}');
+  print('stdout: ${
+result.stdout}');
+  if (result.stderr.isNotEmpty) print('stderr: ${
+result.stderr}');
 
   // Stream output in real-time
   print('Running dart analyze...');
@@ -316,13 +331,15 @@ Future<void> processExample() async {
 
 void fileSystemCLIExample() {
   // Current directory
-  print('CWD: \${Directory.current.path}');
+  print('CWD: ${
+Directory.current.path}');
 
   // List directory contents
   final dir = Directory.current;
   for (final entity in dir.listSync()) {
     final type = entity is File ? 'F' : 'D';
-    print('\$type  \${entity.path.split(Platform.pathSeparator).last}');
+    print('\$type  ${
+entity.path.split(Platform.pathSeparator).last}');
   }
 
   // Read a file
@@ -335,9 +352,12 @@ void fileSystemCLIExample() {
   File('output.txt').writeAsStringSync('Hello from CLI!\n');
 
   // Temp file
-  final temp = File('\${Directory.systemTemp.path}/dart_\${DateTime.now().millisecondsSinceEpoch}.tmp');
+  final temp = File('${
+Directory.systemTemp.path}/dart_${
+DateTime.now().millisecondsSinceEpoch}.tmp');
   temp.writeAsStringSync('temporary data');
-  print('Temp file: \${temp.path}');
+  print('Temp file: ${
+temp.path}');
   temp.deleteSync();
 }
 

@@ -202,7 +202,8 @@ class SimulatedCache {
     }
 
     async add(url) {
-        this.#entries.set(url, { url, body: \`Cached content of \${url}\`, status: 200 });
+        this.#entries.set(url, { url, body: \`Cached content of ${
+url}\`, status: 200 });
     }
 
     async addAll(urls) {
@@ -248,7 +249,8 @@ async function handleInstall() {
     console.log("  [SW] Installing...");
     const cache = await caches.open(CACHE_VERSION);
     await cache.addAll(STATIC_ASSETS);
-    console.log(\`  [SW] Cached \${STATIC_ASSETS.length} static assets\`);
+    console.log(\`  [SW] Cached ${
+STATIC_ASSETS.length} static assets\`);
 }
 
 // ─── ACTIVATE PHASE ───────────────────────────────────
@@ -259,22 +261,27 @@ async function handleActivate() {
         cacheNames
             .filter(name => name !== CACHE_VERSION)
             .map(name => {
-                console.log(\`  [SW] Removing old cache: \${name}\`);
+                console.log(\`  [SW] Removing old cache: ${
+name}\`);
                 return caches.delete(name);
             })
     );
-    console.log(\`  [SW] Activation complete. Caches: \${(await caches.keys()).join(', ')}\`);
+    console.log(\`  [SW] Activation complete. Caches: ${
+(await caches.keys()).join(', ')}\`);
 }
 
 // ─── CACHING STRATEGIES ───────────────────────────────
 async function cacheFirst(request) {
     const cached = await caches.match(request);
     if (cached) {
-        console.log(\`    [Cache First] HIT: \${request.url}\`);
+        console.log(\`    [Cache First] HIT: ${
+request.url}\`);
         return cached;
     }
-    console.log(\`    [Cache First] MISS — fetching: \${request.url}\`);
-    const response = { url: request.url, body: \`Fresh: \${request.url}\`, status: 200 };
+    console.log(\`    [Cache First] MISS — fetching: ${
+request.url}\`);
+    const response = { url: request.url, body: \`Fresh: ${
+request.url}\`, status: 200 };
     const cache = await caches.open(CACHE_VERSION);
     await cache.put(request, response);
     return response;
@@ -282,33 +289,40 @@ async function cacheFirst(request) {
 
 async function networkFirst(request) {
     try {
-        console.log(\`    [Network First] Trying network: \${request.url}\`);
-        const response = { url: request.url, body: \`Network: \${request.url}\`, status: 200 };
+        console.log(\`    [Network First] Trying network: ${
+request.url}\`);
+        const response = { url: request.url, body: \`Network: ${
+request.url}\`, status: 200 };
         const cache = await caches.open(CACHE_VERSION);
         await cache.put(request, response);
         return response;
     } catch (e) {
         const cached = await caches.match(request);
         if (cached) {
-            console.log(\`    [Network First] Network failed, using cache: \${request.url}\`);
+            console.log(\`    [Network First] Network failed, using cache: ${
+request.url}\`);
             return cached;
         }
-        throw new Error(\`No cache and no network for \${request.url}\`);
+        throw new Error(\`No cache and no network for ${
+request.url}\`);
     }
 }
 
 async function staleWhileRevalidate(request) {
     const cached  = await caches.match(request);
     const refresh = (async () => {
-        const response = { url: request.url, body: \`Updated: \${request.url}\`, status: 200 };
+        const response = { url: request.url, body: \`Updated: ${
+request.url}\`, status: 200 };
         const cache = await caches.open(CACHE_VERSION);
         await cache.put(request, response);
-        console.log(\`    [SWR] Background updated: \${request.url}\`);
+        console.log(\`    [SWR] Background updated: ${
+request.url}\`);
         return response;
     })();
 
     if (cached) {
-        console.log(\`    [SWR] Serving stale: \${request.url} (revalidating in background)\`);
+        console.log(\`    [SWR] Serving stale: ${
+request.url} (revalidating in background)\`);
         return cached;
     }
     return refresh;
@@ -353,15 +367,19 @@ async function handleFetch(request) {
 
     for (const req of requests) {
         const response = await handleFetch(req);
-        console.log(\`  → \${req.url}: \${response.body.slice(0, 40)}\`);
+        console.log(\`  → ${
+req.url}: ${
+response.body.slice(0, 40)}\`);
     }
 
     // 4. Cache inspection
     console.log("\n=== Cache Inspection ===");
     const cache = await caches.open(CACHE_VERSION);
-    console.log(\`  Total cached items: \${cache.size}\`);
+    console.log(\`  Total cached items: ${
+cache.size}\`);
     console.log("  Cached URLs:");
-    cache.keys().slice(0, 8).forEach(k => console.log(\`    \${k}\`));
+    cache.keys().slice(0, 8).forEach(k => console.log(\`    ${
+k}\`));
 
     // 5. PWA Manifest simulation
     console.log("\n=== Web App Manifest ===");
@@ -392,14 +410,17 @@ async function handleFetch(request) {
 
     function queueForSync(action) {
         syncQueue.push({ action, timestamp: Date.now(), retries: 0 });
-        console.log(\`  Queued: \${action}\`);
+        console.log(\`  Queued: ${
+action}\`);
     }
 
     async function processSyncQueue() {
-        console.log(\`  Processing \${syncQueue.length} queued actions:\`);
+        console.log(\`  Processing ${
+syncQueue.length} queued actions:\`);
         while (syncQueue.length > 0) {
             const item = syncQueue.shift();
-            console.log(\`    ✅ Synced: \${item.action}\`);
+            console.log(\`    ✅ Synced: ${
+item.action}\`);
         }
     }
 

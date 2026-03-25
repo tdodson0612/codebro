@@ -248,7 +248,9 @@ Future<void> timeBasedPatterns() async {
   await ctrl.close();
   await sub.cancel();
 
-  print('  \${value} events → \${collected.length} throttled: \$collected');
+  print('  ${
+value} events → ${
+collected.length} throttled: \$collected');
 
   // Buffer: collect events in time windows
   final source = Stream.periodic(
@@ -387,7 +389,8 @@ Future<void> errorHandlingInStreams() async {
       .handleError((e) {}, test: (e) => e is Exception)
       .where((n) => n != null);
 
-  print('Safe values: \${await safeStream.toList()}');
+  print('Safe values: ${
+await safeStream.toList()}');
 
   // onError in listen
   final ctrl = StreamController<int>();

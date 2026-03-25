@@ -203,7 +203,8 @@ const user = {
     city: "London",
     zip: "EC1A 1BB"
   },
-  getGreeting() { return \`Hello, \${this.name}!\`; }
+  getGreeting() { return \`Hello, ${
+this.name}!\`; }
 };
 
 const nullUser = null;

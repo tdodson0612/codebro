@@ -167,7 +167,8 @@ employees = [
     ("Carol", "Engineering", 98000),
 ]
 for name, dept, salary in employees:
-    print(f"{name} ({dept}): \${salary:,}")
+    print(f"{name} ({dept}): ${
+salary:,}")
 
 # Sort list of tuples by second element
 sorted_by_salary = sorted(employees, key=lambda e: e[2])

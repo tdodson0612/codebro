@@ -36,7 +36,8 @@ THE BASICS:
 
   // await pauses until the Promise settles:
   async function fetchUser(id) {
-      const response = await fetch(\`/api/users/\${id}\`);
+      const response = await fetch(\`/api/users/${
+id}\`);
       const user     = await response.json();
       return user;   // this becomes the resolved value
   }
@@ -156,7 +157,8 @@ DIFFERENCES FROM PROMISES:
 ─────────────────────────────────────
   // Promise chain:
   function loadUser(id) {
-      return fetch(\`/users/\${id}\`)
+      return fetch(\`/users/${
+id}\`)
           .then(r => r.json())
           .then(user => {
               if (!user.active) throw new Error("Inactive");
@@ -168,7 +170,8 @@ DIFFERENCES FROM PROMISES:
   // async/await equivalent (more readable):
   async function loadUser(id) {
       try {
-          const r    = await fetch(\`/users/\${id}\`);
+          const r    = await fetch(\`/users/${
+id}\`);
           const user = await r.json();
           if (!user.active) throw new Error("Inactive");
           return user;
@@ -186,8 +189,10 @@ function delay(ms) {
 function fetchUser(id) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (id > 0) resolve({ id, name: \`User\${id}\`, posts: id * 3 });
-            else reject(new Error(\`Invalid user id: \${id}\`));
+            if (id > 0) resolve({ id, name: \`User${
+id}\`, posts: id * 3 });
+            else reject(new Error(\`Invalid user id: ${
+id}\`));
         }, 50);
     });
 }
@@ -197,7 +202,9 @@ function fetchPosts(userId) {
         setTimeout(() => resolve(
             Array.from({ length: 3 }, (_, i) => ({
                 id: userId * 10 + i,
-                title: \`Post \${userId}-\${i}\`
+                title: \`Post ${
+userId}-${
+i}\`
             }))
         ), 50);
     });
@@ -232,19 +239,28 @@ async function parallelDemo() {
     let start = Date.now();
     const u1 = await fetchUser(1);
     const p1 = await fetchPosts(1);
-    console.log(\`  Sequential: \${Date.now()-start}ms → \${u1.name}, \${p1.length} posts\`);
+    console.log(\`  Sequential: ${
+Date.now()-start}ms → ${
+u1.name}, ${
+p1.length} posts\`);
 
     // Parallel (faster):
     start = Date.now();
     const [u2, p2] = await Promise.all([fetchUser(2), fetchPosts(2)]);
-    console.log(\`  Parallel:   \${Date.now()-start}ms → \${u2.name}, \${p2.length} posts\`);
+    console.log(\`  Parallel:   ${
+Date.now()-start}ms → ${
+u2.name}, ${
+p2.length} posts\`);
 
     // Parallel with individual awaits:
     start = Date.now();
     const u3Promise = fetchUser(3);
     const p3Promise = fetchPosts(3);
     const [u3, p3] = [await u3Promise, await p3Promise];
-    console.log(\`  Pre-started:\${Date.now()-start}ms → \${u3.name}, \${p3.length} posts\`);
+    console.log(\`  Pre-started:${
+Date.now()-start}ms → ${
+u3.name}, ${
+p3.length} posts\`);
 }
 
 // ─── RETRY PATTERN ────────────────────────────────────
@@ -256,11 +272,14 @@ async function retryDemo() {
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
                 const result = await fn();
-                console.log(\`  ✅ Succeeded on attempt \${attempt}\`);
+                console.log(\`  ✅ Succeeded on attempt ${
+attempt}\`);
                 return result;
             } catch (e) {
                 lastError = e;
-                console.log(\`  ❌ Attempt \${attempt} failed: \${e.message}\`);
+                console.log(\`  ❌ Attempt ${
+attempt} failed: ${
+e.message}\`);
                 if (attempt < maxRetries) await delay(delayMs);
             }
         }
@@ -292,10 +311,12 @@ async function memoDemo() {
         return async (...args) => {
             const key = JSON.stringify(args);
             if (cache.has(key)) {
-                console.log(\`  Cache HIT for \${key}\`);
+                console.log(\`  Cache HIT for ${
+key}\`);
                 return cache.get(key);
             }
-            console.log(\`  Fetching \${key}...\`);
+            console.log(\`  Fetching ${
+key}...\`);
             const result = await fn(...args);
             cache.set(key, result);
             return result;
@@ -322,7 +343,9 @@ async function asyncIterationDemo() {
 
     const allItems = [];
     for await (const { page, items } of fetchPages()) {
-        console.log(\`  Page \${page}: \${items}\`);
+        console.log(\`  Page ${
+page}: ${
+items}\`);
         allItems.push(...items);
     }
     console.log("  All items:", allItems);

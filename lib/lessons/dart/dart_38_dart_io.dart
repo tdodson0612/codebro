@@ -97,7 +97,8 @@ Future<void> main() async {
 
   // Write
   await file.writeAsString('Hello, Dart!\nLine 2\nLine 3\n');
-  print('Written to \${file.path}');
+  print('Written to ${
+file.path}');
 
   // Read all at once
   String content = await file.readAsString();
@@ -105,7 +106,8 @@ Future<void> main() async {
 
   // Read as bytes
   List<int> bytes = await file.readAsBytes();
-  print('Size: \${bytes.length} bytes');
+  print('Size: ${
+bytes.length} bytes');
 
   // Read line by line (streaming — memory efficient!)
   print('Lines:');
@@ -119,17 +121,22 @@ Future<void> main() async {
   await file.writeAsString('Line 4\n', mode: FileMode.append);
 
   // Check existence
-  print('Exists: \${await file.exists()}');
+  print('Exists: ${
+await file.exists()}');
 
   // File info
   final stat = await file.stat();
-  print('Size: \${stat.size} bytes');
-  print('Modified: \${stat.modified}');
-  print('Type: \${stat.type}');
+  print('Size: ${
+stat.size} bytes');
+  print('Modified: ${
+stat.modified}');
+  print('Type: ${
+stat.type}');
 
   // Copy, rename, delete
   File copy = await file.copy('example_copy.txt');
-  print('Copied to: \${copy.path}');
+  print('Copied to: ${
+copy.path}');
   await copy.delete();
   print('Copy deleted');
 
@@ -138,7 +145,8 @@ Future<void> main() async {
 
   // Create (recursive = create parent dirs too)
   await dir.create(recursive: true);
-  print('Created directory: \${dir.path}');
+  print('Created directory: ${
+dir.path}');
 
   // Create files in it
   await File('test_dir/a.txt').writeAsString('File A');
@@ -149,14 +157,18 @@ Future<void> main() async {
   // List contents
   print('\nDirectory contents:');
   await for (final entity in dir.list()) {
-    if (entity is File) print('  FILE: \${entity.path}');
-    if (entity is Directory) print('  DIR:  \${entity.path}');
+    if (entity is File) print('  FILE: ${
+entity.path}');
+    if (entity is Directory) print('  DIR:  ${
+entity.path}');
   }
 
   // Recursive listing
   print('\nRecursive contents:');
   await for (final entity in dir.list(recursive: true)) {
-    print('  \${entity.runtimeType}: \${entity.path}');
+    print('  ${
+entity.runtimeType}: ${
+entity.path}');
   }
 
   // Clean up
@@ -176,11 +188,16 @@ Future<void> main() async {
 
   // ── PLATFORM INFO ──────────────
   print('\nPlatform info:');
-  print('OS: \${Platform.operatingSystem}');       // macos/linux/windows
-  print('Processors: \${Platform.numberOfProcessors}');
-  print('Dart version: \${Platform.version}');
-  print('Script: \${Platform.script}');
-  print('Executable: \${Platform.executable}');
+  print('OS: ${
+Platform.operatingSystem}');       // macos/linux/windows
+  print('Processors: ${
+Platform.numberOfProcessors}');
+  print('Dart version: ${
+Platform.version}');
+  print('Script: ${
+Platform.script}');
+  print('Executable: ${
+Platform.executable}');
 
   // Environment variables
   final home = Platform.environment['HOME'];
@@ -189,8 +206,10 @@ Future<void> main() async {
   // ── PROCESS ─────────────────────
   // Run a shell command
   final result = await Process.run('echo', ['Hello from Process!']);
-  print('Exit code: \${result.exitCode}');
-  print('Output: \${result.stdout}');
+  print('Exit code: ${
+result.exitCode}');
+  print('Output: ${
+result.stdout}');
 
   // Stream process output
   final process = await Process.start('ls', ['-la']);
@@ -210,7 +229,8 @@ Future<void> main() async {
   //   final response = await request.close();
   //   final body = await response.transform(utf8.decoder).join();
   //   final json = jsonDecode(body);
-  //   print('Post title: \${json['title']}');
+  //   print('Post title: ${
+json['title']}');
   // } finally {
   //   client.close();
   // }
@@ -247,11 +267,14 @@ Future<void> main() async {
 
   // ── TEMP FILE/DIR ───────────────
   final temp = await File.fromUri(
-    Directory.systemTemp.uri.resolve('dart_example_\${DateTime.now().millisecondsSinceEpoch}.txt')
+    Directory.systemTemp.uri.resolve('dart_example_${
+DateTime.now().millisecondsSinceEpoch}.txt')
   );
   await temp.writeAsString('Temporary file');
-  print('\nTemp file: \${temp.path}');
-  print('Exists: \${await temp.exists()}');
+  print('\nTemp file: ${
+temp.path}');
+  print('Exists: ${
+await temp.exists()}');
   await temp.delete();
 
   print('\ndart:io examples complete!');

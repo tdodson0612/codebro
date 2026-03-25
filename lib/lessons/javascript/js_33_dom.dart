@@ -124,8 +124,10 @@ CREATING AND INSERTING ELEMENTS:
   // Template literal approach:
   container.insertAdjacentHTML('beforeend', \`
       <div class="card">
-          <h3>\${title}</h3>
-          <p>\${safe(description)}</p>
+          <h3>${
+title}</h3>
+          <p>${
+safe(description)}</p>
       </div>
   \`);
   // Positions: 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
@@ -195,11 +197,18 @@ class FakeElement {
     hasAttribute(name) { return name in this.attributes; }
 
     toString() {
-        const attrs  = this.id ? \` id="\${this.id}"\` : '';
-        const cls    = this.className ? \` class="\${this.className}"\` : '';
+        const attrs  = this.id ? \` id="${
+this.id}"\` : '';
+        const cls    = this.className ? \` class="${
+this.className}"\` : '';
         const childStr = this.children.map(c => c.toString()).join('');
         const content  = childStr || this.textContent;
-        return \`<\${this.tagName.toLowerCase()}\${attrs}\${cls}>\${content}</\${this.tagName.toLowerCase()}>\`;
+        return \`<${
+this.tagName.toLowerCase()}${
+attrs}${
+cls}>${
+content}</${
+this.tagName.toLowerCase()}>\`;
     }
 }
 
@@ -280,12 +289,14 @@ function createUserCard(user) {
 
     const header = el('div', { className: 'card-header' },
         el('h3', { textContent: user.name }),
-        el('span', { className: \`badge \${user.role}\`, textContent: user.role })
+        el('span', { className: \`badge ${
+user.role}\`, textContent: user.role })
     );
 
     const body = el('div', { className: 'card-body' },
         el('p', { textContent: user.email }),
-        el('p', { textContent: \`\${user.posts} posts\` })
+        el('p', { textContent: \`${
+user.posts} posts\` })
     );
 
     const footer = el('div', { className: 'card-footer' },
@@ -306,7 +317,8 @@ const users = [
 
 users.forEach(user => {
     const card = createUserCard(user);
-    console.log(\`  Card for \${user.name}:\`);
+    console.log(\`  Card for ${
+user.name}:\`);
     console.log("   ", card.toString().slice(0, 120) + "...");
     console.log("   Children:", card.children.length);
     console.log("   Header text:", card.querySelector('.card-header')?.children[0]?.textContent);
@@ -336,7 +348,9 @@ const domRef = [
 ];
 
 domRef.forEach(([desc, code]) => {
-    console.log(\`  \${desc.padEnd(15)}: \${code}\`);
+    console.log(\`  ${
+desc.padEnd(15)}: ${
+code}\`);
 });
 
 📝 KEY POINTS:

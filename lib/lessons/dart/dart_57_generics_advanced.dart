@@ -127,7 +127,9 @@ void boundedGenericsDemo() {
   final nums = SortedList<int>();
   nums.add(3); nums.add(1); nums.add(4); nums.add(1); nums.add(5);
   print(nums.toList());    // [1, 1, 3, 4, 5]
-  print('Min: \${nums.min}, Max: \${nums.max}');
+  print('Min: ${
+nums.min}, Max: ${
+nums.max}');
 
   // Generic function with bound
   print(findMax([3, 1, 4, 1, 5, 9, 2, 6]));  // 9
@@ -137,7 +139,8 @@ void boundedGenericsDemo() {
   final heap = MinHeap<int>();
   [5, 3, 8, 1, 4, 2].forEach(heap.insert);
   while (!heap.isEmpty) {
-    print('  \${heap.extractMin()}');  // 1, 2, 3, 4, 5, 8
+    print('  ${
+heap.extractMin()}');  // 1, 2, 3, 4, 5, 8
   }
 }
 
@@ -236,15 +239,18 @@ void varianceDemo() {
   final List<dynamic> mixed = [Dog('A'), Cat('B'), Dog('C')];
   for (final item in mixed) {
     if (item is Dog) {
-      print('Dog: \${item.name}');
+      print('Dog: ${
+item.name}');
     } else if (item is Cat) {
-      print('Cat: \${item.name}');
+      print('Cat: ${
+item.name}');
     }
   }
 
   // Function variance
   // Function that takes Animal can be used as Function that takes Dog
-  void feedAnimal(Animal a) => print('Feeding \${a.name}');
+  void feedAnimal(Animal a) => print('Feeding ${
+a.name}');
   void Function(Dog) dogFeeder = feedAnimal;  // ✅ contravariant input
   dogFeeder(Dog('Fido'));
 }
@@ -363,7 +369,8 @@ void runtimeTypeDemo() {
   // Use this for type-safe generic operations
   Object unknown = [1, 2, 3];
   if (unknown is List<int>) {
-    print('Sum: \${unknown.reduce((a, b) => a + b)}');  // type-safe!
+    print('Sum: ${
+unknown.reduce((a, b) => a + b)}');  // type-safe!
   }
 
   // Generic class runtimeType
