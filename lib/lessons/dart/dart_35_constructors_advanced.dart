@@ -231,8 +231,8 @@ class Point {
 
   @override
   String toString() =>
-      'Point(${
-x.toStringAsFixed(1)}, ${
+      'Point(\${
+x.toStringAsFixed(1)}, \${
 y.toStringAsFixed(1)})';
 }
 
@@ -288,11 +288,11 @@ class Color {
   const Color(this.r, this.g, this.b);
 
   String toHex() =>
-      '#${
+      '#\${
 r.toRadixString(16).padLeft(2, '0')}'
-      '${
+      '\${
 g.toRadixString(16).padLeft(2, '0')}'
-      '${
+      '\${
 b.toRadixString(16).padLeft(2, '0')}';
 }
 

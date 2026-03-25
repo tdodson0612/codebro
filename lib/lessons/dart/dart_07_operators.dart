@@ -1,7 +1,7 @@
 import '../../models/lesson.dart';
 import '../../models/quiz.dart';
 
-final dartLesson06 = Lesson(
+final dartLesson07 = Lesson(
   language: 'Dart',
   title: 'Null Safety',
   content: '''

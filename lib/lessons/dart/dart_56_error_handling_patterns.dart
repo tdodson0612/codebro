@@ -136,10 +136,10 @@ Future<void> basicExceptionHandling() async {
     final result = int.parse('not a number');
     print(result);
   } on FormatException catch (e) {
-    print('FormatException: ${
+    print('FormatException: \${
 e.message}');
   } on RangeError catch (e) {
-    print('RangeError: ${
+    print('RangeError: \${
 e.message}');
   } catch (e, stackTrace) {
     print('Unknown error: \$e');
@@ -153,7 +153,7 @@ e.message}');
     List<int> list = [1, 2, 3];
     print(list[10]);   // RangeError
   } on RangeError catch (e) {
-    print('RangeError caught: ${
+    print('RangeError caught: \${
 e.message}');
   }
 
@@ -187,18 +187,18 @@ Future<void> customExceptions() async {
   for (final id in ['1', '999', 'bad', '-1']) {
     try {
       final user = await fetchUser(id);
-      print('  Found: ${
+      print('  Found: \${
 user['name']}');
     } on NotFoundException catch (e) {
-      print('  Not found: ${
+      print('  Not found: \${
 e.message}');
     } on ValidationException catch (e) {
-      print('  Validation: ${
-e.message} (field: ${
+      print('  Validation: \${
+e.message} (field: \${
 e.field})');
     } on ApiException catch (e) {
-      print('  API error ${
-e.statusCode}: ${
+      print('  API error \${
+e.statusCode}: \${
 e.message}');
     }
   }
@@ -208,7 +208,7 @@ class AppException implements Exception {
   final String message;
   const AppException(this.message);
   @override
-  String toString() => '${
+  String toString() => '\${
 runtimeType}: \$message';
 }
 
@@ -386,10 +386,10 @@ Future<void> asyncErrorHandling() async {
 
   for (final r in results) {
     if (r.error != null) {
-      print('  Error: ${
+      print('  Error: \${
 r.error}');
     } else {
-      print('  Value: ${
+      print('  Value: \${
 r.value}');
     }
   }

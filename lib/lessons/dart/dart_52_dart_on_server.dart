@@ -53,11 +53,11 @@ Future<Response> asyncHandler(Request request) async {
 ─────────────────────────────────────
 Middleware logRequests = (Handler inner) {
   return (Request request) async {
-    print('[LOG] ${
-request.method} ${
+    print('[LOG] \${
+request.method} \${
 request.url}');
     final response = await inner(request);
-    print('[LOG] ${
+    print('[LOG] \${
 response.statusCode}');
     return response;
   };
@@ -201,10 +201,10 @@ Middleware logger() {
       final start = DateTime.now();
       final response = await inner(request);
       final duration = DateTime.now().difference(start);
-      print('${
-response.statusCode} ${
-request.method} ${
-request.url} (${
+      print('\${
+response.statusCode} \${
+request.method} \${
+request.url} (\${
 duration.inMilliseconds}ms)');
       return response;
     };
@@ -283,8 +283,8 @@ Future<void> main() async {
           .handler);
 
   final server = await io.serve(handler, InternetAddress.anyIPv4, port);
-  print('Server listening on ${
-server.address.host}:${
+  print('Server listening on \${
+server.address.host}:\${
 server.port}');
 
   // Graceful shutdown

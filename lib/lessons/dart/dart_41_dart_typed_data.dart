@@ -141,17 +141,17 @@ void main() {
   final u8view  = Uint8List.view(buffer);
   final u16view = Uint16List.view(buffer);
 
-  print('Uint8:  ${
+  print('Uint8:  \${
 u8view.toList()}');
   // [1, 0, 2, 0, 3, 0, 4, 0]
 
-  print('Uint16: ${
+  print('Uint16: \${
 u16view.toList()}');
   // [1, 2, 3, 4]  (little-endian)
 
   // Both see the same memory — modifying one affects the other!
   u8view[0] = 0xFF;
-  print('After modify Uint16[0]: ${
+  print('After modify Uint16[0]: \${
 u16view[0]}');  // 255
 
   // ── PRACTICAL: BINARY FILE FORMAT ─
@@ -167,7 +167,7 @@ u16view[0]}');  // 255
   // String → Uint8List (common for file writing)
   final text = 'Hello, Dart! 🎯';
   final encoded = Uint8List.fromList(utf8.encode(text));
-  print('Bytes: ${
+  print('Bytes: \${
 encoded.length}');
 
   // Uint8List → String
@@ -185,7 +185,7 @@ encoded.length}');
 
   // Modifying view changes original!
   view[0] = 99;
-  print('data[5] after view modify: ${
+  print('data[5] after view modify: \${
 data[5]}');  // 99
 
   // ── COPY DATA ─────────────────

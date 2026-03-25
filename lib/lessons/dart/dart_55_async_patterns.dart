@@ -215,7 +215,7 @@ Future<void> streamControllerExample() async {
   print('\nCustom temperature sensor:');
   final sensor = TemperatureSensor(initialTemp: 20.0);
   await for (final temp in sensor.readings.take(5)) {
-    print('  Temp: ${
+    print('  Temp: \${
 temp.toStringAsFixed(1)}°C');
   }
   sensor.dispose();
@@ -256,7 +256,7 @@ Future<void> futureCombinators() async {
     _fetch('user-3', 150),
   ]);
   final elapsed = DateTime.now().difference(start).inMilliseconds;
-  print('  Results: \$results in ${
+  print('  Results: \$results in \${
 elapsed}ms (all parallel!)');
 
   // Future.any — first wins

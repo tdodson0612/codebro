@@ -149,7 +149,7 @@ void main() async {
   final bcast = StreamController<String>.broadcast();
 
   bcast.stream.listen((s) => print('  A: \$s'));
-  bcast.stream.listen((s) => print('  B: ${
+  bcast.stream.listen((s) => print('  B: \${
 s.toUpperCase()}'));
 
   bcast.add('hello');

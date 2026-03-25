@@ -265,7 +265,7 @@ FutureBuilder<List<User>>(
       return const CircularProgressIndicator();
     }
     if (snapshot.hasError) {
-      return Text('Error: ${
+      return Text('Error: \${
 snapshot.error}');
     }
     final users = snapshot.data!;
@@ -312,7 +312,7 @@ void main() {
   ];
 
   for (final (i, topic) in topics.indexed) {
-    print('  ${
+    print('  \${
 i+1}. \$topic');
   }
 

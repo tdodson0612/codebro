@@ -248,8 +248,8 @@ Future<void> timeBasedPatterns() async {
   await ctrl.close();
   await sub.cancel();
 
-  print('  ${
-value} events → ${
+  print('  \${
+value} events → \${
 collected.length} throttled: \$collected');
 
   // Buffer: collect events in time windows
@@ -389,7 +389,7 @@ Future<void> errorHandlingInStreams() async {
       .handleError((e) {}, test: (e) => e is Exception)
       .where((n) => n != null);
 
-  print('Safe values: ${
+  print('Safe values: \${
 await safeStream.toList()}');
 
   // onError in listen

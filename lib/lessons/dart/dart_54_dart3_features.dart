@@ -116,8 +116,8 @@ void main() {
 
   // Named records
   ({String name, int score}) result = (name: 'Alice', score: 95);
-  print('${
-result.name}: ${
+  print('\${
+result.name}: \${
 result.score}');
 
   // Multiple return values
@@ -184,8 +184,8 @@ result.score}');
       Rectangle(:var width, :var height) => width * height,
       Triangle(:var a, :var b, :var c) => _triangleArea(a, b, c),
     };
-    print('${
-shape.runtimeType}: area = ${
+    print('\${
+shape.runtimeType}: area = \${
 area.toStringAsFixed(2)}');
   }
 
@@ -229,7 +229,7 @@ area.toStringAsFixed(2)}');
   ];
 
   for (final (i, feature) in features.indexed) {
-    print('${
+    print('\${
 i + 1}. \$feature');
   }
 }

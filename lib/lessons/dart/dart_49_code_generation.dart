@@ -256,7 +256,7 @@ void handleResult(ApiResult<User> result) {
     case Loading():
       print('Loading...');
     case Success(:final data):
-      print('Got user: ${
+      print('Got user: \${
 data.name}');
     case Error(:final message):
       print('Error: \$message');

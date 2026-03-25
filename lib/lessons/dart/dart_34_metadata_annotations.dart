@@ -279,7 +279,7 @@ void printAnnotations(Object obj) {
   final classMirror = mirror.type;
 
   for (final metadata in classMirror.metadata) {
-    print('Annotation: ${
+    print('Annotation: \${
 metadata.reflectee}');
   }
 }

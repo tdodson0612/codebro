@@ -113,7 +113,7 @@ void main() {
   final sw = Stopwatch()..start();
   _doWork(100000);
   sw.stop();
-  print('doWork took: ${
+  print('doWork took: \${
 sw.elapsedMicroseconds}μs');
 
   // ── CONST CANONICALIZATION ─────
@@ -138,7 +138,7 @@ sw.elapsedMicroseconds}μs');
   for (var i = 0; i < size; i++) list[i] = i;
   final listSum = list.fold(0, (a, b) => a + b);
   sw.stop();
-  print('List<int>:    ${
+  print('List<int>:    \${
 sw.elapsedMilliseconds}ms (sum=\$listSum)');
 
   // Uint32List — unboxed, cache-friendly
@@ -148,7 +148,7 @@ sw.elapsedMilliseconds}ms (sum=\$listSum)');
   var typedSum = 0;
   for (var i = 0; i < size; i++) typedSum += typed[i];
   sw.stop();
-  print('Uint32List:   ${
+  print('Uint32List:   \${
 sw.elapsedMilliseconds}ms (sum=\$typedSum)');
 
   // ── STRING BUILDING ────────────
@@ -161,7 +161,7 @@ sw.elapsedMilliseconds}ms (sum=\$typedSum)');
     bad += 'x';  // O(n) each concat → O(n²) total!
   }
   sw.stop();
-  print('String +=:    ${
+  print('String +=:    \${
 sw.elapsedMicroseconds}μs');
 
   // Good: StringBuffer
@@ -172,7 +172,7 @@ sw.elapsedMicroseconds}μs');
   }
   final good = sb.toString();
   sw.stop();
-  print('StringBuffer: ${
+  print('StringBuffer: \${
 sw.elapsedMicroseconds}μs');
 
   // ── AVOID CLOSURE ALLOCATION IN LOOPS ──
@@ -190,8 +190,8 @@ sw.elapsedMicroseconds}μs');
   for (var i = 0; i < data.length; i++) { sumGood += data[i]; }
   sw.stop();
   final loopTime = sw.elapsedMicroseconds;
-  print('forEach: ${
-closureTime}μs  vs  for loop: ${
+  print('forEach: \${
+closureTime}μs  vs  for loop: \${
 loopTime}μs');
 
   // ── LATE LAZY INITIALIZATION ───
@@ -199,9 +199,9 @@ loopTime}μs');
   final obj = ExpensiveObject();
   print('Object created (no computation yet)');
   // ...
-  print('Accessing result: ${
+  print('Accessing result: \${
 obj.result}');  // computed here
-  print('Accessing again:  ${
+  print('Accessing again:  \${
 obj.result}');  // cached!
 
   // ── AVOID DYNAMIC ─────────────
@@ -221,8 +221,8 @@ obj.result}');  // cached!
     for (var i = 0; i < 10000; i++) i * 2,
   ];
   sw.stop();
-  print('Collection for: ${
-sw.elapsedMicroseconds}μs, len=${
+  print('Collection for: \${
+sw.elapsedMicroseconds}μs, len=\${
 built.length}');
 
   // ── TIMELINE EVENTS (DevTools) ─
@@ -250,7 +250,7 @@ built.length}');
     totalDist += math.sqrt(xs[i] * xs[i] + ys[i] * ys[i]);
   }
   sw.stop();
-  print('Parallel arrays: ${
+  print('Parallel arrays: \${
 sw.elapsedMilliseconds}ms');
 }
 

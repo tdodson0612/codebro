@@ -129,7 +129,7 @@ void main() {
   final name = decoded['name'] as String;
   final age  = decoded['age'] as int;
   final scores = (decoded['scores'] as List).cast<int>();
-  print('Name: \$name, Age: \$age, First score: ${
+  print('Name: \$name, Age: \$age, First score: \${
 scores.first}');
 
   // JSON array
@@ -143,7 +143,7 @@ scores.first}');
   final userJson = jsonEncode(user, toEncodable: (obj) {
     if (obj is DateTime) return obj.toIso8601String();
     if (obj is User) return obj.toMap();
-    throw UnsupportedError('Cannot encode ${
+    throw UnsupportedError('Cannot encode \${
 obj.runtimeType}');
   });
   print(userJson);
@@ -152,15 +152,15 @@ obj.runtimeType}');
   // String → bytes
   final text = 'Hello, 世界! 🌍';
   final bytes = utf8.encode(text);
-  print('Bytes: ${
+  print('Bytes: \${
 bytes.length}');  // more than String.length!
-  print('Chars: ${
+  print('Chars: \${
 text.length}');   // character count
 
   // Bytes → String
   final decoded2 = utf8.decode(bytes);
   print('Decoded: \$decoded2');
-  print('Same: ${
+  print('Same: \${
 text == decoded2}');  // true
 
   // Handle invalid bytes
@@ -196,7 +196,7 @@ text == decoded2}');  // true
   final textBytes = utf8.encode('Hello, Dart!');
   final encoded = base64.encode(textBytes);
   print('Encoded string: \$encoded');
-  print('Decoded: ${
+  print('Decoded: \${
 utf8.decode(base64.decode(encoded))}');
 
   // ── HTML ESCAPE ────────────────
@@ -223,7 +223,7 @@ utf8.decode(base64.decode(encoded))}');
   print('Original: \$msg');
   print('Encoded:  \$encoded2');
   print('Decoded:  \$decoded3');
-  print('Match: ${
+  print('Match: \${
 msg == decoded3}');
 
   // ── STREAMING JSON ─────────────

@@ -210,16 +210,16 @@ void main() {
 
   // Cascade of is checks
   if (value is int) {
-    print('Int: ${
+    print('Int: \${
 value * 2}');
   } else if (value is String) {
-    print('String: ${
+    print('String: \${
 value.toUpperCase()}');
   } else if (value is List) {
-    print('List of ${
+    print('List of \${
 value.length} items');
   } else {
-    print('Unknown type: ${
+    print('Unknown type: \${
 value?.runtimeType}');
   }
 
@@ -263,7 +263,7 @@ Object? getRandomValue() {
 
 // Non-nullable generic bound
 void printNonNull<T extends Object>(T value) {
-  print('Non-null value: \$value (type: ${
+  print('Non-null value: \$value (type: \${
 value.runtimeType})');
 }
 
