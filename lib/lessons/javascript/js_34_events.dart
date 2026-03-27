@@ -216,11 +216,11 @@ const button = new EventEmitter();
 
 // Add multiple listeners:
 button.addEventListener('click', (e) => {
-    console.log(\`  click listener 1: type=${
+    console.log(\`  click listener 1: type=\${
 e.type}\`);
 });
 button.addEventListener('click', (e) => {
-    console.log(\`  click listener 2: target=${
+    console.log(\`  click listener 2: target=\${
 e.currentTarget?.constructor?.name}\`);
 });
 
@@ -235,7 +235,7 @@ let openCount = 0;
 
 modal.addEventListener('open', () => {
     openCount++;
-    console.log(\`  Modal opened (count: ${
+    console.log(\`  Modal opened (count:\${
 openCount})\`);
 }, { once: true });
 
@@ -249,7 +249,7 @@ console.log("\n=== Removing Event Listeners ===");
 const input = new EventEmitter();
 let changeCount = 0;
 
-const onChange = () => { changeCount++; console.log(\`  Change #${
+const onChange = () => { changeCount++; console.log(\`  Change #\${
 changeCount}\`); };
 input.addEventListener('change', onChange);
 
@@ -291,17 +291,17 @@ function AuthService(eventBus) {
 
 // Listen to events:
 app.addEventListener('auth:login', (e) => {
-    console.log(\`  ✅ User logged in: ${
-e.detail.username} (ID: ${
+    console.log(\`  ✅ User logged in:\${
+e.detail.username} (ID:\${
 e.detail.userId})\`);
 });
 app.addEventListener('auth:error', (e) => {
-    console.log(\`  ❌ Auth error for '${
-e.detail.username}': ${
+    console.log(\`  ❌ Auth error for '\${
+e.detail.username}':\${
 e.detail.message}\`);
 });
 app.addEventListener('auth:logout', (e) => {
-    console.log(\`  👋 User logged out at ${
+    console.log(\`  👋 User logged out at\${
 new Date(e.detail.timestamp).toISOString()}\`);
 });
 
@@ -321,8 +321,8 @@ class FakeList extends EventEmitter {
 
     addItem(id, label) {
         this.items.push({ id, label });
-        console.log(\`  Added item: ${
-label} (id=${
+        console.log(\`  Added item:\${
+label} (id=\${
 id})\`);
     }
 
@@ -342,8 +342,8 @@ const todoList = new FakeList();
 // ONE listener on the container handles all items:
 todoList.addEventListener('click', (e) => {
     if (!e.target?.id) return;
-    console.log(\`  Delegated click on item: "${
-e.target.label}" (id=${
+    console.log(\`  Delegated click on item: "\${
+e.target.label}" (id=\${
 e.target.id})\`);
 });
 
@@ -386,12 +386,12 @@ function simulateKeyboard() {
     ]);
 
     function handleKey(key, ctrlKey = false) {
-        const combo = ctrlKey ? \`${
+        const combo = ctrlKey ? \`\${
 key}+ctrl\` : key;
         const action = shortcuts.get(combo);
         if (action) action();
-        else console.log(\`  Key: '${
-key}' ${
+        else console.log(\`  Key: '\${
+key}'\${
 ctrlKey ? '(+Ctrl)' : ''}\`);
     }
 

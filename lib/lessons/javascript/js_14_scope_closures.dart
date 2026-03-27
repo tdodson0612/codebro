@@ -172,21 +172,19 @@ function createCounter(initialValue = 0) {
   return {
     increment(by = 1)  {
       count += by;
-      history.push(\`+${
-by} → ${
-count}\`);
+      history.push(\`+\${by} →\${count}\`);
       return count;
     },
     decrement(by = 1)  {
       count -= by;
-      history.push(\`-${
-by} → ${
+      history.push(\`-\${
+by} →\${
 count}\`);
       return count;
     },
     reset()            {
       count = initialValue;
-      history.push(\`reset → ${
+      history.push(\`reset →\${
 count}\`);
     },
     getCount()         { return count; },
@@ -211,10 +209,7 @@ function createUser(name, role) {
     getName()       { return name; },
     getRole()       { return role; },
     getCreatedAt()  { return createdAt; },
-    toString()      { return \`${
-role}:${
-name}@${
-createdAt}\`; },
+    toString()      { return \`\${role}:\${name}@\${createdAt}\`; },
     hasPermission(perm) {
       const permissions = {
         admin: ["read", "write", "delete", "manage"],
@@ -280,8 +275,8 @@ function setupHandlers(items) {
   return items.map((item, index) => {
     return function handleClick() {
       // Closes over 'item' and 'index' from map
-      return \`Clicked item ${
-index}: ${
+      return \`Clicked item\${
+index}:\${
 item}\`;
     };
   });

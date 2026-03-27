@@ -110,7 +110,7 @@ MUST implement them.
       abstract fun area(): Double    // no body — must override
       abstract fun perimeter(): Double
 
-      fun describe() = "I am a shape with area ${
+      fun describe() = "I am a shape with area\${
 area()}"
   }
 
@@ -152,7 +152,7 @@ class Cat(name: String, val isIndoor: Boolean) : Animal(name, "Meow") {
 
     override fun describe() {
         super.describe()
-        println("${
+        println("\${
 if (isIndoor) "Indoor" else "Outdoor"} cat.")
     }
 }
@@ -162,8 +162,8 @@ abstract class Shape(val color: String) {
     abstract fun perimeter(): Double
 
     fun describe() {
-        println("\$color shape | Area: ${
-"%.2f".format(area())} | Perimeter: ${
+        println("\$color shape | Area:\${
+"%.2f".format(area())} | Perimeter:\${
 "%.2f".format(perimeter())}")
     }
 }
@@ -208,9 +208,9 @@ fun main() {
     // Type checking with is
     for (animal in animals) {
         when (animal) {
-            is Dog -> println("${
+            is Dog -> println("\${
 animal.name} is a Dog")
-            is Cat -> println("${
+            is Cat -> println("\${
 animal.name} is a Cat")
         }
     }

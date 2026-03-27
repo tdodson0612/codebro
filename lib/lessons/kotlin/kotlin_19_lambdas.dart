@@ -155,7 +155,7 @@ fun filterAndTransform(
 inline fun timed(label: String, block: () -> Unit) {
     val start = System.currentTimeMillis()
     block()
-    println("\$label took ${
+    println("\$label took\${
 System.currentTimeMillis() - start}ms")
 }
 

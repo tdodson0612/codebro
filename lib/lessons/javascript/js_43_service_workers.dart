@@ -202,7 +202,7 @@ class SimulatedCache {
     }
 
     async add(url) {
-        this.#entries.set(url, { url, body: \`Cached content of ${
+        this.#entries.set(url, { url, body: \`Cached content of\${
 url}\`, status: 200 });
     }
 
@@ -249,7 +249,7 @@ async function handleInstall() {
     console.log("  [SW] Installing...");
     const cache = await caches.open(CACHE_VERSION);
     await cache.addAll(STATIC_ASSETS);
-    console.log(\`  [SW] Cached ${
+    console.log(\`  [SW] Cached\${
 STATIC_ASSETS.length} static assets\`);
 }
 
@@ -261,12 +261,12 @@ async function handleActivate() {
         cacheNames
             .filter(name => name !== CACHE_VERSION)
             .map(name => {
-                console.log(\`  [SW] Removing old cache: ${
+                console.log(\`  [SW] Removing old cache:\${
 name}\`);
                 return caches.delete(name);
             })
     );
-    console.log(\`  [SW] Activation complete. Caches: ${
+    console.log(\`  [SW] Activation complete. Caches:\${
 (await caches.keys()).join(', ')}\`);
 }
 
@@ -274,13 +274,13 @@ name}\`);
 async function cacheFirst(request) {
     const cached = await caches.match(request);
     if (cached) {
-        console.log(\`    [Cache First] HIT: ${
+        console.log(\`    [Cache First] HIT:\${
 request.url}\`);
         return cached;
     }
-    console.log(\`    [Cache First] MISS — fetching: ${
+    console.log(\`    [Cache First] MISS — fetching:\${
 request.url}\`);
-    const response = { url: request.url, body: \`Fresh: ${
+    const response = { url: request.url, body: \`Fresh:\${
 request.url}\`, status: 200 };
     const cache = await caches.open(CACHE_VERSION);
     await cache.put(request, response);
@@ -289,9 +289,9 @@ request.url}\`, status: 200 };
 
 async function networkFirst(request) {
     try {
-        console.log(\`    [Network First] Trying network: ${
+        console.log(\`    [Network First] Trying network:\${
 request.url}\`);
-        const response = { url: request.url, body: \`Network: ${
+        const response = { url: request.url, body: \`Network:\${
 request.url}\`, status: 200 };
         const cache = await caches.open(CACHE_VERSION);
         await cache.put(request, response);
@@ -299,11 +299,11 @@ request.url}\`, status: 200 };
     } catch (e) {
         const cached = await caches.match(request);
         if (cached) {
-            console.log(\`    [Network First] Network failed, using cache: ${
+            console.log(\`    [Network First] Network failed, using cache:\${
 request.url}\`);
             return cached;
         }
-        throw new Error(\`No cache and no network for ${
+        throw new Error(\`No cache and no network for\${
 request.url}\`);
     }
 }
@@ -311,17 +311,17 @@ request.url}\`);
 async function staleWhileRevalidate(request) {
     const cached  = await caches.match(request);
     const refresh = (async () => {
-        const response = { url: request.url, body: \`Updated: ${
+        const response = { url: request.url, body: \`Updated:\${
 request.url}\`, status: 200 };
         const cache = await caches.open(CACHE_VERSION);
         await cache.put(request, response);
-        console.log(\`    [SWR] Background updated: ${
+        console.log(\`    [SWR] Background updated:\${
 request.url}\`);
         return response;
     })();
 
     if (cached) {
-        console.log(\`    [SWR] Serving stale: ${
+        console.log(\`    [SWR] Serving stale:\${
 request.url} (revalidating in background)\`);
         return cached;
     }
@@ -367,18 +367,18 @@ async function handleFetch(request) {
 
     for (const req of requests) {
         const response = await handleFetch(req);
-        console.log(\`  → ${
-req.url}: ${
+        console.log(\`  →\${
+req.url}:\${
 response.body.slice(0, 40)}\`);
     }
 
     // 4. Cache inspection
     console.log("\n=== Cache Inspection ===");
     const cache = await caches.open(CACHE_VERSION);
-    console.log(\`  Total cached items: ${
+    console.log(\`  Total cached items:\${
 cache.size}\`);
     console.log("  Cached URLs:");
-    cache.keys().slice(0, 8).forEach(k => console.log(\`    ${
+    cache.keys().slice(0, 8).forEach(k => console.log(\`   \${
 k}\`));
 
     // 5. PWA Manifest simulation
@@ -410,16 +410,16 @@ k}\`));
 
     function queueForSync(action) {
         syncQueue.push({ action, timestamp: Date.now(), retries: 0 });
-        console.log(\`  Queued: ${
+        console.log(\`  Queued:\${
 action}\`);
     }
 
     async function processSyncQueue() {
-        console.log(\`  Processing ${
+        console.log(\`  Processing\${
 syncQueue.length} queued actions:\`);
         while (syncQueue.length > 0) {
             const item = syncQueue.shift();
-            console.log(\`    ✅ Synced: ${
+            console.log(\`    ✅ Synced:\${
 item.action}\`);
         }
     }

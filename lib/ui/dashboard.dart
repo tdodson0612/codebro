@@ -100,7 +100,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   const Icon(Icons.bolt, color: Colors.amber, size: 16),
                   const SizedBox(width: 4),
                   Text(
-                    '${progress.xp} XP',
+                    '\${progress.xp} XP',
                     style: const TextStyle(color: Colors.amber, fontWeight: FontWeight.bold, fontSize: 13),
                   ),
                 ],
@@ -123,7 +123,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   const Text('🔥', style: TextStyle(fontSize: 14)),
                   const SizedBox(width: 4),
                   Text(
-                    '${progress.streak}',
+                    '\${progress.streak}',
                     style: const TextStyle(color: Colors.orange, fontWeight: FontWeight.bold, fontSize: 13),
                   ),
                 ],
@@ -198,7 +198,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 CircleAvatar(
                   backgroundColor: Colors.blue[700],
                   child: Text(
-                    '${progress.level}',
+                    '\${progress.level}',
                     style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -224,7 +224,7 @@ progress.xp} XP total',
                   children: [
                     const Text('🔥', style: TextStyle(fontSize: 20)),
                     Text(
-                      '${progress.streak} day streak',
+                      '\${progress.streak} day streak',
                       style: TextStyle(fontSize: 11, color: Colors.grey[500]),
                     ),
                   ],
@@ -247,7 +247,7 @@ progress.xp} XP total',
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  '${progress.xpIntoCurrentLevel}/${progress.xpForNextLevel} XP',
+                  '\${progress.xpIntoCurrentLevel}/\\${progress.xpForNextLevel} XP',
                   style: TextStyle(fontSize: 11, color: Colors.grey[500]),
                 ),
               ],
@@ -284,7 +284,7 @@ progress.xp} XP total',
                   ),
                 ),
                 const SizedBox(height: 6),
-                Text('${(prog * 100).toStringAsFixed(1)}% of all lessons completed',
+                Text('\${(prog * 100).toStringAsFixed(1)}% of all lessons completed',
                     style: TextStyle(fontSize: 12, color: Colors.grey[500])),
               ],
             ),
@@ -303,7 +303,7 @@ progress.xp} XP total',
           children: [
             Icon(Icons.search_off, size: 60, color: Colors.grey[600]),
             const SizedBox(height: 12),
-            Text('No lessons found for "$_searchQuery"',
+            Text('No lessons found for "\$_searchQuery"',
                 style: TextStyle(color: Colors.grey[500])),
           ],
         ),
@@ -419,7 +419,7 @@ progress.xp} XP total',
                   ),
                 ),
                 const SizedBox(height: 2),
-                Text('$completed /${
+                Text('\$completed /\\${
 lessons.length} lessons',
                     style: TextStyle(fontSize: 11, color: Colors.grey[500])),
               ],
@@ -459,8 +459,7 @@ lessons.length} lessons',
                   if (!mounted) return;
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Bookmarked:${
-lesson.title}'),
+                      content: Text('Bookmarked:${lesson.title}'),
                       duration: const Duration(seconds: 1),
                     ),
                   );

@@ -55,7 +55,7 @@ REACT — Component-Based UI:
       const [count, setCount] = useState(initialCount);  // state
 
       useEffect(() => {
-          document.title = \`Count: ${
+          document.title = \`Count:\${
 count}\`;   // side effect
           return () => { document.title = 'App'; }; // cleanup
       }, [count]);  // run when count changes
@@ -225,7 +225,7 @@ function Counter2({ initialCount = 0 }) {
     return {
         type: 'div',
         children: [
-            { type: 'p', text: \`Count: ${
+            { type: 'p', text: \`Count:\${
 count}\` },
             Button({ label: '+', onClick: () => count++ }),
             Button({ label: '-', onClick: () => count-- }),
@@ -265,12 +265,12 @@ function createComputed(fn, deps) {
 
 const count  = createRef(0);
 const double = createComputed(() => count.value * 2, [count]);
-const label  = createComputed(() => \`Count: ${
-count.value}, Double: ${
+const label  = createComputed(() => \`Count:\${
+count.value}, Double:\${
 double.value}\`, [count, double]);
 
 // Subscribe to changes (like useEffect in React):
-label.subscribe(text => console.log(\`  UI updated: "${
+label.subscribe(text => console.log(\`  UI updated: "\${
 text}"\`));
 
 count.value = 1;  // triggers UI updates
@@ -292,8 +292,8 @@ function createHookState() {
             states[index] = typeof newValue === 'function'
                 ? newValue(states[index])
                 : newValue;
-            console.log(\`  [setState] states[${
-index}] = ${
+            console.log(\`  [setState] states[\${
+index}] =\${
 states[index]}\`);
         };
 
@@ -314,14 +314,14 @@ function renderComponent() {
 }
 
 const state = renderComponent();
-console.log(\`  Initial: name=${
-state.name}, age=${
+console.log(\`  Initial: name=\${
+state.name}, age=\${
 state.age}\`);
 state.setName('Bob');
 state.setAge(n => n + 1);
 const state2 = renderComponent();
-console.log(\`  After update: name=${
-state2.name}, age=${
+console.log(\`  After update: name=\${
+state2.name}, age=\${
 state2.age}\`);
 
 // ─── FRAMEWORK COMPARISON ─────────────────────────────
@@ -342,10 +342,10 @@ const comparison = [
 ];
 
 comparison.forEach(row => {
-    console.log(\`  ${
-row[0].padEnd(16)}${
-row[1].padEnd(16)}${
-row[2].padEnd(16)}${
+    console.log(\` \${
+row[0].padEnd(16)}\${
+row[1].padEnd(16)}\${
+row[2].padEnd(16)}\${
 row[3]}\`);
 });
 
@@ -377,8 +377,8 @@ const nextSteps = [
 ];
 
 nextSteps.forEach(([prefix, text]) => {
-    if (text) console.log(\`  ${
-prefix.padEnd(4)}${
+    if (text) console.log(\` \${
+prefix.padEnd(4)}\${
 text}\`);
     else console.log();
 });

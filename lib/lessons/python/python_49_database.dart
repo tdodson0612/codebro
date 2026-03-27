@@ -223,7 +223,7 @@ def transfer_money(conn, from_id, to_id, amount):
         if cursor.rowcount == 0:
             raise ValueError(f"Target account {to_id} not found")
         conn.commit()   # both succeed → commit
-        print(f"Transferred ${
+        print(f"Transferred\${
 amount} from {from_id} to {to_id}")
     except Exception as e:
         conn.rollback()  # either fails → rollback both!

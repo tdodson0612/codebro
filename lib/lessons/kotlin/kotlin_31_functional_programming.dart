@@ -213,9 +213,9 @@ fun main() {
     val engineeringSummary = employees
         .filter { it.department == "Engineering" }
         .sortedByDescending { it.salary }
-        .map { "${
-it.name}: \$${
-"%.0f".format(it.salary)} (${
+        .map { "\${
+it.name}: \$\${
+"%.0f".format(it.salary)} (\${
 it.yearsExp}y)" }
     println("Engineering (by salary):")
     engineeringSummary.forEach { println("  \$it") }
@@ -227,10 +227,10 @@ it.yearsExp}y)" }
         acc[e.department] = (acc[e.department] ?: 0.0) + e.salary
         acc
     }
-    println("Total payroll: \$${
+    println("Total payroll: \$\${
 "%.0f".format(totalSalary)}")
     deptSalaries.forEach { (dept, total) ->
-        println("  \$dept: \$${
+        println("  \$dept: \$\${
 "%.0f".format(total)}")
     }
 
@@ -242,7 +242,7 @@ it.yearsExp}y)" }
 
     val process = pipe(pipe(trim, capitalize), exclaim)
     listOf("  hello  ", "  kotlin  ", "  world  ").forEach {
-        println("'\$it' → '${
+        println("'\$it' → '\${
 process(it)}'")
     }
 
@@ -257,13 +257,13 @@ process(it)}'")
     // Memoization
     println("\\n=== Memoization ===")
     val memoFactorial = memoize<Long, Long> { n -> factorial(n) }
-    println("5! = ${
+    println("5! =\${
 memoFactorial(5L)}")   // computes
-    println("5! = ${
+    println("5! =\${
 memoFactorial(5L)}")   // cached
-    println("7! = ${
+    println("7! =\${
 memoFactorial(7L)}")   // computes
-    println("7! = ${
+    println("7! =\${
 memoFactorial(7L)}")   // cached
 
     // Railway / Result chaining
@@ -277,7 +277,7 @@ memoFactorial(7L)}")   // cached
     inputs.forEach { input ->
         validateUser(input)
             .onSuccess { println("✅ \$it") }
-            .onFailure { println("❌ ${
+            .onFailure { println("❌\${
 it.message}") }
     }
 

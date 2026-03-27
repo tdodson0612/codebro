@@ -137,8 +137,8 @@ const locales = ['en-US', 'en-GB', 'de-DE', 'fr-FR', 'ja-JP', 'ar-SA'];
 console.log("  Decimal formatting:");
 locales.forEach(locale => {
     const formatted = new Intl.NumberFormat(locale).format(amount);
-    console.log(\`    ${
-locale.padEnd(8)}: ${
+    console.log(\`   \${
+locale.padEnd(8)}:\${
 formatted}\`);
 });
 
@@ -151,9 +151,9 @@ currencies.forEach(([locale, currency]) => {
     const formatted = new Intl.NumberFormat(locale, {
         style: 'currency', currency
     }).format(amount);
-    console.log(\`    ${
-locale.padEnd(8)} ${
-currency}: ${
+    console.log(\`   \${
+locale.padEnd(8)}\${
+currency}:\${
 formatted}\`);
 });
 
@@ -162,8 +162,8 @@ console.log("\n  Compact notation:");
     const formatted = new Intl.NumberFormat('en-US', {
         notation: 'compact', maximumFractionDigits: 1
     }).format(n);
-    console.log(\`    ${
-String(n).padStart(12)}: ${
+    console.log(\`   \${
+String(n).padStart(12)}:\${
 formatted}\`);
 });
 
@@ -179,7 +179,7 @@ units.forEach(([n, unit, locale]) => {
     const formatted = new Intl.NumberFormat(locale, {
         style: 'unit', unit, unitDisplay: 'long'
     }).format(n);
-    console.log(\`    ${
+    console.log(\`   \${
 formatted}\`);
 });
 
@@ -198,8 +198,8 @@ const dateFormats = [
 ];
 dateFormats.forEach(([locale, opts]) => {
     const formatted = new Intl.DateTimeFormat(locale, opts).format(date);
-    console.log(\`  ${
-locale.padEnd(8)}: ${
+    console.log(\` \${
+locale.padEnd(8)}:\${
 formatted}\`);
 });
 
@@ -210,14 +210,14 @@ const custom = [
     [{ year: 'numeric', month: '2-digit', day: '2-digit' }, 'zh-CN'],
 ];
 custom.forEach(([opts, locale]) => {
-    console.log(\`  ${
+    console.log(\` \${
 new Intl.DateTimeFormat(locale, opts).format(date)}\`);
 });
 
 // formatToParts for individual components:
 const parts = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).formatToParts(date);
-console.log("  Parts:", parts.map(p => \`${
-p.type}:${
+console.log("  Parts:", parts.map(p => \`\${
+p.type}:\${
 p.value}\`).join(', '));
 
 // ─── RELATIVE TIME ────────────────────────────────────
@@ -233,8 +233,8 @@ const relTimes = [
     [-1, 'hour'], [30, 'minute'],
 ];
 relTimes.forEach(([n, unit]) => {
-    console.log(\`  en: ${
-rtf.format(n, unit).padEnd(20)} | es: ${
+    console.log(\`  en:\${
+rtf.format(n, unit).padEnd(20)} | es:\${
 rtfEs.format(n, unit)}\`);
 });
 
@@ -264,9 +264,9 @@ function timeAgo(date, locale = 'en') {
 
 const past   = new Date(Date.now() - 3 * 86400000);  // 3 days ago
 const future = new Date(Date.now() + 7 * 86400000);  // 7 days from now
-console.log(\`  timeAgo(3 days ago): ${
+console.log(\`  timeAgo(3 days ago):\${
 timeAgo(past)}\`);
-console.log(\`  timeAgo(7 days from now): ${
+console.log(\`  timeAgo(7 days from now):\${
 timeAgo(future)}\`);
 
 // ─── LIST FORMAT ──────────────────────────────────────
@@ -282,9 +282,9 @@ const listFormats = [
 ];
 listFormats.forEach(([locale, type]) => {
     const formatted = new Intl.ListFormat(locale, { type }).format(items);
-    console.log(\`  ${
-locale.padEnd(4)} ${
-type.padEnd(14)}: ${
+    console.log(\` \${
+locale.padEnd(4)}\${
+type.padEnd(14)}:\${
 formatted}\`);
 });
 
@@ -300,8 +300,8 @@ function pluralize(n, forms, locale = 'en') {
 const enForms = { one: '# item', other: '# items' };
 [0, 1, 2, 5, 100].forEach(n => {
     const text = pluralize(n, enForms).replace('#', n);
-    console.log(\`  en: ${
-n} → ${
+    console.log(\`  en:\${
+n} →\${
 text}\`);
 });
 

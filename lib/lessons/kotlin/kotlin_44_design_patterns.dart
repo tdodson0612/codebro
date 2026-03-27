@@ -182,10 +182,8 @@ object OrderStrategies {
 // ─── DECORATOR via extension functions ─────────────────
 
 fun String.bold() = "**\$this**"
-fun String.italic() = "_${
-this}_"
-fun String.code() = "`${
-this}`"
+fun String.italic() = "_\${this}_"
+fun String.code() = "`\${this}`"
 fun String.truncate(max: Int, ellipsis: String = "...") =
     if (length <= max) this else take(max - ellipsis.length) + ellipsis
 
@@ -222,8 +220,7 @@ class LoggingCache<K, V>(private val delegate: Cache<K, V>) : Cache<K, V> by del
         delegate.put(key, value)
     }
 
-    fun stats() = "Hits: \$hits, Misses: \$misses, Hit rate: ${
-"%.0f".format(if (hits + misses > 0) hits * 100.0 / (hits + misses) else 0.0)}%"
+    fun stats() = "Hits: \$hits, Misses: \$misses, Hit rate: \${"%.0f".format(if (hits + misses > 0) hits * 100.0 / (hits + misses) else 0.0)}%"
 }
 
 // ─── CHAIN OF RESPONSIBILITY ──────────────────────────
@@ -267,10 +264,8 @@ fun main() {
     vm.addObserver { state ->
         when (state) {
             is AppState.Loading -> println("  UI: Showing spinner...")
-            is AppState.Success -> println("  UI: Showing ${
-state.data.size} items")
-            is AppState.Error   -> println("  UI: Error — ${
-state.message}")
+            is AppState.Success -> println("  UI: Showing \${state.data.size} items")
+            is AppState.Error   -> println("  UI: Error — \${state.message}")
         }
     }
     vm.loadData()
@@ -285,16 +280,10 @@ state.message}")
         Order(4, 75.0, 5)
     )
     val sorter = OrderSorter(OrderStrategies.byTotalDesc)
-    println("By total (desc): ${
-sorter.sort(orders).map { "${
-it.id}:\$${
-it.total}" }}")
+    println("By total (desc): \${sorter.sort(orders).map { "\${it.id}:\$\${it.total}" }}")
 
     val bySorter = OrderSorter(OrderStrategies.byValue)
-    println("By value/item:   ${
-bySorter.sort(orders).map { "${
-it.id}:${
-"%.1f".format(it.total/it.items)}" }}")
+    println("By value/item:   \${bySorter.sort(orders).map { "\${it.id}:\${"%.1f".format(it.total/it.items)}" }}")
 
     // Decorator (extension functions)
     println("\\n=== Decorator Pattern ===")
@@ -322,18 +311,15 @@ it.id}:${
 
     println("Good request:")
     val r1 = processRequest(goodRequest, authMiddleware, sanitizeMiddleware, validateMiddleware)
-    println("  Result: ${
-if (r1 != null) "Processed ✅" else "Rejected ❌"}")
+    println("  Result: \${if (r1 != null) "Processed ✅" else "Rejected ❌"}")
 
     println("Bad auth:")
     val r2 = processRequest(badAuth, authMiddleware, sanitizeMiddleware, validateMiddleware)
-    println("  Result: ${
-if (r2 != null) "Processed ✅" else "Rejected ❌"}")
+    println("  Result: \${if (r2 != null) "Processed ✅" else "Rejected ❌"}")
 
     println("Too long:")
     val r3 = processRequest(tooLong, authMiddleware, sanitizeMiddleware, validateMiddleware)
-    println("  Result: ${
-if (r3 != null) "Processed ✅" else "Rejected ❌"}")
+    println("  Result: \${if (r3 != null) "Processed ✅" else "Rejected ❌"}")
 }
 
 📝 KEY POINTS:

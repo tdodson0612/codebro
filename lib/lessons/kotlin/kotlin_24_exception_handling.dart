@@ -83,7 +83,7 @@ MULTIPLE CATCH BLOCKS:
   } catch (e: IOException) {
       println("IO problem")
   } catch (e: Exception) {
-      println("Something else: ${
+      println("Something else:\${
 e.message}")
   }
 
@@ -115,7 +115,7 @@ runCatching — functional exception handling:
 ─────────────────────────────────────
   val result = runCatching { "abc".toInt() }
   result.onSuccess { println("Got: \$it") }
-  result.onFailure { println("Failed: ${
+  result.onFailure { println("Failed:\${
 it.message}") }
   val value = result.getOrDefault(-1)
   val value2 = result.getOrElse { -1 }
@@ -171,7 +171,7 @@ fun main() {
         val result = 10 / 0
         println(result)
     } catch (e: ArithmeticException) {
-        println("Cannot divide by zero: ${
+        println("Cannot divide by zero:\${
 e.message}")
     } finally {
         println("This always runs")
@@ -200,14 +200,14 @@ e.message}")
     try {
         account.withdraw(1000.0)   // will throw IllegalStateException
     } catch (e: IllegalStateException) {
-        println("Caught: ${
+        println("Caught:\${
 e.message}")
     }
 
     try {
         account.withdraw(-50.0)    // will throw IllegalArgumentException
     } catch (e: IllegalArgumentException) {
-        println("Caught: ${
+        println("Caught:\${
 e.message}")
     }
 
@@ -215,8 +215,8 @@ e.message}")
     try {
         validateUser("", 25)
     } catch (e: ValidationException) {
-        println("Validation failed on field '${
-e.field}': ${
+        println("Validation failed on field '\${
+e.field}':\${
 e.message}")
     }
 
@@ -226,13 +226,13 @@ e.message}")
         try {
             println(riskyOperation(input))
         } catch (e: NullPointerException) {
-            println("NPE: ${
+            println("NPE:\${
 e.message}")
         } catch (e: IOException) {
-            println("IO error: ${
+            println("IO error:\${
 e.message}")
         } catch (e: IllegalArgumentException) {
-            println("Arg error: ${
+            println("Arg error:\${
 e.message}")
         }
     }
@@ -246,7 +246,7 @@ e.message}")
     results.forEach { result ->
         result
             .onSuccess { println("Success: \$it") }
-            .onFailure { println("Failed: ${
+            .onFailure { println("Failed:\${
 it.message}") }
     }
 

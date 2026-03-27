@@ -145,10 +145,10 @@ function fetchData(id) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             if (id > 0) {
-                resolve({ id, name: \`User${
+                resolve({ id, name: \`User\${
 id}\`, score: id * 10 });
             } else {
-                reject(new Error(\`Invalid ID: ${
+                reject(new Error(\`Invalid ID:\${
 id}\`));
             }
         }, 50);
@@ -176,8 +176,8 @@ console.log("\\n=== Promise Chaining ===");
 function step(name, value) {
     return new Promise(resolve => {
         setTimeout(() => {
-            console.log(\`  Step ${
-name}: ${
+            console.log(\`  Step\${
+name}:\${
 value}\`);
             resolve(value + 1);
         }, 20);
@@ -214,12 +214,12 @@ async function combinators() {
     const settled = await Promise.allSettled([fast(), fail(), slow()]);
     settled.forEach((result, i) => {
         if (result.status === 'fulfilled') {
-            console.log(\`  allSettled[${
-i}]: ✅ ${
+            console.log(\`  allSettled[\${
+i}]: ✅\${
 result.value}\`);
         } else {
-            console.log(\`  allSettled[${
-i}]: ❌ ${
+            console.log(\`  allSettled[\${
+i}]: ❌\${
 result.reason.message}\`);
         }
     });
@@ -251,7 +251,7 @@ async function patterns() {
     // Timeout wrapper:
     function withTimeout(promise, ms) {
         const timeout = new Promise((_, reject) =>
-            setTimeout(() => reject(new Error(\`Timed out after ${
+            setTimeout(() => reject(new Error(\`Timed out after\${
 ms}ms\`)), ms));
         return Promise.race([promise, timeout]);
     }

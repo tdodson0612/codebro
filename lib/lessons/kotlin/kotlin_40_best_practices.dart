@@ -210,7 +210,7 @@ class Idiomatic {
         orders.filter { it.isPaid }.sumOf { it.amount }
 
     fun getGreeting(person: Person?): String =
-        person?.let { "Hello, ${
+        person?.let { "Hello,\${
 it.name}!" } ?: "Hello, stranger!"
 
     fun describeAge(age: Int) = when {
@@ -225,9 +225,9 @@ it.name}!" } ?: "Hello, stranger!"
 // Extension functions over utility classes
 fun String.isPalindrome() = this.lowercase() == this.lowercase().reversed()
 fun String.words() = this.trim().split("\\s+".toRegex())
-fun Double.formatAsCurrency() = "\$${
+fun Double.formatAsCurrency() = "\$\${
 "%.2f".format(this)}"
-fun Int.pluralize(word: String) = "\$this ${
+fun Int.pluralize(word: String) = "\$this\${
 if (this == 1) word else word + "s"}"
 
 // Idiomatic null handling
@@ -246,19 +246,19 @@ fun analyzeOrders(orders: List<Order>) {
 
     val byProduct = orders.groupBy { it.product }
 
-    println("Paid: ${
-paid.size.pluralize("order")} = ${
+    println("Paid:\${
+paid.size.pluralize("order")} =\${
 paidTotal.formatAsCurrency()}")
-    println("Unpaid: ${
-unpaid.size.pluralize("order")} = ${
+    println("Unpaid:\${
+unpaid.size.pluralize("order")} =\${
 unpaidTotal.formatAsCurrency()}")
-    println("Products: ${
+    println("Products:\${
 byProduct.keys.sorted().joinToString(", ")}")
 
     byProduct.forEach { (product, productOrders) ->
         val total = productOrders.sumOf { it.amount }
-        println("  \$product: ${
-productOrders.size.pluralize("order")}, ${
+        println("  \$product:\${
+productOrders.size.pluralize("order")},\${
 total.formatAsCurrency()}")
     }
 }
@@ -277,9 +277,9 @@ fun main() {
     val idiom = Idiomatic()
 
     println("=== Non-idiomatic vs Idiomatic ===")
-    println("Paid total (non-idiomatic): ${
+    println("Paid total (non-idiomatic):\${
 nonIdiom.processOrders(orders)}")
-    println("Paid total (idiomatic):     ${
+    println("Paid total (idiomatic):    \${
 idiom.processOrders(orders)}")
 
     val people = listOf(
@@ -293,18 +293,18 @@ idiom.processOrders(orders)}")
 
     println("\\n=== Age descriptions ===")
     listOf(-1, 5, 15, 30, 70).forEach { age ->
-        println("  \$age → ${
+        println("  \$age →\${
 idiom.describeAge(age)}")
     }
 
     println("\\n=== Extension functions ===")
-    println("'racecar'.isPalindrome(): ${
+    println("'racecar'.isPalindrome():\${
 "racecar".isPalindrome()}")
-    println("'hello'.isPalindrome():   ${
+    println("'hello'.isPalindrome():  \${
 "hello".isPalindrome()}")
-    println("Word count: ${
+    println("Word count:\${
 "Hello Kotlin World".words().size.pluralize("word")}")
-    println("Price: ${
+    println("Price:\${
 299.99.formatAsCurrency()}")
 
     println("\\n=== Notifications ===")
@@ -328,7 +328,7 @@ idiom.describeAge(age)}")
         "require/check for validation",
         "Destructuring for pairs and data classes"
     )
-    tips.forEachIndexed { i, tip -> println("  ${
+    tips.forEachIndexed { i, tip -> println(" \${
 i + 1}. \$tip") }
 }
 

@@ -167,7 +167,7 @@ employees = [
     ("Carol", "Engineering", 98000),
 ]
 for name, dept, salary in employees:
-    print(f"{name} ({dept}): ${
+    print(f"{name} ({dept}):\${
 salary:,}")
 
 # Sort list of tuples by second element

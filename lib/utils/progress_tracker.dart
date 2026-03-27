@@ -4,12 +4,12 @@ import '../data/lessons.dart';
 class ProgressTracker {
   static Future<void> markLessonCompleted(String language, String lessonTitle) async {
     final prefs = await SharedPreferences.getInstance();
-    prefs.setBool('$language-$lessonTitle', true);
+    prefs.setBool('\$language-\$lessonTitle', true);
   }
 
   static Future<bool> isLessonCompleted(String language, String lessonTitle) async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('$language-$lessonTitle') ?? false;
+    return prefs.getBool('\$language-\$lessonTitle') ?? false;
   }
 
   static Future<void> resetProgress(String language) async {

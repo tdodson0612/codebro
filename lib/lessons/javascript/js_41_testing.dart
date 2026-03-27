@@ -161,13 +161,13 @@ function groupBy(arr, key) {
 }
 
 async function fetchUser(id) {
-    if (id <= 0) throw new Error(\`Invalid ID: ${
+    if (id <= 0) throw new Error(\`Invalid ID:\${
 id}\`);
     // Simulate API call
     await new Promise(r => setTimeout(r, 10));
     if (id > 100) throw new Error('User not found');
-    return { id, name: \`User${
-id}\`, email: \`user${
+    return { id, name: \`user\${
+id}\`, email: \`user\${
 id}@example.com\` };
 }
 
@@ -197,34 +197,34 @@ class TestRunner {
 
     expect(received) {
         return {
-            toBe:            (expected) => { if (received !== expected) throw new Error(\`Expected ${
-JSON.stringify(expected)}, got ${
+            toBe:            (expected) => { if (received !== expected) throw new Error(\`Expected\${
+JSON.stringify(expected)}, got\${
 JSON.stringify(received)}\`); },
-            toEqual:         (expected) => { if (JSON.stringify(received) !== JSON.stringify(expected)) throw new Error(\`Deep equal failed: ${
-JSON.stringify(received)} !== ${
+            toEqual:         (expected) => { if (JSON.stringify(received) !== JSON.stringify(expected)) throw new Error(\`Deep equal failed:\${
+JSON.stringify(received)} !==\${
 JSON.stringify(expected)}\`); },
             toThrow:         (msg) => {
                 try { received(); throw new Error('Did not throw'); }
-                catch (e) { if (msg && !e.message.includes(msg)) throw new Error(\`Threw "${
-e.message}", expected to contain "${
+                catch (e) { if (msg && !e.message.includes(msg)) throw new Error(\`Threw "\${
+e.message}", expected to contain "\${
 msg}"\`); }
             },
-            resolves:        { toHaveProperty: async (k) => { const v = await received; if (!(k in v)) throw new Error(\`Property "${
+            resolves:        { toHaveProperty: async (k) => { const v = await received; if (!(k in v)) throw new Error(\`Property "\${
 k}" missing\`); } },
-            rejects:         { toThrow: async (msg) => { try { await received; throw new Error('Did not reject'); } catch(e) { if (msg && !e.message.includes(msg)) throw new Error(\`Rejected with "${
+            rejects:         { toThrow: async (msg) => { try { await received; throw new Error('Did not reject'); } catch(e) { if (msg && !e.message.includes(msg)) throw new Error(\`Rejected with "\${
 e.message}"\`); } } },
-            toHaveLength:    (n) => { if (received.length !== n) throw new Error(\`Length ${
-received.length} !== ${
+            toHaveLength:    (n) => { if (received.length !== n) throw new Error(\`Length\${
+received.length} !==\${
 n}\`); },
-            toContain:       (item) => { if (!received.includes(item)) throw new Error(\`${
-JSON.stringify(received)} does not contain ${
+            toContain:       (item) => { if (!received.includes(item)) throw new Error(\`\${
+JSON.stringify(received)} does not contain\${
 JSON.stringify(item)}\`); },
-            toBeGreaterThan: (n) => { if (!(received > n)) throw new Error(\`${
-received} not > ${
+            toBeGreaterThan: (n) => { if (!(received > n)) throw new Error(\`\${
+received} not >\${
 n}\`); },
-            toBeTruthy:      () => { if (!received) throw new Error(\`Expected truthy, got ${
+            toBeTruthy:      () => { if (!received) throw new Error(\`Expected truthy, got\${
 received}\`); },
-            not:             { toBe: (expected) => { if (received === expected) throw new Error(\`Expected not ${
+            not:             { toBe: (expected) => { if (received === expected) throw new Error(\`Expected not\${
 JSON.stringify(expected)}\`); } },
         };
     }
@@ -235,17 +235,17 @@ JSON.stringify(expected)}\`); } },
 
         this.#results.forEach(r => {
             const icon = r.status === 'pass' ? '✅' : '❌';
-            const msg  = r.status === 'fail' ? \` — ${
+            const msg  = r.status === 'fail' ? \` —\${
 r.error}\` : '';
-            console.log(\`  ${
-icon} [${
-r.suite}] ${
-r.name}${
+            console.log(\` \${
+icon} [\${
+r.suite}]\${
+r.name}\${
 msg}\`);
         });
-        console.log(\`\n  Results: ${
-pass} passed, ${
-fail} failed out of ${
+        console.log(\`\n  Results:\${
+pass} passed,\${
+fail} failed out of\${
 this.#results.length} tests\`);
     }
 }

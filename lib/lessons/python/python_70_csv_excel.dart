@@ -100,7 +100,7 @@ for row in reader:
 print("\\n=== csv.DictReader ===")
 reader = csv.DictReader(io.StringIO(sample_csv))
 for row in reader:
-    print(f"  {row['Name']:8s} | {row['Department']:12s} | ${
+    print(f"  {row['Name']:8s} | {row['Department']:12s} |\${
 int(row['Salary']):,}")
 
 # With type conversion
@@ -117,7 +117,7 @@ for row in reader:
 
 # Sort by salary
 for e in sorted(employees, key=lambda x: x["salary"], reverse=True):
-    print(f"  {e['name']:8s}: ${
+    print(f"  {e['name']:8s}:\${
 e['salary']:,.0f} ({e['dept']})")
 
 # ── CSV WRITING ────────────────────

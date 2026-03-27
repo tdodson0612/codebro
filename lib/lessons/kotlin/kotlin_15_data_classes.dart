@@ -169,13 +169,13 @@ fun main() {
     )
 
     val available = products.filter { it.inStock }
-    println("In stock: ${
+    println("In stock:\${
 available.map { it.name }}")
 
     val priceSummary = products
         .sortedBy { it.price }
-        .map { "${
-it.name}: \$${
+        .map { "\${
+it.name}: \$\${
 it.price}" }
     println(priceSummary)
 

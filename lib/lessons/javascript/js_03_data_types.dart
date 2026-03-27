@@ -41,7 +41,7 @@ STRINGS:
 ─────────────────────────────────────
   "double quotes"
   'single quotes'
-  \`template literal with ${
+  \`template literal with \${
 expression}\`
 
   Immutable: you cannot change characters in place.

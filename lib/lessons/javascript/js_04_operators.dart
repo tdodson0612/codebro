@@ -203,7 +203,7 @@ const user = {
     city: "London",
     zip: "EC1A 1BB"
   },
-  getGreeting() { return \`Hello, ${
+  getGreeting() { return \`Hello, \${
 this.name}!\`; }
 };
 

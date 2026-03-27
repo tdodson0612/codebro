@@ -146,8 +146,8 @@ data class Vector2D(val x: Double, val y: Double) {
 
     val magnitude get() = Math.sqrt(x * x + y * y)
 
-    override fun toString() = "(${
-"%.2f".format(x)}, ${
+    override fun toString() = "(\${
+"%.2f".format(x)},\${
 "%.2f".format(y)})"
 }
 
@@ -191,17 +191,17 @@ fun main() {
     val v1 = Vector2D(3.0, 4.0)
     val v2 = Vector2D(1.0, 2.0)
 
-    println("v1 = \$v1, magnitude = ${
+    println("v1 = \$v1, magnitude =\${
 "%.2f".format(v1.magnitude)}")
-    println("v1 + v2 = ${
+    println("v1 + v2 =\${
 v1 + v2}")
-    println("v1 - v2 = ${
+    println("v1 - v2 =\${
 v1 - v2}")
-    println("v1 * 2.0 = ${
+    println("v1 * 2.0 =\${
 v1 * 2.0}")
-    println("v1 / 2.0 = ${
+    println("v1 / 2.0 =\${
 v1 / 2.0}")
-    println("-v1 = ${
+    println("-v1 =\${
 -v1}")
 
     // Invoke operator
@@ -209,9 +209,9 @@ v1 / 2.0}")
     val doubler = Transformation("double") { it * 2 }
     val squarer = Transformation("square") { it * it }
 
-    println("doubler(5) = ${
+    println("doubler(5) =\${
 doubler(5.0)}")
-    println("squarer(4) = ${
+    println("squarer(4) =\${
 squarer(4.0)}")
 
     // Matrix multiplication
@@ -220,8 +220,8 @@ squarer(4.0)}")
     val rotate90 = Matrix2x2(0.0, -1.0, 1.0, 0.0)
     println("Identity: \$identity")
     println("Rotate90: \$rotate90")
-    println("[0,0] = ${
-rotate90[0, 0]}, [0,1] = ${
+    println("[0,0] =\${
+rotate90[0, 0]}, [0,1] =\${
 rotate90[0, 1]}")
 
     // Comparable versions
@@ -234,10 +234,10 @@ rotate90[0, 1]}")
     )
     val sorted = versions.sorted()
     println("Sorted: \$sorted")
-    println("Min: ${
-sorted.first()}, Max: ${
+    println("Min:\${
+sorted.first()}, Max:\${
 sorted.last()}")
-    println("1.9.5 < 2.0.0: ${
+    println("1.9.5 < 2.0.0:\${
 Version(1, 9, 5) < Version(2, 0, 0)}")
 }
 

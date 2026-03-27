@@ -249,22 +249,22 @@ fun main() {
         repo.saveUser(user)
         repo.saveUser(User("u002", "Sam Jones", "sam@example.com", currentTimeMillis()))
 
-        println("All users: ${
+        println("All users:\${
 repo.getUsers().map { it.name }}")
 
         val getUser = GetUserUseCase(repo)
         val response1 = getUser("u001")
-        println("Get u001: success=${
-response1.success}, name=${
+        println("Get u001: success=\${
+response1.success}, name=\${
 response1.data?.name}")
 
         val response2 = getUser("u999")
-        println("Get u999: success=${
-response2.success}, error=${
+        println("Get u999: success=\${
+response2.success}, error=\${
 response2.error}")
 
         repo.deleteUser("u002")
-        println("After delete: ${
+        println("After delete:\${
 repo.getUsers().map { it.name }}")
     }
 

@@ -29,7 +29,7 @@ this EXPRESSIONS:
 Inside a class, 'this' refers to the current instance:
 
   class Person(val name: String) {
-      fun introduce() = "I am ${
+      fun introduce() = "I am\${
 this.name}"
       // 'this' is optional when there's no ambiguity:
       fun greet() = "Hello, my name is \$name"
@@ -189,7 +189,7 @@ class Builder(private val name: String) {
         return this
     }
 
-    fun build() = "\$name: ${
+    fun build() = "\$name:\${
 parts.joinToString(", ")}"
 }
 
@@ -199,13 +199,13 @@ class Outer(private val id: String) {
     inner class Inner(private val innerValue: String) {
         fun report(): String {
             // 'this' = Inner, 'this@Outer' = Outer
-            return "Inner(${
-this.innerValue}) inside ${
+            return "Inner(\${
+this.innerValue}) inside\${
 this@Outer.outerValue}"
         }
 
         // Extending a type inside inner class
-        fun String.tagWith(): String = "[${
+        fun String.tagWith(): String = "[\${
 this@Outer.id}] \$this"
 
         fun taggedValue() = innerValue.tagWith()
@@ -252,9 +252,9 @@ class HttpRequest(
         : this("POST", url, headers, body)
 
     override fun toString(): String {
-        val bodyStr = body?.let { " body=${
+        val bodyStr = body?.let { " body=\${
 it.take(20)}..." } ?: ""
-        return "\$method \$url headers=${
+        return "\$method \$url headers=\${
 headers.keys}\$bodyStr"
     }
 }
@@ -271,7 +271,7 @@ class Temperature private constructor(
     val fahrenheit get() = celsius * 9.0 / 5.0 + 32
     val kelvin get() = celsius + 273.15
 
-    override fun toString() = "${
+    override fun toString() = "\${
 "%.2f".format(celsius)}°C"
     override fun equals(other: Any?) = other is Temperature && celsius == other.celsius
     override fun hashCode() = celsius.hashCode()
@@ -301,33 +301,33 @@ fun main() {
     val v2 = Vector(3.0, 4.0)
     val v3 = v1                    // same reference
 
-    println("v1 == v2: ${
+    println("v1 == v2:\${
 v1 == v2}")    // true (equals override)
-    println("v1 === v2: ${
+    println("v1 === v2:\${
 v1 === v2}")  // false (different objects)
-    println("v1 === v3: ${
+    println("v1 === v3:\${
 v1 === v3}")  // true (same reference)
 
     // Equality — data class
     val d1 = DataVector(3.0, 4.0)
     val d2 = DataVector(3.0, 4.0)
-    println("data d1 == d2: ${
+    println("data d1 == d2:\${
 d1 == d2}")   // true
-    println("data d1 === d2: ${
+    println("data d1 === d2:\${
 d1 === d2}") // false
 
     // Null equality
     val nullVec: Vector? = null
-    println("null == null: ${
+    println("null == null:\${
 null == null}")         // true
-    println("v1 == null: ${
+    println("v1 == null:\${
 v1 == null}")             // false
-    println("nullVec == null: ${
+    println("nullVec == null:\${
 nullVec == null}")   // true
 
     // In sets and maps (requires consistent equals/hashCode)
     val vectorSet = setOf(Vector(1.0, 0.0), Vector(0.0, 1.0), Vector(1.0, 0.0))
-    println("\\nVector set size: ${
+    println("\\nVector set size:\${
 vectorSet.size}")  // 2 (duplicate removed)
 
     // Secondary constructors
@@ -348,12 +348,12 @@ vectorSet.size}")  // 2 (duplicate removed)
     val absoluteZero = Temperature.fromKelvin(0.0)
 
     listOf(boiling, bodyTemp, absoluteZero).forEach { t ->
-        println("\$t → ${
-"%.2f".format(t.fahrenheit)}°F → ${
+        println("\$t →\${
+"%.2f".format(t.fahrenheit)}°F →\${
 "%.2f".format(t.kelvin)}K")
     }
 
-    println("\\nboiling == boiling: ${
+    println("\\nboiling == boiling:\${
 boiling == Temperature.fromCelsius(100.0)}")  // true
 }
 

@@ -157,11 +157,11 @@ divider = "-" * len(header)
 print(header)
 print(divider)
 for name, dept, salary in sorted(data, key=lambda x: x[2], reverse=True):
-    print(f"{name:<10} {dept:<15} ${
+    print(f"{name:<10} {dept:<15}\${
 salary:>9,.0f}")
 print(divider)
 total = sum(s for _, _, s in data)
-print(f"{'TOTAL':<27} ${
+print(f"{'TOTAL':<27}\${
 total:>9,.0f}")
 
 # ── DEBUGGING WITH = ──────────────

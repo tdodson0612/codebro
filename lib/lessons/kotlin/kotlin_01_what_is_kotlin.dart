@@ -85,7 +85,7 @@ fun main() {
     // String templates — embed expressions directly
     val doubled = score * 2
     println("Double the score: \$doubled")
-    println("Inline math: ${
+    println("Inline math:\${
 score + 100}")
 }
 
@@ -94,7 +94,7 @@ score + 100}")
 ✅ fun is the keyword for functions (not void, not def)
 ✅ println() prints with a newline — no System.out needed
 ✅ val = immutable reference, var = mutable reference
-✅ String templates use \$ and ${
+✅ String templates use \$ and\${
 } to embed values
 ✅ No semicolons required at end of lines
 ❌ Kotlin is NOT a scripting language — it is fully compiled

@@ -241,8 +241,8 @@ enum class CardRank(val value: Int, val display: String) {
 }
 
 data class Card(val rank: CardRank, val suit: CardSuit) {
-    override fun toString() = "${
-rank}${
+    override fun toString() = "\${
+rank}\${
 suit}"
 }
 
@@ -251,10 +251,10 @@ fun main() {
     println("=== Planet weights ===")
     val earthWeight = 75.0  // kg
     Planet.values().forEach { planet ->
-        println("${
-planet.name.padEnd(8)}: ${
+        println("\${
+planet.name.padEnd(8)}:\${
 "%.2f".format(planet.weightOn(earthWeight))} kg" +
-            " (gravity: ${
+            " (gravity:\${
 "%.2f".format(planet.surfaceGravity)} m/s²)")
     }
 
@@ -263,17 +263,17 @@ planet.name.padEnd(8)}: ${
     val a = 10.0
     val b = 3.0
     Operation.values().forEach { op ->
-        println("\$a \$op \$b = ${
+        println("\$a \$op \$b =\${
 "%.4f".format(op.apply(a, b))}")
     }
 
     // Enum iteration with ordinal and name
     println("\\n=== Enum metadata ===")
     HttpStatus.values().forEach { status ->
-        println("[${
-status.ordinal}] ${
-status.name} → ${
-status.toDisplayString()} (success: ${
+        println("[\${
+status.ordinal}]\${
+status.name} →\${
+status.toDisplayString()} (success:\${
 status.isSuccess})")
     }
 
@@ -281,15 +281,15 @@ status.isSuccess})")
     println("\\n=== Lookup by code ===")
     listOf(200, 404, 503, 999).forEach { code ->
         val status = HttpStatus.fromCodeOrDefault(code)
-        println("\$code → ${
+        println("\$code →\${
 status.toDisplayString()}")
     }
 
     // Card suit enum
     println("\\n=== Card suits ===")
     CardSuit.values().forEach { suit ->
-        println("\$suit ${
-suit.name.padEnd(8)} → ${
+        println("\$suit\${
+suit.name.padEnd(8)} →\${
 suit.color}")
     }
 
@@ -303,7 +303,7 @@ suit.color}")
         Card(CardRank.TWO, CardSuit.HEARTS)
     )
     val handValue = hand.sumOf { it.rank.value }
-    println("Hand: ${
+    println("Hand:\${
 hand.joinToString(" ")} = \$handValue points")
 
     // Enum.valueOf and enumValueOf
@@ -313,7 +313,7 @@ hand.joinToString(" ")} = \$handValue points")
 
     // Safe lookup
     val allOps = enumValues<Operation>()
-    println("All operations: ${
+    println("All operations:\${
 allOps.map { it.symbol }}")
 }
 

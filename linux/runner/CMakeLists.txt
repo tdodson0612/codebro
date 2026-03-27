@@ -6,7 +6,7 @@ project(runner LANGUAGES CXX)
 # work.
 #
 # Any new source files that you add to the application should be added here.
-add_executable(${
+add_executable(\${
 BINARY_NAME}
   "main.cc"
   "my_application.cc"
@@ -15,17 +15,17 @@ BINARY_NAME}
 
 # Apply the standard set of build settings. This can be removed for applications
 # that need different build settings.
-apply_standard_settings(${
+apply_standard_settings(\${
 BINARY_NAME})
 
 # Add preprocessor definitions for the application ID.
 add_definitions(-DAPPLICATION_ID="${APPLICATION_ID}")
 
 # Add dependency libraries. Add any application-specific dependencies here.
-target_link_libraries(${
+target_link_libraries(\${
 BINARY_NAME} PRIVATE flutter)
-target_link_libraries(${
+target_link_libraries(\${
 BINARY_NAME} PRIVATE PkgConfig::GTK)
 
-target_include_directories(${
+target_include_directories(\${
 BINARY_NAME} PRIVATE "${CMAKE_SOURCE_DIR}")

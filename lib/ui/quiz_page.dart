@@ -150,7 +150,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
               const SizedBox(height: 8),
 
-              Text('$score /${
+              Text('\$score /\\${
 widget.quizzes.length} correct',
                   style: const TextStyle(fontSize: 18)),
 
@@ -173,7 +173,7 @@ widget.quizzes.length} correct',
                         color: Colors.amber, size: 18),
                     const SizedBox(width: 6),
                     Text(
-                      '+$_totalXpEarned XP earned',
+                      '+\$_totalXpEarned XP earned',
                       style: const TextStyle(
                           color: Colors.amber,
                           fontWeight: FontWeight.bold),
@@ -269,7 +269,7 @@ widget.quizzes.length} correct',
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.lessonTitle} Quiz'),
+        title: Text('\${widget.lessonTitle} Quiz'),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(
@@ -311,7 +311,7 @@ widget.quizzes.length}',
                       const Icon(Icons.check_circle,
                           color: Colors.green, size: 16),
                       const SizedBox(width: 4),
-                      Text('$score correct',
+                      Text('\$score correct',
                           style: TextStyle(
                               color: Colors.grey[400], fontSize: 13)),
                     ],
@@ -399,7 +399,7 @@ widget.quizzes.length}',
                   ),
                 )
                     .animate(
-                        key: ValueKey('$currentIndex-$idx'))
+                        key: ValueKey('\$currentIndex-\$idx'))
                     .fadeIn(
                         duration: 300.ms,
                         delay:

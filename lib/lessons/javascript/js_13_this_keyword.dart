@@ -57,9 +57,9 @@ WHAT "this" REFERS TO:
 CALL, APPLY, BIND:
 ─────────────────────────────────────
   function greet(greeting, punctuation) {
-    return \`${
-greeting}, ${
-this.name}${
+    return \`\${
+greeting},\${
+this.name}\${
 punctuation}\`;
   }
 
@@ -144,9 +144,9 @@ try {
 // ─── CALL, APPLY, BIND ────────────────────────────────
 console.log("\n=== call, apply, bind ===");
 function introduce(greeting, punctuation) {
-  return \`${
-greeting}, I'm ${
-this.name}${
+  return \`\${
+greeting}, I'm\${
+this.name}\${
 punctuation}\`;
 }
 
@@ -198,8 +198,8 @@ class Timer {
   }
 
   toString() {
-    return \`${
-this.name}: ${
+    return \`\${
+this.name}:\${
 this.ticks} ticks\`;
   }
 }

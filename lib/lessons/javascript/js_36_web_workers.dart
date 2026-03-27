@@ -238,17 +238,17 @@ const tasks = [
 computeWorker.onmessage = ({ data }) => {
     switch (data.type) {
         case 'PRIME_COUNT_RESULT':
-            console.log(\`  Primes up to ${
-data.upTo}: ${
+            console.log(\`  Primes up to\${
+data.upTo}:\${
 data.count}\`);
             break;
         case 'FIBONACCI_RESULT':
-            console.log(\`  fib(${
-data.n}) = ${
+            console.log(\`  fib(\${
+data.n}) =\${
 data.value}\`);
             break;
         case 'SORT_RESULT':
-            console.log(\`  Sorted: [${
+            console.log(\`  Sorted: [\${
 data.sorted}]\`);
             break;
     }
@@ -307,10 +307,10 @@ setTimeout(() => {
     });
 
     imageWorker.onmessage = ({ data }) => {
-        console.log(\`  ${
-data.operation}: first 8 values = [${
+        console.log(\` \${
+data.operation}: first 8 values = [\${
 data.pixels.slice(0, 8).join(', ')}]\`);
-        console.log(\`  Processing time: ${
+        console.log(\`  Processing time:\${
 data.processingTime}ms\`);
     };
 
@@ -380,8 +380,8 @@ setTimeout(() => {
     const tasks = [100, 200, 300, 400, 500, 600];
     Promise.all(tasks.map(n => pool.run({ n }))).then(results => {
         console.log("  All pool results:");
-        results.forEach(r => console.log(\`    sum(0..${
-r.n}) = ${
+        results.forEach(r => console.log(\`    sum(0..\${
+r.n}) =\${
 r.result}\`));
     });
 
@@ -402,8 +402,8 @@ setTimeout(() => {
         ["Shared memory",    "new SharedArrayBuffer(bytes)"],
         ["Atomic ops",       "Atomics.add/load/store/wait/notify"],
     ];
-    ref.forEach(([desc, code]) => console.log(\`  ${
-desc.padEnd(18)}: ${
+    ref.forEach(([desc, code]) => console.log(\` \${
+desc.padEnd(18)}:\${
 code}\`));
 }, 300);
 

@@ -111,7 +111,7 @@ fun main() {
 
     // filter
     val passing = students.filter { it.grade >= 80 }
-    println("Passing: ${
+    println("Passing:\${
 passing.map { it.name }}")
     // [Alice, Charlie, Eve]
 
@@ -119,15 +119,15 @@ passing.map { it.name }}")
     val names = students.map { it.name }
     println("Names: \$names")
 
-    val gradeReport = students.map { "${
-it.name}: ${
+    val gradeReport = students.map { "\${
+it.name}:\${
 it.grade}" }
     println(gradeReport)
 
     // sumOf and average
     val totalGrade = students.sumOf { it.grade }
     val avgGrade = students.map { it.grade }.average()
-    println("Total: \$totalGrade, Average: ${
+    println("Total: \$totalGrade, Average:\${
 "%.1f".format(avgGrade)}")
 
     // any / all / none
@@ -137,11 +137,11 @@ it.grade}" }
 
     // find
     val topStudent = students.maxBy { it.grade }
-    println("Top student: ${
+    println("Top student:\${
 topStudent?.name}")  // Charlie
 
     val firstFailing = students.find { it.grade < 70 }
-    println("First failing: ${
+    println("First failing:\${
 firstFailing?.name}")  // Dave
 
     // groupBy
@@ -153,17 +153,17 @@ firstFailing?.name}")  // Dave
 
     // partition
     val (honor, regular) = students.partition { it.grade >= 90 }
-    println("Honor roll: ${
+    println("Honor roll:\${
 honor.map { it.name }}")  // [Alice, Charlie]
-    println("Regular: ${
+    println("Regular:\${
 regular.map { it.name }}")
 
     // sortedBy
     val ranked = students.sortedByDescending { it.grade }
     ranked.forEachIndexed { i, s ->
-        println("${
-i + 1}. ${
-s.name} — ${
+        println("\${
+i + 1}.\${
+s.name} —\${
 s.grade}")
     }
 
@@ -191,8 +191,8 @@ s.grade}")
         .filter { it.subject == "Math" }
         .sortedByDescending { it.grade }
         .take(2)
-        .map { "${
-it.name} (${
+        .map { "\${
+it.name} (\${
 it.grade})" }
     println("Top math students: \$topMathStudents")
 }

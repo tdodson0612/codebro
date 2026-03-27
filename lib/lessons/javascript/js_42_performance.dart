@@ -208,15 +208,15 @@ let scrollCalls   = 0;
 
 const debouncedSearch = debounce((query) => {
     searchCalls++;
-    console.log(\`  🔍 Search: "${
-query}" (call #${
+    console.log(\`  🔍 Search: "\${
+query}" (call #\${
 searchCalls})\`);
 }, 200);
 
 const throttledScroll = throttle((pos) => {
     scrollCalls++;
-    console.log(\`  📜 Scroll position: ${
-pos} (call #${
+    console.log(\`  📜 Scroll position:\${
+pos} (call #\${
 scrollCalls})\`);
 }, 100);
 
@@ -233,9 +233,9 @@ for (let i = 0; i < 10; i++) {
 // Only fires every 100ms
 
 setTimeout(() => {
-    console.log(\`  Debounced: ${
+    console.log(\`  Debounced:\${
 searchCalls} actual search calls (from 5 keystrokes)\`);
-    console.log(\`  Throttled: ${
+    console.log(\`  Throttled:\${
 scrollCalls} scroll handler calls (from 10 events)\`);
 }, 500);
 
@@ -273,11 +273,11 @@ let t2 = Date.now();
 const r2 = fastFib(50);
 const memoMs = Date.now() - t2;
 
-console.log(\`  naiveFib(35): ${
-r1} in ${
+console.log(\`  naiveFib(35):\${
+r1} in\${
 naiveMs}ms\`);
-console.log(\`  memoFib(50):  ${
-r2} in ${
+console.log(\`  memoFib(50): \${
+r2} in\${
 memoMs}ms\`);
 
 // ─── ALGORITHMIC IMPROVEMENT ──────────────────────────
@@ -298,15 +298,15 @@ const set = new Set(arr2);
 const fast = arr1.filter(x => set.has(x));
 const fastMs = Date.now() - t4;
 
-console.log(\`  Intersection of ${
+console.log(\`  Intersection of\${
 N} elements:\`);
-console.log(\`  O(n²) Array.includes: ${
-slowMs}ms → ${
+console.log(\`  O(n²) Array.includes:\${
+slowMs}ms →\${
 slow.length} results\`);
-console.log(\`  O(n) Set.has:         ${
-fastMs}ms → ${
+console.log(\`  O(n) Set.has:        \${
+fastMs}ms →\${
 fast.length} results\`);
-console.log(\`  Speedup: ${
+console.log(\`  Speedup:\${
 Math.round(slowMs / Math.max(fastMs, 1))}x\`);
 
 // ─── BEST PRACTICES EXAMPLES ──────────────────────────
@@ -328,10 +328,10 @@ console.log("  ?? keeps '':", empty ?? "default");     // "" (correct)
 
 // 4. Destructuring
 function processUser({ name, email, role = 'user', active = true } = {}) {
-    console.log(\`  Processed: ${
-name}, ${
-email}, ${
-role}, active=${
+    console.log(\`  Processed:\${
+name},\${
+email},\${
+role}, active=\${
 active}\`);
 }
 processUser({ name: 'Alice', email: 'alice@example.com', role: 'admin' });
@@ -377,8 +377,8 @@ function benchmark(name, fn, iterations = 1000) {
     for (let i = 0; i < iterations; i++) fn();
     const elapsed = performance.now() - start;
 
-    console.log(\`  ${
-name.padEnd(30)}: ${
+    console.log(\` \${
+name.padEnd(30)}:\${
 (elapsed / iterations * 1000).toFixed(2)}μs/op\`);
 }
 

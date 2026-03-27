@@ -30,8 +30,8 @@ BASIC GET REQUEST:
 
   // ALWAYS check response.ok before using the data:
   if (!response.ok) {
-      throw new Error(\`HTTP ${
-response.status}: ${
+      throw new Error(\`HTTP\${
+response.status}:\${
 response.statusText}\`);
   }
 
@@ -136,12 +136,12 @@ BUILDING A FETCH WRAPPER:
               ...options,
               headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': \`Bearer ${
+                  'Authorization': \`Bearer\${
 this.token}\`,
                   ...options.headers
               }
           });
-          if (!res.ok) throw new Error(\`HTTP ${
+          if (!res.ok) throw new Error(\`HTTP\${
 res.status}\`);
           return res.status === 204 ? null : res.json();
       }
@@ -165,7 +165,7 @@ FETCH ERROR HANDLING (key insight!):
   console.log(res.status);  // 404
 
   // Always check response.ok:
-  if (!res.ok) throw new Error(\`HTTP Error: ${
+  if (!res.ok) throw new Error(\`HTTP Error:\${
 res.status}\`);
 
 💻 CODE:
@@ -225,8 +225,8 @@ class API {
 
     async request(path, options = {}) {
         const url = this.base + path;
-        console.log(\`  → ${
-options.method || 'GET'} ${
+        console.log(\`  →\${
+options.method || 'GET'}\${
 path}\`);
 
         const res = await this.fetchFn(url, {
@@ -234,13 +234,13 @@ path}\`);
             ...options
         });
 
-        console.log(\`  ← HTTP ${
+        console.log(\`  ← HTTP\${
 res.status}\`);
 
         if (!res.ok) {
             const error = await res.json().catch(() => ({ error: res.statusText }));
-            throw new Error(\`HTTP ${
-res.status}: ${
+            throw new Error(\`HTTP\${
+res.status}:\${
 error.error || res.statusText}\`);
         }
 
@@ -288,8 +288,8 @@ async function main() {
     // ─── GET ALL (updated) ────────────────────────────
     console.log("\\n=== GET /api/users (after create) ===");
     const updated = await api.get('/api/users');
-    console.log("  Users:", updated.map(u => \`${
-u.id}:${
+    console.log("  Users:", updated.map(u => \`\${
+u.id}:\${
 u.name}\`));
 
     // ─── DELETE ───────────────────────────────────────
@@ -304,9 +304,9 @@ u.name}\`));
         api.get('/api/users/1'),
         api.get('/api/users/3'),
     ]);
-    console.log(\`  Parallel: ${
-u1.name} + ${
-u3.name} in ${
+    console.log(\`  Parallel:\${
+u1.name} +\${
+u3.name} in\${
 Date.now()-start}ms\`);
 
     // ─── ABORT CONTROLLER ─────────────────────────────

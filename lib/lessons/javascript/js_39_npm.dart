@@ -221,20 +221,20 @@ console.log("  DevDeps: ", Object.keys(examplePackageJson.devDependencies).join(
 console.log("\n=== Version Range Semantics ===");
 
 function explainRange(range) {
-    if (range.startsWith('^')) return \`Compatible: >= ${
+    if (range.startsWith('^')) return \`Compatible: >=\${
 range.slice(1)}, < next major\`;
-    if (range.startsWith('~')) return \`Patch only: >= ${
+    if (range.startsWith('~')) return \`Patch only: >=\${
 range.slice(1)}, < next minor\`;
-    if (range.startsWith('>=')) return \`At least: ${
+    if (range.startsWith('>=')) return \`At least:\${
 range}\`;
     if (range === '*') return 'Any version (dangerous!)';
-    return \`Exact: ${
+    return \`Exact:\${
 range}\`;
 }
 
 const ranges = ['^4.18.2', '~1.5.0', '>=3.0.0', '5.2.0', '*', 'latest'];
-ranges.forEach(r => console.log(\`  ${
-r.padEnd(12)}: ${
+ranges.forEach(r => console.log(\` \${
+r.padEnd(12)}:\${
 explainRange(r)}\`));
 
 // ─── SCRIPT RUNNER ────────────────────────────────────
@@ -259,21 +259,21 @@ const scripts = {
 
 // Simulate: npm run build
 const buildResult = scripts.build();
-console.log(\`  → Build: ${
-buildResult.files} files compiled in ${
+console.log(\`  → Build:\${
+buildResult.files} files compiled in\${
 buildResult.time}\`);
 
 // Simulate: npm test
 const testResult = scripts.test();
-console.log(\`  → Tests: ${
-testResult.passed}/${
-testResult.total} passed in ${
+console.log(\`  → Tests:\${
+testResult.passed}/\\\${
+testResult.total} passed in\${
 testResult.time}\`);
 
 // Simulate: npm run lint
 const lintResult = scripts.lint();
-console.log(\`  → Lint: ${
-lintResult.errors} errors, ${
+console.log(\`  → Lint:\${
+lintResult.errors} errors,\${
 lintResult.warnings} warnings\`);
 
 // ─── DEPENDENCY MANAGEMENT SIMULATION ────────────────
@@ -285,20 +285,20 @@ function analyzeDependencies(pkg) {
 
     console.log("  Production dependencies:");
     deps.forEach(([name, ver]) => {
-        console.log(\`    ${
-name.padEnd(20)} ${
+        console.log(\`   \${
+name.padEnd(20)}\${
 ver}\`);
     });
 
     console.log("  Dev dependencies:");
     devDeps.forEach(([name, ver]) => {
-        console.log(\`    ${
-name.padEnd(20)} ${
+        console.log(\`   \${
+name.padEnd(20)}\${
 ver}\`);
     });
 
-    console.log(\`  Total: ${
-deps.length} prod, ${
+    console.log(\`  Total:\${
+deps.length} prod,\${
 devDeps.length} dev\`);
 }
 
@@ -322,7 +322,7 @@ function parseEnv(env) {
     const missing = required.filter(k => !env[k]);
 
     if (missing.length > 0) {
-        throw new Error(\`Missing required env vars: ${
+        throw new Error(\`Missing required env vars:\${
 missing.join(', ')}\`);
     }
 
@@ -366,8 +366,8 @@ const commands = [
 ];
 
 commands.forEach(([cmd, desc]) => {
-    console.log(\`  ${
-cmd.padEnd(28)}: ${
+    console.log(\` \${
+cmd.padEnd(28)}:\${
 desc}\`);
 });
 

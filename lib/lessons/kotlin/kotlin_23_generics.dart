@@ -109,7 +109,7 @@ With inline + reified, you can use the type at runtime:
 
 💻 CODE:
 // Generic function
-fun <T> printItem(item: T) = println("Item: \$item (${
+fun <T> printItem(item: T) = println("Item: \$item (\${
 item!!::class.simpleName})")
 
 fun <T> List<T>.second(): T {
@@ -211,9 +211,9 @@ fun main() {
     }
 
     when (val result = fetchUser(5)) {
-        is ApiResult.Success -> println("Got: ${
+        is ApiResult.Success -> println("Got:\${
 result.data}")
-        is ApiResult.Error   -> println("Error: ${
+        is ApiResult.Error   -> println("Error:\${
 result.message}")
     }
 

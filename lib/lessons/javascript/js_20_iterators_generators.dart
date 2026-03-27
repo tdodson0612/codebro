@@ -132,8 +132,8 @@ ASYNC GENERATORS:
   async function* paginate(url) {
       let page = 1;
       while (true) {
-          const data = await fetch(\`${
-url}?page=${
+          const data = await fetch(\`\${
+url}?page=\${
 page}\`).then(r => r.json());
           if (data.length === 0) return;
           yield* data;

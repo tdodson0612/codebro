@@ -151,7 +151,7 @@ fun main() {
     val email: String? = "terry@example.com"
     email?.let {
         println("Email found: \$it")
-        println("Domain: ${
+        println("Domain:\${
 it.substringAfter('@')}")
     }
 

@@ -200,10 +200,8 @@ fun main() {
     // Custom class extension
     val boilingC = Temperature(100.0, "C")
     val boilingF = Temperature(212.0, "F")
-    println("${
-boilingC.toKelvin()} K")   // 373.15 K
-    println("${
-boilingF.toKelvin()} K")   // 373.15 K
+    println("\${boilingC.toKelvin()} K")   // 373.15 K
+    println("\${boilingF.toKelvin()} K")   // 373.15 K
 }
 
 📝 KEY POINTS:

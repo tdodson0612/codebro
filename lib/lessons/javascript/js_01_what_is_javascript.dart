@@ -164,9 +164,7 @@ function oldStyle(name) {
 
 // Modern style (ES6+):
 const modernGreeting = "Hello";
-const modernStyle = (name) => \`${
-modernGreeting}, ${
-name}!\`;
+const modernStyle = (name) => \`\${modernGreeting}, \${name}!\`;
 
 console.log(oldStyle("Terry"));      // Hello, Terry!
 console.log(modernStyle("Terry"));   // Hello, Terry!

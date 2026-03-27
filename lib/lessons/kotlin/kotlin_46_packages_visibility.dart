@@ -188,7 +188,7 @@ class Token private constructor(val value: String, val expiresAt: Long) {
         fun invalid(): Token = Token("", 0)
     }
 
-    override fun toString() = "Token(${
+    override fun toString() = "Token(\${
 value.take(8)}..., expired=\$isExpired)"
 }
 
@@ -201,13 +201,13 @@ open class Vehicle(val make: String) {
 
     protected fun refuel(amount: Double) {
         fuelLevel = minOf(100.0, fuelLevel + amount)
-        println("Refueled: now at ${
+        println("Refueled: now at\${
 "%.0f".format(fuelLevel)}%")
     }
 
     fun status(): String {
         // Can access all — we're inside Vehicle
-        return "\$make | Fuel: ${
+        return "\$make | Fuel:\${
 "%.0f".format(fuelLevel)}% | Engine: \$engineCode"
     }
 }
@@ -218,13 +218,13 @@ class ElectricCar(make: String) : Vehicle(make) {
     fun charge(amount: Double) {
         batteryLevel = minOf(100.0, batteryLevel + amount)
         fuelLevel = batteryLevel      // ✅ can access protected
-        println("Charging \$make: battery at ${
+        println("Charging \$make: battery at\${
 "%.0f".format(batteryLevel)}%")
     }
 
     override fun toString(): String {
-        return "\$make Electric | Battery: ${
-"%.0f".format(batteryLevel)}% | Fuel level: ${
+        return "\$make Electric | Battery:\${
+"%.0f".format(batteryLevel)}% | Fuel level:\${
 "%.0f".format(fuelLevel)}%"
         // Cannot access engineCode — private to Vehicle ❌
     }
@@ -256,9 +256,9 @@ fun main() {
     // Packages and visibility
     println("=== AppConfig visibility ===")
     val config = AppConfig()
-    println("Version: ${
+    println("Version:\${
 config.version}")         // ✅ public
-    println("Production: ${
+    println("Production:\${
 config.isProduction()}") // ✅ public method
     // config.secretKey — ❌ private, won't compile
     // config.buildNumber — ✅ accessible within same module
@@ -269,10 +269,10 @@ config.isProduction()}") // ✅ public method
     val token = Token.create("my_api_key_here", 3600)
     val expired = Token.invalid()
     println(token)
-    println("Valid: ${
+    println("Valid:\${
 !token.isExpired}")
     println(expired)
-    println("Expired: ${
+    println("Expired:\${
 expired.isExpired}")
     // Token("value", 0) — ❌ constructor is private
 
@@ -288,12 +288,12 @@ expired.isExpired}")
     // Private set
     println("\\n=== Private set ===")
     val counter = Counter(10)
-    println("Count: ${
+    println("Count:\${
 counter.count}")    // ✅ can read
     counter.increment()
     counter.increment()
     counter.increment()
-    println("After 3 increments: ${
+    println("After 3 increments:\${
 counter.count}")
     // counter.count = 999 — ❌ private set, won't compile
 
@@ -303,16 +303,16 @@ counter.count}")
     val apiUser = ApiUser("tok_abc", "Terry", listOf("read", "write"))
     println("DB User:  \$dbUser")
     println("API User: \$apiUser")
-    println("Names match: ${
+    println("Names match:\${
 syncUsers(dbUser, apiUser)}")
 
     // Star imports — all of kotlin.math is available
     println("\\n=== Star import math functions ===")
-    println("sqrt(144) = ${
+    println("sqrt(144) =\${
 kotlin.math.sqrt(144.0)}")
-    println("PI = ${
+    println("PI =\${
 "%.5f".format(kotlin.math.PI)}")
-    println("abs(-42) = ${
+    println("abs(-42) =\${
 kotlin.math.abs(-42)}")
 }
 

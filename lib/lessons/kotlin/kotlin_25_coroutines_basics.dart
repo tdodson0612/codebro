@@ -156,9 +156,9 @@ fun main() = runBlocking {
     val start = System.currentTimeMillis()
     val user = fetchUser(1)
     val posts = fetchPosts(user)
-    println("Got ${
+    println("Got\${
 posts.size} posts for \$user")
-    println("Sequential time: ${
+    println("Sequential time:\${
 System.currentTimeMillis() - start}ms")
     // ~800ms (500 + 300 sequential)
 
@@ -172,7 +172,7 @@ System.currentTimeMillis() - start}ms")
     val user2 = userDeferred.await()
     val weather = weatherDeferred.await()
     println("User: \$user2, Weather: \$weather")
-    println("Parallel time: ${
+    println("Parallel time:\${
 System.currentTimeMillis() - start2}ms")
     // ~500ms (both run simultaneously)
 

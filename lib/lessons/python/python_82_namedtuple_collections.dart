@@ -142,7 +142,7 @@ e1 = Employee("Alice", "Engineering", 95000.0, level=3)
 e2 = Employee("Bob", "Marketing", 72000.0)  # level defaults to 1
 
 print(e1)
-print(f"Bonus:${
+print(f"Bonus:\${
 e1.annual_bonus:,.0f}")
 
 promoted = e1.promote(0.15)
@@ -152,7 +152,7 @@ print(f"After promotion: {promoted}")
 employees = [e1, e2, Employee("Carol", "Engineering", 98000.0, 4)]
 by_salary = sorted(employees, key=lambda e: e.salary, reverse=True)
 for e in by_salary:
-    print(f"  {e.name:<10}${
+    print(f"  {e.name:<10}\${
 e.salary:>10,.0f} (L{e.level})")
 
 # Still a tuple — works with CSV, dict, etc.

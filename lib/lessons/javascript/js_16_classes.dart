@@ -33,13 +33,13 @@ CLASS BASICS:
 
     // Method (on prototype — shared):
     speak() {
-      return \`${
+      return \`\${
 this.name} makes a sound\`;
     }
 
     // Getter:
-    get info() { return \`${
-this.type}: ${
+    get info() { return \`\${
+this.type}:\${
 this.name}\`; }
 
     // Static method:
@@ -64,7 +64,7 @@ INHERITANCE (extends / super):
       return super.speak() + " — Woof!";  // call parent method
     }
 
-    fetch() { return \`${
+    fetch() { return \`\${
 this.name} fetches!\`; }
   }
 
@@ -181,7 +181,7 @@ class Shape {
   get color()   { return this.#color; }
   set color(v)  {
     const valid = ["red","green","blue","black","white","yellow"];
-    if (!valid.includes(v)) throw new Error(\`Invalid color: ${
+    if (!valid.includes(v)) throw new Error(\`Invalid color:\${
 v}\`);
     this.#color = v;
   }
@@ -189,9 +189,9 @@ v}\`);
   get area()    { return 0; }  // override in subclasses
 
   describe() {
-    return \`${
-this.constructor.name}: color=${
-this.#color}, area=${
+    return \`\${
+this.constructor.name}: color=\${
+this.#color}, area=\${
 this.area.toFixed(2)}\`;
   }
 
@@ -214,7 +214,7 @@ class Circle extends Shape {
   get perimeter() { return 2 * Math.PI * this.#radius; }
 
   describe() {
-    return super.describe() + \`, radius=${
+    return super.describe() + \`, radius=\${
 this.#radius}\`;
   }
 
@@ -237,9 +237,9 @@ class Rectangle extends Shape {
 
   describe() {
     return super.describe() +
-      \`, ${
-this.#width}×${
-this.#height}${
+      \`,\${
+this.#width}×\${
+this.#height}\${
 this.isSquare ? " (square)" : ""}\`;
   }
 }
@@ -260,7 +260,7 @@ console.log(rect instanceof Circle);    // false
 
 // Scale
 const bigCircle = circle.scale(2);
-console.log(\`Scaled: radius=${
+console.log(\`Scaled: radius=\${
 bigCircle.radius.toFixed(1)}\`);
 
 // ─── PRIVATE FIELDS ───────────────────────────────────
@@ -303,8 +303,8 @@ class BankAccount {
   get history() { return [...this.#transactions]; }
 
   toString() {
-    return \`${
-this.#owner}'s account: \$${
+    return \`\${
+this.#owner}'s account: \$\${
 this.#balance.toFixed(2)}\`;
   }
 }
@@ -337,20 +337,20 @@ class Temperature {
   static fromFahrenheit(f) { return new Temperature((f - 32) * 5/9); }
   static fromKelvin(k) { return new Temperature(k + Temperature.ABSOLUTE_ZERO_C); }
 
-  toString() { return \`${
+  toString() { return \`\${
 this.#celsius}°C\`; }
 }
 
 const boiling = new Temperature(100);
 const body    = Temperature.fromFahrenheit(98.6);
 
-console.log(\`Boiling: ${
-boiling} = ${
-boiling.fahrenheit}°F = ${
+console.log(\`Boiling:\${
+boiling} =\${
+boiling.fahrenheit}°F =\${
 boiling.kelvin.toFixed(2)}K\`);
-console.log(\`Body: ${
+console.log(\`Body:\${
 body.celsius.toFixed(1)}°C\`);
-console.log(\`Absolute zero: ${
+console.log(\`Absolute zero:\${
 Temperature.ABSOLUTE_ZERO_C}°C\`);
 
 // ─── MIXIN PATTERN ────────────────────────────────────

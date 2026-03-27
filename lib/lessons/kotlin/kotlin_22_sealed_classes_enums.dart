@@ -79,9 +79,9 @@ Unlike enums, sealed class subclasses:
 when WITH SEALED CLASSES — exhaustive:
 ─────────────────────────────────────
   fun handleResult(result: Result<String>) = when (result) {
-      is Result.Success -> println("Got: ${
+      is Result.Success -> println("Got:\${
 result.data}")
-      is Result.Error   -> println("Error: ${
+      is Result.Error   -> println("Error:\${
 result.message}")
       is Result.Loading -> println("Loading...")
       // No else needed — compiler verifies all branches!
@@ -147,13 +147,13 @@ sealed class UiState {
 fun handleNetworkResult(result: NetworkResult<String>) {
     when (result) {
         is NetworkResult.Success -> {
-            println("✅ Success (${
-result.statusCode}): ${
+            println("✅ Success (\${
+result.statusCode}):\${
 result.data}")
         }
         is NetworkResult.Failure -> {
-            println("❌ Failed (${
-result.statusCode}): ${
+            println("❌ Failed (\${
+result.statusCode}):\${
 result.error}")
         }
         NetworkResult.Loading -> println("⏳ Loading...")
@@ -165,11 +165,11 @@ fun renderUi(state: UiState) {
     when (state) {
         is UiState.Idle    -> println("Waiting for input...")
         is UiState.Loading -> println("Spinner visible...")
-        is UiState.Content -> println("Showing ${
-state.items.size} items: ${
+        is UiState.Content -> println("Showing\${
+state.items.size} items:\${
 state.items}")
         is UiState.Error   -> {
-            println("Error: ${
+            println("Error:\${
 state.message}")
             if (state.retryable) println("  [Retry] button shown")
         }
@@ -185,12 +185,12 @@ fun main() {
 
     // Iterate all enum values
     println("\\nAll HTTP statuses:")
-    HttpStatus.values().forEach { println("  ${
+    HttpStatus.values().forEach { println(" \${
 it.display()}") }
 
     // Get enum by name or value
     val found = HttpStatus.valueOf("CREATED")
-    println("\\nFound: ${
+    println("\\nFound:\${
 found.display()}")
 
     println("\\n--- Network Results ---")
@@ -214,9 +214,9 @@ found.display()}")
     )
     val summaries = results.map { result ->
         when (result) {
-            is NetworkResult.Success -> "OK: ${
+            is NetworkResult.Success -> "OK:\${
 result.data}"
-            is NetworkResult.Failure -> "FAIL: ${
+            is NetworkResult.Failure -> "FAIL:\${
 result.error}"
             NetworkResult.Loading    -> "Loading"
             NetworkResult.Empty      -> "Empty"

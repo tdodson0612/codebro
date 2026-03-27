@@ -77,7 +77,7 @@ PARAMETERS AND ARGUMENTS:
 ─────────────────────────────────────
   // Default parameters (ES6):
   function greet(name = "World") {
-    return \`Hello, ${
+    return \`Hello,\${
 name}!\`;
   }
   greet()          → "Hello, World!"
@@ -94,8 +94,8 @@ name}!\`;
 
   // Destructured parameters:
   function display({ name, age = 0 }) {
-    return \`${
-name} is ${
+    return \`\${
+name} is\${
 age}\`;
   }
   display({ name: "Alice", age: 28 })
@@ -185,8 +185,8 @@ console.log(fib(10));  // 55
 console.log("\n=== Arrow Functions ===");
 
 const square = n => n * n;
-const greet = (name, time = "day") => \`Good ${
-time}, ${
+const greet = (name, time = "day") => \`Good\${
+time},\${
 name}!\`;
 const identity = x => x;
 const getRandom = () => Math.random();
@@ -225,7 +225,7 @@ console.log(sum(1, 2, 3));         // 6
 console.log(sum(1, 2, 3, 4, 5));   // 15
 
 function logMessage(level, ...parts) {
-  console.log(\`[${
+  console.log(\`[\${
 level.toUpperCase()}]\`, ...parts);
 }
 logMessage("info", "Server started on port", 3000);
@@ -234,9 +234,9 @@ logMessage("error", "Failed:", "connection refused");
 // ─── DESTRUCTURED PARAMETERS ──────────────────────────
 console.log("\n=== Destructured Parameters ===");
 function displayUser({ name, age = 0, city = "Unknown" }) {
-  console.log(\`${
-name}, ${
-age}, from ${
+  console.log(\`\${
+name},\${
+age}, from\${
 city}\`);
 }
 displayUser({ name: "Alice", age: 28, city: "London" });

@@ -159,7 +159,7 @@ class ApiClient(val baseUrl: String) {
     // @JvmOverloads generates Java overloads for default params
     @JvmOverloads
     fun get(endpoint: String, timeout: Int = DEFAULT_TIMEOUT, retries: Int = 3): String {
-        return "GET \$baseUrl/\$endpoint (timeout=${
+        return "GET \$baseUrl/\$endpoint (timeout=\${
 timeout}ms, retries=\$retries)"
     }
 
@@ -178,7 +178,7 @@ fun javaTypesDemo() {
     // Java's LocalDate
     val today = LocalDate.now()
     val formatter = DateTimeFormatter.ofPattern("MMMM d, yyyy")
-    println("Today: ${
+    println("Today:\${
 today.format(formatter)}")
 
     val birthday = LocalDate.of(1990, 6, 15)
@@ -191,7 +191,7 @@ today.format(formatter)}")
     cache["products"] = 4200
     cache["orders"] = 830
     println("\\nCache: \$cache")
-    println("Users: ${
+    println("Users:\${
 cache["users"]}")
 
     // Java regex
@@ -199,14 +199,14 @@ cache["users"]}")
     val emails = listOf("valid@test.com", "invalid-email", "another@valid.org")
     emails.forEach { email ->
         val valid = emailPattern.matcher(email).matches()
-        println("\$email: ${
+        println("\$email:\${
 if (valid) "✅" else "❌"}")
     }
 
     // Java's StringBuilder
     val sb = StringBuilder()
     repeat(5) { i ->
-        sb.append("Item ${
+        sb.append("Item\${
 i + 1}")
         if (i < 4) sb.append(", ")
     }
@@ -219,17 +219,17 @@ fun platformTypeSafety() {
 
     // System.getenv() returns String? in reality
     val path: String? = System.getenv("PATH")
-    println("PATH exists: ${
+    println("PATH exists:\${
 path != null}")
-    println("PATH length: ${
+    println("PATH length:\${
 path?.length ?: 0}")
 
     // System.getProperty returns String?
     val osName: String? = System.getProperty("os.name")
     val javaVersion: String? = System.getProperty("java.version")
-    println("OS: ${
+    println("OS:\${
 osName ?: "Unknown"}")
-    println("Java: ${
+    println("Java:\${
 javaVersion ?: "Unknown"}")
 }
 
@@ -246,7 +246,7 @@ fun main() {
     try {
         println(client.post("data", ""))
     } catch (e: IllegalArgumentException) {
-        println("Caught: ${
+        println("Caught:\${
 e.message}")
     }
 

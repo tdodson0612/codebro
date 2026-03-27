@@ -83,8 +83,7 @@ DYNAMIC IMPORTS:
 
   // Conditional load:
   const locale = 'fr';
-  const strings = await import(\`./strings/${
-locale}.js\`);
+  const strings = await import(\`./strings/\\\${locale}.js\`);
 
   // Code splitting (webpack/Vite):
   button.addEventListener('click', async () => {
@@ -160,8 +159,8 @@ const math = (() => {
         constructor(x, y) { this.x = x; this.y = y; }
         add(other) { return new Vector(this.x + other.x, this.y + other.y); }
         magnitude() { return Math.sqrt(this.x**2 + this.y**2); }
-        toString()  { return \`Vector(${
-this.x}, ${
+        toString()  { return \`Vector(\${
+this.x},\${
 this.y})\`; }
     }
 
@@ -296,11 +295,11 @@ const moduleRegistry = {
 };
 
 async function loadOnDemand(modulePath) {
-    console.log(\`  [Loading] ${
+    console.log(\`  [Loading]\${
 modulePath}...\`);
     await new Promise(r => setTimeout(r, 50));  // simulate network
     const mod = moduleRegistry[modulePath];
-    console.log(\`  [Loaded]  ${
+    console.log(\`  [Loaded] \${
 modulePath}\`);
     return mod;
 }

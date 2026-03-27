@@ -112,11 +112,11 @@ subtotal = price * quantity
 tax = (subtotal * tax_rate).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
 total = subtotal + tax
 
-print(f"Subtotal:${
+print(f"Subtotal:\${
 subtotal}")    #\$59.97
-print(f"Tax:     ${
+print(f"Tax:    \${
 tax}")         #\$5.25
-print(f"Total:   ${
+print(f"Total:  \${
 total}")       #\$65.22
 
 # Rounding modes

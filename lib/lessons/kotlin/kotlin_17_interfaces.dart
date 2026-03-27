@@ -141,12 +141,12 @@ interface Clickable {
 class Button(val label: String, var size: Double = 1.0)
     : Drawable, Resizable, Clickable {
 
-    override fun draw() = println("Drawing button: [\$label] (size ${
+    override fun draw() = println("Drawing button: [\$label] (size\${
 "%.1f".format(size)}x)")
 
     override fun resize(factor: Double) {
         size *= factor
-        println("Button resized to ${
+        println("Button resized to\${
 "%.1f".format(size)}x")
     }
 
@@ -169,8 +169,8 @@ class ElectricCar(override val speed: Int) : Vehicle {
 
 class GasCar(override val speed: Int, val engineSize: Double) : Vehicle {
     override val fuelType = "Gasoline"
-    override fun describe() = "${
-super.describe()}, ${
+    override fun describe() = "\${
+super.describe()},\${
 engineSize}L engine"
 }
 
@@ -217,7 +217,7 @@ fun main() {
     // Type checking
     val drawables: List<Any> = listOf(btn, "text", 42, Button("Cancel"))
     val onlyDrawable = drawables.filterIsInstance<Drawable>()
-    println("Drawables found: ${
+    println("Drawables found:\${
 onlyDrawable.size}")
 }
 

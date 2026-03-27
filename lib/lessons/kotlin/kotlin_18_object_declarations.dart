@@ -32,8 +32,7 @@ to the idea of a single instance:
       var timeout = 30
 
       fun printConfig() {
-          println("URL: \$baseUrl, Timeout: ${
-timeout}s")
+          println("URL: \$baseUrl, Timeout: \${timeout}s")
       }
   }
 
@@ -121,8 +120,7 @@ object Logger {
     }
 
     fun printAll() {
-        println("--- All logs (${
-logs.size}) ---")
+        println("--- All logs (\${logs.size}) ---")
         logs.forEach { println(it) }
     }
 }
@@ -191,14 +189,12 @@ fun main() {
     println(AppConfig.describe())
     AppConfig.reset()
     println(AppConfig.describe())
-    println("Version: ${
-AppConfig.VERSION}")
+    println("Version: \${AppConfig.VERSION}")
 
     println()
 
     // Companion object / factory
-    val db1 = Database.getInstance("postgresql://localhost:${
-Database.DEFAULT_PORT}/mydb")
+    val db1 = Database.getInstance("postgresql://localhost:\${Database.DEFAULT_PORT}/mydb")
     val db2 = Database.getInstance("postgresql://other")   // same instance returned
     println(db1 === db2)     // true — same object
     println(Database.isConnected())
@@ -218,9 +214,7 @@ Database.DEFAULT_PORT}/mydb")
         val width = 1920
         val height = 1080
     }
-    println("Resolution: ${
-dimensions.width}x${
-dimensions.height}")
+    println("Resolution: \${dimensions.width}x\${dimensions.height}")
 }
 
 📝 KEY POINTS:

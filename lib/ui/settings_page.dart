@@ -42,7 +42,7 @@ class SettingsPage extends StatelessWidget {
                     max: 20,
                     divisions: 9,
                     value: settings.fontSize,
-                    label: '${settings.fontSize.toInt()}px',
+                    label: '\${settings.fontSize.toInt()}px',
                     onChanged: (val) => settings.setFontSize(val),
                   ),
                   Padding(
@@ -83,7 +83,7 @@ class SettingsPage extends StatelessWidget {
                   const Icon(Icons.bolt, color: Colors.amber),
               title: const Text('Total XP'),
               trailing: Text(
-                '${progress.xp} XP',
+                '\${progress.xp} XP',
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 16),
               ),
@@ -107,7 +107,7 @@ progress.levelTitle}',
                   style: TextStyle(fontSize: 22)),
               title: const Text('Current Streak'),
               trailing: Text(
-                '${progress.streak} days',
+                '\${progress.streak} days',
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 16),
               ),

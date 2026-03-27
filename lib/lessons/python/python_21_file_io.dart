@@ -183,7 +183,7 @@ with open("employees.csv", "r") as f:
 with open("employees.csv", "r") as f:
     reader = csv.DictReader(f)
     for row in reader:
-        print(f"{row['Name']}: ${
+        print(f"{row['Name']}:\${
 int(row['Salary']):,}")
 
 # DictWriter

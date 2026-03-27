@@ -109,30 +109,30 @@ function createValidated(schema) {
     return new Proxy(data, {
         set(target, prop, value) {
             const rule = schema[prop];
-            if (!rule) throw new TypeError(\`Unknown property: ${
+            if (!rule) throw new TypeError(\`Unknown property:\${
 String(prop)}\`);
             if (rule.required && (value === null || value === undefined)) {
-                throw new TypeError(\`${
+                throw new TypeError(\`\${
 String(prop)} is required\`);
             }
             if (rule.type && typeof value !== rule.type) {
-                throw new TypeError(\`${
-String(prop)} must be ${
-rule.type}, got ${
+                throw new TypeError(\`\${
+String(prop)} must be\${
+rule.type}, got\${
 typeof value}\`);
             }
             if (rule.min !== undefined && value < rule.min) {
-                throw new RangeError(\`${
-String(prop)} must be >= ${
+                throw new RangeError(\`\${
+String(prop)} must be >=\${
 rule.min}\`);
             }
             if (rule.max !== undefined && value > rule.max) {
-                throw new RangeError(\`${
-String(prop)} must be <= ${
+                throw new RangeError(\`\${
+String(prop)} must be <=\${
 rule.max}\`);
             }
             if (rule.pattern && !rule.pattern.test(value)) {
-                throw new Error(\`${
+                throw new Error(\`\${
 String(prop)} doesn't match required pattern\`);
             }
             return Reflect.set(target, prop, value);
@@ -163,8 +163,8 @@ const tests = [
 
 for (const test of tests) {
     try { test(); }
-    catch (e) { console.log(\`  ❌ ${
-e.constructor.name}: ${
+    catch (e) { console.log(\`  ❌\${
+e.constructor.name}:\${
 e.message}\`); }
 }
 
@@ -176,23 +176,23 @@ function createLogger(target, name = "object") {
         get(target, prop, receiver) {
             const value = Reflect.get(target, prop, receiver);
             if (typeof value !== 'function') {
-                console.log(\`  [LOG] GET ${
-name}.${
-String(prop)} → ${
+                console.log(\`  [LOG] GET\${
+name}.\${
+String(prop)} →\${
 JSON.stringify(value)}\`);
             }
             return value;
         },
         set(target, prop, value, receiver) {
-            console.log(\`  [LOG] SET ${
-name}.${
-String(prop)} = ${
+            console.log(\`  [LOG] SET\${
+name}.\${
+String(prop)} =\${
 JSON.stringify(value)}\`);
             return Reflect.set(target, prop, value, receiver);
         },
         deleteProperty(target, prop) {
-            console.log(\`  [LOG] DEL ${
-name}.${
+            console.log(\`  [LOG] DEL\${
+name}.\${
 String(prop)}\`);
             return Reflect.deleteProperty(target, prop);
         }
@@ -260,12 +260,12 @@ function reactive(target) {
 const state = reactive({ count: 0, name: "Alice" });
 
 state.\$watch('count', (newVal, oldVal) =>
-    console.log(\`  count changed: ${
-oldVal} → ${
+    console.log(\`  count changed:\${
+oldVal} →\${
 newVal}\`));
 state.\$watch('name', (newVal, oldVal) =>
-    console.log(\`  name changed: "${
-oldVal}" → "${
+    console.log(\`  name changed: "\${
+oldVal}" → "\${
 newVal}"\`));
 
 state.count = 1;
@@ -281,13 +281,13 @@ function memoize(fn) {
         apply(target, thisArg, args) {
             const key = JSON.stringify(args);
             if (cache.has(key)) {
-                console.log(\`  [CACHE HIT]  ${
-fn.name}(${
+                console.log(\`  [CACHE HIT] \${
+fn.name}(\${
 args})\`);
                 return cache.get(key);
             }
-            console.log(\`  [COMPUTE]    ${
-fn.name}(${
+            console.log(\`  [COMPUTE]   \${
+fn.name}(\${
 args})\`);
             const result = Reflect.apply(target, thisArg, args);
             cache.set(key, result);
@@ -304,8 +304,8 @@ const memoFib = memoize(fibonacci);
 
 [10, 15, 10, 20, 15].forEach(n => {
     const result = memoFib(n);
-    console.log(\`  fib(${
-n}) = ${
+    console.log(\`  fib(\${
+n}) =\${
 result}\`);
 });
 
@@ -316,7 +316,7 @@ const { proxy: tempProxy, revoke } = Proxy.revocable(
     { secret: "top-secret-data" },
     {
         get(target, prop) {
-            console.log(\`  Accessing: ${
+            console.log(\`  Accessing:\${
 String(prop)}\`);
             return Reflect.get(target, prop);
         }
@@ -328,7 +328,7 @@ revoke();   // destroy the proxy
 try {
     console.log(tempProxy.secret);
 } catch (e) {
-    console.log(\`  After revoke: ${
+    console.log(\`  After revoke:\${
 e.constructor.name} — proxy is dead!\`);
 }
 

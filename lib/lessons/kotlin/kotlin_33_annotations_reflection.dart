@@ -153,20 +153,16 @@ data class Product(
 
 // Reflection-based utilities
 fun inspectClass(kClass: kotlin.reflect.KClass<*>) {
-    println("\\n=== Inspecting: ${
-kClass.simpleName} ===")
+    println("\\n=== Inspecting: \${kClass.simpleName} ===")
 
     // Check for @Entity annotation
     val entityAnnotation = kClass.annotations.filterIsInstance<Entity>().firstOrNull()
     if (entityAnnotation != null) {
-        println("Table name: '${
-entityAnnotation.tableName}'")
+        println("Table name: '\${entityAnnotation.tableName}'")
     }
 
-    println("Is data class: ${
-kClass.isData}")
-    println("Is abstract: ${
-kClass.isAbstract}")
+    println("Is data class: \${kClass.isData}")
+    println("Is abstract: \${kClass.isAbstract}")
 
     println("Properties:")
     kClass.memberProperties.forEach { prop ->
@@ -178,8 +174,7 @@ kClass.isAbstract}")
         val nn = if (notNullAnn != null) " [NOT NULL]" else ""
         val type = prop.returnType
 
-        println("  ${
-prop.name} → column '\$colName'\$pk\$nn (\$type)")
+        println("  \${prop.name} → column '\$colName'\$pk\$nn (\$type)")
     }
 }
 
@@ -201,13 +196,10 @@ fun generateCreateTable(kClass: kotlin.reflect.KClass<*>): String {
             else      -> "TEXT"
         }
         val pk = if (column.primaryKey) " PRIMARY KEY" else ""
-        "  ${
-column.name} \$typeSql\$pk"
+        "  \${column.name} \$typeSql\$pk"
     }
 
-    return "CREATE TABLE ${
-entity.tableName} (\\n${
-columns.joinToString(",\\n")}\\n);"
+    return "CREATE TABLE \${entity.tableName} (\\n\${columns.joinToString(",\\n")}\\n);"
 }
 
 // Built-in annotations
@@ -244,16 +236,11 @@ fun main() {
     // KClass info
     println("\\n=== KClass inspection ===")
     val userClass = User::class
-    println("Name: ${
-userClass.simpleName}")
-    println("Qualified: ${
-userClass.qualifiedName}")
-    println("Is data: ${
-userClass.isData}")
-    println("Constructor params: ${
-userClass.primaryConstructor?.parameters?.map { it.name }}")
-    println("Supertypes: ${
-userClass.supertypes.map { it.toString() }}")
+    println("Name: \${userClass.simpleName}")
+    println("Qualified: \${userClass.qualifiedName}")
+    println("Is data: \${userClass.isData}")
+    println("Constructor params: \${userClass.primaryConstructor?.parameters?.map { it.name }}")
+    println("Supertypes: \${userClass.supertypes.map { it.toString() }}")
 
     // Create instance via reflection
     val ctor = User::class.primaryConstructor

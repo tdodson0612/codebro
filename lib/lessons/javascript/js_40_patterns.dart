@@ -85,7 +85,7 @@ FACTORY:
               case 'email':  return new EmailNotification(data);
               case 'sms':    return new SmsNotification(data);
               case 'push':   return new PushNotification(data);
-              default: throw new Error(\`Unknown type: ${
+              default: throw new Error(\`Unknown type:\${
 type}\`);
           }
       }
@@ -134,9 +134,9 @@ PROXY PATTERN:
 ─────────────────────────────────────
   function createProxy(target) {
       return new Proxy(target, {
-          get(t, prop) { log(\`Getting ${
+          get(t, prop) { log(\`Getting\${
 prop}\`); return t[prop]; },
-          set(t, prop, val) { log(\`Setting ${
+          set(t, prop, val) { log(\`Setting\${
 prop}\`); t[prop] = val; return true; }
       });
   }
@@ -179,20 +179,20 @@ BUILDER:
       where(cond)         { this.#conditions.push(cond); return this; }
       limit(n)            { this.#limit = n; return this; }
       offset(n)           { this.#offset = n; return this; }
-      orderBy(field, dir) { this.#order = \`${
-field} ${
+      orderBy(field, dir) { this.#order = \`\${
+field}\${
 dir}\`; return this; }
 
       build() {
-          let sql = \`SELECT * FROM ${
+          let sql = \`SELECT * FROM\${
 this.#table}\`;
-          if (this.#conditions.length) sql += \` WHERE ${
+          if (this.#conditions.length) sql += \` WHERE\${
 this.#conditions.join(' AND ')}\`;
-          if (this.#order) sql += \` ORDER BY ${
+          if (this.#order) sql += \` ORDER BY\${
 this.#order}\`;
-          if (this.#limit)  sql += \` LIMIT ${
+          if (this.#limit)  sql += \` LIMIT\${
 this.#limit}\`;
-          if (this.#offset) sql += \` OFFSET ${
+          if (this.#offset) sql += \` OFFSET\${
 this.#offset}\`;
           return sql;
       }
@@ -220,7 +220,7 @@ class EventBus {
     }
 
     publish(event, data) {
-        console.log(\`  [EventBus] emit: ${
+        console.log(\`  [EventBus] emit:\${
 event}\`);
         (this.#subscribers.get(event) || new Set()).forEach(fn => fn(data));
     }
@@ -236,13 +236,13 @@ event}\`);
 const bus = new EventBus();
 
 const unsubCart = bus.subscribe('cart:updated', ({ items, total }) => {
-    console.log(\`  CartView: ${
-items} items, total: \$${
+    console.log(\`  CartView:\${
+items} items, total: \$\${
 total.toFixed(2)}\`);
 });
 
 bus.subscribe('cart:updated', ({ items }) => {
-    console.log(\`  HeaderBadge: showing count ${
+    console.log(\`  HeaderBadge: showing count\${
 items}\`);
 });
 
@@ -268,8 +268,8 @@ class TextValidator {
 class NumberValidator {
     constructor(min, max) { this.min = min; this.max = max; }
     validate(value) { return typeof value === 'number' && value >= this.min && value <= this.max; }
-    message() { return \`Must be a number between ${
-this.min} and ${
+    message() { return \`Must be a number between\${
+this.min} and\${
 this.max}\`; }
 }
 class EmailValidator {
@@ -288,7 +288,7 @@ function validatorFactory(type, options = {}) {
         case 'number': return new NumberValidator(options.min ?? -Infinity, options.max ?? Infinity);
         case 'email':  return new EmailValidator();
         case 'regex':  return new RegexValidator(options.pattern, options.message);
-        default: throw new Error(\`Unknown validator type: ${
+        default: throw new Error(\`Unknown validator type:\${
 type}\`);
     }
 }
@@ -306,13 +306,13 @@ const testData = [
 ];
 
 testData.forEach((data, i) => {
-    console.log(\`  Test case ${
+    console.log(\`  Test case\${
 i + 1}:\`);
     Object.entries(validators).forEach(([field, v]) => {
         const valid = v.validate(data[field]);
-        console.log(\`    ${
-field.padEnd(8)}: ${
-valid ? '✅' : '❌'} ${
+        console.log(\`   \${
+field.padEnd(8)}:\${
+valid ? '✅' : '❌'}\${
 valid ? data[field] : v.message()}\`);
     });
 });
@@ -345,9 +345,9 @@ Object.entries(strategies).forEach(([name, strategy]) => {
     engine.setStrategy(strategy);
     const qty = 10;
     const total = engine.calculate(product.price, qty, customer);
-    console.log(\`  ${
-name.padEnd(12)} x${
-qty}: \$${
+    console.log(\` \${
+name.padEnd(12)} x\${
+qty}: \$\${
 total.toFixed(2)}\`);
 });
 
@@ -371,7 +371,7 @@ class TextEditor {
         const { command, prev } = this.#history.pop();
         this.#undone.push({ command, text: this.#text });
         this.#text = prev;
-        console.log(\`  Undo: "${
+        console.log(\`  Undo: "\${
 this.#text}"\`);
     }
 
@@ -380,7 +380,7 @@ this.#text}"\`);
         const { command, text } = this.#undone.pop();
         this.#history.push({ command, prev: this.#text });
         this.#text = text;
-        console.log(\`  Redo: "${
+        console.log(\`  Redo: "\${
 this.#text}"\`);
     }
 
@@ -396,15 +396,15 @@ const commands = {
 
 const editor = new TextEditor();
 editor.execute(commands.insert("Hello, World!"));
-console.log(\`  After insert: "${
+console.log(\`  After insert: "\${
 editor.content}"\`);
 
 editor.execute(commands.uppercase());
-console.log(\`  After uppercase: "${
+console.log(\`  After uppercase: "\${
 editor.content}"\`);
 
 editor.execute(commands.replace("WORLD", "JavaScript"));
-console.log(\`  After replace: "${
+console.log(\`  After replace: "\${
 editor.content}"\`);
 
 editor.undo();
@@ -421,27 +421,27 @@ class QueryBuilder {
     from(table)                { this.#table = table; return this; }
     select(...fields)          { this.#select = fields; return this; }
     where(cond)                { this.#conditions.push(cond); return this; }
-    join(table, on)            { this.#joins.push(\`JOIN ${
-table} ON ${
+    join(table, on)            { this.#joins.push(\`JOIN\${
+table} ON\${
 on}\`); return this; }
     limit(n)                   { this.#limit = n; return this; }
     offset(n)                  { this.#offset = n; return this; }
-    orderBy(field, dir = 'ASC') { this.#order.push(\`${
-field} ${
+    orderBy(field, dir = 'ASC') { this.#order.push(\`\${
+field}\${
 dir}\`); return this; }
 
     build() {
-        let sql = \`SELECT ${
-this.#select.join(', ')} FROM ${
+        let sql = \`SELECT\${
+this.#select.join(', ')} FROM\${
 this.#table}\`;
         if (this.#joins.length)      sql += ' ' + this.#joins.join(' ');
-        if (this.#conditions.length) sql += \` WHERE ${
+        if (this.#conditions.length) sql += \` WHERE\${
 this.#conditions.join(' AND ')}\`;
-        if (this.#order.length)      sql += \` ORDER BY ${
+        if (this.#order.length)      sql += \` ORDER BY\${
 this.#order.join(', ')}\`;
-        if (this.#limit !== undefined) sql += \` LIMIT ${
+        if (this.#limit !== undefined) sql += \` LIMIT\${
 this.#limit}\`;
-        if (this.#offset !== undefined) sql += \` OFFSET ${
+        if (this.#offset !== undefined) sql += \` OFFSET\${
 this.#offset}\`;
         return sql;
     }

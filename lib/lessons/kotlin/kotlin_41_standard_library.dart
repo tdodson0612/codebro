@@ -122,13 +122,13 @@ TIME MEASUREMENT:
   val time = measureTimeMillis {
       // code to measure
   }
-  println("Took: ${
+  println("Took:\${
 time}ms")
 
   val (result, time2) = measureTimedValue {
       someComputation()
   }
-  println("Result: \$result, Time: ${
+  println("Result: \$result, Time:\${
 time2.inWholeMilliseconds}ms")
 
 ─────────────────────────────────────
@@ -179,16 +179,16 @@ fun stringUtilitiesDemo() {
 
     // Character analysis
     val mixed = "Hello123!@#"
-    println("Letters: ${
+    println("Letters:\${
 mixed.filter { it.isLetter() }}")     // Hello
-    println("Digits:  ${
+    println("Digits: \${
 mixed.filter { it.isDigit() }}")      // 123
-    println("Specials:${
+    println("Specials:\${
 mixed.filter { !it.isLetterOrDigit() }}")  // !@#
 
     // lines()
     val multiline = "Line 1\nLine 2\nLine 3"
-    println("Lines: ${
+    println("Lines:\${
 multiline.lines().size}")  // 3
 }
 
@@ -214,7 +214,7 @@ fun numberUtilitiesDemo() {
 
     // Formatting
     val pi = PI
-    println("${
+    println("\${
 "%.5f".format(pi)}")    // 3.14159
 }
 
@@ -226,16 +226,16 @@ fun collectionUtilitiesDemo() {
     // zip and zipWithNext
     val letters = ('a'..'j').toList()
     val zipped = numbers.zip(letters)
-    println("Zipped: ${
+    println("Zipped:\${
 zipped.take(3)}")   // [(1, a), (2, b), (3, c)]
 
     val consecutive = numbers.zipWithNext { a, b -> b - a }
     println("Differences: \$consecutive")   // [1, 1, 1, ...] (all 1)
 
     // chunked and windowed
-    println("Chunks of 3: ${
+    println("Chunks of 3:\${
 numbers.chunked(3)}")
-    println("Windows of 3: ${
+    println("Windows of 3:\${
 numbers.windowed(3).take(4)}")
 
     // Running totals
@@ -244,9 +244,9 @@ numbers.windowed(3).take(4)}")
 
     // associate
     val squares = numbers.associate { it to it * it }
-    println("Squares: ${
-squares.entries.take(5).map { "${
-it.key}=${
+    println("Squares:\${
+squares.entries.take(5).map { "\${
+it.key}=\${
 it.value}" }}")
 
     // groupingBy eachCount — frequency map
@@ -256,7 +256,7 @@ it.value}" }}")
 
     // flatten
     val nested = listOf(listOf(1, 2), listOf(3, 4, 5), listOf(6))
-    println("Flattened: ${
+    println("Flattened:\${
 nested.flatten()}")
 }
 
@@ -267,7 +267,7 @@ fun sequenceDemo() {
     val fibSequence = generateSequence(Pair(0L, 1L)) { (a, b) -> Pair(b, a + b) }
         .map { it.first }
 
-    println("First 10 Fibonacci: ${
+    println("First 10 Fibonacci:\${
 fibSequence.take(10).toList()}")
 
     // Performance comparison
@@ -279,8 +279,8 @@ fibSequence.take(10).toList()}")
         (1..1_000_000).asSequence().filter { it % 2 == 0 }.map { it * it }.take(5).toList()
     }
 
-    println("Eager: ${
-eagerTime}ms, Lazy: ${
+    println("Eager:\${
+eagerTime}ms, Lazy:\${
 lazyTime}ms")
 
     // Custom infinite sequence
@@ -305,7 +305,7 @@ fun miscUtilitiesDemo() {
         (1..100_000).filter { it % 7 == 0 }.sum()
     }
     println("Sum of multiples of 7 up to 100,000: \$result")
-    println("Computed in: ${
+    println("Computed in:\${
 duration.inWholeMilliseconds}ms")
 
     // Pairs and Triples

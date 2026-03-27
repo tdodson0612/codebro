@@ -187,9 +187,9 @@ const formats = [
 
 formats.forEach(([opts, locale]) => {
     const formatted = new Intl.DateTimeFormat(locale, opts).format(date);
-    console.log(` ${
-locale}${
-JSON.stringify(opts).slice(0,30)}:${
+    console.log(`\${
+locale}\${
+JSON.stringify(opts).slice(0,30)}:\${
 formatted}`);
 });
 

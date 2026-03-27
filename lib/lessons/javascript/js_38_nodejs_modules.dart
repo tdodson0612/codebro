@@ -198,12 +198,12 @@ const virtualFS = new Map();
 const fs = {
     async writeFile(path, data) {
         virtualFS.set(path, typeof data === 'string' ? data : JSON.stringify(data, null, 2));
-        console.log(\`  writeFile: ${
-path} (${
+        console.log(\`  writeFile:\${
+path} (\${
 virtualFS.get(path).length} bytes)\`);
     },
     async readFile(path, encoding) {
-        if (!virtualFS.has(path)) throw new Error(\`ENOENT: no such file: ${
+        if (!virtualFS.has(path)) throw new Error(\`ENOENT: no such file:\${
 path}\`);
         const data = virtualFS.get(path);
         return encoding === 'utf8' ? data : Buffer.from(data);
@@ -213,7 +213,7 @@ path}\`);
         virtualFS.set(path, existing + data);
     },
     async unlink(path) {
-        if (!virtualFS.has(path)) throw new Error(\`ENOENT: ${
+        if (!virtualFS.has(path)) throw new Error(\`ENOENT:\${
 path}\`);
         virtualFS.delete(path);
     },
@@ -223,7 +223,7 @@ path}\`);
             .map(k => k.slice(dir.length + 1).split('/')[0]);
     },
     async stat(path) {
-        if (!virtualFS.has(path)) throw new Error(\`ENOENT: ${
+        if (!virtualFS.has(path)) throw new Error(\`ENOENT:\${
 path}\`);
         const content = virtualFS.get(path);
         return {
@@ -234,16 +234,16 @@ path}\`);
         };
     },
     async mkdir(path, opts) {
-        console.log(\`  mkdir: ${
-path} (recursive=${
+        console.log(\`  mkdir:\${
+path} (recursive=\${
 opts?.recursive})\`);
     },
     async copyFile(src, dest) {
-        if (!virtualFS.has(src)) throw new Error(\`ENOENT: ${
+        if (!virtualFS.has(src)) throw new Error(\`ENOENT:\${
 src}\`);
         virtualFS.set(dest, virtualFS.get(src));
-        console.log(\`  copyFile: ${
-src} → ${
+        console.log(\`  copyFile:\${
+src} →\${
 dest}\`);
     },
 };
@@ -298,8 +298,8 @@ class HttpSimulator extends EventEmitter {
     #routes = new Map();
 
     route(method, path, handler) {
-        this.#routes.set(\`${
-method}:${
+        this.#routes.set(\`\${
+method}:\${
 path}\`, handler);
         return this;
     }
@@ -311,8 +311,8 @@ path}\`, handler);
 
     async request(method, url, body = null) {
         const parsed = new URL(url, 'http://localhost');
-        const key = \`${
-method}:${
+        const key = \`\${
+method}:\${
 parsed.pathname}\`;
         const handler = this.#routes.get(key);
 
@@ -343,13 +343,13 @@ parsed.pathname}\`;
             responseBody = JSON.stringify({ error: 'Not Found' });
         }
 
-        console.log(\`  ${
-method} ${
-parsed.pathname} → ${
+        console.log(\` \${
+method}\${
+parsed.pathname} →\${
 statusCode}\`);
         if (responseBody) {
             const display = responseBody.slice(0, 80) + (responseBody.length > 80 ? '...' : '');
-            console.log(\`    Response: ${
+            console.log(\`    Response:\${
 display}\`);
         }
         return { statusCode, body: responseBody };

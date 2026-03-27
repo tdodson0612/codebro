@@ -342,8 +342,8 @@ console.log("  memoize:", [5,5,6,5,6].map(n => fastSquare(n)));  // [25,25,36,25
 // 9. Flatten object:
 function flattenObject(obj, prefix = '') {
     return Object.entries(obj).reduce((acc, [key, val]) => {
-        const newKey = prefix ? \`${
-prefix}.${
+        const newKey = prefix ? \`\${
+prefix}.\${
 key}\` : key;
         if (val && typeof val === 'object' && !Array.isArray(val)) {
             return { ...acc, ...flattenObject(val, newKey) };

@@ -58,7 +58,7 @@ COMPUTED PROPERTY NAMES:
   const key = "dynamic";
   const obj = { [key]: "value" };     // { dynamic: "value" }
   const prefix = "get";
-  const obj2 = { [\`${
+  const obj2 = { [\`\${
 prefix}Name\`]: fn }; // { getName: fn }
 
 ─────────────────────────────────────
@@ -132,7 +132,7 @@ const user = {
     zip: "EC1A 1BB"
   },
   greet() {
-    return \`Hi, I'm ${
+    return \`Hi, I'm\${
 this.name}!\`;
   }
 };
@@ -211,9 +211,7 @@ const rectangle = {
 
 rectangle.width = 5;
 rectangle.height = 3;
-console.log(\`${
-rectangle.width}×${
-rectangle.height}\`); // 5×3
+console.log(\`\${rectangle.width}×\${rectangle.height}\`); // 5×3
 console.log("Area:", rectangle.area);       // 15
 console.log("Perimeter:", rectangle.perimeter); // 16
 rectangle.width = -1;  // rejected by setter
@@ -224,11 +222,11 @@ console.log("\n=== Computed Property Names ===");
 const prefix = "user";
 const index = 1;
 const dynamic = {
-  [\`${
-prefix}_${
+  [\`\${
+prefix}_\${
 index}\`]: "Alice",
-  [\`${
-prefix}_${
+  [\`\${
+prefix}_\${
 index + 1}\`]: "Bob",
 };
 console.log(dynamic); // { user_1: 'Alice', user_2: 'Bob' }

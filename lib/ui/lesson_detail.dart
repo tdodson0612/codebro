@@ -1,13 +1,12 @@
+// lib/ui/lesson_detail.dart
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import '../models/lesson.dart';
 import '../utils/progress_tracker.dart';
+import '../utils/bookmark_manager.dart';
 import '../utils/xp_manager.dart';
-import '../utils/settings_manager.dart';
-import '../utils/sound_manager.dart';
 import 'multi_lang_console.dart';
-import 'quiz_page.dart';
 
 class LessonDetailPage extends StatefulWidget {
   final Lesson lesson;
@@ -22,338 +21,369 @@ class LessonDetailPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<LessonDetailPage> createState() => _LessonDetailPageState();
+  _LessonDetailPageState createState() => _LessonDetailPageState();
 }
 
 class _LessonDetailPageState extends State<LessonDetailPage> {
-  bool completed = false;
-  bool _justCompleted = false;
+  late Lesson _lesson;
+  late int _currentIndex;
 
-  bool get hasNext =>
-      widget.currentIndex < widget.allLessonsInLanguage.length - 1;
-  bool get hasPrev => widget.currentIndex > 0;
+  bool _isBookmarked = false;
+  bool _isCompleted = false;
+  bool _quizSubmitted = false;
+  bool _xpAwarded = false;
 
-  Lesson get nextLesson =>
-      widget.allLessonsInLanguage[widget.currentIndex + 1];
-  Lesson get prevLesson =>
-      widget.allLessonsInLanguage[widget.currentIndex - 1];
+  Map<int, int> _selectedAnswers = {};
+  Map<int, bool> _quizResults = {};
 
   @override
   void initState() {
     super.initState();
-    _checkCompletion();
+    _lesson = widget.lesson;
+    _currentIndex = widget.currentIndex;
+    _loadState();
   }
 
-  Future<void> _checkCompletion() async {
-    final done = await ProgressTracker.isLessonCompleted(
-        widget.lesson.language, widget.lesson.title);
-    if (mounted) setState(() => completed = done);
-  }
-
-  Future<void> _markCompleted() async {
-    if (completed) return;
-    await ProgressTracker.markLessonCompleted(
-        widget.lesson.language, widget.lesson.title);
-
-    if (!mounted) return;
-    final xpManager = context.read<XpManager>();
-    final levelsUp = await xpManager.awardLessonComplete();
-
-    await SoundManager.playComplete();
-
-    if (!mounted) return;
-    setState(() {
-      completed = true;
-      _justCompleted = true;
-    });
-
-    if (levelsUp > 0) {
-      _showLevelUpDialog(xpManager.progress.level);
+  Future<void> _loadState() async {
+    final bookmarked = await BookmarkManager.isBookmarked(
+        _lesson.language, _lesson.title);
+    final completed = await ProgressTracker.isLessonCompleted(
+        _lesson.language, _lesson.title);
+    if (mounted) {
+      setState(() {
+        _isBookmarked = bookmarked;
+        _isCompleted = completed;
+      });
     }
   }
 
-  void _showLevelUpDialog(int newLevel) {
-    showDialog(
-      context: context,
-      builder: (_) => Dialog(
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text('🎉', style: TextStyle(fontSize: 60))
-                  .animate()
-                  .scale(duration: 400.ms, curve: Curves.elasticOut),
-              const SizedBox(height: 12),
-              Text(
-                'Level Up!',
-                style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.amber[600]),
-              ),
-              const SizedBox(height: 8),
-              Text('You reached Level\$newLevel',
-                  style: const TextStyle(fontSize: 16)),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text('Awesome!'),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+  void _navigateToLesson(int newIndex) {
+    if (newIndex < 0 || newIndex >= widget.allLessonsInLanguage.length) return;
+    setState(() {
+      _currentIndex = newIndex;
+      _lesson = widget.allLessonsInLanguage[newIndex];
+      _isBookmarked = false;
+      _isCompleted = false;
+      _quizSubmitted = false;
+      _xpAwarded = false;
+      _selectedAnswers = {};
+      _quizResults = {};
+    });
+    _loadState();
   }
 
-  void _navigateToLesson(Lesson lesson, int index) {
-    Navigator.pushReplacement(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (_, __, ___) => LessonDetailPage(
-          lesson: lesson,
-          allLessonsInLanguage: widget.allLessonsInLanguage,
-          currentIndex: index,
+  Future<void> _toggleBookmark() async {
+    if (_isBookmarked) {
+      await BookmarkManager.removeBookmark(_lesson.language, _lesson.title);
+    } else {
+      await BookmarkManager.bookmarkLesson(_lesson.language, _lesson.title);
+    }
+    if (mounted) setState(() => _isBookmarked = !_isBookmarked);
+  }
+
+  Future<void> _markComplete() async {
+    await ProgressTracker.markLessonCompleted(_lesson.language, _lesson.title);
+    if (!_xpAwarded) {
+      await context.read<XpManager>().awardLessonComplete();
+      _xpAwarded = true;
+    }
+    if (mounted) setState(() => _isCompleted = true);
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('✅ Lesson complete! +25 XP'),
+          duration: Duration(seconds: 2),
         ),
-        transitionsBuilder: (_, animation, __, child) => SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(1, 0),
-            end: Offset.zero,
-          ).animate(
-              CurvedAnimation(parent: animation, curve: Curves.easeOut)),
-          child: child,
+      );
+    }
+  }
+
+  void _submitQuiz() {
+    if (_selectedAnswers.length < _lesson.quiz.length) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please answer all questions before submitting.'),
+          duration: Duration(seconds: 2),
         ),
-        transitionDuration: const Duration(milliseconds: 300),
-      ),
-    );
+      );
+      return;
+    }
+    Map<int, bool> results = {};
+    for (int i = 0; i < _lesson.quiz.length; i++) {
+      final selected = _selectedAnswers[i]!;
+      results[i] = _lesson.quiz[i].options[selected].correct;
+    }
+    setState(() {
+      _quizResults = results;
+      _quizSubmitted = true;
+    });
+
+    final allCorrect = results.values.every((r) => r);
+    if (allCorrect && !_isCompleted) {
+      _markComplete();
+    }
+  }
+
+  void _retryQuiz() {
+    setState(() {
+      _selectedAnswers = {};
+      _quizResults = {};
+      _quizSubmitted = false;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final fontSize = context.watch<SettingsManager>().fontSize;
-    final total = widget.allLessonsInLanguage.length;
-    final current = widget.currentIndex + 1;
+    final hasPrev = _currentIndex > 0;
+    final hasNext = _currentIndex < widget.allLessonsInLanguage.length - 1;
 
     return Scaffold(
       appBar: AppBar(
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(widget.lesson.language,
-                style: TextStyle(fontSize: 12, color: Colors.grey[300])),
-            Text(widget.lesson.title,
-                style: const TextStyle(
-                    fontSize: 16, fontWeight: FontWeight.bold)),
-          ],
+        title: Text(
+          _lesson.language,
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         actions: [
-          if (completed)
-            const Padding(
-              padding: EdgeInsets.only(right: 16),
-              child: Icon(Icons.check_circle, color: Colors.greenAccent),
+          IconButton(
+            icon: Icon(
+              _isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+              color: _isBookmarked ? Colors.orange : null,
             ),
+            tooltip: _isBookmarked ? 'Remove Bookmark' : 'Bookmark',
+            onPressed: _toggleBookmark,
+          ),
+          IconButton(
+            icon: const Icon(Icons.code),
+            tooltip: 'Try in Console',
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => MultiLangConsolePage(
+                  initialCode: _lesson.content,
+                  language: _lesson.language,
+                  lessonTitle: _lesson.title,
+                ),
+              ),
+            ),
+          ),
         ],
       ),
-      body: Column(
+      body: ListView(
+        padding: const EdgeInsets.all(16),
         children: [
-          // Progress indicator
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-            child: Row(
+          Text(
+            _lesson.title,
+            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 4),
+          if (_isCompleted)
+            const Row(
               children: [
-                Text('Lesson\$current of\$total',
-                    style: TextStyle(
-                        fontSize: 12, color: Colors.grey[500])),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(4),
-                    child: LinearProgressIndicator(
-                      value: current / total,
-                      minHeight: 6,
-                      backgroundColor: Colors.grey[300],
-                      color: Colors.blue,
-                    ),
-                  ),
-                ),
+                Icon(Icons.check_circle, color: Colors.green, size: 16),
+                SizedBox(width: 4),
+                Text('Completed',
+                    style: TextStyle(color: Colors.green, fontSize: 13)),
               ],
             ),
-          ),
-
-          const SizedBox(height: 12),
-
-          // Code content
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: isDark
-                      ? const Color(0xFF0D1117)
-                      : const Color(0xFF1E1E1E),
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: Colors.grey[800]!),
-                ),
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(16),
-                  child: SelectableText(
-                    widget.lesson.content,
-                    style: TextStyle(
-                      fontFamily: 'monospace',
-                      fontSize: fontSize,
-                      color: Colors.greenAccent[100],
-                      height: 1.5,
-                    ),
-                  ),
+          const SizedBox(height: 16),
+          _buildContentCard(),
+          const SizedBox(height: 16),
+          if (_lesson.quiz.isNotEmpty) ...[
+            _buildQuizSection(),
+            const SizedBox(height: 16),
+          ],
+          if (!_isCompleted && (_lesson.quiz.isEmpty || _quizSubmitted))
+            ElevatedButton.icon(
+              icon: const Icon(Icons.check),
+              label: const Text('Mark as Complete'),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(48),
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+              ),
+              onPressed: _markComplete,
+            ),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  icon: const Icon(Icons.arrow_back),
+                  label: const Text('Previous'),
+                  onPressed: hasPrev
+                      ? () => _navigateToLesson(_currentIndex - 1)
+                      : null,
                 ),
               ),
-            ),
-          ),
-
-          const SizedBox(height: 12),
-
-          // Try Code / Take Quiz buttons
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-            child: Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.code, size: 18),
-                    label: const Text('Try Code'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue[700],
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                    ),
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => MultiLangConsolePage(
-                          initialCode: widget.lesson.content,
-                          language: widget.lesson.language,
-                          lessonTitle: widget.lesson.title,
-                        ),
-                      ),
-                    ),
-                  ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: ElevatedButton.icon(
+                  icon: const Icon(Icons.arrow_forward),
+                  label: const Text('Next'),
+                  onPressed: hasNext
+                      ? () => _navigateToLesson(_currentIndex + 1)
+                      : null,
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: ElevatedButton.icon(
-                    icon: const Icon(Icons.quiz, size: 18),
-                    label: const Text('Take Quiz'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green[700],
-                      padding: const EdgeInsets.symmetric(vertical: 12),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => QuizPage(
-                            quizzes: widget.lesson.quiz,
-                            language: widget.lesson.language,
-                            lessonTitle: widget.lesson.title,
-                          ),
-                        ),
-                      ).then((_) => _markCompleted());
-                    },
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
+          const SizedBox(height: 24),
+        ],
+      ),
+    );
+  }
 
-          // Completed banner + Next Lesson button
-          if (completed)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 0, 12, 8),
-              child: Column(
-                children: [
-                  if (_justCompleted)
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(vertical: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.green.withValues(alpha: 0.15),
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                            color: Colors.green.withValues(alpha: 0.4)),
+  Widget _buildContentCard() {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SelectableText(
+          _lesson.content,
+          style: const TextStyle(fontSize: 14, height: 1.6),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildQuizSection() {
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              '📝 Quiz',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 12),
+            ...List.generate(
+                _lesson.quiz.length, (i) => _buildQuizQuestion(i)),
+            const SizedBox(height: 12),
+            if (!_quizSubmitted)
+              ElevatedButton(
+                onPressed: _submitQuiz,
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size.fromHeight(44),
+                ),
+                child: const Text('Submit Answers'),
+              )
+            else
+              Builder(builder: (context) {
+                final correct =
+                    _quizResults.values.where((r) => r).length;
+                final total = _lesson.quiz.length;
+                final allCorrect = correct == total;
+                return Column(
+                  children: [
+                    Text(
+                      allCorrect
+                          ? '🎉 Perfect! $correct/$total correct'
+                          : '📊 $correct/$total correct',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: allCorrect ? Colors.green : Colors.orange,
                       ),
-                      child: const Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.check_circle,
-                              color: Colors.green, size: 18),
-                          SizedBox(width: 8),
-                          Text('+25 XP  ·  Lesson Complete!',
-                              style: TextStyle(
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                    )
-                        .animate()
-                        .fadeIn(duration: 400.ms)
-                        .slideY(begin: 0.2, end: 0),
-                  if (hasNext) ...[
+                    ),
                     const SizedBox(height: 8),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        icon: const Icon(Icons.arrow_forward),
-                        label: Text(
-                          'Next:${
-nextLesson.title}',
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.amber[700],
-                          padding:
-                              const EdgeInsets.symmetric(vertical: 13),
-                        ),
-                        onPressed: () => _navigateToLesson(
-                            nextLesson, widget.currentIndex + 1),
+                    if (!allCorrect)
+                      OutlinedButton.icon(
+                        icon: const Icon(Icons.refresh),
+                        label: const Text('Retry Quiz'),
+                        onPressed: _retryQuiz,
                       ),
-                    ).animate().fadeIn(duration: 400.ms, delay: 200.ms),
                   ],
-                ],
-              ),
-            ),
+                );
+              }),
+          ],
+        ),
+      ),
+    );
+  }
 
-          // Prev / Skip nav
-          Padding(
-            padding: const EdgeInsets.fromLTRB(12, 0, 12, 16),
-            child: Row(
-              children: [
-                if (hasPrev)
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      icon: const Icon(Icons.arrow_back, size: 16),
-                      label: const Text('Previous'),
-                      onPressed: () => _navigateToLesson(
-                          prevLesson, widget.currentIndex - 1),
-                    ),
-                  ),
-                if (hasPrev && hasNext && !completed)
-                  const SizedBox(width: 8),
-                if (hasNext && !completed)
-                  Expanded(
-                    child: OutlinedButton.icon(
-                      icon:
-                          const Icon(Icons.arrow_forward, size: 16),
-                      label: const Text('Skip'),
-                      onPressed: () => _navigateToLesson(
-                          nextLesson, widget.currentIndex + 1),
-                    ),
-                  ),
-              ],
-            ),
+  Widget _buildQuizQuestion(int questionIndex) {
+    final quiz = _lesson.quiz[questionIndex];
+    final submitted = _quizSubmitted;
+    final selectedOption = _selectedAnswers[questionIndex];
+    final isCorrect = _quizResults[questionIndex] ?? false;
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '${questionIndex + 1}. ${quiz.question}',
+            style:
+                const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
           ),
+          const SizedBox(height: 8),
+          ...List.generate(quiz.options.length, (optIndex) {
+            final option = quiz.options[optIndex];
+            final isSelected = selectedOption == optIndex;
+            final isThisCorrect = option.correct;
+
+            Color? tileColor;
+            if (submitted) {
+              if (isThisCorrect) {
+                tileColor = Colors.green.withOpacity(0.15);
+              } else if (isSelected && !isCorrect) {
+                tileColor = Colors.red.withOpacity(0.15);
+              }
+            } else if (isSelected) {
+              tileColor = Theme.of(context)
+                  .colorScheme
+                  .primary
+                  .withOpacity(0.1);
+            }
+
+            return GestureDetector(
+              onTap: submitted
+                  ? null
+                  : () => setState(
+                      () => _selectedAnswers[questionIndex] = optIndex),
+              child: Container(
+                margin: const EdgeInsets.only(bottom: 6),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 12, vertical: 10),
+                decoration: BoxDecoration(
+                  color: tileColor,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: submitted
+                        ? (isThisCorrect
+                            ? Colors.green
+                            : (isSelected
+                                ? Colors.red
+                                : Colors.grey.withOpacity(0.3)))
+                        : (isSelected
+                            ? Theme.of(context).colorScheme.primary
+                            : Colors.grey.withOpacity(0.3)),
+                    width: isSelected || (submitted && isThisCorrect)
+                        ? 1.5
+                        : 1,
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(option.text,
+                          style: const TextStyle(fontSize: 13)),
+                    ),
+                    if (submitted && isThisCorrect)
+                      const Icon(Icons.check_circle,
+                          color: Colors.green, size: 18),
+                    if (submitted && isSelected && !isThisCorrect)
+                      const Icon(Icons.cancel,
+                          color: Colors.red, size: 18),
+                  ],
+                ),
+              ),
+            );
+          }),
         ],
       ),
     );

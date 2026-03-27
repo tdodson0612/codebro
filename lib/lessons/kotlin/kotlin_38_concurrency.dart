@@ -27,7 +27,7 @@ THREADS IN KOTLIN/JVM:
 ─────────────────────────────────────
   // Creating a thread (Java-style)
   val thread = Thread {
-      println("Running on: ${
+      println("Running on:\${
 Thread.currentThread().name}")
   }
   thread.start()
@@ -190,7 +190,7 @@ fun raceConditionDemo() {
         }
     }
     latch2.await()
-    println("Safe counter:   ${
+    println("Safe counter:  \${
 safeCounter.get()} (expected 10000, always correct)")
 }
 
@@ -217,7 +217,7 @@ fun synchronizedDemo() {
         }
     }
     latch.await()
-    println("Synchronized counter: ${
+    println("Synchronized counter:\${
 counter.get()} (operations balance to 0)")
 }
 
@@ -264,7 +264,7 @@ fun coroutineMutexDemo() = runBlocking {
         }
     }
 
-    println("Shared list (10 items): ${
+    println("Shared list (10 items):\${
 sharedList.sorted()}")
 
     // Counting with coroutines + mutex
@@ -296,7 +296,7 @@ fun threadSafeCollectionsDemo() {
         }
     }
     latch.await()
-    println("ConcurrentHashMap size: ${
+    println("ConcurrentHashMap size:\${
 map.size} (expected 1000)")
 
     // Atomic operations on ConcurrentHashMap
@@ -311,7 +311,7 @@ map.size} (expected 1000)")
         }
     }
     latch2.await()
-    println("Word counts: ${
+    println("Word counts:\${
 wordCount.mapValues { it.value.get() }}")
 }
 

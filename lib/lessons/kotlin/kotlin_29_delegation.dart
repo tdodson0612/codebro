@@ -71,7 +71,7 @@ BUILT-IN DELEGATES:
 
 2. observable — watch for changes:
   var name: String by Delegates.observable("initial") {
-      prop, old, new -> println("${
+      prop, old, new -> println("\${
 prop.name}: \$old → \$new")
   }
 
@@ -101,13 +101,13 @@ Implement ReadWriteProperty<ReceiverType, ValueType>:
       private var value = initialValue
 
       override fun getValue(thisRef: Any?, property: KProperty<*>): T {
-          println("Getting ${
+          println("Getting\${
 property.name}: \$value")
           return value
       }
 
       override fun setValue(thisRef: Any?, property: KProperty<*>, newValue: T) {
-          println("Setting ${
+          println("Setting\${
 property.name}: \$value → \$newValue")
           value = newValue
       }
@@ -183,7 +183,7 @@ class GameCharacter(val name: String) {
 
     // observable — logs changes
     var health: Int by Delegates.observable(100) { prop, old, new ->
-        println("\$name's ${
+        println("\$name's\${
 prop.name}: \$old → \$new")
         if (new <= 0) println("\$name has fallen!")
     }
@@ -225,7 +225,7 @@ fun main() {
     val hero = GameCharacter("Aria")
 
     // lazy — only computed on first access
-    println("Hero: ${
+    println("Hero:\${
 hero.name}")
     println(hero.backstory)   // "Generating backstory..." prints once
     println(hero.backstory)   // cached — no re-computation
@@ -237,21 +237,21 @@ hero.name}")
 
     // clamped stamina
     hero.stamina = 50
-    println("Stamina: ${
+    println("Stamina:\${
 hero.stamina}")
     hero.stamina = 200   // clamped to 100
-    println("Stamina: ${
+    println("Stamina:\${
 hero.stamina}")
     hero.stamina = -50   // clamped to 0
-    println("Stamina: ${
+    println("Stamina:\${
 hero.stamina}")
 
     // vetoable gold
     hero.gold = 100
-    println("Gold: ${
+    println("Gold:\${
 hero.gold}")
     hero.gold = -10    // vetoed
-    println("Gold after veto: ${
+    println("Gold after veto:\${
 hero.gold}")
 
     // Map delegation
@@ -262,13 +262,13 @@ hero.gold}")
         "debug" to false,
         "version" to "2.0.1"
     ))
-    println("URL: ${
+    println("URL:\${
 config.apiUrl}")
-    println("Timeout: ${
+    println("Timeout:\${
 config.timeout}s")
-    println("Debug: ${
+    println("Debug:\${
 config.debug}")
-    println("Version: ${
+    println("Version:\${
 config.version}")
 }
 

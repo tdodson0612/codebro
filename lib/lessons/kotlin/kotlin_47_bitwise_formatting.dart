@@ -151,35 +151,35 @@ fun bitwiseDemo() {
     val a = 0b1010_1010   // 170
     val b = 0b1100_1100   // 204
 
-    println("a = \$a (binary: ${
+    println("a = \$a (binary:\${
 a.toString(2).padStart(8, '0')})")
-    println("b = \$b (binary: ${
+    println("b = \$b (binary:\${
 b.toString(2).padStart(8, '0')})")
     println()
-    println("a AND b = ${
-a and b}  (binary: ${
+    println("a AND b =\${
+a and b}  (binary:\${
 (a and b).toString(2).padStart(8, '0')})")
-    println("a OR  b = ${
-a or b}  (binary: ${
+    println("a OR  b =\${
+a or b}  (binary:\${
 (a or b).toString(2).padStart(8, '0')})")
-    println("a XOR b = ${
-a xor b}  (binary: ${
+    println("a XOR b =\${
+a xor b}  (binary:\${
 (a xor b).toString(2).padStart(8, '0')})")
-    println("a INV   = ${
-a.inv()} (binary: ${
+    println("a INV   =\${
+a.inv()} (binary:\${
 a.inv().toString(2).padStart(8, '0')})")
     println()
-    println("a SHL 1 = ${
-a shl 1} (${
-a} * 2 = ${
+    println("a SHL 1 =\${
+a shl 1} (\${
+a} * 2 =\${
 a * 2})")
-    println("a SHR 1 = ${
-a shr 1} (${
-a} / 2 = ${
+    println("a SHR 1 =\${
+a shr 1} (\${
+a} / 2 =\${
 a / 2})")
-    println("a SHL 3 = ${
-a shl 3} (${
-a} * 8 = ${
+    println("a SHL 3 =\${
+a shl 3} (\${
+a} * 8 =\${
 a * 8})")
 }
 
@@ -199,26 +199,26 @@ fun flagsDemo() {
     }
 
     var myPerms = READ or WRITE       // rw-
-    println("Initial: ${
+    println("Initial:\${
 describePermissions(myPerms)} (\$myPerms)")
 
     myPerms = myPerms or EXECUTE      // add execute → rwx
-    println("After +x: ${
+    println("After +x:\${
 describePermissions(myPerms)} (\$myPerms)")
 
     myPerms = myPerms and WRITE.inv() // remove write → r-x
-    println("After -w: ${
+    println("After -w:\${
 describePermissions(myPerms)} (\$myPerms)")
 
     myPerms = myPerms xor READ        // toggle read → --x
-    println("Toggle r: ${
+    println("Toggle r:\${
 describePermissions(myPerms)} (\$myPerms)")
 
     // Powers of 2 via shifts
     println("\\n=== Shifts as multiplication ===")
     val base = 1
     (0..7).forEach { shift ->
-        println("1 shl \$shift = ${
+        println("1 shl \$shift =\${
 base shl shift}")
     }
 }
@@ -235,7 +235,7 @@ fun formattingDemo() {
     val count = 1_000_000
 
     // String templates (idiomatic)
-    println("Hello, \$name! Score: ${
+    println("Hello, \$name! Score:\${
 "%.1f".format(score)}%")
 
     // format() with specifiers
@@ -261,7 +261,7 @@ fun formattingDemo() {
         val status = if (p.inStock) "✅ In" else "❌ Out"
         println(String.format("%-15s %10s %8d %8s",
             p.name,
-            "\$${
+            "\$\${
 "%.2f".format(p.price)}",
             p.quantity,
             status
@@ -270,7 +270,7 @@ fun formattingDemo() {
 
     println("-".repeat(45))
     val total = products.sumOf { it.price * it.quantity }
-    println(String.format("%-15s %10s", "TOTAL VALUE:", "\$${
+    println(String.format("%-15s %10s", "TOTAL VALUE:", "\$\${
 ",.2f".format(total)}"))
 
     // trimMargin — raw string with alignment
@@ -289,32 +289,32 @@ fun formattingDemo() {
     // Number formatting
     println("\\n=== Number formatting ===")
     val pi = kotlin.math.PI
-    println("Pi (2dp): ${
+    println("Pi (2dp):\${
 "%.2f".format(pi)}")
-    println("Pi (5dp): ${
+    println("Pi (5dp):\${
 "%.5f".format(pi)}")
-    println("Pi (sci): ${
+    println("Pi (sci):\${
 "%.3e".format(pi)}")
-    println("Large:    ${
+    println("Large:   \${
 "%,.0f".format(1_234_567.89)}")
-    println("Padded:   ${
+    println("Padded:  \${
 "%-10.2f".format(pi)}|")
-    println("Zero-pad: ${
+    println("Zero-pad:\${
 "%010.3f".format(pi)}")
-    println("Signed:   ${
+    println("Signed:  \${
 "%+.2f".format(pi)}")
 
     // Hex and binary
     println("\\n=== Radix conversion ===")
     val n = 255
     println("Decimal: \$n")
-    println("Binary:  ${
+    println("Binary: \${
 n.toString(2)}")
-    println("Octal:   ${
+    println("Octal:  \${
 n.toString(8)}")
-    println("Hex:     ${
+    println("Hex:    \${
 n.toString(16).uppercase()}")
-    println("Hex fmt: ${
+    println("Hex fmt:\${
 String.format("%X", n)}")
 }
 

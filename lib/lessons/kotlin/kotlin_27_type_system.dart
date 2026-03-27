@@ -95,11 +95,11 @@ After an is check, Kotlin automatically casts within that scope:
 
   fun processAny(obj: Any) {
       when (obj) {
-          is String  -> println("String of length ${
+          is String  -> println("String of length\${
 obj.length}")
-          is Int     -> println("Int times 2: ${
+          is Int     -> println("Int times 2:\${
 obj * 2}")
-          is List<*> -> println("List with ${
+          is List<*> -> println("List with\${
 obj.size} items")
           else       -> println("Unknown: \$obj")
       }
@@ -161,18 +161,18 @@ fun getConfigValue(key: String): String {
 
 // Working with Any
 fun describe(value: Any): String = when (value) {
-    is Int     -> "Integer: \$value (doubled: ${
+    is Int     -> "Integer: \$value (doubled:\${
 value * 2})"
-    is Double  -> "Double: ${
+    is Double  -> "Double:\${
 "%.2f".format(value)}"
-    is String  -> "String of ${
+    is String  -> "String of\${
 value.length} chars: '\$value'"
     is Boolean -> "Boolean: \$value"
-    is List<*> -> "List with ${
+    is List<*> -> "List with\${
 value.size} items"
-    is Map<*, *> -> "Map with ${
+    is Map<*, *> -> "Map with\${
 value.size} entries"
-    else       -> "Unknown type: ${
+    else       -> "Unknown type:\${
 value::class.simpleName}"
 }
 
@@ -207,7 +207,7 @@ fun main() {
         when {
             v is String && v.length > 5 -> println("Long string: \$v")
             v is String                 -> println("Short string: \$v")
-            v is Int                    -> println("Int x3: ${
+            v is Int                    -> println("Int x3:\${
 v * 3}")
             v == null                   -> println("null value")
             else                        -> println("Other: \$v")
@@ -235,7 +235,7 @@ v * 3}")
     try {
         println(getConfigValue("secret"))
     } catch (e: IllegalStateException) {
-        println("Caught: ${
+        println("Caught:\${
 e.message}")
     }
 

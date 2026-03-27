@@ -27,26 +27,23 @@ and expressions directly inside a string literal.
 
   val name = "Terry"
   println("Hello, \$name!")           // simple variable
-  println("2 + 2 = ${
-2 + 2}")       // expression in ${
-}
+  println("2 + 2 = \${2 + 2}")        // expression in \${...}
 
 Rule: use \$ for simple variable names.
-      use ${
-} for any expression.
+      use \${...} for any expression.
 
 ─────────────────────────────────────
 RAW STRINGS (triple-quoted):
 ─────────────────────────────────────
-Use triple quotes ''' for multi-line strings.
+Use triple quotes for multi-line strings.
 No escape sequences needed inside them.
 
-  val poem = '''
+  val poem = \"\"\"
       Roses are red,
       Violets are blue,
       Kotlin is awesome,
       And Java is too.
-  '''.trimIndent()
+  \"\"\".trimIndent()
 
 .trimIndent() removes the common leading whitespace
 from all lines — keeps the code readable.
@@ -100,17 +97,15 @@ fun main() {
     // String templates
     println("Name: \$firstName \$lastName")
     println("Age: \$age")
-    println("In 10 years: ${
-age + 10}")
-    println("Uppercase: ${
-firstName.uppercase()}")
+    println("In 10 years: \${age + 10}")
+    println("Uppercase: \${firstName.uppercase()}")
 
     // Multi-line raw string
-    val bio = '''
+    val bio = \"\"\"
         Name: \$firstName \$lastName
         Age:  \$age
         Job:  Developer
-    '''.trimIndent()
+    \"\"\".trimIndent()
     println(bio)
 
     // String operations
@@ -147,11 +142,8 @@ firstName.uppercase()}")
 
 📝 KEY POINTS:
 ✅ Use \$ for simple variable names in templates
-✅ Use ${
-} for expressions: ${
-a + b}, ${
-obj.method()}
-✅ Triple quotes ''' create raw multi-line strings
+✅ Use \${...} for expressions: \${a + b}, \${obj.method()}
+✅ Triple quotes create raw multi-line strings
 ✅ .trimIndent() cleans up indentation in triple-quoted strings
 ✅ == compares content in Kotlin (unlike Java)
 ✅ isEmpty() checks for zero length; isBlank() checks whitespace
@@ -164,9 +156,7 @@ obj.method()}
 """,
   quiz: [
     Quiz(question: 'How do you embed an expression (not just a variable) in a Kotlin string template?', options: [
-      QuizOption(text: 'Wrap it in ${
-} like ${
-a + b}', correct: true),
+      QuizOption(text: 'Wrap it in \${} like \${a + b}', correct: true),
       QuizOption(text: 'Use \$() like \$(a + b)', correct: false),
       QuizOption(text: 'Use % like %(a + b)', correct: false),
       QuizOption(text: 'Use #{} like #{a + b}', correct: false),

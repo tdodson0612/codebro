@@ -91,12 +91,12 @@ CUSTOM ERROR CLASSES:
   try { ... }
   catch (e) {
       if (e instanceof ValidationError) {
-          console.log(\`Field ${
-e.field}: ${
+          console.log(\`Field\${
+e.field}:\${
 e.message}\`);
       } else if (e instanceof NetworkError) {
-          console.log(\`HTTP ${
-e.statusCode}: ${
+          console.log(\`HTTP\${
+e.statusCode}:\${
 e.message}\`);
       } else {
           throw e;  // re-throw unknown errors
@@ -161,8 +161,8 @@ console.log("=== Basic Error Handling ===");
 
 function divide(a, b) {
     if (typeof a !== 'number' || typeof b !== 'number') {
-        throw new TypeError(\`Expected numbers, got ${
-typeof a} and ${
+        throw new TypeError(\`Expected numbers, got\${
+typeof a} and\${
 typeof b}\`);
     }
     if (b === 0) {
@@ -181,13 +181,13 @@ const testCases = [
 for (const [a, b] of testCases) {
     try {
         const result = divide(a, b);
-        console.log(\`${
-a} / ${
-b} = ${
+        console.log(\`\${
+a} /\${
+b} =\${
 result}\`);
     } catch (e) {
-        console.log(\`❌ ${
-e.name}: ${
+        console.log(\`❌\${
+e.name}:\${
 e.message}\`);
     }
 }
@@ -213,8 +213,8 @@ class ValidationError extends AppError {
 
 class NotFoundError extends AppError {
     constructor(resource, id) {
-        super(\`${
-resource} with id '${
+        super(\`\${
+resource} with id '\${
 id}' not found\`, "NOT_FOUND");
         this.name = "NotFoundError";
         this.resource = resource;
@@ -232,23 +232,23 @@ class NetworkError extends AppError {
 
 function processError(error) {
     if (error instanceof ValidationError) {
-        console.log(\`  🔴 Validation: field='${
-error.field}' → ${
+        console.log(\`  🔴 Validation: field='\${
+error.field}' →\${
 error.message}\`);
     } else if (error instanceof NotFoundError) {
-        console.log(\`  🔍 Not Found: ${
-error.resource}[${
+        console.log(\`  🔍 Not Found:\${
+error.resource}[\${
 error.resourceId}]\`);
     } else if (error instanceof NetworkError) {
-        console.log(\`  🌐 Network: HTTP ${
-error.statusCode} → ${
+        console.log(\`  🌐 Network: HTTP\${
+error.statusCode} →\${
 error.message}\`);
     } else if (error instanceof AppError) {
-        console.log(\`  ⚠️  App Error [${
-error.code}]: ${
+        console.log(\`  ⚠️  App Error [\${
+error.code}]:\${
 error.message}\`);
     } else {
-        console.log(\`  💥 Unknown: ${
+        console.log(\`  💥 Unknown:\${
 error.message}\`);
         throw error;  // Re-throw unknown errors
     }
@@ -274,25 +274,25 @@ errors.forEach(err => {
 // Check inheritance chain:
 console.log("\\n  instanceof checks:");
 const ve = new ValidationError("test", "field");
-console.log(\`  ve instanceof ValidationError: ${
+console.log(\`  ve instanceof ValidationError:\${
 ve instanceof ValidationError}\`);
-console.log(\`  ve instanceof AppError:        ${
+console.log(\`  ve instanceof AppError:       \${
 ve instanceof AppError}\`);
-console.log(\`  ve instanceof Error:           ${
+console.log(\`  ve instanceof Error:          \${
 ve instanceof Error}\`);
 
 // ─── FINALLY ALWAYS RUNS ──────────────────────────────
 console.log("\\n=== finally block ===");
 
 function withFinally(shouldThrow) {
-    console.log(\`  Trying (shouldThrow=${
+    console.log(\`  Trying (shouldThrow=\${
 shouldThrow})...\`);
     try {
         if (shouldThrow) throw new Error("Intentional error");
         console.log("  ✅ Success!");
         return "success";
     } catch (e) {
-        console.log(\`  ❌ Caught: ${
+        console.log(\`  ❌ Caught:\${
 e.message}\`);
         return "error";
     } finally {
@@ -309,11 +309,11 @@ console.log("\\n=== Error Properties ===");
 try {
     null.property;   // TypeError
 } catch (e) {
-    console.log(\`  name:    ${
+    console.log(\`  name:   \${
 e.name}\`);
-    console.log(\`  message: ${
+    console.log(\`  message:\${
 e.message}\`);
-    console.log(\`  stack:   ${
+    console.log(\`  stack:  \${
 e.stack.split('\\n')[0]}\`);
 }
 
@@ -326,9 +326,7 @@ async function fetchUser(id) {
 
     // Simulate async work
     await new Promise(resolve => setTimeout(resolve, 10));
-    return { id, name: \`User${
-id}\`, email: \`user${
-id}@example.com\` };
+    return { id, name: \`User\${id}\`, email: \`user\${id}@example.com\` };
 }
 
 async function main() {
@@ -337,7 +335,7 @@ async function main() {
     for (const id of ids) {
         try {
             const user = await fetchUser(id);
-            console.log(\`  ✅ Found: ${
+            console.log(\`  ✅ Found:\${
 JSON.stringify(user)}\`);
         } catch (e) {
             processError(e);
@@ -352,11 +350,11 @@ JSON.stringify(user)}\`);
             return n * 2;
         })
         .catch(e => {
-            console.log(\`  Caught in .catch(): ${
+            console.log(\`  Caught in .catch():\${
 e.message}\`);
             return -1;   // recover with a default
         })
-        .then(result => console.log(\`  Final result: ${
+        .then(result => console.log(\`  Final result:\${
 result}\`));
 }
 

@@ -191,16 +191,16 @@ fun arrayDemo() {
     val squares = Array(6) { i -> i * i }
     val scores = IntArray(5) { 10 * (it + 1) }
 
-    println("Names: ${
+    println("Names:\${
 names.contentToString()}")
-    println("Squares: ${
+    println("Squares:\${
 squares.contentToString()}")
-    println("Scores: ${
+    println("Scores:\${
 scores.contentToString()}")
 
     // Access and modify
     names[1] = "Barbara"
-    println("After update: ${
+    println("After update:\${
 names.contentToString()}")
 
     // Iteration
@@ -210,13 +210,13 @@ names.contentToString()}")
     }
 
     // Array operations
-    println("Sorted: ${
+    println("Sorted:\${
 scores.sorted()}")
-    println("Sum: ${
+    println("Sum:\${
 scores.sum()}")
-    println("Max: ${
+    println("Max:\${
 scores.max()}")
-    println("Contains 30: ${
+    println("Contains 30:\${
 30 in scores}")
 
     // Multi-dimensional
@@ -227,35 +227,35 @@ scores.max()}")
     for (row in matrix) {
         println(row.contentToString())
     }
-    println("Center: ${
+    println("Center:\${
 matrix[1][1]}")
 
     // Convert between arrays and lists
     val list = names.toList()
     val backToArray = list.toTypedArray()
-    println("Array → List → Array: ${
+    println("Array → List → Array:\${
 backToArray.contentToString()}")
 
     // Primitive arrays for efficiency
     val bigData = LongArray(5) { it.toLong() * 1_000_000L }
-    println("\\nLong array: ${
+    println("\\nLong array:\${
 bigData.contentToString()}")
 
     val bytes = ByteArray(4) { (it * 64).toByte() }
-    println("Byte array: ${
+    println("Byte array:\${
 bytes.contentToString()}")
 }
 
 // ─── Nested classes ───────────────────────────────────
 
 class Computer(val brand: String) {
-    private val serialNumber = "SN-${
+    private val serialNumber = "SN-\${
 brand.uppercase()}-001"
 
     // Nested class — no access to Computer's members
     class Specs(val cpu: String, val ram: Int, val storage: Int) {
-        fun summary() = "CPU: \$cpu | RAM: ${
-ram}GB | Storage: ${
+        fun summary() = "CPU: \$cpu | RAM:\${
+ram}GB | Storage:\${
 storage}GB"
         // Cannot access 'brand' or 'serialNumber' here
     }
@@ -264,7 +264,7 @@ storage}GB"
     inner class SystemInfo {
         fun report(): String {
             // Can access outer class private members
-            return "[\$brand] Serial: \$serialNumber | ${
+            return "[\$brand] Serial: \$serialNumber |\${
 getSpecs()}"
         }
 
@@ -308,7 +308,7 @@ fun main() {
     try {
         service.query()         // throws before initialize
     } catch (e: IllegalStateException) {
-        println("Caught: ${
+        println("Caught:\${
 e.message}")
     }
 
@@ -324,12 +324,12 @@ e.message}")
         fun isReady() = ::apiKey.isInitialized
     }
     val config = Config()
-    println("Ready before setup: ${
+    println("Ready before setup:\${
 config.isReady()}")
     config.setup()
-    println("Ready after setup:  ${
+    println("Ready after setup: \${
 config.isReady()}")
-    println("Key: ${
+    println("Key:\${
 config.apiKey}")
 
     // Arrays
@@ -357,10 +357,10 @@ config.apiKey}")
     )
     results.forEach { result ->
         when (result) {
-            is Result.Success  -> println("✅ ${
+            is Result.Success  -> println("✅\${
 result.value}")
-            is Result.Failure  -> println("❌ ${
-result.error} (${
+            is Result.Failure  -> println("❌\${
+result.error} (\${
 result.code})")
             is Result.Empty    -> println("📭 Empty")
         }
@@ -369,9 +369,9 @@ result.code})")
     // Local class sorter
     println("\\n=== Local class sorter ===")
     val numbers = listOf(5, 2, 8, 1, 9, 3, 7)
-    println("Ascending:  ${
+    println("Ascending: \${
 numbers.sortedWith(createSorter(false))}")
-    println("Descending: ${
+    println("Descending:\${
 numbers.sortedWith(createSorter(true))}")
 }
 

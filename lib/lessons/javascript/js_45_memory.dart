@@ -119,7 +119,7 @@ WeakRef — weak reference to an object:
 FinalizationRegistry — cleanup callbacks:
 ─────────────────────────────────────
   const registry = new FinalizationRegistry((key) => {
-      console.log(\`${
+      console.log(\`\${
 key} was garbage collected\`);
       cache.delete(key);
   });
@@ -227,9 +227,9 @@ const leaky = new LeakyCache();
 const lru   = new LRUCache(3);  // max 3 entries
 
 for (let i = 0; i < 10; i++) {
-    leaky.set(\`user:${
+    leaky.set(\`user:\${
 i}\`, { id: i, data: 'x'.repeat(100) });
-    lru.set(\`user:${
+    lru.set(\`user:\${
 i}\`,   { id: i, data: 'x'.repeat(100) });
 }
 console.log("  Leaky cache size:", leaky.size);  // 10 — all retained
@@ -283,14 +283,14 @@ console.log("\n=== FinalizationRegistry ===");
 
 const cleanupLog = [];
 const registry = new FinalizationRegistry((info) => {
-    cleanupLog.push(\`Cleaned up: ${
+    cleanupLog.push(\`Cleaned up:\${
 info}\`);
 });
 
 function createTracked(id) {
-    const obj = { id, data: \`resource-${
+    const obj = { id, data: \`resource-\${
 id}\` };
-    registry.register(obj, \`resource-${
+    registry.register(obj, \`resource-\${
 id}\`);
     return obj;
 }
@@ -311,14 +311,14 @@ class ManagedConnection {
     constructor(id) {
         this.#id = id;
         this.#open = true;
-        console.log(\`  [Conn ${
+        console.log(\`  [Conn\${
 id}] Opened\`);
     }
 
     query(sql) {
         if (!this.#open) throw new Error("Connection closed");
-        console.log(\`  [Conn ${
-this.#id}] Query: ${
+        console.log(\`  [Conn\${
+this.#id}] Query:\${
 sql}\`);
         return [{ id: 1 }, { id: 2 }];
     }
@@ -326,7 +326,7 @@ sql}\`);
     [Symbol.dispose]() {
         if (this.#open) {
             this.#open = false;
-            console.log(\`  [Conn ${
+            console.log(\`  [Conn\${
 this.#id}] Closed (via Symbol.dispose)\`);
         }
     }
@@ -343,7 +343,7 @@ function withResource(resource, fn) {
 
 withResource(new ManagedConnection(1), (conn) => {
     const results = conn.query("SELECT * FROM users");
-    console.log(\`  Got ${
+    console.log(\`  Got\${
 results.length} results\`);
 });
 console.log("  Connection automatically closed after block");
@@ -386,9 +386,9 @@ function benchmarkOperation(name, fn, iterations = 10000) {
     const start = performance.now();
     for (let i = 0; i < iterations; i++) fn(i);
     const elapsed = performance.now() - start;
-    console.log(\`  ${
-name.padEnd(30)}: ${
-elapsed.toFixed(2)}ms (${
+    console.log(\` \${
+name.padEnd(30)}:\${
+elapsed.toFixed(2)}ms (\${
 (elapsed/iterations*1000).toFixed(2)}μs/op)\`);
 }
 
@@ -396,7 +396,7 @@ benchmarkOperation('Object property access', (i) => ({ x: i }).x);
 benchmarkOperation('Array push + pop',        (i) => { const a = []; a.push(i); a.pop(); });
 benchmarkOperation('Map set + get',           (i) => { const m = new Map(); m.set('k', i); m.get('k'); });
 benchmarkOperation('String concat',           (i) => 'hello' + i);
-benchmarkOperation('Template literal',        (i) => \`hello ${
+benchmarkOperation('Template literal',        (i) => \`hello\${
 i}\`);
 
 📝 KEY POINTS:

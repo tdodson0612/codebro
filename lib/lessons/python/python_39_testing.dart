@@ -191,8 +191,7 @@ class NotificationService:
         self.email_service.send(
             to="user@example.com",
             subject="Deposit received",
-            body=f"\\${
-amount} deposited to {account.owner}'s account"
+            body=f"\${amount} deposited to {account.owner}'s account"
         )
 
 class TestNotificationService(unittest.TestCase):
@@ -210,7 +209,7 @@ class TestNotificationService(unittest.TestCase):
         self.mock_email.send.assert_called_once_with(
             to="user@example.com",
             subject="Deposit received",
-            body="\\\$50 deposited to Bob's account"
+            body="\$50 deposited to Bob's account"
         )
 
 # patch() — temporarily replace a module-level name

@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 set(EPHEMERAL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ephemeral")
 
 # Configuration provided via flutter tool.
-include(${
+include(\${
 EPHEMERAL_DIR}/generated_config.cmake)
 
 # TODO: Move the rest of this into files in ephemeral. See
@@ -16,9 +16,9 @@ function(list_prepend LIST_NAME PREFIX)
     set(NEW_LIST "")
     foreach(element${
 ${LIST_NAME}})
-        list(APPEND NEW_LIST "${PREFIX}${element}")
+        list(APPEND NEW_LIST "${PREFIX}\${element}")
     endforeach(element)
-    set(${
+    set(\${
 LIST_NAME} "${NEW_LIST}" PARENT_SCOPE)
 endfunction()
 
@@ -79,22 +79,22 @@ add_dependencies(flutter flutter_assemble)
 # flutter tool.
 add_custom_command(
   OUTPUT${
-FLUTTER_LIBRARY}${
+FLUTTER_LIBRARY}\${
 FLUTTER_LIBRARY_HEADERS}
-   ${
+  \${
 CMAKE_CURRENT_BINARY_DIR}/_phony_
   COMMAND${
 CMAKE_COMMAND} -E env
-   ${
+  \${
 FLUTTER_TOOL_ENVIRONMENT}
     "${FLUTTER_ROOT}/packages/flutter_tools/bin/tool_backend.sh"
-     ${
-FLUTTER_TARGET_PLATFORM}${
+    \${
+FLUTTER_TARGET_PLATFORM}\${
 CMAKE_BUILD_TYPE}
   VERBATIM
 )
 add_custom_target(flutter_assemble DEPENDS
   "${FLUTTER_LIBRARY}"
- ${
+\${
 FLUTTER_LIBRARY_HEADERS}
 )

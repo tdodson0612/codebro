@@ -169,7 +169,7 @@ fun main() {
 
     // Local function usage
     val data = listOf(-3, 5, -1, 8, 2, 0)
-    println("Sum of positives: ${
+    println("Sum of positives:\${
 processData(data)}")   // 15
 
     // Spread operator with vararg
